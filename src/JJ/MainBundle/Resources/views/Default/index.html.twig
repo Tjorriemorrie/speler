@@ -1,1 +1,42 @@
-Hello {{ name }}!
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    <div ng-app="app">
+        <div class="container">
+            <ng-include src="'{{ asset('bundles/main/nav/nav.html') }}'"></ng-include>
+            <ng-view class="ng-view-anim"></ng-view>
+        </div>
+    </div>
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    {% if app.environment == 'dev' %}
+        <script src="{{ asset('bower_components/angular/angular.js') }}"></script>
+        <script src="{{ asset('bower_components/angular-route/angular-route.js') }}"></script>
+        <script src="{{ asset('bower_components/angular-cookies/angular-cookies.js') }}"></script>
+        <script src="{{ asset('bower_components/angular-animate/angular-animate.js') }}"></script>
+    {% else %}
+        <script src="{{ asset('bower_components/angular/angular.min.js') }}"></script>
+        <script src="{{ asset('bower_components/angular-route/angular-route.min.js') }}"></script>
+        <script src="{{ asset('bower_components/angular-cookies/angular-cookies.min.js') }}"></script>
+        <script src="{{ asset('bower_components/angular-animate/angular-animate.min.js') }}"></script>
+    {% endif %}
+    {#
+    <script src="{{ asset('bower_components/Angular-localStorage/localStorageModule.js') }}"></script>
+    #}
+    <script src="{{ asset('bower_components/Angular-localStorage/src/angularLocalStorage.js') }}"></script>
+
+    <script src="{{ asset('bundles/main/app.js') }}"></script>
+    <script src="{{ asset('bundles/main/services.js') }}"></script>
+    <script src="{{ asset('bundles/main/directives.js') }}"></script>
+    <script src="{{ asset('bundles/main/filters.js') }}"></script>
+
+    <script src="{{ asset('bundles/main/nav/nav.js') }}"></script>
+    <script src="{{ asset('bundles/main/dashboard/dashboard.js') }}"></script>
+{% endblock %}

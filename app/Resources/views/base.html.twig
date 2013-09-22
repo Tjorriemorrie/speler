@@ -2,12 +2,39 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %}Speler{% endblock %}</title>
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+
+        {% block stylesheets %}
+            {% if app.environment == 'dev' %}
+                <link rel="stylesheet" href="{{ asset('bower_components/bootstrap/dist/css/bootstrap.css') }}" />
+                <link rel="stylesheet" href="{{ asset('bower_components/bootstrap/dist/css/bootstrap-theme.css') }}" />
+                <link rel="stylesheet" href="{{ asset('bower_components/font-awesome/css/font-awesome.css') }}" />
+            {% else %}
+                <link rel="stylesheet" href="{{ asset('bower_components/bootstrap/dist/css/bootstrap.min.css') }}" />
+                <link rel="stylesheet" href="{{ asset('bower_components/bootstrap/dist/css/bootstrap-theme.min.css') }}" />
+                <link rel="stylesheet" href="{{ asset('bower_components/font-awesome/css/font-awesome.min.css') }}" />
+            {% endif %}
+        {% endblock %}
+
     </head>
     <body>
         {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+
+        {% block javascripts %}
+            <script>
+                URL_SITE = '{{ app.request.baseUrl }}';
+                URL_BASE = '{{ app.request.basePath }}';
+            </script>
+            {% if app.environment == 'dev' %}
+                <script src="{{ asset('bower_components/jquery/jquery.js') }}"></script>
+                <script src="{{ asset('bower_components/bootstrap/dist/js/bootstrap.js') }}"></script>
+            {% else %}
+                <script src="{{ asset('bower_components/jquery/jquery.min.js') }}"></script>
+                <script src="{{ asset('bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+            {% endif %}
+        {% endblock %}
+
     </body>
 </html>
