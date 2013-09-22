@@ -21,7 +21,8 @@
         "incenteev/composer-parameter-handler": "~2.0",
 
         "stof/doctrine-extensions-bundle": "*",
-        "jms/serializer-bundle": "*"
+        "jms/serializer-bundle": "*",
+        "phansys/getid3": "2.1.*@dev"
     },
     "scripts": {
         "post-install-cmd": [

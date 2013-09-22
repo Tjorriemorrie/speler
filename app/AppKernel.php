@@ -5,6 +5,15 @@ use Symfony\Component\Config\Loader\LoaderInterface;
 
 class AppKernel extends Kernel
 {
+    public function init()
+    {
+        date_default_timezone_set('Africa/Johannesburg');
+
+        // Define path to audio directory
+        defined('PATH_AUDIO')
+        || define('PATH_AUDIO', realpath(dirname(__FILE__) . '/../web/audio'));
+    }
+
     public function registerBundles()
     {
         $bundles = array(
@@ -16,6 +25,10 @@ class AppKernel extends Kernel
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
+
+            new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
+            new JMS\SerializerBundle\JMSSerializerBundle(),
+
             new JJ\MainBundle\MainBundle(),
         );
 
@@ -30,6 +43,6 @@ class AppKernel extends Kernel
 
     public function registerContainerConfiguration(LoaderInterface $loader)
     {
-        $loader->load(__DIR__.'/config/config_'.$this->getEnvironment().'.yml');
+        $loader->load(__DIR__ . '/config/config_' . $this->getEnvironment() . '.yml');
     }
 }

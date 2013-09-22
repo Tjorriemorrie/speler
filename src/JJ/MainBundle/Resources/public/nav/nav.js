@@ -14,6 +14,10 @@ angular.module('nav', [])
         $rootScope.getIncludeSrc = function(path) {
             return URL_BASE + path;
         };
+
+        $rootScope.getIncludePath = function(path) {
+            return URL_SITE + path;
+        };
     }])
 
     .controller('navCtrl', ['$scope', function($scope) {

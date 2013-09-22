@@ -4,17 +4,42 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
-    <!--
     <parameters>
-        <parameter key="main.example.class">JJ\MainBundle\Example</parameter>
+        <parameter key="song_manager.class">JJ\MainBundle\Manager\SongManager</parameter>
+        <parameter key="album_manager.class">JJ\MainBundle\Manager\AlbumManager</parameter>
+        <parameter key="artist_manager.class">JJ\MainBundle\Manager\ArtistManager</parameter>
+
+        <parameter key="scanner.class">JJ\MainBundle\Utility\Scanner</parameter>
+        <parameter key="identifier.class">JJ\MainBundle\Utility\Identifier</parameter>
     </parameters>
 
     <services>
-        <service id="main.example" class="%main.example.class%">
-            <argument type="service" id="service_id" />
-            <argument>plain_value</argument>
-            <argument>%parameter_name%</argument>
+        <service id="song.manager" class="%song_manager.class%">
+            <argument type="service" id="doctrine.orm.entity_manager" />
+            <argument type="service" id="validator" />
         </service>
+
+        <service id="album.manager" class="%album_manager.class%">
+            <argument type="service" id="doctrine.orm.entity_manager" />
+            <argument type="service" id="validator" />
+        </service>
+
+        <service id="artist.manager" class="%artist_manager.class%">
+            <argument type="service" id="doctrine.orm.entity_manager" />
+            <argument type="service" id="validator" />
+        </service>
+
+        <service id="scanner" class="%scanner.class%">
+            <argument type="service" id="doctrine.orm.entity_manager" />
+            <argument type="service" id="identifier" />
+            <argument type="service" id="song.manager" />
+            <argument type="service" id="album.manager" />
+            <argument type="service" id="artist.manager" />
+        </service>
+
+        <service id="identifier" class="%identifier.class%">
+        </service>
+
     </services>
-    -->
+
 </container>
