@@ -4,6 +4,7 @@
     <div ng-app="app">
         <div class="container">
             <ng-include src="'{{ asset('bundles/main/nav/nav.html') }}'"></ng-include>
+            <ng-include src="'{{ asset('bundles/main/player/player.html') }}'"></ng-include>
             <ng-view class="ng-view-anim"></ng-view>
         </div>
     </div>
@@ -12,6 +13,7 @@
 {% block stylesheets %}
     {{ parent() }}
     <link href="{{ asset('bower_components/jplayer/skin/blue.monday/jplayer.blue.monday.css') }}" rel="stylesheet" />
+    <link href="{{ asset('libraries/ng-table-master/ng-table.css') }}" rel="stylesheet" />
 {% endblock %}
 
 {% block javascripts %}
@@ -30,6 +32,7 @@
     {% endif %}
 
     <script src="{{ asset('bower_components/Angular-localStorage/src/angularLocalStorage.js') }}"></script>
+    <script src="{{ asset('libraries/ng-table-master/ng-table.js') }}"></script>
     <script src="{{ asset('bower_components/jplayer/jquery.jplayer/jquery.jplayer.js') }}"></script>
 
     <script src="{{ asset('bundles/main/app.js') }}"></script>
@@ -39,4 +42,5 @@
 
     <script src="{{ asset('bundles/main/nav/nav.js') }}"></script>
     <script src="{{ asset('bundles/main/player/player.js') }}"></script>
+    <script src="{{ asset('bundles/main/library/library.js') }}"></script>
 {% endblock %}

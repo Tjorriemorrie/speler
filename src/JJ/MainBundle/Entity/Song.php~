@@ -18,6 +18,7 @@ use JJ\MainBundle\Entity\Artist;
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="JJ\MainBundle\Entity\SongRepository")
+ * @Ser\ExclusionPolicy("all")
  */
 class Song
 {
@@ -27,6 +28,7 @@ class Song
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
+     * @Ser\Expose()
      */
     private $id;
 
@@ -34,6 +36,7 @@ class Song
      * @var Album
      *
      * @ORM\ManyToOne(targetEntity="JJ\MainBundle\Entity\Album", inversedBy="songs")
+     * @Ser\Expose()
      */
     private $album;
 
@@ -41,6 +44,7 @@ class Song
      * @var Artist
      *
      * @ORM\ManyToOne(targetEntity="JJ\MainBundle\Entity\Artist", inversedBy="songs")
+     * @Ser\Expose()
      */
     private $artist;
 
@@ -50,6 +54,7 @@ class Song
      *
      * @ORM\Column(name="path", type="string", length=255, unique=true)
      * @Assert\NotBlank
+     * @Ser\Expose()
      */
     private $path;
 
@@ -58,6 +63,7 @@ class Song
      *
      * @ORM\Column(name="extension", type="string", length=255)
      * @Assert\NotBlank
+     * @Ser\Expose()
      */
     private $extension;
 
@@ -66,6 +72,7 @@ class Song
      *
      * @ORM\Column(name="name", type="string", length=255)
      * @Assert\NotBlank
+     * @Ser\Expose()
      */
     private $name;
 
@@ -74,8 +81,35 @@ class Song
      *
      * @ORM\Column(name="number", type="integer", nullable=true)
      * @Assert\Type("integer")
+     * @Ser\Expose()
      */
     private $number;
+
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="played_at", type="datetime", nullable=true)
+     * @Assert\DateTime
+     */
+    private $playedAt;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="count_played", type="integer")
+     * @Assert\Range(min=0)
+     */
+    private $countPlayed;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="priority", type="float")
+     * @Assert\Range(min=-1, max=1)
+     */
+    private $priority;
+
 
     /**
      * @var \DateTime
@@ -96,8 +130,23 @@ class Song
     private $updatedAt;
 
     ///////////////////////////////////////////////////////////////////////////////////////////
+    // METHODS
+    ///////////////////////////////////////////////////////////////////////////////////////////
+
+    /**
+     * File exists
+     *
+     * @return bool
+     */
+    public function fileExists()
+    {
+        return file_exists(PATH_AUDIO . DIRECTORY_SEPARATOR . $this->getPath());
+    }
+
+    ///////////////////////////////////////////////////////////////////////////////////////////
     // GETTERS AND SETTERS
     ///////////////////////////////////////////////////////////////////////////////////////////
+
 
     /**
      * Get id
@@ -156,52 +205,6 @@ class Song
     }
 
     /**
-     * Set createdAt
-     *
-     * @param \DateTime $createdAt
-     * @return Song
-     */
-    public function setCreatedAt($createdAt)
-    {
-        $this->createdAt = $createdAt;
-    
-        return $this;
-    }
-
-    /**
-     * Get createdAt
-     *
-     * @return \DateTime 
-     */
-    public function getCreatedAt()
-    {
-        return $this->createdAt;
-    }
-
-    /**
-     * Set updatedAt
-     *
-     * @param string $updatedAt
-     * @return Song
-     */
-    public function setUpdatedAt($updatedAt)
-    {
-        $this->updatedAt = $updatedAt;
-    
-        return $this;
-    }
-
-    /**
-     * Get updatedAt
-     *
-     * @return string 
-     */
-    public function getUpdatedAt()
-    {
-        return $this->updatedAt;
-    }
-
-    /**
      * Set name
      *
      * @param string $name
@@ -245,6 +248,121 @@ class Song
     public function getNumber()
     {
         return $this->number;
+    }
+
+    /**
+     * Set playedAt
+     *
+     * @param \DateTime $playedAt
+     * @return Song
+     */
+    public function setPlayedAt($playedAt)
+    {
+        $this->playedAt = $playedAt;
+    
+        return $this;
+    }
+
+    /**
+     * Get playedAt
+     *
+     * @return \DateTime 
+     */
+    public function getPlayedAt()
+    {
+        return $this->playedAt;
+    }
+
+    /**
+     * Set countPlayed
+     *
+     * @param integer $countPlayed
+     * @return Song
+     */
+    public function setCountPlayed($countPlayed)
+    {
+        $this->countPlayed = $countPlayed;
+    
+        return $this;
+    }
+
+    /**
+     * Get countPlayed
+     *
+     * @return integer 
+     */
+    public function getCountPlayed()
+    {
+        return $this->countPlayed;
+    }
+
+    /**
+     * Set priority
+     *
+     * @param float $priority
+     * @return Song
+     */
+    public function setPriority($priority)
+    {
+        $this->priority = $priority;
+    
+        return $this;
+    }
+
+    /**
+     * Get priority
+     *
+     * @return float 
+     */
+    public function getPriority()
+    {
+        return $this->priority;
+    }
+
+    /**
+     * Set createdAt
+     *
+     * @param \DateTime $createdAt
+     * @return Song
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->createdAt = $createdAt;
+    
+        return $this;
+    }
+
+    /**
+     * Get createdAt
+     *
+     * @return \DateTime 
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * Set updatedAt
+     *
+     * @param \DateTime $updatedAt
+     * @return Song
+     */
+    public function setUpdatedAt($updatedAt)
+    {
+        $this->updatedAt = $updatedAt;
+    
+        return $this;
+    }
+
+    /**
+     * Get updatedAt
+     *
+     * @return \DateTime 
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updatedAt;
     }
 
     /**

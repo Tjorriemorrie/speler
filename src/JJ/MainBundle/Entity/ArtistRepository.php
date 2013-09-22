@@ -12,4 +12,17 @@ use Doctrine\ORM\EntityRepository;
  */
 class ArtistRepository extends EntityRepository
 {
+    /**
+     * Count all
+     *
+     * @return int
+     */
+    public function countAll()
+    {
+        $query = $this->getEntityManager()->createQuery("
+                SELECT COUNT(a)
+                FROM MainBundle:Artist a
+            ");
+        return (int) $query->getSingleScalarResult();
+    }
 }

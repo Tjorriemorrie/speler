@@ -12,4 +12,17 @@ use Doctrine\ORM\EntityRepository;
  */
 class AlbumRepository extends EntityRepository
 {
+    /**
+     * Count all
+     *
+     * @return int
+     */
+    public function countAll()
+    {
+        $query = $this->getEntityManager()->createQuery("
+                SELECT COUNT(b)
+                FROM MainBundle:Album b
+            ");
+        return (int) $query->getSingleScalarResult();
+    }
 }

@@ -20,18 +20,36 @@ angular.module('nav', [])
         };
     }])
 
-    .controller('navCtrl', ['$scope', function($scope) {
+    .controller('navCtrl', ['songsServ', 'albumsServ', 'artistsServ', 'storage', '$scope', function(songsServ, albumsServ, artistsServ, storage, $scope) {
 
-        $scope.nav = 'Dashboard';
+        $scope.nav = 'Main';
         $scope.setNav = function(nav) {
             $scope.nav = nav.name;
         };
 
         $scope.navs = [
-            { name: 'Dashboard', url: '#/' },
+            { name: 'Main', url: '#/' },
+            { name: 'Artists', url: '#/library/artists' },
+            { name: 'Albums', url: '#/library/albums' },
+            { name: 'Songs', url: '#/library/songs' },
         ];
 
         $scope.isActive = function(nav) {
             return nav.name == $scope.nav ? 'active' : '';
         };
+
+        storage.bind($scope, 'count_songs', 0);
+        songsServ.countAll().then(function(data) {
+            $scope.count_songs = data;
+        });
+
+        storage.bind($scope, 'count_albums', 0);
+        albumsServ.countAll().then(function(data) {
+            $scope.count_albums = data;
+        });
+
+        storage.bind($scope, 'count_artists', 0);
+        artistsServ.countAll().then(function(data) {
+            $scope.count_artists = data;
+        });
     }]);

@@ -43,4 +43,33 @@ class SongRepository extends EntityRepository
             ->setFirstResult($pointer);
         return $query->getSingleResult();
     }
+
+    /**
+     * Find last played at song
+     *
+     * @return \DateTime
+     */
+    public function findLastPlayedAt()
+    {
+        $query = $this->getEntityManager()->createQuery("
+                SELECT MAX(s.playedAt)
+                FROM MainBundle:Song s
+            ");
+        $result = $query->getSingleScalarResult();
+        return new \DateTime($result);
+    }
+
+    /**
+     * Max count played
+     *
+     * @return int
+     */
+    public function maxCountPlayed()
+    {
+        $query = $this->getEntityManager()->createQuery("
+              SELECT MAX(s.countPlayed)
+              FROM MainBundle:Song s
+            ");
+        return $query->getSingleScalarResult();
+    }
 }

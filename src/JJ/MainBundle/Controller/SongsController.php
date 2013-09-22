@@ -9,6 +9,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use JMS\Serializer\Serializer;
 
 use JJ\MainBundle\Manager\SongManager;
+use JJ\MainBundle\Entity\Song;
 
 /**
  * @Route("songs")
@@ -45,6 +46,16 @@ class SongsController extends Controller
     }
 
     /**
+     * @Route("", name="songs_all")
+     * @Method({"get"})
+     */
+    public function allAction()
+    {
+        $songs = $this->getSongManager()->findAll();
+        return $this->createJsonResponse($songs);
+    }
+
+    /**
      * @Route("/next", name="songs_next")
      * @Method({"post"})
      */
@@ -55,5 +66,26 @@ class SongsController extends Controller
         $songs = $this->getSongManager()->getNextTwo($formData['ids']);
 
         return $this->createJsonResponse($songs);
+    }
+
+    /**
+     * @Route("/{id}/accrete", name="songs_accrete")
+     * @Method({"get"})
+     */
+    public function accrete(Song $song)
+    {
+        $this->getSongManager()->accrete($song);
+
+        return $this->createJsonResponse($song);
+    }
+
+    /**
+     * @Route("/count", name="songs_count")
+     * @Method({"get"})
+     */
+    public function countAction()
+    {
+        $countSongs = $this->getSongManager()->countAll();
+        return new JsonResponse($countSongs);
     }
 }

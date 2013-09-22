@@ -85,6 +85,35 @@ class Song
      */
     private $number;
 
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="played_at", type="datetime", nullable=true)
+     * @Assert\DateTime
+     * @Ser\Expose()
+     */
+    private $playedAt;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="count_played", type="integer")
+     * @Assert\Range(min=0)
+     * @Ser\Expose()
+     */
+    private $countPlayed;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="priority", type="float")
+     * @Assert\Range(min=-1, max=1)
+     * @Ser\Expose()
+     */
+    private $priority;
+
+
     /**
      * @var \DateTime
      *
@@ -120,6 +149,7 @@ class Song
     ///////////////////////////////////////////////////////////////////////////////////////////
     // GETTERS AND SETTERS
     ///////////////////////////////////////////////////////////////////////////////////////////
+
 
     /**
      * Get id
@@ -178,52 +208,6 @@ class Song
     }
 
     /**
-     * Set createdAt
-     *
-     * @param \DateTime $createdAt
-     * @return Song
-     */
-    public function setCreatedAt($createdAt)
-    {
-        $this->createdAt = $createdAt;
-    
-        return $this;
-    }
-
-    /**
-     * Get createdAt
-     *
-     * @return \DateTime 
-     */
-    public function getCreatedAt()
-    {
-        return $this->createdAt;
-    }
-
-    /**
-     * Set updatedAt
-     *
-     * @param string $updatedAt
-     * @return Song
-     */
-    public function setUpdatedAt($updatedAt)
-    {
-        $this->updatedAt = $updatedAt;
-    
-        return $this;
-    }
-
-    /**
-     * Get updatedAt
-     *
-     * @return string 
-     */
-    public function getUpdatedAt()
-    {
-        return $this->updatedAt;
-    }
-
-    /**
      * Set name
      *
      * @param string $name
@@ -267,6 +251,121 @@ class Song
     public function getNumber()
     {
         return $this->number;
+    }
+
+    /**
+     * Set playedAt
+     *
+     * @param \DateTime $playedAt
+     * @return Song
+     */
+    public function setPlayedAt($playedAt)
+    {
+        $this->playedAt = $playedAt;
+    
+        return $this;
+    }
+
+    /**
+     * Get playedAt
+     *
+     * @return \DateTime 
+     */
+    public function getPlayedAt()
+    {
+        return $this->playedAt;
+    }
+
+    /**
+     * Set countPlayed
+     *
+     * @param integer $countPlayed
+     * @return Song
+     */
+    public function setCountPlayed($countPlayed)
+    {
+        $this->countPlayed = $countPlayed;
+    
+        return $this;
+    }
+
+    /**
+     * Get countPlayed
+     *
+     * @return integer 
+     */
+    public function getCountPlayed()
+    {
+        return $this->countPlayed;
+    }
+
+    /**
+     * Set priority
+     *
+     * @param float $priority
+     * @return Song
+     */
+    public function setPriority($priority)
+    {
+        $this->priority = $priority;
+    
+        return $this;
+    }
+
+    /**
+     * Get priority
+     *
+     * @return float 
+     */
+    public function getPriority()
+    {
+        return $this->priority;
+    }
+
+    /**
+     * Set createdAt
+     *
+     * @param \DateTime $createdAt
+     * @return Song
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->createdAt = $createdAt;
+    
+        return $this;
+    }
+
+    /**
+     * Get createdAt
+     *
+     * @return \DateTime 
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * Set updatedAt
+     *
+     * @param \DateTime $updatedAt
+     * @return Song
+     */
+    public function setUpdatedAt($updatedAt)
+    {
+        $this->updatedAt = $updatedAt;
+    
+        return $this;
+    }
+
+    /**
+     * Get updatedAt
+     *
+     * @return \DateTime 
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updatedAt;
     }
 
     /**

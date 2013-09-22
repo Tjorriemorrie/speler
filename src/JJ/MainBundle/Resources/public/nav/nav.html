@@ -5,7 +5,14 @@
 		<a class="navbar-brand" href="#">Speler</a>
 	</div>
 
-    <ul class="nav navbar-nav navbar-right">
-        <li><a ng-href="{{ getIncludePath('/scan') }}"><i class="icon-refresh"></i></a></li>
+    <ul class="nav navbar-nav">
+        <li ng-repeat="nav in navs" ng-class="isActive(nav)"><a ng-href="{{ nav.url }}">{{ nav.name }}</a></li>
+    </ul>
+
+    <ul class="nav navbar-nav navbar-right text-muted">
+        <p class="navbar-text">{{ count_songs|number }} songs</p>
+        <p class="navbar-text">{{ count_albums|number }} albums</p>
+        <p class="navbar-text">{{ count_artists|number }} artists</p>
+        <p class="navbar-text"><a class="navbar-link text-muted" ng-href="{{ getIncludePath('/scan') }}"><i class="icon-refresh"></i></a></p>
     </ul>
 </nav>

@@ -18,6 +18,7 @@ use JJ\MainBundle\Entity\Song;
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="JJ\MainBundle\Entity\ArtistRepository")
+ * @Ser\ExclusionPolicy("all")
  */
 class Artist
 {
@@ -27,6 +28,7 @@ class Artist
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
+     * @Ser\Expose()
      */
     private $id;
 
@@ -50,6 +52,7 @@ class Artist
      *
      * @ORM\Column(name="name", type="string", length=255, unique=true)
      * @Assert\NotBlank
+     * @Ser\Expose()
      */
     private $name;
 
@@ -71,6 +74,92 @@ class Artist
      * @Assert\DateTime
      */
     private $updatedAt;
+
+
+    /**
+     * @var int
+     *
+     * @Ser\Expose()
+     * @Ser\Accessor(getter="countSongs")
+     */
+    private $countSongs;
+
+    /**
+     * @var int
+     *
+     * @Ser\Expose()
+     * @Ser\Accessor(getter="countAlbums")
+     */
+    private $countAlbums;
+
+    /**
+     * @var int
+     *
+     * @Ser\Expose()
+     * @Ser\Accessor(getter="countPlayed")
+     */
+    private $countPlayed;
+
+    /**
+     * @var \DateTime
+     *
+     * @Ser\Expose()
+     * @Ser\Accessor(getter="getLastPlayedAt")
+     */
+    private $playedAt;
+
+    ///////////////////////////////////////////////////////////////////////////////////////////
+    // METHODS
+    ///////////////////////////////////////////////////////////////////////////////////////////
+
+    /**
+     * Count songs
+     *
+     * @return int
+     */
+    public function countSongs()
+    {
+        return $this->getSongs()->count();
+    }
+
+    /**
+     * Count albums
+     *
+     * @return int
+     */
+    public function countAlbums()
+    {
+        return $this->getAlbums()->count();
+    }
+
+    /**
+     * Get last played at
+     *
+     * @return \DateTime
+     */
+    public function getLastPlayedAt()
+    {
+        $criteria = Criteria::create()
+            ->orderBy(array('playedAt' => Criteria::DESC))
+            ->setMaxResults(1);
+        /** @var Song $song */
+        $song = $this->getSongs()->matching($criteria)->first();
+        return $song->getPlayedAt();
+    }
+
+    /**
+     * Count played
+     *
+     * @return int
+     */
+    public function countPlayed()
+    {
+        $count = 0;
+        foreach ($this->getSongs() as $song) {
+            $count += $song->getCountPlayed();
+        }
+        return $count;
+    }
 
     ///////////////////////////////////////////////////////////////////////////////////////////
     // GETTERS AND SETTERS
@@ -190,7 +279,7 @@ class Artist
     /**
      * Get songs
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return Song[]
      */
     public function getSongs()
     {

@@ -62,6 +62,10 @@ class SongManager
         $song->setPath($path);
         $song->setExtension($file->getExtension());
 
+        $song->setPlayedAt(null);
+        $song->setCountPlayed(0);
+        $song->setPriority(1);
+
         $song->setName($id3['trackName']);
         $song->setNumber($id3['trackNumber']);
 
@@ -110,14 +114,20 @@ class SongManager
 
         $priorityCutOff = 1;
         $priorityDecrement = $priorityCutOff / $countSongs;
+        $priorityCutOff /= 2;
 
-        $lastPlayedAt = new \DateTime(); // $this->userTrackMan->findLastPlayedAtByUser($user);
+        $lastPlayedAt = $this->findLastPlayedAt();
         $diff = time() - $lastPlayedAt->getTimestamp();
         $timeIncrement = max(1, $diff / $countSongs);
+        $lastPlayedAt->modify('+' . round($diff / 2) . ' seconds');
 
         $iteration = 0;
         do {
             $iteration++;
+            if ($iteration > $countSongs) {
+                return null;
+            }
+
             $priorityCutOff -= $priorityDecrement;
             $lastPlayedAt->modify('+' . round($timeIncrement) . ' seconds');
 
@@ -126,11 +136,51 @@ class SongManager
                 return null;
             }
         } while (in_array($song->getId(), $excludeIds)
-//            or $song->getUserTrack()->getPriority() < $priorityCutOff
-//            or $song->getUserTrack()->getPlayedAt() > $lastPlayedAt
+            or $song->getPriority() < $priorityCutOff
+            or $song->getPlayedAt() > $lastPlayedAt
         );
 
         return $song;
+    }
+
+    /**
+     * Accrete
+     *
+     * @param Song $song
+     */
+    public function accrete(Song $song)
+    {
+        $song->setPlayedAt(new \DateTime());
+        $song->setCountPlayed($song->getCountPlayed() + 1);
+
+        $this->updatePriority($song);
+
+        $this->validate($song);
+        $this->em->flush();
+    }
+
+    /**
+     * Update priority
+     *
+     * @param Song $song
+     */
+    public function updatePriority(Song $song)
+    {
+//        $userTrack->setRated($userTrack->getWinners()->count() + $userTrack->getLosers()->count());
+//        if ($userTrack->getRated()) {
+//            $rating = $userTrack->getWinners()->count() / $userTrack->getRated();
+//        } else {
+            $rating = 1;
+//        }
+//        $userTrack->setRating($rating);
+        // set rated_at will be set by the rater::match() function.
+
+        $maxCountPlayed = max($song->getCountPlayed(), $this->maxCountPlayed(), 1);
+        $weightCountPlayed = $song->getCountPlayed() / $maxCountPlayed;
+
+        $priority = abs($rating) - abs($weightCountPlayed * 99/100) - abs((1 - $rating) * 99/100);
+        $priority = max(-1, $priority);
+        $song->setPriority($priority);
     }
 
 	//////////////////////////////////////////////////////////////////////////////////////////
@@ -188,5 +238,25 @@ class SongManager
     public function findRandom($countSongs)
     {
         return $this->repo->findRandom($countSongs);
+    }
+
+    /**
+     * Find last played at
+     *
+     * @return \DateTime
+     */
+    public function findLastPlayedAt()
+    {
+        return $this->repo->findLastPlayedAt();
+    }
+
+    /**
+     * Max count played
+     *
+     * @return int
+     */
+    public function maxCountPlayed()
+    {
+        return $this->repo->maxCountPlayed();
     }
 }

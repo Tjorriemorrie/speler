@@ -1,0 +1,32 @@
+<section ng-controller="librarySongsCtrl">
+
+    <table ng-table="tableParams" show-filter="true" class="table">
+        <tr ng-repeat="song in songs">
+            <td data-title="'Date'" sortable="played_at">
+                {{ song.played_at|date }}
+            </td>
+            <td data-title="'Count'" sortable="count_played">
+                {{ song.count_played|number }}
+            </td>
+            <td data-title="'Priority'" sortable="priority">
+                {{ song.priority|perc }}
+            </td>
+            <td data-title="'Name'" sortable="name" filter="{'name':'text'}">
+                {{ song.name }}
+            </td>
+            <td data-title="'Number'" sortable="number">
+                {{ song.number|number }}
+            </td>
+            <td data-title="'Album'" sortable="album.name" filter="{'album.name':'text'}">
+                {{ song.album.name }}
+            </td>
+            <td data-title="'Year'" sortable="album.year" filter="{'album.year':'text'}">
+                {{ song.album.year }}
+            </td>
+            <td data-title="'Artist'" sortable="artist.name" filter="{'artist.name':'text'}">
+                {{ song.artist.name }}
+            </td>
+        </tr>
+    </table>
+
+</section>

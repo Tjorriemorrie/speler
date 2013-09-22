@@ -2,15 +2,25 @@
 
 
 angular.module('app', ['ngRoute', 'ngAnimate',
-        'angularLocalStorage',
+        'angularLocalStorage', 'ngTable',
         'services', 'directives', 'filters',
-        'nav', 'player'
+        'nav', 'player', 'library'
     ])
 
     .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
         $routeProvider
             .when('/', {
                 templateUrl: URL_BASE + '/bundles/main/main/main.html'
+            })
+
+            .when('/library/artists', {
+                templateUrl: URL_BASE + '/bundles/main/library/artists.html'
+            })
+            .when('/library/albums', {
+                templateUrl: URL_BASE + '/bundles/main/library/albums.html'
+            })
+            .when('/library/songs', {
+                templateUrl: URL_BASE + '/bundles/main/library/songs.html'
             })
 
             .otherwise({

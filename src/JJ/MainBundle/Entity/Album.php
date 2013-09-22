@@ -18,6 +18,7 @@ use JJ\MainBundle\Entity\Artist;
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="JJ\MainBundle\Entity\AlbumRepository")
+ * @Ser\ExclusionPolicy("all")
  */
 class Album
 {
@@ -27,6 +28,7 @@ class Album
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
+     * @Ser\Expose()
      */
     private $id;
 
@@ -42,6 +44,7 @@ class Album
      * @var Artist[]
      *
      * @ORM\ManyToOne(targetEntity="JJ\MainBundle\Entity\Artist", inversedBy="albums")
+     * @Ser\Expose()
      */
     private $artist;
 
@@ -51,6 +54,7 @@ class Album
      *
      * @ORM\Column(name="name", type="string", length=255, unique=true)
      * @Assert\NotBlank
+     * @Ser\Expose()
      */
     private $name;
 
@@ -59,8 +63,18 @@ class Album
      *
      * @ORM\Column(name="size", type="integer", nullable=true)
      * @Assert\Type("integer")
+     * @Ser\Expose()
      */
     private $size;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="year", type="integer", nullable=true)
+     * @Assert\Range(min=1900, max=2020)
+     * @Ser\Expose()
+     */
+    private $year;
 
 
     /**
@@ -80,6 +94,74 @@ class Album
      * @Assert\DateTime
      */
     private $updatedAt;
+
+
+    /**
+     * @var int
+     *
+     * @Ser\Expose()
+     * @Ser\Accessor(getter="countSongs")
+     */
+    private $countSongs;
+
+    /**
+     * @var int
+     *
+     * @Ser\Expose()
+     * @Ser\Accessor(getter="countPlayed")
+     */
+    private $countPlayed;
+
+    /**
+     * @var \DateTime
+     *
+     * @Ser\Expose()
+     * @Ser\Accessor(getter="getLastPlayedAt")
+     */
+    private $playedAt;
+
+    ///////////////////////////////////////////////////////////////////////////////////////////
+    // METHODS
+    ///////////////////////////////////////////////////////////////////////////////////////////
+
+    /**
+     * Count songs
+     *
+     * @return int
+     */
+    public function countSongs()
+    {
+        return $this->getSongs()->count();
+    }
+
+    /**
+     * Get last played at
+     *
+     * @return \DateTime
+     */
+    public function getLastPlayedAt()
+    {
+        $criteria = Criteria::create()
+            ->orderBy(array('playedAt' => Criteria::DESC))
+            ->setMaxResults(1);
+        /** @var Song $song */
+        $song = $this->getSongs()->matching($criteria)->first();
+        return $song->getPlayedAt();
+    }
+
+    /**
+     * Count played
+     *
+     * @return int
+     */
+    public function countPlayed()
+    {
+        $count = 0;
+        foreach ($this->getSongs() as $song) {
+            $count += $song->getCountPlayed();
+        }
+        return $count;
+    }
 
     ///////////////////////////////////////////////////////////////////////////////////////////
     // GETTERS AND SETTERS
@@ -221,7 +303,7 @@ class Album
     /**
      * Get songs
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return Song[]
      */
     public function getSongs()
     {
@@ -249,5 +331,28 @@ class Album
     public function getArtist()
     {
         return $this->artist;
+    }
+
+    /**
+     * Set year
+     *
+     * @param integer $year
+     * @return Album
+     */
+    public function setYear($year)
+    {
+        $this->year = $year;
+    
+        return $this;
+    }
+
+    /**
+     * Get year
+     *
+     * @return integer 
+     */
+    public function getYear()
+    {
+        return $this->year;
     }
 }

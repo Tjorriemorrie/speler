@@ -103,4 +103,14 @@ class ArtistManager
     {
         return $this->repo->findOneByName($name);
     }
+
+    /**
+     * Count all
+     *
+     * @return int
+     */
+    public function countAll()
+    {
+        return $this->repo->countAll();
+    }
 }

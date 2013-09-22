@@ -21,8 +21,17 @@ angular.module('player', [])
             return dfd.promise;
         };
 
+        // ACCRETE
+        var accreted = true;
+        var accrete = function() {
+            if (!accreted) {
+                accreted = true;
+                songsServ.accrete($rootScope.song);
+            }
+        };
+
         // SET SONG
-        $rootScope.song = {};
+        $rootScope.song = null;
         storage.bind($scope, 'volume', 0.50);
         var setSong = function() {
             var dfd = $q.defer();
@@ -41,17 +50,39 @@ angular.module('player', [])
 
                 var mediaObject = {};
                 mediaObject[ $rootScope.song.extension ] = URL_BASE + '/audio/' + $rootScope.song.path;
-                console.info('media object', mediaObject);
 
                 $scope.jplayer.jPlayer('option', 'supplied', $rootScope.song.extension)
                     .jPlayer('option', 'volume', $scope.volume)
                     .jPlayer('setMedia', mediaObject)
                     .jPlayer('play', 0);
 
+                accreted = false;
+
                 dfd.resolve();
             }
 
             return dfd.promise;
+        };
+
+        // END SONG
+        var endSong = function() {
+            console.info('endSong');
+            playList.shift();
+
+            /*
+            Player.songPlaying = null;
+            Titel.loadJplayerTitle();
+            Rater.end();
+            Rater.statsHide();
+            Player.hideSkip();
+            Charter.hidePlaying();
+
+            //Notifier.info('Player.playList has ' + Player.playList.length + ' songs after cleanup!');
+*/
+
+            setSong().then(function(data) {
+                findNext();
+            });
         };
 
         // PLAYER
@@ -62,7 +93,25 @@ angular.module('player', [])
                 findNext().then(function() {
                     setSong();
                 });
+            },
+            ended: function() {
+                endSong();
+            },
+            volumechange: function(event) {
+                $scope.volume = event.jPlayer.options.volume;
+            },
+            timeupdate: function(event) {
+                var progress = Math.round(event.jPlayer.status.currentPercentAbsolute);
+                //console.info('complete', progress);
+                if (progress >= 0) {
+                    if (progress >= 90) {
+                        accrete();
+                    }
+                }
             }
+//            progress: function(event) {
+//                songPlayingProgress = event.jPlayer.status.seekPercent;
+//            }
         });
 
     }]);

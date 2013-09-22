@@ -64,6 +64,7 @@ class AlbumManager
 
         $album->setName($id3['albumName']);
         $album->setSize($id3['albumCapacity']);
+        $album->setYear($id3['albumYear']);
 
         $this->validate($album);
         return $album;
@@ -103,5 +104,15 @@ class AlbumManager
     public function findOneByName($name)
     {
         return $this->repo->findOneByName($name);
+    }
+
+    /**
+     * Count all
+     *
+     * @return int
+     */
+    public function countAll()
+    {
+        return $this->repo->countAll();
     }
 }
