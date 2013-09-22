@@ -12,4 +12,35 @@ use Doctrine\ORM\EntityRepository;
  */
 class SongRepository extends EntityRepository
 {
+    /**
+     * Count all
+     *
+     * @return int
+     */
+    public function countAll()
+    {
+        $query = $this->getEntityManager()->createQuery("
+                SELECT COUNT(s)
+                FROM MainBundle:Song s
+            ");
+        return (int) $query->getSingleScalarResult();
+    }
+
+    /**
+     * Find random
+     *
+     * @param $countSongs
+     * @return Song
+     */
+    public function findRandom($countSongs)
+    {
+        $pointer = rand(0, $countSongs - 1);
+        $query = $this->getEntityManager()->createQuery("
+                SELECT s
+                FROM MainBundle:Song s
+            ")
+            ->setMaxResults(1)
+            ->setFirstResult($pointer);
+        return $query->getSingleResult();
+    }
 }

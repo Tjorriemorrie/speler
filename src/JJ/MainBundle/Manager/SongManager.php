@@ -72,6 +72,67 @@ class SongManager
         $this->validate($song);
         return $song;
     }
+
+    /**
+     * Get next two
+     *
+     * @param $ids
+     * @return Song[]
+     */
+    public function getNextTwo($ids)
+    {
+        $excludeIds = explode(',', $ids);
+
+        $songs = array();
+        while (count($songs) < 2) {
+            $song = $this->getNext($excludeIds);
+            if (!$song) {
+                break;
+            }
+            $songs[] = $song;
+        }
+        return $songs;
+    }
+
+    /**
+     * Get next
+     *
+     * @param $excludeIds
+     * @return Song|null
+     */
+    public function getNext($excludeIds)
+    {
+        $countSongs = $this->countAll();
+        if (!$countSongs) {
+            return null;
+        }
+        //die(var_dump($countSongs));
+
+        $priorityCutOff = 1;
+        $priorityDecrement = $priorityCutOff / $countSongs;
+
+        $lastPlayedAt = new \DateTime(); // $this->userTrackMan->findLastPlayedAtByUser($user);
+        $diff = time() - $lastPlayedAt->getTimestamp();
+        $timeIncrement = max(1, $diff / $countSongs);
+
+        $iteration = 0;
+        do {
+            $iteration++;
+            $priorityCutOff -= $priorityDecrement;
+            $lastPlayedAt->modify('+' . round($timeIncrement) . ' seconds');
+
+            $song = $this->findRandom($countSongs);
+            if (!$song) {
+                return null;
+            }
+        } while (in_array($song->getId(), $excludeIds)
+//            or $song->getUserTrack()->getPriority() < $priorityCutOff
+//            or $song->getUserTrack()->getPlayedAt() > $lastPlayedAt
+        );
+
+        return $song;
+    }
+
 	//////////////////////////////////////////////////////////////////////////////////////////
 	// REPO
 	//////////////////////////////////////////////////////////////////////////////////////////
@@ -106,5 +167,26 @@ class SongManager
     public function findOneByPath($path)
     {
         return $this->repo->findOneByPath($path);
+    }
+
+    /**
+     * Count all
+     *
+     * @return int
+     */
+    public function countAll()
+    {
+        return $this->repo->countAll();
+    }
+
+    /**
+     * Find random
+     *
+     * @param $countSongs
+     * @return Song
+     */
+    public function findRandom($countSongs)
+    {
+        return $this->repo->findRandom($countSongs);
     }
 }

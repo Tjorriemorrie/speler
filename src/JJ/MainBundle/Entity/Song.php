@@ -18,6 +18,7 @@ use JJ\MainBundle\Entity\Artist;
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="JJ\MainBundle\Entity\SongRepository")
+ * @Ser\ExclusionPolicy("all")
  */
 class Song
 {
@@ -27,6 +28,7 @@ class Song
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
+     * @Ser\Expose()
      */
     private $id;
 
@@ -34,6 +36,7 @@ class Song
      * @var Album
      *
      * @ORM\ManyToOne(targetEntity="JJ\MainBundle\Entity\Album", inversedBy="songs")
+     * @Ser\Expose()
      */
     private $album;
 
@@ -41,6 +44,7 @@ class Song
      * @var Artist
      *
      * @ORM\ManyToOne(targetEntity="JJ\MainBundle\Entity\Artist", inversedBy="songs")
+     * @Ser\Expose()
      */
     private $artist;
 
@@ -50,6 +54,7 @@ class Song
      *
      * @ORM\Column(name="path", type="string", length=255, unique=true)
      * @Assert\NotBlank
+     * @Ser\Expose()
      */
     private $path;
 
@@ -58,6 +63,7 @@ class Song
      *
      * @ORM\Column(name="extension", type="string", length=255)
      * @Assert\NotBlank
+     * @Ser\Expose()
      */
     private $extension;
 
@@ -66,6 +72,7 @@ class Song
      *
      * @ORM\Column(name="name", type="string", length=255)
      * @Assert\NotBlank
+     * @Ser\Expose()
      */
     private $name;
 
@@ -74,6 +81,7 @@ class Song
      *
      * @ORM\Column(name="number", type="integer", nullable=true)
      * @Assert\Type("integer")
+     * @Ser\Expose()
      */
     private $number;
 

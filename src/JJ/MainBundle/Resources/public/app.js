@@ -4,14 +4,13 @@
 angular.module('app', ['ngRoute', 'ngAnimate',
         'angularLocalStorage',
         'services', 'directives', 'filters',
-        'nav', 'dashboard'
+        'nav', 'player'
     ])
 
     .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
         $routeProvider
             .when('/', {
-                templateUrl: URL_BASE + '/bundles/main/dashboard/dashboard.html',
-                controller: 'dashboardCtrl'
+                templateUrl: URL_BASE + '/bundles/main/main/main.html'
             })
 
             .otherwise({

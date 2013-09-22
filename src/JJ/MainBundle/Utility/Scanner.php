@@ -114,7 +114,9 @@ class Scanner
     protected function addSong($path, \SplFileInfo $file)
     {
         $id3 = $this->identifier->getId3($path);
-        $path = str_replace(PATH_AUDIO . DIRECTORY_SEPARATOR, '', $path);
+        $path = str_replace(PATH_AUDIO, '', $path);
+        $path = str_replace('\\', '/', $path);
+        $path = substr($path, 1);
 
         $song = $this->songMan->findOneByPath($path);
         if ($song) {

@@ -39,4 +39,5 @@ angular.module('directives', [])
                 scope.ngModel = input.val();
             }
         }
-    });
+    })
+;

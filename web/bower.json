@@ -15,12 +15,12 @@
         "tests"
     ],
     "dependencies": {
-        "jquery": "latest",
         "bootstrap": "latest",
         "font-awesome": "latest",
         "angular": "latest",
         "angular-route": "latest",
         "angular-animate": "latest",
-        "Angular-localStorage": "latest"
+        "Angular-localStorage": "latest",
+        "jplayer": "latest"
     }
 }
