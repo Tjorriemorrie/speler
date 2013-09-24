@@ -1,0 +1,18 @@
+<section ng-controller="raterCtrl" ng-show="match">
+    <div class="well clearfix">
+        <div class="btn-group pull-right">
+            <div class="btn btn-success btn-sm"><i class="icon-ok"></i> Better</div>
+            <div class="btn btn-danger btn-sm"><i class="icon-remove"></i> Worse</div>
+        </div>
+        <h3>
+            <small class="text-muted">#{{ match.number }}<span ng-show="match.album">/{{ match.album.size }}</span></small>
+            {{ match.name }}
+        </h3>
+        <h4 ng-show="match.artist">{{ match.artist.name }}</h4>
+        <h5 ng-show="match.album">
+            <small class="text-muted">[{{ match.album.year }}]</small>
+            {{ match.album.name }}
+        </h5>
+    </div>
+</section>
+

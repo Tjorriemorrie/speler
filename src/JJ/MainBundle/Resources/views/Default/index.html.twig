@@ -5,6 +5,7 @@
         <div class="container">
             <ng-include src="'{{ asset('bundles/main/nav/nav.html') }}'"></ng-include>
             <ng-include src="'{{ asset('bundles/main/player/player.html') }}'"></ng-include>
+            <ng-include src="'{{ asset('bundles/main/rater/rater.html') }}'"></ng-include>
             <ng-view class="ng-view-anim"></ng-view>
         </div>
     </div>
@@ -43,4 +44,5 @@
     <script src="{{ asset('bundles/main/nav/nav.js') }}"></script>
     <script src="{{ asset('bundles/main/player/player.js') }}"></script>
     <script src="{{ asset('bundles/main/library/library.js') }}"></script>
+    <script src="{{ asset('bundles/main/rater/rater.js') }}"></script>
 {% endblock %}

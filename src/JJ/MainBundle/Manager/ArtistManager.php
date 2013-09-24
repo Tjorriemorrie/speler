@@ -113,4 +113,4 @@ class ArtistManager
     {
         return $this->repo->countAll();
     }
-}
+ }

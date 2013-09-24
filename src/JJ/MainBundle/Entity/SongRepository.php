@@ -72,4 +72,18 @@ class SongRepository extends EntityRepository
             ");
         return $query->getSingleScalarResult();
     }
+
+    /**
+     * Max count rated
+     *
+     * @return int
+     */
+    public function maxCountRated()
+    {
+        $query = $this->getEntityManager()->createQuery("
+              SELECT MAX(s.rated)
+              FROM MainBundle:Song s
+            ");
+        return $query->getSingleScalarResult();
+    }
 }

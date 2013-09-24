@@ -4,7 +4,7 @@
 angular.module('app', ['ngRoute', 'ngAnimate',
         'angularLocalStorage', 'ngTable',
         'services', 'directives', 'filters',
-        'nav', 'player', 'library'
+        'nav', 'player', 'library', 'rater'
     ])
 
     .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {

@@ -12,12 +12,14 @@ use Gedmo\Mapping\Annotation as Gedmo;
 
 use JJ\MainBundle\Entity\Album;
 use JJ\MainBundle\Entity\Artist;
+use JJ\MainBundle\Entity\Rating;
 
 /**
  * Song
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="JJ\MainBundle\Entity\SongRepository")
+ * @ORM\HasLifecycleCallbacks
  * @Ser\ExclusionPolicy("all")
  */
 class Song
@@ -115,6 +117,29 @@ class Song
 
 
     /**
+     * @var Rating[]
+     *
+     * @ORM\OneToMany(targetEntity="JJ\MainBundle\Entity\Rating", mappedBy="winner")
+     */
+    private $winners;
+
+    /**
+     * @var Rating[]
+     *
+     * @ORM\OneToMany(targetEntity="JJ\MainBundle\Entity\Rating", mappedBy="loser")
+     */
+    private $losers;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="rated", type="integer")
+     * @Assert\Range(min=0)
+     */
+    private $rated;
+
+
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="created_at", type="datetime")
@@ -133,6 +158,18 @@ class Song
     private $updatedAt;
 
     ///////////////////////////////////////////////////////////////////////////////////////////
+    // CALLBACKS
+    ///////////////////////////////////////////////////////////////////////////////////////////
+
+    /**
+     * @ORM\PreUpdate
+     */
+    public function updateRated()
+    {
+        $this->setRated($this->getWinners()->count() + $this->getLosers()->count());
+    }
+
+    ///////////////////////////////////////////////////////////////////////////////////////////
     // METHODS
     ///////////////////////////////////////////////////////////////////////////////////////////
 
@@ -144,6 +181,31 @@ class Song
     public function fileExists()
     {
         return file_exists(PATH_AUDIO . DIRECTORY_SEPARATOR . $this->getPath());
+    }
+
+    /**
+     * Get count rated
+     *
+     * @return int
+     */
+    public function getCountRated()
+    {
+        return $this->getWinners()->count() + $this->getLosers()->count();
+    }
+
+    /**
+     * Get rated at
+     *
+     * @return \DateTime
+     */
+    public function getRatedAt()
+    {
+        $criteria = Criteria::create()->orderBy(array("ratedAt" => Criteria::DESC))->setMaxResults(1);
+        /** @var Rating $winner */
+        $winner = $this->getWinners()->matching($criteria)->first();
+        /** @var Rating $loser */
+        $loser = $this->getLosers()->matching($criteria)->first();
+        return max(!$winner ? new \DateTime('-1 year') : $winner->getRatedAt(), !$loser ? new \DateTime('-1 year') : $loser->getRatedAt());
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////////
@@ -412,5 +474,102 @@ class Song
     public function getArtist()
     {
         return $this->artist;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->winners = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->losers = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+    /**
+     * Add winners
+     *
+     * @param \JJ\MainBundle\Entity\Rating $winners
+     * @return Song
+     */
+    public function addWinner(\JJ\MainBundle\Entity\Rating $winners)
+    {
+        $this->winners[] = $winners;
+    
+        return $this;
+    }
+
+    /**
+     * Remove winners
+     *
+     * @param \JJ\MainBundle\Entity\Rating $winners
+     */
+    public function removeWinner(\JJ\MainBundle\Entity\Rating $winners)
+    {
+        $this->winners->removeElement($winners);
+    }
+
+    /**
+     * Get winners
+     *
+     * @return Rating[]
+     */
+    public function getWinners()
+    {
+        return $this->winners;
+    }
+
+    /**
+     * Add losers
+     *
+     * @param \JJ\MainBundle\Entity\Rating $losers
+     * @return Song
+     */
+    public function addLoser(\JJ\MainBundle\Entity\Rating $losers)
+    {
+        $this->losers[] = $losers;
+    
+        return $this;
+    }
+
+    /**
+     * Remove losers
+     *
+     * @param \JJ\MainBundle\Entity\Rating $losers
+     */
+    public function removeLoser(\JJ\MainBundle\Entity\Rating $losers)
+    {
+        $this->losers->removeElement($losers);
+    }
+
+    /**
+     * Get losers
+     *
+     * @return Rating[]
+     */
+    public function getLosers()
+    {
+        return $this->losers;
+    }
+
+    /**
+     * Set rated
+     *
+     * @param integer $rated
+     * @return Song
+     */
+    public function setRated($rated)
+    {
+        $this->rated = $rated;
+    
+        return $this;
+    }
+
+    /**
+     * Get rated
+     *
+     * @return integer 
+     */
+    public function getRated()
+    {
+        return $this->rated;
     }
 }

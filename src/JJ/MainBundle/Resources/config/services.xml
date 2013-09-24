@@ -8,6 +8,7 @@
         <parameter key="song_manager.class">JJ\MainBundle\Manager\SongManager</parameter>
         <parameter key="album_manager.class">JJ\MainBundle\Manager\AlbumManager</parameter>
         <parameter key="artist_manager.class">JJ\MainBundle\Manager\ArtistManager</parameter>
+        <parameter key="rating_manager.class">JJ\MainBundle\Manager\RatingManager</parameter>
 
         <parameter key="scanner.class">JJ\MainBundle\Utility\Scanner</parameter>
         <parameter key="identifier.class">JJ\MainBundle\Utility\Identifier</parameter>
@@ -28,7 +29,14 @@
             <argument type="service" id="doctrine.orm.entity_manager" />
             <argument type="service" id="validator" />
         </service>
+        
+        <service id="rating.manager" class="%rating_manager.class%">
+            <argument type="service" id="doctrine.orm.entity_manager" />
+            <argument type="service" id="validator" />
+            <argument type="service" id="song.manager" />
+        </service>
 
+        
         <service id="scanner" class="%scanner.class%">
             <argument type="service" id="doctrine.orm.entity_manager" />
             <argument type="service" id="identifier" />

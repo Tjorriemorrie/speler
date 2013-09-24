@@ -44,6 +44,7 @@ class Album
      * @var Artist[]
      *
      * @ORM\ManyToOne(targetEntity="JJ\MainBundle\Entity\Artist", inversedBy="albums")
+     * @Ser\Expose()
      */
     private $artist;
 
@@ -93,6 +94,74 @@ class Album
      * @Assert\DateTime
      */
     private $updatedAt;
+
+
+    /**
+     * @var int
+     *
+     * @Ser\Expose()
+     * @Ser\Accessor(getter="countSongs")
+     */
+    private $countSongs;
+
+    /**
+     * @var int
+     *
+     * @Ser\Expose()
+     * @Ser\Accessor(getter="countPlayed")
+     */
+    private $countPlayed;
+
+    /**
+     * @var \DateTime
+     *
+     * @Ser\Expose()
+     * @Ser\Accessor(getter="getLastPlayedAt")
+     */
+    private $playedAt;
+
+    ///////////////////////////////////////////////////////////////////////////////////////////
+    // METHODS
+    ///////////////////////////////////////////////////////////////////////////////////////////
+
+    /**
+     * Count songs
+     *
+     * @return int
+     */
+    public function countSongs()
+    {
+        return $this->getSongs()->count();
+    }
+
+    /**
+     * Get last played at
+     *
+     * @return \DateTime
+     */
+    public function getLastPlayedAt()
+    {
+        $criteria = Criteria::create()
+            ->orderBy(array('playedAt' => Criteria::DESC))
+            ->setMaxResults(1);
+        /** @var Song $song */
+        $song = $this->getSongs()->matching($criteria)->first();
+        return $song->getPlayedAt();
+    }
+
+    /**
+     * Count played
+     *
+     * @return int
+     */
+    public function countPlayed()
+    {
+        $count = 0;
+        foreach ($this->getSongs() as $song) {
+            $count += $song->getCountPlayed();
+        }
+        return $count;
+    }
 
     ///////////////////////////////////////////////////////////////////////////////////////////
     // GETTERS AND SETTERS
@@ -234,7 +303,7 @@ class Album
     /**
      * Get songs
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return Song[]
      */
     public function getSongs()
     {

@@ -65,4 +65,14 @@ angular.module('services', [])
             }
         }
     }])
+
+    .factory('ratingsServ', ['$http', function($http) {
+        return {
+            find: function(song) {
+                return $http.get(URL_SITE + '/ratings/' + song.id).then(function(result) {
+                    return result.data;
+                });
+            }
+        }
+    }])
 ;

@@ -65,6 +65,7 @@ class SongManager
         $song->setPlayedAt(null);
         $song->setCountPlayed(0);
         $song->setPriority(1);
+        $song->setRated(0);
 
         $song->setName($id3['trackName']);
         $song->setNumber($id3['trackNumber']);
@@ -93,8 +94,11 @@ class SongManager
             if (!$song) {
                 break;
             }
+
             $songs[] = $song;
+            $excludeIds[] = $song->getId();
         }
+
         return $songs;
     }
 
@@ -258,5 +262,15 @@ class SongManager
     public function maxCountPlayed()
     {
         return $this->repo->maxCountPlayed();
+    }
+
+    /**
+     * Max count rated
+     *
+     * @return int
+     */
+    public function maxCountRated()
+    {
+        return $this->repo->maxCountRated();
     }
 }
