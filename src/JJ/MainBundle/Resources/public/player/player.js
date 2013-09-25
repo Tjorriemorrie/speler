@@ -32,11 +32,11 @@ angular.module('player', [])
 
         // SET SONG
         $rootScope.song = null;
-        storage.bind($scope, 'volume', 0.50);
         var setSong = function() {
             var dfd = $q.defer();
             if (playList.length < 1) {
                 $rootScope.song = null;
+                document.title = 'No songs to play';
                 console.warn('setSong song NONE');
                 dfd.reject('No song');
             } else {
@@ -52,9 +52,11 @@ angular.module('player', [])
                 mediaObject[ $rootScope.song.extension ] = URL_BASE + '/audio/' + $rootScope.song.path;
 
                 $scope.jplayer.jPlayer('option', 'supplied', $rootScope.song.extension)
-                    .jPlayer('option', 'volume', $scope.volume)
+                    .jPlayer('option', 'volume', Math.max(0.10, !$rootScope.song.hasOwnProperty('rating') ? 0 : ($rootScope.song.rating * $rootScope.song.rating)))
                     .jPlayer('setMedia', mediaObject)
                     .jPlayer('play', 0);
+
+                document.title = $rootScope.song.name + ($rootScope.song.hasOwnProperty('artist') ? ' | ' + $rootScope.song.artist.name : '');
 
                 accreted = false;
 
@@ -65,8 +67,9 @@ angular.module('player', [])
         };
 
         // END SONG
-        var endSong = function() {
+        $scope.endSong = function() {
             console.info('endSong');
+            document.title = 'loading...';
             playList.shift();
 
             /*
@@ -95,10 +98,10 @@ angular.module('player', [])
                 });
             },
             ended: function() {
-                endSong();
+                $scope.endSong();
             },
             volumechange: function(event) {
-                $scope.volume = event.jPlayer.options.volume;
+                //$scope.volume = event.jPlayer.options.volume;
             },
             timeupdate: function(event) {
                 var progress = Math.round(event.jPlayer.status.currentPercentAbsolute);

@@ -170,39 +170,53 @@ class RatingManager
         return $song;
     }
 
-    /**
-     * Set result of match
-     * @return Rating
-     */
-    public function setMatch(UserTrack $winner, UserTrack $loser)
+	/**
+	 * Create rating
+	 *
+	 * @param Song $winner
+	 * @param Song $loser
+	 * @return \JJ\MainBundle\Entity\Rating
+	 * @throws \InvalidArgumentException
+	 */
+	public function create(Song $winner, Song $loser)
+	{
+		$rating = $this->findByWinnerAndLoser($winner, $loser);
+		if ($rating) {
+			throw new \InvalidArgumentException('That rating already exists! ' . $rating->getId(), 500);
+		}
+
+		$rating = new Rating();
+		$this->em->persist($rating);
+
+		$rating->setWinner($winner);
+		$rating->setLoser($loser);
+		$rating->setRatedAt(new \DateTime());
+
+		$this->validate($rating);
+		$this->em->flush();
+		return $rating;
+	}
+
+	/**
+	 * Set result of match
+	 *
+	 * @param \JJ\MainBundle\Entity\Song $winner
+	 * @param \JJ\MainBundle\Entity\Song $loser
+	 * @throws \Exception
+	 * @return Rating
+	 */
+    public function setMatch(Song $winner, Song $loser)
     {
-        $rating = $this->findByWinnerAndLoser($winner, $loser);
-        if ($rating) {
-            throw new \Exception('That rating already exists! ' . $rating->getId(), 500);
-        }
+	    $rating = $this->create($winner, $loser);
 
-        $rating = new Rating();
-        $rating->setUser($winner->getUser());
-        $rating->setRatedAt(new \DateTime());
-        $rating->setWinner($winner);
-        $rating->setLoser($loser);
+		// songs
+	    $this->em->refresh($winner);
+	    $this->songMan->updateRating($winner);
 
-        $this->validate($rating);
-        $this->em->persist($rating);
-        $this->em->flush();
+	    $this->em->refresh($loser);
+	    $this->songMan->updateRating($loser);
 
-        //die(var_dump('winner = ' . $winner->getId() . ' and loser = ' . $loser->getId()));
-//        $this->em->clear();
-//        $winner = $this->userTrackMan->find($winner->getId());
-        $winner->setRatedAt(new \DateTime());
-        $this->playerMan->updateChain($winner);
-
-//        $this->em->clear();
-//        $loser = $this->userTrackMan->find($loser->getId());
-        $loser->setRatedAt(new \DateTime());
-        $this->playerMan->updateChain($loser);
-
-        $this->historyMan->createByRating($rating);
+	    $this->em->flush();
 
         return $rating;
     }
@@ -241,4 +255,30 @@ class RatingManager
     {
         return $this->repo->findLastRatedAt();
     }
+
+	/**
+	 * Find one by winner and loser
+	 *
+	 * @param Song $winner
+	 * @param Song $loser
+	 * @return Rating
+	 */
+	public function findByWinnerAndLoser(Song $winner, Song $loser)
+	{
+		$criteria = array(
+			'winner' => $winner,
+			'loser' => $loser
+		);
+		$asc = $this->repo->findOneBy($criteria);
+		if ($asc) {
+			return $asc;
+		}
+
+		$criteria = array(
+			'loser' => $winner,
+			'winner' => $loser
+		);
+		return $this->repo->findOneBy($criteria);
+
+	}
 }

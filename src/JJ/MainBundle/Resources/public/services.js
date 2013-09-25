@@ -35,7 +35,7 @@ angular.module('services', [])
             }
         }
     }])
-    
+
     .factory('albumsServ', ['$http', function($http) {
         return {
             countAll: function() {
@@ -50,7 +50,7 @@ angular.module('services', [])
             }
         }
     }])
-    
+
     .factory('artistsServ', ['$http', function($http) {
         return {
             countAll: function() {
@@ -70,6 +70,11 @@ angular.module('services', [])
         return {
             find: function(song) {
                 return $http.get(URL_SITE + '/ratings/' + song.id).then(function(result) {
+                    return result.data;
+                });
+            },
+            match: function(winner, loser) {
+                return $http.get(URL_SITE + '/ratings/' + winner.id + '/' + loser.id).then(function(result) {
                     return result.data;
                 });
             }

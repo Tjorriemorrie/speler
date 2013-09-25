@@ -55,4 +55,14 @@ class RatingsController extends Controller
         $ratings = $this->getRatingManager()->findMatches($song);
         return $this->createJsonResponse($ratings);
     }
+
+	/**
+	 * @Route("/{winner}/{loser}", name="ratings_match")
+	 * @Method({"get"})
+	 */
+	public function matchAction(Song $winner, Song $loser)
+	{
+		$rating = $this->getRatingManager()->setMatch($winner, $loser);
+		return $this->createJsonResponse($rating);
+	}
 }

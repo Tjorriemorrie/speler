@@ -35,7 +35,6 @@ class Rating
      * @var Song
      *
      * @ORM\ManyToOne(targetEntity="JJ\MainBundle\Entity\Song", inversedBy="winners")
-     * @Ser\Expose()
      */
     private $winner;
 
@@ -43,7 +42,6 @@ class Rating
      * @var Song
      *
      * @ORM\ManyToOne(targetEntity="JJ\MainBundle\Entity\Song", inversedBy="losers")
-     * @Ser\Expose()
      */
     private $loser;
 
@@ -87,7 +85,7 @@ class Rating
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -103,14 +101,14 @@ class Rating
     public function setRatedAt($ratedAt)
     {
         $this->ratedAt = $ratedAt;
-    
+
         return $this;
     }
 
     /**
      * Get ratedAt
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getRatedAt()
     {
@@ -126,14 +124,14 @@ class Rating
     public function setCreatedAt($createdAt)
     {
         $this->createdAt = $createdAt;
-    
+
         return $this;
     }
 
     /**
      * Get createdAt
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getCreatedAt()
     {
@@ -149,14 +147,14 @@ class Rating
     public function setUpdatedAt($updatedAt)
     {
         $this->updatedAt = $updatedAt;
-    
+
         return $this;
     }
 
     /**
      * Get updatedAt
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getUpdatedAt()
     {
@@ -172,14 +170,14 @@ class Rating
     public function setWinner(\JJ\MainBundle\Entity\Song $winner = null)
     {
         $this->winner = $winner;
-    
+
         return $this;
     }
 
     /**
      * Get winner
      *
-     * @return \JJ\MainBundle\Entity\Song 
+     * @return \JJ\MainBundle\Entity\Song
      */
     public function getWinner()
     {
@@ -195,14 +193,14 @@ class Rating
     public function setLoser(\JJ\MainBundle\Entity\Song $loser = null)
     {
         $this->loser = $loser;
-    
+
         return $this;
     }
 
     /**
      * Get loser
      *
-     * @return \JJ\MainBundle\Entity\Song 
+     * @return \JJ\MainBundle\Entity\Song
      */
     public function getLoser()
     {

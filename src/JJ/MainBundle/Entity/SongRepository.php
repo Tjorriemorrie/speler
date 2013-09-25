@@ -81,7 +81,7 @@ class SongRepository extends EntityRepository
     public function maxCountRated()
     {
         $query = $this->getEntityManager()->createQuery("
-              SELECT MAX(s.rated)
+              SELECT MAX(s.countRated)
               FROM MainBundle:Song s
             ");
         return $query->getSingleScalarResult();

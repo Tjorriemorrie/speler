@@ -65,7 +65,7 @@ class SongManager
         $song->setPlayedAt(null);
         $song->setCountPlayed(0);
         $song->setPriority(1);
-        $song->setRated(0);
+        $song->setCountRated(0);
 
         $song->setName($id3['trackName']);
         $song->setNumber($id3['trackNumber']);
@@ -170,22 +170,27 @@ class SongManager
      */
     public function updatePriority(Song $song)
     {
-//        $userTrack->setRated($userTrack->getWinners()->count() + $userTrack->getLosers()->count());
-//        if ($userTrack->getRated()) {
-//            $rating = $userTrack->getWinners()->count() / $userTrack->getRated();
-//        } else {
-            $rating = 1;
-//        }
-//        $userTrack->setRating($rating);
-        // set rated_at will be set by the rater::match() function.
-
         $maxCountPlayed = max($song->getCountPlayed(), $this->maxCountPlayed(), 1);
         $weightCountPlayed = $song->getCountPlayed() / $maxCountPlayed;
 
-        $priority = abs($rating) - abs($weightCountPlayed * 99/100) - abs((1 - $rating) * 99/100);
+        $priority = abs($song->getRating()) - abs($weightCountPlayed * 99/100) - abs((1 - $song->getRating()) * 99/100);
         $priority = max(-1, $priority);
         $song->setPriority($priority);
     }
+
+	/**
+	 * Update rating
+	 *
+	 * @param Song $song
+	 */
+	public function updateRating(Song $song)
+	{
+		$song->setRatedAt(new \DateTime());
+		$song->setCountRated($song->getWinners()->count() + $song->getLosers()->count());
+		$song->setRating(!$song->getCountRated() ? 1 : $song->getWinners()->count() / $song->getCountRated());
+		$this->updatePriority($song);
+	}
+
 
 	//////////////////////////////////////////////////////////////////////////////////////////
 	// REPO

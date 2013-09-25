@@ -19,7 +19,6 @@ use JJ\MainBundle\Entity\Rating;
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="JJ\MainBundle\Entity\SongRepository")
- * @ORM\HasLifecycleCallbacks
  * @Ser\ExclusionPolicy("all")
  */
 class Song
@@ -106,37 +105,57 @@ class Song
      */
     private $countPlayed;
 
-    /**
-     * @var float
-     *
-     * @ORM\Column(name="priority", type="float")
-     * @Assert\Range(min=-1, max=1)
-     * @Ser\Expose()
-     */
-    private $priority;
-
 
     /**
      * @var Rating[]
      *
-     * @ORM\OneToMany(targetEntity="JJ\MainBundle\Entity\Rating", mappedBy="winner")
+     * @ORM\OneToMany(targetEntity="JJ\MainBundle\Entity\Rating", mappedBy="winner", cascade={"remove"})
      */
     private $winners;
 
     /**
      * @var Rating[]
      *
-     * @ORM\OneToMany(targetEntity="JJ\MainBundle\Entity\Rating", mappedBy="loser")
+     * @ORM\OneToMany(targetEntity="JJ\MainBundle\Entity\Rating", mappedBy="loser", cascade={"remove"})
      */
     private $losers;
+
+	/**
+	 * @var \DateTime
+	 *
+	 * @ORM\Column(name="rated_at", type="datetime", nullable=true)
+	 * @Assert\DateTime
+	 * @Ser\Expose()
+	 */
+	private $ratedAt;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="rated", type="integer")
+     * @ORM\Column(name="count_rated", type="integer")
      * @Assert\Range(min=0)
+     * @Ser\Expose()
      */
-    private $rated;
+    private $countRated;
+
+	/**
+	 * @var float
+	 *
+	 * @ORM\Column(name="rating", type="float", nullable=true)
+	 * @Assert\Range(min=0, max=1)
+	 * @Ser\Expose()
+	 */
+	private $rating;
+
+
+	/**
+	 * @var float
+	 *
+	 * @ORM\Column(name="priority", type="float")
+	 * @Assert\Range(min=-1, max=1)
+	 * @Ser\Expose()
+	 */
+	private $priority;
 
 
     /**
@@ -157,17 +176,6 @@ class Song
      */
     private $updatedAt;
 
-    ///////////////////////////////////////////////////////////////////////////////////////////
-    // CALLBACKS
-    ///////////////////////////////////////////////////////////////////////////////////////////
-
-    /**
-     * @ORM\PreUpdate
-     */
-    public function updateRated()
-    {
-        $this->setRated($this->getWinners()->count() + $this->getLosers()->count());
-    }
 
     ///////////////////////////////////////////////////////////////////////////////////////////
     // METHODS
@@ -183,40 +191,23 @@ class Song
         return file_exists(PATH_AUDIO . DIRECTORY_SEPARATOR . $this->getPath());
     }
 
-    /**
-     * Get count rated
-     *
-     * @return int
-     */
-    public function getCountRated()
-    {
-        return $this->getWinners()->count() + $this->getLosers()->count();
-    }
-
-    /**
-     * Get rated at
-     *
-     * @return \DateTime
-     */
-    public function getRatedAt()
-    {
-        $criteria = Criteria::create()->orderBy(array("ratedAt" => Criteria::DESC))->setMaxResults(1);
-        /** @var Rating $winner */
-        $winner = $this->getWinners()->matching($criteria)->first();
-        /** @var Rating $loser */
-        $loser = $this->getLosers()->matching($criteria)->first();
-        return max(!$winner ? new \DateTime('-1 year') : $winner->getRatedAt(), !$loser ? new \DateTime('-1 year') : $loser->getRatedAt());
-    }
-
     ///////////////////////////////////////////////////////////////////////////////////////////
     // GETTERS AND SETTERS
     ///////////////////////////////////////////////////////////////////////////////////////////
 
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->winners = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->losers = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -232,14 +223,14 @@ class Song
     public function setPath($path)
     {
         $this->path = $path;
-    
+
         return $this;
     }
 
     /**
      * Get path
      *
-     * @return string 
+     * @return string
      */
     public function getPath()
     {
@@ -255,14 +246,14 @@ class Song
     public function setExtension($extension)
     {
         $this->extension = $extension;
-    
+
         return $this;
     }
 
     /**
      * Get extension
      *
-     * @return string 
+     * @return string
      */
     public function getExtension()
     {
@@ -278,14 +269,14 @@ class Song
     public function setName($name)
     {
         $this->name = $name;
-    
+
         return $this;
     }
 
     /**
      * Get name
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
@@ -301,14 +292,14 @@ class Song
     public function setNumber($number)
     {
         $this->number = $number;
-    
+
         return $this;
     }
 
     /**
      * Get number
      *
-     * @return integer 
+     * @return integer
      */
     public function getNumber()
     {
@@ -324,14 +315,14 @@ class Song
     public function setPlayedAt($playedAt)
     {
         $this->playedAt = $playedAt;
-    
+
         return $this;
     }
 
     /**
      * Get playedAt
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getPlayedAt()
     {
@@ -347,18 +338,64 @@ class Song
     public function setCountPlayed($countPlayed)
     {
         $this->countPlayed = $countPlayed;
-    
+
         return $this;
     }
 
     /**
      * Get countPlayed
      *
-     * @return integer 
+     * @return integer
      */
     public function getCountPlayed()
     {
         return $this->countPlayed;
+    }
+
+    /**
+     * Set ratedAt
+     *
+     * @param \DateTime $ratedAt
+     * @return Song
+     */
+    public function setRatedAt($ratedAt)
+    {
+        $this->ratedAt = $ratedAt;
+
+        return $this;
+    }
+
+    /**
+     * Get ratedAt
+     *
+     * @return \DateTime
+     */
+    public function getRatedAt()
+    {
+        return $this->ratedAt;
+    }
+
+    /**
+     * Set countRated
+     *
+     * @param integer $countRated
+     * @return Song
+     */
+    public function setCountRated($countRated)
+    {
+        $this->countRated = $countRated;
+
+        return $this;
+    }
+
+    /**
+     * Get countRated
+     *
+     * @return integer
+     */
+    public function getCountRated()
+    {
+        return $this->countRated;
     }
 
     /**
@@ -370,14 +407,14 @@ class Song
     public function setPriority($priority)
     {
         $this->priority = $priority;
-    
+
         return $this;
     }
 
     /**
      * Get priority
      *
-     * @return float 
+     * @return float
      */
     public function getPriority()
     {
@@ -393,14 +430,14 @@ class Song
     public function setCreatedAt($createdAt)
     {
         $this->createdAt = $createdAt;
-    
+
         return $this;
     }
 
     /**
      * Get createdAt
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getCreatedAt()
     {
@@ -416,14 +453,14 @@ class Song
     public function setUpdatedAt($updatedAt)
     {
         $this->updatedAt = $updatedAt;
-    
+
         return $this;
     }
 
     /**
      * Get updatedAt
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getUpdatedAt()
     {
@@ -439,14 +476,14 @@ class Song
     public function setAlbum(\JJ\MainBundle\Entity\Album $album = null)
     {
         $this->album = $album;
-    
+
         return $this;
     }
 
     /**
      * Get album
      *
-     * @return \JJ\MainBundle\Entity\Album 
+     * @return \JJ\MainBundle\Entity\Album
      */
     public function getAlbum()
     {
@@ -462,28 +499,20 @@ class Song
     public function setArtist(\JJ\MainBundle\Entity\Artist $artist = null)
     {
         $this->artist = $artist;
-    
+
         return $this;
     }
 
     /**
      * Get artist
      *
-     * @return \JJ\MainBundle\Entity\Artist 
+     * @return \JJ\MainBundle\Entity\Artist
      */
     public function getArtist()
     {
         return $this->artist;
     }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->winners = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->losers = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-    
+
     /**
      * Add winners
      *
@@ -493,7 +522,7 @@ class Song
     public function addWinner(\JJ\MainBundle\Entity\Rating $winners)
     {
         $this->winners[] = $winners;
-    
+
         return $this;
     }
 
@@ -510,7 +539,7 @@ class Song
     /**
      * Get winners
      *
-     * @return Rating[]
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getWinners()
     {
@@ -526,7 +555,7 @@ class Song
     public function addLoser(\JJ\MainBundle\Entity\Rating $losers)
     {
         $this->losers[] = $losers;
-    
+
         return $this;
     }
 
@@ -543,7 +572,7 @@ class Song
     /**
      * Get losers
      *
-     * @return Rating[]
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getLosers()
     {
@@ -551,25 +580,25 @@ class Song
     }
 
     /**
-     * Set rated
+     * Set rating
      *
-     * @param integer $rated
+     * @param float $rating
      * @return Song
      */
-    public function setRated($rated)
+    public function setRating($rating)
     {
-        $this->rated = $rated;
-    
+        $this->rating = $rating;
+
         return $this;
     }
 
     /**
-     * Get rated
+     * Get rating
      *
-     * @return integer 
+     * @return float
      */
-    public function getRated()
+    public function getRating()
     {
-        return $this->rated;
+        return $this->rating;
     }
 }

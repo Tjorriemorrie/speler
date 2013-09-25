@@ -19,6 +19,8 @@ class ScanController extends Controller
      */
     public function scanAction()
     {
+	    set_time_limit(0);
+
         /** @var Scanner $scanner */
         $scanner = $this->get('scanner');
         $scanner->run();
