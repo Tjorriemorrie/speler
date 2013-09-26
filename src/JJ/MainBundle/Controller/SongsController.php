@@ -88,4 +88,17 @@ class SongsController extends Controller
         $countSongs = $this->getSongManager()->countAll();
         return new JsonResponse($countSongs);
     }
+
+	/**
+	 * @Route("/{id}", name="songs_update")
+	 * @Method({"post"})
+	 */
+	public function updateAction(Song $song)
+	{
+		$formData = $this->getRequest()->request->all();
+
+		$song = $this->getSongManager()->update($song, $formData);
+
+		return new JsonResponse();
+	}
 }

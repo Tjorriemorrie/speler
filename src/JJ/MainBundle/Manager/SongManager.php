@@ -191,6 +191,23 @@ class SongManager
 		$this->updatePriority($song);
 	}
 
+	/**
+	 * Update
+	 *
+	 * @param Song $song
+	 * @param      $formData
+	 * @return Song
+	 */
+	public function update(Song $song, $formData)
+	{
+		$song->setName($formData['name']);
+		$song->setNumber($formData['number']);
+
+		$this->validate($song);
+		$this->em->flush();
+
+		return $song;
+	}
 
 	//////////////////////////////////////////////////////////////////////////////////////////
 	// REPO

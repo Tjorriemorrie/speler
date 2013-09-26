@@ -8,9 +8,9 @@ angular.module('rater', [])
         $scope.match = null;
         $scope.stats = null;
 
-        $rootScope.$watch('song', function(songNew) {
+        $rootScope.$watch('song', function(songNew, songOld) {
             $scope.matches = [];
-            if (songNew != null) {
+            if (songNew != null && (songOld != null && songNew.id != songOld.id)) {
                 console.info('rater new song!', songNew);
 
                 $scope.stats = {

@@ -80,4 +80,20 @@ angular.module('services', [])
             }
         }
     }])
+
+    .factory('editsServ', ['$http', function($http) {
+        return {
+            saveSong: function(song) {
+                var formData = new FormData();
+                formData.append('name', song.name);
+                formData.append('number', song.number);
+                return $http.post(URL_SITE + '/songs/' + song.id, formData, {
+                    headers: {'Content-Type': undefined },
+                    transformRequest: angular.identity
+                }).then(function(result) {
+                    return result.data;
+                });
+            }
+        }
+    }])
 ;

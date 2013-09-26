@@ -117,4 +117,35 @@ angular.module('player', [])
 //            }
         });
 
-    }]);
+    }])
+
+    .controller('infoCtrl', ['editsServ', '$rootScope', '$q', 'storage', '$scope', function(editsServ, $rootScope, $q, storage, $scope) {
+
+        $scope.edit = { 'switch': 'display' };
+
+        // EDIT INFO
+        $scope.editInfo = function(infoSwitch) {
+            //console.info('editInfo root', $rootScope.song);
+            $scope.edit = {
+                switch: infoSwitch,
+                song: Object.create($rootScope.song),
+                'album': {
+                    'name': $rootScope.song.hasOwnProperty('album') ? $rootScope.song.album.name : ''
+                },
+                'artist': {
+                    'name': $rootScope.song.hasOwnProperty('artist') ? $rootScope.song.artist.name : ''
+                }
+            };
+            console.info('editInfo song', $scope.edit.song);
+        };
+
+        // SAVE SONG
+        $scope.saveSong = function() {
+            console.info('saveSong', $scope.edit.song);
+            editsServ.saveSong($scope.edit.song);
+            $rootScope.song.name = $scope.edit.song.name;
+            $rootScope.song.number = $scope.edit.song.number;
+            $scope.edit.switch = 'display';
+        };
+    }])
+;
