@@ -99,6 +99,6 @@ class SongsController extends Controller
 
 		$song = $this->getSongManager()->update($song, $formData);
 
-		return new JsonResponse();
+		return $this->createJsonResponse($song);
 	}
 }

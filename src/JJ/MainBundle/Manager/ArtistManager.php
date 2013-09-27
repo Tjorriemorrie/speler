@@ -4,6 +4,7 @@ namespace JJ\MainBundle\Manager;
 
 use Doctrine\ORM\EntityManager;
 use JJ\MainBundle\Entity\ArtistRepository;
+use JJ\MainBundle\Entity\Song;
 use Symfony\Component\Validator\Validator;
 
 use JJ\MainBundle\Entity\Artist;
@@ -67,6 +68,43 @@ class ArtistManager
         $this->validate($artist);
         return $artist;
     }
+
+	/**
+	 * Update
+	 *
+	 * @param Song $song
+	 * @param      $formData
+	 * @return \JJ\MainBundle\Entity\Artist
+	 */
+	public function update(Song $song, $formData)
+	{
+		if (filter_var($formData['create'], FILTER_VALIDATE_BOOLEAN)) {
+			$artist = $this->findOneByName($formData['name']);
+			if (!$artist) {
+				$artist = new Artist();
+				$this->em->persist($artist);
+				$artist->setName($formData['name']);
+			}
+			$song->setArtist($artist);
+		} else {
+			$artist = $song->getArtist();
+			if ($artist) {
+				$artist->setName($formData['name']);
+			} else {
+				$artist = $this->findOneByName($formData['name']);
+				if (!$artist) {
+					$artist = new Artist();
+					$this->em->persist($artist);
+					$artist->setName($formData['name']);
+				}
+				$song->setArtist($artist);
+			}
+		}
+
+		$this->validate($artist);
+		$this->em->flush();
+		return $artist;
+	}
 
 	//////////////////////////////////////////////////////////////////////////////////////////
 	// REPO

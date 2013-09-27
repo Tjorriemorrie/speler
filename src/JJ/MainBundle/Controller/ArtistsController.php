@@ -2,6 +2,7 @@
 
 namespace JJ\MainBundle\Controller;
 
+use JJ\MainBundle\Entity\Song;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -54,7 +55,7 @@ class ArtistsController extends Controller
         $artists = $this->getArtistManager()->findAll();
         return $this->createJsonResponse($artists);
     }
-    
+
     /**
      * @Route("/count", name="artists_count")
      * @Method({"get"})
@@ -64,4 +65,17 @@ class ArtistsController extends Controller
         $countArtists = $this->getArtistManager()->countAll();
         return new JsonResponse($countArtists);
     }
+
+	/**
+	 * @Route("/update/{song}", requirements={"_format" = "json"}, name="artists_update")
+	 * @Method({"post"})
+	 */
+	public function updateAction(Song $song)
+	{
+		$formData = $this->getRequest()->request->all();
+
+		$artist = $this->getArtistManager()->update($song, $formData);
+
+		return $this->createJsonResponse($artist);
+	}
 }

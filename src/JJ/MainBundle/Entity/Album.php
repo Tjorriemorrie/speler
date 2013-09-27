@@ -16,7 +16,7 @@ use JJ\MainBundle\Entity\Artist;
 /**
  * Album
  *
- * @ORM\Table()
+ * @ORM\Table(name="s_album")
  * @ORM\Entity(repositoryClass="JJ\MainBundle\Entity\AlbumRepository")
  * @Ser\ExclusionPolicy("all")
  */
@@ -174,11 +174,11 @@ class Album
     {
         $this->songs = new \Doctrine\Common\Collections\ArrayCollection();
     }
-    
+
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -194,14 +194,14 @@ class Album
     public function setName($name)
     {
         $this->name = $name;
-    
+
         return $this;
     }
 
     /**
      * Get name
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
@@ -217,14 +217,14 @@ class Album
     public function setSize($size)
     {
         $this->size = $size;
-    
+
         return $this;
     }
 
     /**
      * Get size
      *
-     * @return integer 
+     * @return integer
      */
     public function getSize()
     {
@@ -240,14 +240,14 @@ class Album
     public function setCreatedAt($createdAt)
     {
         $this->createdAt = $createdAt;
-    
+
         return $this;
     }
 
     /**
      * Get createdAt
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getCreatedAt()
     {
@@ -263,14 +263,14 @@ class Album
     public function setUpdatedAt($updatedAt)
     {
         $this->updatedAt = $updatedAt;
-    
+
         return $this;
     }
 
     /**
      * Get updatedAt
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getUpdatedAt()
     {
@@ -286,7 +286,7 @@ class Album
     public function addSong(\JJ\MainBundle\Entity\Song $songs)
     {
         $this->songs[] = $songs;
-    
+
         return $this;
     }
 
@@ -319,14 +319,14 @@ class Album
     public function setArtist(\JJ\MainBundle\Entity\Artist $artist = null)
     {
         $this->artist = $artist;
-    
+
         return $this;
     }
 
     /**
      * Get artist
      *
-     * @return \JJ\MainBundle\Entity\Artist 
+     * @return \JJ\MainBundle\Entity\Artist
      */
     public function getArtist()
     {
@@ -342,14 +342,14 @@ class Album
     public function setYear($year)
     {
         $this->year = $year;
-    
+
         return $this;
     }
 
     /**
      * Get year
      *
-     * @return integer 
+     * @return integer
      */
     public function getYear()
     {

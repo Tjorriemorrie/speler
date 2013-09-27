@@ -2,18 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d1ca1b1a-fa57-4219-8898-794e07d3a59d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player_info.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/config/parameters_live.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player_info_artist.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player_info_song.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JJ/MainBundle/Entity/Album.php" afterPath="$PROJECT_DIR$/src/JJ/MainBundle/Entity/Album.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JJ/MainBundle/Entity/Artist.php" afterPath="$PROJECT_DIR$/src/JJ/MainBundle/Entity/Artist.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JJ/MainBundle/Manager/ArtistManager.php" afterPath="$PROJECT_DIR$/src/JJ/MainBundle/Manager/ArtistManager.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JJ/MainBundle/Controller/ArtistsController.php" afterPath="$PROJECT_DIR$/src/JJ/MainBundle/Controller/ArtistsController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JJ/MainBundle/Entity/Rating.php" afterPath="$PROJECT_DIR$/src/JJ/MainBundle/Entity/Rating.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JJ/MainBundle/Entity/Song.php" afterPath="$PROJECT_DIR$/src/JJ/MainBundle/Entity/Song.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JJ/MainBundle/Manager/SongManager.php" afterPath="$PROJECT_DIR$/src/JJ/MainBundle/Manager/SongManager.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JJ/MainBundle/Controller/SongsController.php" afterPath="$PROJECT_DIR$/src/JJ/MainBundle/Controller/SongsController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player.html" afterPath="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/config.yml" afterPath="$PROJECT_DIR$/app/config/config.yml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player.js" afterPath="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/rater/rater.js" afterPath="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/rater/rater.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player_info.html" afterPath="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player_info.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/services.js" afterPath="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/services.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/speler.iml" afterPath="$PROJECT_DIR$/.idea/speler.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="speler.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380202372354" ignored="false" />
+    <file path="/Dummy.txt" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380283301478" ignored="false" />
     <file path="/.gitignore" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1379854410606" ignored="false" />
     <file path="/DefaultController.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1379853742140" ignored="false" />
     <file path="/nav.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1379882080669" ignored="false" />
@@ -21,26 +30,26 @@
     <file path="/ScanController.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380099015883" ignored="false" />
     <file path="/services.xml" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380039984081" ignored="false" />
     <file path="/ScanUtility.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1379859127136" ignored="false" />
-    <file path="/a.dummy" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380042419540" ignored="false" />
+    <file path="/a.dummy" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380278489730" ignored="false" />
     <file path="/Scanner.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1379872853298" ignored="false" />
-    <file path="/SongManager.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380205723684" ignored="false" />
+    <file path="/SongManager.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380286705855" ignored="false" />
     <file path="/Identifier.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1379860215126" ignored="false" />
     <file path="/Song.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380096024715" ignored="false" />
     <file path="/Album.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1379887482820" ignored="false" />
     <file path="/AlbumManager.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1379880565932" ignored="false" />
     <file path="/ArtistRepository.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1379882418412" ignored="false" />
-    <file path="/Artist.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1379887599659" ignored="false" />
+    <file path="/Artist.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380287776863" ignored="false" />
     <file path="/config.yml" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1379863188121" ignored="false" />
-    <file path="/bower.json" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380104302600" ignored="false" />
-    <file path="/index.html.twig" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380189677914" ignored="false" />
+    <file path="/bower.json" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380276868227" ignored="false" />
+    <file path="/index.html.twig" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380277503939" ignored="false" />
     <file path="/main.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1379880624996" ignored="false" />
     <file path="/player.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380206392074" ignored="false" />
-    <file path="/player.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380206573057" ignored="false" />
-    <file path="/services.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380204396751" ignored="false" />
-    <file path="/SongsController.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380205669631" ignored="false" />
+    <file path="/player.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380287966806" ignored="false" />
+    <file path="/services.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380285141492" ignored="false" />
+    <file path="/SongsController.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380286877701" ignored="false" />
     <file path="/SongRepository.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380095583202" ignored="false" />
     <file path="/directives.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380122286185" ignored="false" />
-    <file path="/app.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380190948126" ignored="false" />
+    <file path="/app.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380277278258" ignored="false" />
     <file path="/library.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1379886231830" ignored="false" />
     <file path="/AlbumRepository.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1379882328140" ignored="false" />
     <file path="/library.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1379886103139" ignored="false" />
@@ -53,25 +62,25 @@
     <file path="/Rating.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1379957137030" ignored="false" />
     <file path="/RatingManager.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380096458124" ignored="false" />
     <file path="/RatingRepository.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380042568268" ignored="false" />
-    <file path="$PROJECT_DIR$/../smartscore-certificates/src/Talentec/CertificatesBundle/Resources/public/emailTemplates/emailTemplates.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380192012901" ignored="false" />
+    <file path="$PROJECT_DIR$/../smartscore-certificates/src/Talentec/CertificatesBundle/Resources/public/emailTemplates/emailTemplates.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380276774591" ignored="false" />
     <file path="$PROJECT_DIR$/../smartscore-certificates/src/Talentec/CertificatesBundle/Resources/public/emailTemplates/emailTemplatesCreate.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380179884822" ignored="false" />
     <file path="/emailTemplatesCreate.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380101142221" ignored="false" />
     <file path="$PROJECT_DIR$/../smartscore-certificates/src/Talentec/CertificatesBundle/Resources/public/emailTemplates/emailTemplatesCreate_create.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380100577164" ignored="false" />
     <file path="/emailTemplates.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380187654551" ignored="false" />
-    <file path="$PROJECT_DIR$/../smartscore-certificates/web/bower.json" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380104338638" ignored="false" />
+    <file path="$PROJECT_DIR$/../smartscore-certificates/web/bower.json" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380276940752" ignored="false" />
     <file path="$PROJECT_DIR$/../smartscore-certificates/app/Resources/views/base.html.twig" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380192012901" ignored="false" />
-    <file path="/base.html.twig" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380104448254" ignored="false" />
+    <file path="/base.html.twig" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380270192126" ignored="false" />
     <file path="$PROJECT_DIR$/../smartscore-certificates/app/config/parameters.yml" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380106318630" ignored="false" />
     <file path="$PROJECT_DIR$/../smartscore-certificates/app/config/config_prod.yml" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380192018555" ignored="false" />
     <file path="$PROJECT_DIR$/../smartscore-certificates/src/Talentec/MainBundle/Controller/SecurityController.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380192018555" ignored="false" />
-    <file path="$PROJECT_DIR$/../smartscore-certificates/src/Talentec/SdBundle/Resources/views/Default/index.html.twig" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380192018555" ignored="false" />
-    <file path="$PROJECT_DIR$/../smartscore-certificates/src/Talentec/SdBundle/Resources/public/app.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380192018555" ignored="false" />
-    <file path="$PROJECT_DIR$/../smartscore-certificates/src/Talentec/CertificatesBundle/Resources/views/Default/index.html.twig" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380192018555" ignored="false" />
+    <file path="$PROJECT_DIR$/../smartscore-certificates/src/Talentec/SdBundle/Resources/views/Default/index.html.twig" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380277517389" ignored="false" />
+    <file path="$PROJECT_DIR$/../smartscore-certificates/src/Talentec/SdBundle/Resources/public/app.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380277279256" ignored="false" />
+    <file path="$PROJECT_DIR$/../smartscore-certificates/src/Talentec/CertificatesBundle/Resources/views/Default/index.html.twig" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380276774592" ignored="false" />
     <file path="$PROJECT_DIR$/../smartscore-certificates/src/Talentec/SdBundle/Controller/DefaultController.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380192018555" ignored="false" />
     <file path="$PROJECT_DIR$/../smartscore-certificates/app/config/config_dev.yml" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380179884822" ignored="false" />
-    <file path="$PROJECT_DIR$/../smartscore-certificates/src/Talentec/SdBundle/Resources/public/directives.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380192018555" ignored="false" />
+    <file path="$PROJECT_DIR$/../smartscore-certificates/src/Talentec/SdBundle/Resources/public/directives.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380277403872" ignored="false" />
     <file path="$PROJECT_DIR$/../smartscore-certificates/src/Talentec/SdBundle/Resources/config/services.xml" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380119799961" ignored="false" />
-    <file path="$PROJECT_DIR$/../smartscore-certificates/src/Talentec/CertificatesBundle/Resources/public/suppliers/suppliers.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380192012901" ignored="false" />
+    <file path="$PROJECT_DIR$/../smartscore-certificates/src/Talentec/CertificatesBundle/Resources/public/suppliers/suppliers.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380276774592" ignored="false" />
     <file path="/suppliers.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380186719023" ignored="false" />
     <file path="$PROJECT_DIR$/../smartscore-certificates/src/Talentec/CertificatesBundle/Resources/public/suppliers/suppliers.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380194863606" ignored="false" />
     <file path="/suppliers.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380186483160" ignored="false" />
@@ -84,37 +93,108 @@
     <file path="$PROJECT_DIR$/../smartscore-certificates/app/cache/dev/appDevDebugProjectContainer.xml" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380119934990" ignored="false" />
     <file path="$PROJECT_DIR$/../smartscore-certificates/src/Talentec/SdBundle/Resources/public/structure/structure.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380192018555" ignored="false" />
     <file path="/structure.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380120901538" ignored="false" />
-    <file path="$PROJECT_DIR$/../smartscore-certificates/src/Talentec/CertificatesBundle/Resources/public/services.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380192018555" ignored="false" />
-    <file path="$PROJECT_DIR$/../smartscore-certificates/src/Talentec/CertificatesBundle/Controller/EmailsController.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380192018555" ignored="false" />
+    <file path="$PROJECT_DIR$/../smartscore-certificates/src/Talentec/CertificatesBundle/Resources/public/services.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380276774592" ignored="false" />
+    <file path="$PROJECT_DIR$/../smartscore-certificates/src/Talentec/CertificatesBundle/Controller/EmailsController.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380276774592" ignored="false" />
     <file path="/EmailsController.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380187301727" ignored="false" />
-    <file path="$PROJECT_DIR$/../smartscore-certificates/src/Talentec/CertificatesBundle/Service/EmailerService.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380192050402" ignored="false" />
+    <file path="$PROJECT_DIR$/../smartscore-certificates/src/Talentec/CertificatesBundle/Service/EmailerService.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380276774592" ignored="false" />
     <file path="/EmailerService.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380192049156" ignored="false" />
-    <file path="$PROJECT_DIR$/../smartscore-certificates/src/Talentec/CertificatesBundle/Resources/public/emailTemplates/emailTemplatesSend.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380192012901" ignored="false" />
+    <file path="$PROJECT_DIR$/../smartscore-certificates/src/Talentec/CertificatesBundle/Resources/public/emailTemplates/emailTemplatesSend.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380276774592" ignored="false" />
     <file path="$PROJECT_DIR$/../smartscore-certificates/src/Talentec/CertificatesBundle/Resources/public/emails/emails.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380188022909" ignored="false" />
-    <file path="$PROJECT_DIR$/../smartscore-certificates/src/Talentec/CertificatesBundle/Entity/EmailReminder.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380192012901" ignored="false" />
+    <file path="$PROJECT_DIR$/../smartscore-certificates/src/Talentec/CertificatesBundle/Entity/EmailReminder.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380276774592" ignored="false" />
     <file path="/EmailReminder.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380188433354" ignored="false" />
-    <file path="$PROJECT_DIR$/../smartscore-certificates/src/Talentec/CertificatesBundle/Entity/Email.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380192012901" ignored="false" />
+    <file path="$PROJECT_DIR$/../smartscore-certificates/src/Talentec/CertificatesBundle/Entity/Email.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380276774592" ignored="false" />
     <file path="/Email.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380188525957" ignored="false" />
     <file path="$PROJECT_DIR$/../smartscore-certificates/src/Talentec/CertificatesBundle/Entity/Document.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380188619191" ignored="false" />
-    <file path="$PROJECT_DIR$/../smartscore-certificates/src/Talentec/MainBundle/Entity/Client.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380192018555" ignored="false" />
+    <file path="$PROJECT_DIR$/../smartscore-certificates/src/Talentec/MainBundle/Entity/Client.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380276774592" ignored="false" />
     <file path="$PROJECT_DIR$/../smartscore-certificates/src/Talentec/CertificatesBundle/Entity/Company.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380188619191" ignored="false" />
     <file path="$PROJECT_DIR$/../smartscore-certificates/src/Talentec/CertificatesBundle/Entity/Certificate.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380188619191" ignored="false" />
     <file path="$PROJECT_DIR$/../smartscore-certificates/src/Talentec/CertificatesBundle/Resources/public/nav/nav.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380192018555" ignored="false" />
-    <file path="$PROJECT_DIR$/../smartscore-certificates/src/Talentec/CertificatesBundle/Resources/public/app.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380192018555" ignored="false" />
+    <file path="$PROJECT_DIR$/../smartscore-certificates/src/Talentec/CertificatesBundle/Resources/public/app.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380276774592" ignored="false" />
     <file path="$PROJECT_DIR$/../smartscore-certificates/app/cache/dev/doctrine/orm/Proxies/__CG__TalentecMainBundleEntityClient.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380195107512" ignored="false" />
     <file path="$PROJECT_DIR$/../smartscore-certificates/app/cache/dev/twig/a2/93/f69d92312d26331318db83921848.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380189717499" ignored="false" />
     <file path="$PROJECT_DIR$/../smartscore-certificates/src/Talentec/CertificatesBundle/Resources/public/reminders/reminders.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380195112143" ignored="false" />
     <file path="/reminders.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380195111840" ignored="false" />
     <file path="$PROJECT_DIR$/../smartscore-certificates/src/Talentec/CertificatesBundle/Resources/public/reminders/reminders.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380199669980" ignored="false" />
     <file path="/reminders.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380194359802" ignored="false" />
-    <file path="$PROJECT_DIR$/../smartscore-certificates/src/Talentec/CertificatesBundle/Manager/EmailReminderManager.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380192227772" ignored="false" />
+    <file path="$PROJECT_DIR$/../smartscore-certificates/src/Talentec/CertificatesBundle/Manager/EmailReminderManager.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380276774592" ignored="false" />
     <file path="/EmailReminderManager.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380192226442" ignored="false" />
     <file path="$PROJECT_DIR$/../smartscore-certificates/web/bundles/cert/services.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380192018555" ignored="false" />
     <file path="$PROJECT_DIR$/../smartscore-certificates/src/Talentec/SdBundle/Resources/public/structure/structure.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380192018555" ignored="false" />
     <file path="$PROJECT_DIR$/../smartscore-certificates/src/Talentec/SdBundle/Entity/Course.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380192018555" ignored="false" />
-    <file path="$PROJECT_DIR$/../smartscore-certificates/src/Talentec/CertificatesBundle/Manager/EmailManager.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380192905583" ignored="false" />
-    <file path="$PROJECT_DIR$/../smartscore-certificates/src/Talentec/CertificatesBundle/Controller/EmailRemindersController.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380195115919" ignored="false" />
-    <file path="/player_info.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380206545745" ignored="false" />
+    <file path="$PROJECT_DIR$/../smartscore-certificates/src/Talentec/CertificatesBundle/Manager/EmailManager.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380276774592" ignored="false" />
+    <file path="$PROJECT_DIR$/../smartscore-certificates/src/Talentec/CertificatesBundle/Controller/EmailRemindersController.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380276774592" ignored="false" />
+    <file path="/player_info.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380281887380" ignored="false" />
+    <file path="/config_prod.yml" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380265990741" ignored="false" />
+    <file path="$PROJECT_DIR$/../talentec-portal/src/Talentec/MainBundle/Resources/public/admin/companies/companies.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380270167297" ignored="false" />
+    <file path="$PROJECT_DIR$/../talentec-portal/src/Talentec/MainBundle/Controller/CompaniesController.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380270167296" ignored="false" />
+    <file path="/CompaniesController.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380266852214" ignored="false" />
+    <file path="$PROJECT_DIR$/../talentec-portal/src/Talentec/MainBundle/Resources/public/services.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380279388653" ignored="false" />
+    <file path="/companies.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380268755745" ignored="false" />
+    <file path="$PROJECT_DIR$/../talentec-portal/src/Talentec/MainBundle/Resources/public/admin/companies/company_add.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380270167297" ignored="false" />
+    <file path="/company_add.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380267390129" ignored="false" />
+    <file path="$PROJECT_DIR$/../talentec-portal/src/Talentec/MainBundle/Resources/public/admin/companies/company_card.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380270167297" ignored="false" />
+    <file path="/company_card.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380268643956" ignored="false" />
+    <file path="$PROJECT_DIR$/../talentec-portal/src/Talentec/MainBundle/Resources/public/admin/app.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380270167296" ignored="false" />
+    <file path="$PROJECT_DIR$/../talentec-portal/web/libraries/bootstrap-datetimepicker/sample/bootstrap/css/bootstrap.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380270167296" ignored="false" />
+    <file path="$PROJECT_DIR$/../talentec-portal/web/css/sass/animations.scss" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380270167296" ignored="false" />
+    <file path="$PROJECT_DIR$/../talentec-portal/src/Talentec/MainBundle/Manager/ContactPersonManager.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380270167296" ignored="false" />
+    <file path="$PROJECT_DIR$/../talentec-portal/web/libraries/bootstrap-3.0.0/js/tests/vendor/jquery.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380269047896" ignored="false" />
+    <file path="$PROJECT_DIR$/../talentec-portal/src/Talentec/MainBundle/Manager/SalesPersonManager.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380270167296" ignored="false" />
+    <file path="$PROJECT_DIR$/../talentec-portal/src/Talentec/MainBundle/Manager/CompanyManager.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380270167296" ignored="false" />
+    <file path="$PROJECT_DIR$/../talentec-portal/src/Talentec/MainBundle/Manager/EventManager.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380270167296" ignored="false" />
+    <file path="$PROJECT_DIR$/../talentec-portal/src/Talentec/MainBundle/Manager/LeadStatusManager.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380270167296" ignored="false" />
+    <file path="$PROJECT_DIR$/../talentec-portal/src/Talentec/MainBundle/Resources/public/admin/leads/events.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380270167296" ignored="false" />
+    <file path="$PROJECT_DIR$/../talentec-portal/web/libraries/bootstrap-3.0.0/assets/js/jquery.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380269047896" ignored="false" />
+    <file path="$PROJECT_DIR$/../talentec-portal/app/config/config.yml" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380270167296" ignored="false" />
+    <file path="$PROJECT_DIR$/../talentec-portal/src/Talentec/MainBundle/Resources/public/admin/leads/leads.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380270167296" ignored="false" />
+    <file path="$PROJECT_DIR$/../talentec-portal/web/libraries/bootstrap-3.0.0/dist/css/bootstrap.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380269047896" ignored="false" />
+    <file path="$PROJECT_DIR$/../talentec-portal/web/libraries/bootstrap-3.0.0/dist/css/bootstrap.min.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380269047896" ignored="false" />
+    <file path="$PROJECT_DIR$/../talentec-portal/src/Talentec/MainBundle/Entity/Company.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380270167296" ignored="false" />
+    <file path="$PROJECT_DIR$/../talentec-portal/src/Talentec/MainBundle/Resources/public/admin/persons/persons.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380270167296" ignored="false" />
+    <file path="$PROJECT_DIR$/../talentec-portal/src/Talentec/MainBundle/Resources/public/admin/persons/sales_form.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380270167296" ignored="false" />
+    <file path="$PROJECT_DIR$/../talentec-portal/src/Talentec/MainBundle/Resources/public/admin/persons/sales_card.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380270167296" ignored="false" />
+    <file path="$PROJECT_DIR$/../talentec-portal/src/Talentec/MainBundle/Resources/views/Default/admin.html.twig" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380270167296" ignored="false" />
+    <file path="$PROJECT_DIR$/../talentec-portal/web/libraries/bootstrap-3.0.0/less/forms.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380269047896" ignored="false" />
+    <file path="$PROJECT_DIR$/../talentec-portal/src/Talentec/MainBundle/Resources/public/admin/companies/companies.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380270167297" ignored="false" />
+    <file path="$PROJECT_DIR$/../talentec-portal/web/bower.json" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380270167296" ignored="false" />
+    <file path="$PROJECT_DIR$/../talentec-portal/web/bower_components/bootstrap/less/mixins.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380269240619" ignored="false" />
+    <file path="$PROJECT_DIR$/../talentec-portal/web/bower_components/bootstrap/less/forms.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380269240619" ignored="false" />
+    <file path="/admin.html.twig" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380269252529" ignored="false" />
+    <file path="$PROJECT_DIR$/../talentec-portal/web/libraries/bootstrap-datetimepicker/sample/bootstrap/css/bootstrap.min.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380270167296" ignored="false" />
+    <file path="$PROJECT_DIR$/../talentec-portal/app/Resources/views/base.html.twig" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380279388653" ignored="false" />
+    <file path="$PROJECT_DIR$/../talentec-portal/src/Talentec/MainBundle/Resources/public/admin/products/products.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380282440729" ignored="false" />
+    <file path="/products.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380282422737" ignored="false" />
+    <file path="$PROJECT_DIR$/../talentec-portal/src/Talentec/MainBundle/Resources/public/admin/products/products.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380286653612" ignored="false" />
+    <file path="/products.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380279631864" ignored="false" />
+    <file path="$PROJECT_DIR$/../talentec-portal/web/bundles/main/admin/charts/charts.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380271088594" ignored="false" />
+    <file path="$PROJECT_DIR$/../talentec-portal/web/bundles/main/admin/leads/leads.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380271088594" ignored="false" />
+    <file path="$PROJECT_DIR$/../talentec-portal/web/bundles/main/admin/products/products.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380271988759" ignored="false" />
+    <file path="$PROJECT_DIR$/../talentec-portal/web/bundles/main/admin/companies/companies.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380271088594" ignored="false" />
+    <file path="$PROJECT_DIR$/../talentec-portal/web/bundles/main/services.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380274883436" ignored="false" />
+    <file path="$PROJECT_DIR$/../talentec-portal/web/bundles/main/admin/products/products.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380271988759" ignored="false" />
+    <file path="$PROJECT_DIR$/../talentec-portal/web/bower_components/jquery/jquery.min.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380271393144" ignored="false" />
+    <file path="$PROJECT_DIR$/../talentec-portal/web/bower_components/jquery/jquery.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380271393144" ignored="false" />
+    <file path="$PROJECT_DIR$/../talentec-portal/web/bower_components/bootstrap/js/tests/vendor/jquery.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380271393145" ignored="false" />
+    <file path="$PROJECT_DIR$/../talentec-portal/web/bower_components/font-awesome/src/assets/js/jquery-1.7.1.min.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380271393145" ignored="false" />
+    <file path="$PROJECT_DIR$/../talentec-portal/src/Talentec/MainBundle/Resources/public/admin/products/products_edit.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380279388653" ignored="false" />
+    <file path="/products_edit.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380276422070" ignored="false" />
+    <file path="$PROJECT_DIR$/../talentec-portal/src/Talentec/MainBundle/Entity/Product.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380275650136" ignored="false" />
+    <file path="$PROJECT_DIR$/../smartscore-certificates/src/Talentec/CertificatesBundle/Resources/public/dashboard/dashboard.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380276774591" ignored="false" />
+    <file path="$PROJECT_DIR$/../smartscore-certificates/src/Talentec/CertificatesBundle/Resources/public/dashboard/dashboard.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380276774592" ignored="false" />
+    <file path="$PROJECT_DIR$/../smartscore-certificates/app/config/config.yml" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380276774592" ignored="false" />
+    <file path="$PROJECT_DIR$/../smartscore-certificates/src/Talentec/SdBundle/Resources/public/training/training.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380278290076" ignored="false" />
+    <file path="$PROJECT_DIR$/../smartscore-certificates/src/Talentec/SdBundle/Resources/public/training/training.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380278291376" ignored="false" />
+    <file path="/training.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380278201695" ignored="false" />
+    <file path="/training.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380278177856" ignored="false" />
+    <file path="$PROJECT_DIR$/../talentec-portal/src/Talentec/MainBundle/Controller/ProductsController.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380279388653" ignored="false" />
+    <file path="/ProductsController.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380278493772" ignored="false" />
+    <file path="$PROJECT_DIR$/../talentec-portal/src/Talentec/MainBundle/Manager/ProductManager.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380279388653" ignored="false" />
+    <file path="/ProductManager.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380278590515" ignored="false" />
+    <file path="$PROJECT_DIR$/../talentec-portal/src/Talentec/MainBundle/Resources/public/admin/products/products_categories.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380283377892" ignored="false" />
+    <file path="/products_categories.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380283376293" ignored="false" />
+    <file path="/player_info_artist.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380287926226" ignored="false" />
+    <file path="/ArtistsController.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380285368051" ignored="false" />
+    <file path="/ArtistManager.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380286103634" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,34 +221,16 @@
               <file leaf-file-name="SongsController.php" pinned="false" current="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Controller/SongsController.php">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state line="98" column="0" selection-start="2270" selection-end="2270" vertical-scroll-proportion="-8.730769">
+                    <state line="101" column="48" selection-start="2375" selection-end="2375" vertical-scroll-proportion="-7.5384617">
                       <folding />
                     </state>
                   </provider>
                 </entry>
               </file>
-              <file leaf-file-name="ScanController.php" pinned="false" current="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Controller/ScanController.php">
+              <file leaf-file-name="ArtistsController.php" pinned="false" current="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Controller/ArtistsController.php">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state line="25" column="19" selection-start="558" selection-end="558" vertical-scroll-proportion="0.0">
-                      <folding />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file leaf-file-name="nav.js" pinned="false" current="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/nav/nav.js">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state line="31" column="12" selection-start="864" selection-end="864" vertical-scroll-proportion="0.0">
-                      <folding />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file leaf-file-name="library.js" pinned="false" current="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/library/library.js">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state line="115" column="0" selection-start="3788" selection-end="3788" vertical-scroll-proportion="0.0">
+                    <state line="78" column="50" selection-start="1932" selection-end="1932" vertical-scroll-proportion="-12.0">
                       <folding />
                     </state>
                   </provider>
@@ -183,10 +245,10 @@
                   </provider>
                 </entry>
               </file>
-              <file leaf-file-name="player.js" pinned="false" current="false" current-in-tab="true">
+              <file leaf-file-name="player.js" pinned="false" current="true" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player.js">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state line="131" column="22" selection-start="4478" selection-end="4478" vertical-scroll-proportion="0.33170733">
+                    <state line="137" column="0" selection-start="4815" selection-end="4815" vertical-scroll-proportion="0.49756098">
                       <folding />
                     </state>
                   </provider>
@@ -196,30 +258,28 @@
           </split-first>
           <split-second>
             <leaf>
-              <file leaf-file-name="main.html" pinned="false" current="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/main/main.html">
+              <file leaf-file-name="player_info.html" pinned="false" current="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player_info.html">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+                    <state line="7" column="8" selection-start="333" selection-end="333" vertical-scroll-proportion="0.0">
                       <folding />
                     </state>
                   </provider>
                 </entry>
               </file>
-              <file leaf-file-name="player.html" pinned="false" current="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player.html">
+              <file leaf-file-name="player_info_song.html" pinned="false" current="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player_info_song.html">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state line="24" column="71" selection-start="1469" selection-end="1469" vertical-scroll-proportion="-8.076923">
-                      <folding>
-                        <element signature="n#style#0;n#a#0;n#li#6;n#ul#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#1;n#section#0;n#!!top" expanded="true" />
-                      </folding>
+                    <state line="27" column="0" selection-start="1815" selection-end="1815" vertical-scroll-proportion="-10.615385">
+                      <folding />
                     </state>
                   </provider>
                 </entry>
               </file>
-              <file leaf-file-name="player_info.html" pinned="false" current="true" current-in-tab="true">
-                <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player_info.html">
+              <file leaf-file-name="player_info_artist.html" pinned="false" current="false" current-in-tab="true">
+                <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player_info_artist.html">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state line="18" column="8" selection-start="848" selection-end="848" vertical-scroll-proportion="0.08994709">
+                    <state line="17" column="50" selection-start="1260" selection-end="1260" vertical-scroll-proportion="0.76455027">
                       <folding />
                     </state>
                   </provider>
@@ -237,7 +297,7 @@
               <file leaf-file-name="artists.html" pinned="false" current="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/library/artists.html">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state line="18" column="17" selection-start="678" selection-end="792" vertical-scroll-proportion="0.0">
+                    <state line="16" column="60" selection-start="726" selection-end="726" vertical-scroll-proportion="-8.692307">
                       <folding />
                     </state>
                   </provider>
@@ -246,7 +306,7 @@
               <file leaf-file-name="rater.html" pinned="false" current="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/rater/rater.html">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
+                    <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
                       <folding />
                     </state>
                   </provider>
@@ -281,7 +341,7 @@
               <file leaf-file-name="SongManager.php" pinned="false" current="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Manager/SongManager.php">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state line="208" column="8" selection-start="4724" selection-end="4724" vertical-scroll-proportion="0.6875">
+                    <state line="203" column="24" selection-start="4649" selection-end="4649" vertical-scroll-proportion="0.46614584">
                       <folding />
                     </state>
                   </provider>
@@ -299,7 +359,7 @@
               <file leaf-file-name="ArtistManager.php" pinned="false" current="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Manager/ArtistManager.php">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state line="116" column="0" selection-start="2092" selection-end="2092" vertical-scroll-proportion="0.0">
+                    <state line="78" column="12" selection-start="1475" selection-end="1475" vertical-scroll-proportion="-0.0">
                       <folding />
                     </state>
                   </provider>
@@ -308,7 +368,7 @@
               <file leaf-file-name="RatingManager.php" pinned="false" current="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Manager/RatingManager.php">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state line="216" column="28" selection-start="5347" selection-end="5347" vertical-scroll-proportion="-0.65384614">
+                    <state line="216" column="28" selection-start="5347" selection-end="5347" vertical-scroll-proportion="0.0">
                       <folding />
                     </state>
                   </provider>
@@ -318,19 +378,10 @@
           </split-first>
           <split-second>
             <leaf>
-              <file leaf-file-name="services.js" pinned="false" current="false" current-in-tab="true">
+              <file leaf-file-name="services.js" pinned="false" current="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/services.js">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state line="85" column="12" selection-start="2863" selection-end="2863" vertical-scroll-proportion="0.21039604">
-                      <folding />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file leaf-file-name="filters.js" pinned="false" current="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/filters.js">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state line="5" column="37" selection-start="115" selection-end="115" vertical-scroll-proportion="0.0">
+                    <state line="100" column="62" selection-start="3625" selection-end="3625" vertical-scroll-proportion="0.0">
                       <folding />
                     </state>
                   </provider>
@@ -339,7 +390,7 @@
               <file leaf-file-name="Song.php" pinned="false" current="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Entity/Song.php">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state line="143" column="61" selection-start="2941" selection-end="2941" vertical-scroll-proportion="-45.76923">
+                    <state line="24" column="1" selection-start="621" selection-end="621" vertical-scroll-proportion="-0.65384614">
                       <folding />
                     </state>
                   </provider>
@@ -348,7 +399,7 @@
               <file leaf-file-name="Rating.php" pinned="false" current="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Entity/Rating.php">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state line="40" column="7" selection-start="890" selection-end="890" vertical-scroll-proportion="0.0">
+                    <state line="17" column="29" selection-start="439" selection-end="439" vertical-scroll-proportion="0.0">
                       <folding />
                     </state>
                   </provider>
@@ -358,6 +409,24 @@
                 <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Utility/Scanner.php">
                   <provider selected="true" editor-type-id="text-editor">
                     <state line="96" column="45" selection-start="2582" selection-end="2582" vertical-scroll-proportion="0.0">
+                      <folding />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file leaf-file-name="Album.php" pinned="false" current="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Entity/Album.php">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state line="18" column="28" selection-start="470" selection-end="470" vertical-scroll-proportion="0.0">
+                      <folding />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file leaf-file-name="Artist.php" pinned="false" current="false" current-in-tab="true">
+                <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Entity/Artist.php">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state line="146" column="31" selection-start="3065" selection-end="3065" vertical-scroll-proportion="0.26086956">
                       <folding />
                     </state>
                   </provider>
@@ -385,21 +454,21 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/JJ/MainBundle/Entity/RatingRepository.php" />
-        <option value="$PROJECT_DIR$/src/JJ/MainBundle/Resources/config/services.xml" />
-        <option value="$PROJECT_DIR$/src/JJ/MainBundle/Controller/RatingsController.php" />
-        <option value="$PROJECT_DIR$/src/JJ/MainBundle/Entity/SongRepository.php" />
+        <option value="$PROJECT_DIR$/app/config/parameters_prod.yml" />
+        <option value="$PROJECT_DIR$/app/config/config_prod.yml" />
+        <option value="$PROJECT_DIR$/app/config/config.yml" />
+        <option value="$PROJECT_DIR$/src/JJ/MainBundle/Entity/Album.php" />
         <option value="$PROJECT_DIR$/src/JJ/MainBundle/Entity/Rating.php" />
-        <option value="$PROJECT_DIR$/src/JJ/MainBundle/Manager/RatingManager.php" />
         <option value="$PROJECT_DIR$/src/JJ/MainBundle/Entity/Song.php" />
-        <option value="$PROJECT_DIR$/src/JJ/MainBundle/Controller/ScanController.php" />
-        <option value="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/rater/rater.html" />
-        <option value="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/services.js" />
-        <option value="$PROJECT_DIR$/src/JJ/MainBundle/Controller/SongsController.php" />
-        <option value="$PROJECT_DIR$/src/JJ/MainBundle/Manager/SongManager.php" />
-        <option value="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/rater/rater.js" />
-        <option value="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player.html" />
         <option value="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player_info.html" />
+        <option value="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player_info_song.html" />
+        <option value="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/services.js" />
+        <option value="$PROJECT_DIR$/src/JJ/MainBundle/Controller/ArtistsController.php" />
+        <option value="$PROJECT_DIR$/src/JJ/MainBundle/Manager/ArtistManager.php" />
+        <option value="$PROJECT_DIR$/src/JJ/MainBundle/Manager/SongManager.php" />
+        <option value="$PROJECT_DIR$/src/JJ/MainBundle/Controller/SongsController.php" />
+        <option value="$PROJECT_DIR$/src/JJ/MainBundle/Entity/Artist.php" />
+        <option value="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player_info_artist.html" />
         <option value="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player.js" />
       </list>
     </option>
@@ -926,6 +995,24 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="speler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="speler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -941,10 +1028,10 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\speler\src\JJ\MainBundle\Resources\public\player" />
+      <recent name="C:\xampp\htdocs\speler\app\config" />
       <recent name="C:\xampp\htdocs\speler\src\JJ\MainBundle\Manager" />
       <recent name="C:\xampp\htdocs\speler\src\JJ\MainBundle\Entity" />
       <recent name="C:\xampp\htdocs\speler\src\JJ\MainBundle\Controller" />
-      <recent name="C:\xampp\htdocs\speler\src\JJ\MainBundle\Resources\public" />
     </key>
   </component>
   <component name="RunManager">
@@ -990,7 +1077,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Symfony2" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Framework" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1696905" sideWeight="0.6703786" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17662753" sideWeight="0.6703786" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962137" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
@@ -1066,116 +1153,108 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Utility/Scanner.php">
+    <entry file="file://$PROJECT_DIR$/app/config/parameters_live.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="96" column="45" selection-start="2582" selection-end="2582" vertical-scroll-proportion="0.0">
+        <state line="8" column="0" selection-start="245" selection-end="245" vertical-scroll-proportion="0.3222749">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/library/songs.html">
+    <entry file="file://$PROJECT_DIR$/app/config/config.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="17" selection-start="268" selection-end="268" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="6" column="0" selection-start="153" selection-end="153" vertical-scroll-proportion="0.04028436" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/main/main.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/nav/nav.js">
+    <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="12" selection-start="864" selection-end="864" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="24" column="71" selection-start="1469" selection-end="1469" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Controller/RatingsController.php">
+    <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player_info.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="64" column="50" selection-start="1572" selection-end="1572" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Entity/Rating.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="7" selection-start="890" selection-end="890" vertical-scroll-proportion="0.0">
+        <state line="7" column="8" selection-start="333" selection-end="333" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Entity/Song.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="143" column="61" selection-start="2941" selection-end="2941" vertical-scroll-proportion="-45.76923">
+        <state line="24" column="1" selection-start="621" selection-end="621" vertical-scroll-proportion="-0.65384614">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Manager/RatingManager.php">
+    <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player_info_song.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="216" column="28" selection-start="5347" selection-end="5347" vertical-scroll-proportion="-0.65384614">
+        <state line="27" column="0" selection-start="1815" selection-end="1815" vertical-scroll-proportion="-10.615385">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/services.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="85" column="12" selection-start="2863" selection-end="2863" vertical-scroll-proportion="0.21039604">
+        <state line="100" column="62" selection-start="3625" selection-end="3625" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Manager/ArtistManager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="78" column="12" selection-start="1475" selection-end="1475" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Controller/ArtistsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="78" column="50" selection-start="1932" selection-end="1932" vertical-scroll-proportion="-12.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Manager/SongManager.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="208" column="8" selection-start="4724" selection-end="4724" vertical-scroll-proportion="0.6875">
+        <state line="203" column="24" selection-start="4649" selection-end="4649" vertical-scroll-proportion="0.46614584">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Controller/SongsController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="98" column="0" selection-start="2270" selection-end="2270" vertical-scroll-proportion="-8.730769">
+        <state line="101" column="48" selection-start="2375" selection-end="2375" vertical-scroll-proportion="-7.5384617">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/rater/rater.js">
+    <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Entity/Artist.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="35" selection-start="922" selection-end="922" vertical-scroll-proportion="0.0">
+        <state line="146" column="31" selection-start="3065" selection-end="3065" vertical-scroll-proportion="0.26086956">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player.html">
+    <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/library/artists.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="71" selection-start="1469" selection-end="1469" vertical-scroll-proportion="-8.076923">
-          <folding>
-            <element signature="n#style#0;n#a#0;n#li#6;n#ul#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#1;n#section#0;n#!!top" expanded="true" />
-          </folding>
+        <state line="16" column="60" selection-start="726" selection-end="726" vertical-scroll-proportion="-8.692307">
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/rater/rater.html">
+    <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player_info_artist.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="17" column="50" selection-start="1260" selection-end="1260" vertical-scroll-proportion="0.76455027">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="131" column="22" selection-start="4478" selection-end="4478" vertical-scroll-proportion="0.33170733">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player_info.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="8" selection-start="848" selection-end="848" vertical-scroll-proportion="0.08994709">
+        <state line="137" column="0" selection-start="4815" selection-end="4815" vertical-scroll-proportion="0.49756098">
           <folding />
         </state>
       </provider>

@@ -5,40 +5,17 @@
 		    {{ song.name }}
 			<span ng-if="song.name.length < 1">&lt;NO NAME&gt;</span>
 		</h3>
-		<h4 ng-show="song.artist">{{ song.artist.name }}</h4>
+		<h4 ng-dblclick="editInfo('artist')">
+			<span ng-if="song.artist">{{ song.artist.name }}</span>
+			<span ng-if="!song.artist">&lt;NO ARTIST&gt;</span>
+		</h4>
 		<h5 ng-show="song.album">
 		    <small class="text-muted">[{{ song.album.year }}]</small>
 		    {{ song.album.name }}
 		</h5>
 	</div>
 
-	<form ng-switch-when="song" role="form" name="form" ng-submit="saveSong()" novalidate>
-		<div class="form-group" ng-class="{'has-success': form.fNameSong.$valid, 'has-error': form.fNameSong.$invalid && form.fNameSong.$dirty}">
-			<label for="nameSong" class="control-label">Song name</label>
-			<div class="input-group">
-				<input type="text" ng-model="edit.song.name" name="fNameSong" ng-required="true" ng-pattern="/^[a-zA-Z][a-zA-Z0-9-_\.]{3,100}$/" class="form-control" id="nameSong" placeholder="Song name" autocomplete="off" autofocus />
-				<span class="input-group-addon"><i ng-class="{'icon-ok': form.fNameSong.$valid, 'icon-remove': !form.fNameSong.$valid && form.fNameSong.$dirty}"></i> </span>
-			</div>
-			<span class="help-block">
-				<span ng-show="form.fNameSong.$error.required && form.fNameSong.$dirty">Song name is required!</span>
-				<span ng-show="form.fNameSong.$error.pattern && form.fNameSong.$dirty">The name must be 3 or more characters.</span>
-			</span>
-		</div>
-		<div class="form-group" ng-class="{'has-success': form.fNumberSong.$valid, 'has-error': form.fNumberSong.$invalid && form.fNumberSong.$dirty}">
-			<label for="numberSong" class="control-label">Song number</label>
-			<div class="input-group">
-				<input type="number" ng-model="edit.song.number" name="fNumberSong" ng-required="false" min="1" max="99" class="form-control" id="numberSong" placeholder="Song number" />
-				<span class="input-group-addon"><i ng-class="{'icon-ok': form.fNumberSong.$valid, 'icon-remove': !form.fNumberSong.$valid && form.fNumberSong.$dirty}"></i> </span>
-			</div>
-			<span class="help-block">
-				<span ng-show="form.fNumberSong.$error.min && form.fNumberSong.$dirty">The number must be 1 or greater</span>
-				<span ng-show="form.fNumberSong.$error.max && form.fNumberSong.$dirty">The number must be less than 100</span>
-			</span>
-		</div>
-		<div class="form-group">
-			<button type="submit" class="btn btn-success" ng-disabled="form.$invalid || form.$pristine">Save</button>
-			<a class="btn btn-danger" ng-click="edit.switch = 'display';">Cancel</a>
-		</div>
-	</form>
+	<ng-include src="getIncludeSrc('/bundles/main/player/player_info_song.html')"></ng-include>
+	<ng-include src="getIncludeSrc('/bundles/main/player/player_info_artist.html')"></ng-include>
 
 </div>

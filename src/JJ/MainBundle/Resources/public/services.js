@@ -93,6 +93,17 @@ angular.module('services', [])
                 }).then(function(result) {
                     return result.data;
                 });
+            },
+            saveArtist: function(song, artist) {
+                var formData = new FormData();
+                formData.append('name', artist.name);
+                formData.append('create', artist.create);
+                return $http.post(URL_SITE + '/artists/update/' + song.id, formData, {
+                    headers: {'Content-Type': undefined },
+                    transformRequest: angular.identity
+                }).then(function(result) {
+                    return result.data;
+                });
             }
         }
     }])

@@ -17,7 +17,7 @@ use JJ\MainBundle\Entity\Rating;
 /**
  * Song
  *
- * @ORM\Table()
+ * @ORM\Table(name="s_song")
  * @ORM\Entity(repositoryClass="JJ\MainBundle\Entity\SongRepository")
  * @Ser\ExclusionPolicy("all")
  */

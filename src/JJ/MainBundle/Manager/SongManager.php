@@ -201,7 +201,7 @@ class SongManager
 	public function update(Song $song, $formData)
 	{
 		$song->setName($formData['name']);
-		$song->setNumber($formData['number']);
+		$song->setNumber(filter_var($formData['number'], FILTER_VALIDATE_INT, array('flags' => FILTER_NULL_ON_FAILURE)));
 
 		$this->validate($song);
 		$this->em->flush();

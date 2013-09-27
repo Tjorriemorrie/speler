@@ -2,7 +2,7 @@
 
 angular.module('player', [])
 
-    .controller('playerCtrl', ['songsServ', '$rootScope', '$q', 'storage', '$scope', function(songsServ, $rootScope, $q, storage, $scope) {
+    .controller('playerCtrl', ['songsServ', '$rootScope', '$q', 'storage', '$log', '$scope', function(songsServ, $rootScope, $q, storage, $log, $scope) {
 
         // PLAY LIST
         var playList = [];
@@ -119,32 +119,45 @@ angular.module('player', [])
 
     }])
 
-    .controller('infoCtrl', ['editsServ', '$rootScope', '$q', 'storage', '$scope', function(editsServ, $rootScope, $q, storage, $scope) {
+    .controller('infoCtrl', ['editsServ', '$rootScope', '$q', 'storage', '$log', '$scope', function(editsServ, $rootScope, $q, storage, $log, $scope) {
 
         $scope.edit = { 'switch': 'display' };
 
         // EDIT INFO
         $scope.editInfo = function(infoSwitch) {
-            //console.info('editInfo root', $rootScope.song);
+            $log.log('editInfo', infoSwitch);
             $scope.edit = {
                 switch: infoSwitch,
                 song: Object.create($rootScope.song),
                 'album': {
                     'name': $rootScope.song.hasOwnProperty('album') ? $rootScope.song.album.name : ''
                 },
-                'artist': {
-                    'name': $rootScope.song.hasOwnProperty('artist') ? $rootScope.song.artist.name : ''
-                }
+                'artist': $rootScope.song.hasOwnProperty('artist') ? Object.create($rootScope.song.artist) : Object.create(artist_blank)
             };
-            console.info('editInfo song', $scope.edit.song);
+            $scope.edit.artist.create = false;
+            $log.debug('edit', $scope.edit);
         };
 
         // SAVE SONG
         $scope.saveSong = function() {
-            console.info('saveSong', $scope.edit.song);
+            $log.log('saveSong', $scope.edit.song);
             editsServ.saveSong($scope.edit.song);
             $rootScope.song.name = $scope.edit.song.name;
             $rootScope.song.number = $scope.edit.song.number;
+            $scope.edit.switch = 'display';
+        };
+
+        // SAVE ARTIST
+        var artist_blank = {'id': 0, 'name': null};
+        $scope.saveArtist = function() {
+            $log.log('saveArtist', $scope.edit.artist);
+            $rootScope.song.artist = {
+                'name': $scope.edit.artist.name
+            };
+            editsServ.saveArtist($scope.edit.song, $scope.edit.artist).then(function(data) {
+                $log.info('artist saved', data);
+                $rootScope.song.artist = data;
+            });
             $scope.edit.switch = 'display';
         };
     }])

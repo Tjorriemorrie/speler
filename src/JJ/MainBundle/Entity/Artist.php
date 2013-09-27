@@ -16,7 +16,7 @@ use JJ\MainBundle\Entity\Song;
 /**
  * Artist
  *
- * @ORM\Table()
+ * @ORM\Table(name="s_artist")
  * @ORM\Entity(repositoryClass="JJ\MainBundle\Entity\ArtistRepository")
  * @Ser\ExclusionPolicy("all")
  */
@@ -144,7 +144,7 @@ class Artist
             ->setMaxResults(1);
         /** @var Song $song */
         $song = $this->getSongs()->matching($criteria)->first();
-        return $song->getPlayedAt();
+        return !$song ? null : $song->getPlayedAt();
     }
 
     /**
@@ -173,11 +173,11 @@ class Artist
         $this->songs = new \Doctrine\Common\Collections\ArrayCollection();
         $this->albums = new \Doctrine\Common\Collections\ArrayCollection();
     }
-    
+
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -193,14 +193,14 @@ class Artist
     public function setName($name)
     {
         $this->name = $name;
-    
+
         return $this;
     }
 
     /**
      * Get name
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
@@ -216,14 +216,14 @@ class Artist
     public function setCreatedAt($createdAt)
     {
         $this->createdAt = $createdAt;
-    
+
         return $this;
     }
 
     /**
      * Get createdAt
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getCreatedAt()
     {
@@ -239,14 +239,14 @@ class Artist
     public function setUpdatedAt($updatedAt)
     {
         $this->updatedAt = $updatedAt;
-    
+
         return $this;
     }
 
     /**
      * Get updatedAt
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getUpdatedAt()
     {
@@ -262,7 +262,7 @@ class Artist
     public function addSong(\JJ\MainBundle\Entity\Song $songs)
     {
         $this->songs[] = $songs;
-    
+
         return $this;
     }
 
@@ -295,7 +295,7 @@ class Artist
     public function addAlbum(\JJ\MainBundle\Entity\Album $albums)
     {
         $this->albums[] = $albums;
-    
+
         return $this;
     }
 
@@ -312,7 +312,7 @@ class Artist
     /**
      * Get albums
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getAlbums()
     {
