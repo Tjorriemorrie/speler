@@ -10,6 +10,7 @@ use JMS\Serializer\Serializer;
 
 use JJ\MainBundle\Manager\SongManager;
 use JJ\MainBundle\Entity\Song;
+use JJ\MainBundle\Manager\RatingManager;
 
 /**
  * @Route("songs")
@@ -61,9 +62,18 @@ class SongsController extends Controller
      */
     public function songsAction()
     {
+	    set_time_limit(0);
+
         $formData = $this->getRequest()->request->all();
 
         $songs = $this->getSongManager()->getNextTwo($formData['ids']);
+
+	    /** @var RatingManager $ratingMan */
+	    $ratingMan = $this->get('rating.manager');
+
+	    foreach ($songs as $song) {
+	        $song->matches = $ratingMan->findMatches($song);
+	    }
 
         return $this->createJsonResponse($songs);
     }

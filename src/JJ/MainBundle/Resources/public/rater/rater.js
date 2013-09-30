@@ -2,17 +2,13 @@
 
 angular.module('rater', [])
 
-    .controller('raterCtrl', ['ratingsServ', '$rootScope', '$q', 'storage', '$scope', function(ratingsServ, $rootScope, $q, storage, $scope) {
+    .controller('raterCtrl', ['ratingsServ', '$rootScope', '$q', '$log', 'storage', '$scope', function (ratingsServ, $rootScope, $q, $log, storage, $scope) {
 
-        $scope.matches = [];
-        $scope.match = null;
+        // STATS
         $scope.stats = null;
-
-        $rootScope.$watch('song', function(songNew, songOld) {
-            $scope.matches = [];
-            if (songNew != null && (songOld != null && songNew.id != songOld.id)) {
-                console.info('rater new song!', songNew);
-
+        $rootScope.$watch('song', function (songNew, songOld) {
+            if (songNew != null) {
+                $log.log('$watch stats');
                 $scope.stats = {
                     'priority': songNew.priority,
                     'count_played': songNew.count_played,
@@ -20,48 +16,13 @@ angular.module('rater', [])
                     'count_rated': songNew.count_rated,
                     'wins': songNew.hasOwnProperty('rating') ? songNew.count_rated * songNew.rating : 0,
                 };
+                $log.debug($scope.stats);
                 $scope.setRating();
-
-                if (songNew.hasOwnProperty('matches')) {
-                    $scope.matches = songNew.matches;
-                } else {
-                    ratingsServ.find(songNew).then(function(data) {
-                        $scope.matches = data;
-                    });
-                }
             }
         });
 
-        $scope.$watch('matches', function(matches) {
-            $scope.match = null;
-            if (matches.length) {
-                console.info('matches changed!', matches);
-                $scope.match = matches[0];
-            }
-        }, true);
-
-        $scope.$watch('match', function(match) {
-            if (match != null) {
-            }
-        });
-
-        // set match
-        $scope.setMatch = function(result) {
-            //console.info('setMatch', result);
-            $scope.matches.shift();
-            $scope.stats.count_rated++;
-            if (result === 1) {
-                ratingsServ.match($scope.match, $rootScope.song);
-            } else if (result === -1) {
-                $scope.stats.wins++;
-                ratingsServ.match($rootScope.song, $scope.match);
-            } else {
-                console.warn('Unknown match result');
-            }
-            $scope.setRating();
-        };
-
-        $scope.setRating = function() {
+        // STATS SET RATING
+        $scope.setRating = function () {
             var rating = 0;
             if ($scope.stats.count_rated) {
                 rating = $scope.stats.wins / $scope.stats.count_rated;
@@ -69,4 +30,38 @@ angular.module('rater', [])
             //console.info('rating', rating);
             $scope.stats.rating = rating;
         };
+
+
+        // MATCHES
+        $scope.match = null;
+
+        // WATCH MATCHES
+        $rootScope.$watch('song.matches', function (matches) {
+            if (matches != null) {
+                $log.log('$watch matches', matches.length);
+                if (!matches.length) {
+                    $scope.match = null;
+                } else {
+                    $scope.match = matches[0];
+                }
+            }
+        });
+
+        // SAVE MATCH
+        $scope.setMatch = function (result) {
+            $log.log('setMatch', result);
+            $scope.stats.count_rated++;
+            if (result === 1) {
+                ratingsServ.match($scope.match, $rootScope.song);
+            } else if (result === -1) {
+                $scope.stats.wins++;
+                ratingsServ.match($rootScope.song, $scope.match);
+            } else {
+                $log.warn('Unknown match result');
+            }
+            $scope.setRating();
+            $rootScope.song.matches.shift();
+            $log.debug('matches shifted', $rootScope.song.matches);
+        };
+
     }]);

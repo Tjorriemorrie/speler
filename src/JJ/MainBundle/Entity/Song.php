@@ -176,6 +176,12 @@ class Song
      */
     private $updatedAt;
 
+	/**
+	 * @var Song[]
+	 *
+	 * @Ser\Expose()
+	 */
+	public $matches;
 
     ///////////////////////////////////////////////////////////////////////////////////////////
     // METHODS

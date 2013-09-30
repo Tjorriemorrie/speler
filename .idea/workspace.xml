@@ -2,27 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d1ca1b1a-fa57-4219-8898-794e07d3a59d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/config/parameters_live.yml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player_info_artist.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player_info_song.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JJ/MainBundle/Entity/Album.php" afterPath="$PROJECT_DIR$/src/JJ/MainBundle/Entity/Album.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JJ/MainBundle/Entity/Artist.php" afterPath="$PROJECT_DIR$/src/JJ/MainBundle/Entity/Artist.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JJ/MainBundle/Manager/ArtistManager.php" afterPath="$PROJECT_DIR$/src/JJ/MainBundle/Manager/ArtistManager.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JJ/MainBundle/Controller/ArtistsController.php" afterPath="$PROJECT_DIR$/src/JJ/MainBundle/Controller/ArtistsController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JJ/MainBundle/Entity/Rating.php" afterPath="$PROJECT_DIR$/src/JJ/MainBundle/Entity/Rating.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JJ/MainBundle/Manager/RatingManager.php" afterPath="$PROJECT_DIR$/src/JJ/MainBundle/Manager/RatingManager.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JJ/MainBundle/Entity/Song.php" afterPath="$PROJECT_DIR$/src/JJ/MainBundle/Entity/Song.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JJ/MainBundle/Manager/SongManager.php" afterPath="$PROJECT_DIR$/src/JJ/MainBundle/Manager/SongManager.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JJ/MainBundle/Controller/SongsController.php" afterPath="$PROJECT_DIR$/src/JJ/MainBundle/Controller/SongsController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/config.yml" afterPath="$PROJECT_DIR$/app/config/config.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player.js" afterPath="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player_info.html" afterPath="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player_info.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/services.js" afterPath="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/services.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/speler.iml" afterPath="$PROJECT_DIR$/.idea/speler.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/rater/rater.js" afterPath="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/rater/rater.js" />
     </list>
     <ignored path="speler.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380283301478" ignored="false" />
+    <file path="/Dummy.txt" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380548964466" ignored="false" />
     <file path="/.gitignore" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1379854410606" ignored="false" />
     <file path="/DefaultController.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1379853742140" ignored="false" />
     <file path="/nav.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1379882080669" ignored="false" />
@@ -34,7 +21,7 @@
     <file path="/Scanner.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1379872853298" ignored="false" />
     <file path="/SongManager.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380286705855" ignored="false" />
     <file path="/Identifier.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1379860215126" ignored="false" />
-    <file path="/Song.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380096024715" ignored="false" />
+    <file path="/Song.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380555293803" ignored="false" />
     <file path="/Album.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1379887482820" ignored="false" />
     <file path="/AlbumManager.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1379880565932" ignored="false" />
     <file path="/ArtistRepository.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1379882418412" ignored="false" />
@@ -46,7 +33,7 @@
     <file path="/player.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380206392074" ignored="false" />
     <file path="/player.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380287966806" ignored="false" />
     <file path="/services.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380285141492" ignored="false" />
-    <file path="/SongsController.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380286877701" ignored="false" />
+    <file path="/SongsController.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380555413699" ignored="false" />
     <file path="/SongRepository.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380095583202" ignored="false" />
     <file path="/directives.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380122286185" ignored="false" />
     <file path="/app.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380277278258" ignored="false" />
@@ -57,7 +44,7 @@
     <file path="$PROJECT_DIR$/app/cache/dev/profiler/index.csv" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1379886799678" ignored="false" />
     <file path="/artists.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1379887731211" ignored="false" />
     <file path="/rater.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380098757170" ignored="false" />
-    <file path="/rater.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380206061454" ignored="false" />
+    <file path="/rater.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380556625571" ignored="false" />
     <file path="/RatingsController.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380094629055" ignored="false" />
     <file path="/Rating.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1379957137030" ignored="false" />
     <file path="/RatingManager.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380096458124" ignored="false" />
@@ -221,7 +208,7 @@
               <file leaf-file-name="SongsController.php" pinned="false" current="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Controller/SongsController.php">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state line="101" column="48" selection-start="2375" selection-end="2375" vertical-scroll-proportion="-7.5384617">
+                    <state line="74" column="45" selection-start="1795" selection-end="1795" vertical-scroll-proportion="-12.923077">
                       <folding />
                     </state>
                   </provider>
@@ -230,25 +217,25 @@
               <file leaf-file-name="ArtistsController.php" pinned="false" current="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Controller/ArtistsController.php">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state line="78" column="50" selection-start="1932" selection-end="1932" vertical-scroll-proportion="-12.0">
+                    <state line="78" column="50" selection-start="1932" selection-end="1932" vertical-scroll-proportion="0.0">
                       <folding />
                     </state>
                   </provider>
                 </entry>
               </file>
-              <file leaf-file-name="rater.js" pinned="false" current="false" current-in-tab="false">
+              <file leaf-file-name="rater.js" pinned="false" current="true" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/rater/rater.js">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state line="22" column="35" selection-start="922" selection-end="922" vertical-scroll-proportion="0.0">
+                    <state line="63" column="67" selection-start="2244" selection-end="2244" vertical-scroll-proportion="0.87560976">
                       <folding />
                     </state>
                   </provider>
                 </entry>
               </file>
-              <file leaf-file-name="player.js" pinned="false" current="true" current-in-tab="true">
+              <file leaf-file-name="player.js" pinned="false" current="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player.js">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state line="137" column="0" selection-start="4815" selection-end="4815" vertical-scroll-proportion="0.49756098">
+                    <state line="141" column="38" selection-start="4931" selection-end="4931" vertical-scroll-proportion="0.0">
                       <folding />
                     </state>
                   </provider>
@@ -270,16 +257,16 @@
               <file leaf-file-name="player_info_song.html" pinned="false" current="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player_info_song.html">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state line="27" column="0" selection-start="1815" selection-end="1815" vertical-scroll-proportion="-10.615385">
+                    <state line="27" column="0" selection-start="1815" selection-end="1815" vertical-scroll-proportion="0.0">
                       <folding />
                     </state>
                   </provider>
                 </entry>
               </file>
-              <file leaf-file-name="player_info_artist.html" pinned="false" current="false" current-in-tab="true">
+              <file leaf-file-name="player_info_artist.html" pinned="false" current="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player_info_artist.html">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state line="17" column="50" selection-start="1260" selection-end="1260" vertical-scroll-proportion="0.76455027">
+                    <state line="17" column="50" selection-start="1260" selection-end="1260" vertical-scroll-proportion="-2.1538463">
                       <folding />
                     </state>
                   </provider>
@@ -297,16 +284,16 @@
               <file leaf-file-name="artists.html" pinned="false" current="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/library/artists.html">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state line="16" column="60" selection-start="726" selection-end="726" vertical-scroll-proportion="-8.692307">
+                    <state line="16" column="60" selection-start="726" selection-end="726" vertical-scroll-proportion="0.0">
                       <folding />
                     </state>
                   </provider>
                 </entry>
               </file>
-              <file leaf-file-name="rater.html" pinned="false" current="false" current-in-tab="false">
+              <file leaf-file-name="rater.html" pinned="false" current="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/rater/rater.html">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+                    <state line="24" column="0" selection-start="1060" selection-end="1060" vertical-scroll-proportion="0.46031746">
                       <folding />
                     </state>
                   </provider>
@@ -338,10 +325,10 @@
                   </provider>
                 </entry>
               </file>
-              <file leaf-file-name="SongManager.php" pinned="false" current="false" current-in-tab="true">
+              <file leaf-file-name="SongManager.php" pinned="false" current="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Manager/SongManager.php">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state line="203" column="24" selection-start="4649" selection-end="4649" vertical-scroll-proportion="0.46614584">
+                    <state line="86" column="20" selection-start="1694" selection-end="1694" vertical-scroll-proportion="-1.0">
                       <folding />
                     </state>
                   </provider>
@@ -359,16 +346,16 @@
               <file leaf-file-name="ArtistManager.php" pinned="false" current="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Manager/ArtistManager.php">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state line="78" column="12" selection-start="1475" selection-end="1475" vertical-scroll-proportion="-0.0">
+                    <state line="78" column="12" selection-start="1475" selection-end="1475" vertical-scroll-proportion="0.0">
                       <folding />
                     </state>
                   </provider>
                 </entry>
               </file>
-              <file leaf-file-name="RatingManager.php" pinned="false" current="false" current-in-tab="false">
+              <file leaf-file-name="RatingManager.php" pinned="false" current="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Manager/RatingManager.php">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state line="216" column="28" selection-start="5347" selection-end="5347" vertical-scroll-proportion="0.0">
+                    <state line="151" column="31" selection-start="3713" selection-end="3713" vertical-scroll-proportion="0.20052083">
                       <folding />
                     </state>
                   </provider>
@@ -387,10 +374,10 @@
                   </provider>
                 </entry>
               </file>
-              <file leaf-file-name="Song.php" pinned="false" current="false" current-in-tab="false">
+              <file leaf-file-name="Song.php" pinned="false" current="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Entity/Song.php">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state line="24" column="1" selection-start="621" selection-end="621" vertical-scroll-proportion="-0.65384614">
+                    <state line="182" column="0" selection-start="3618" selection-end="3618" vertical-scroll-proportion="0.67460316">
                       <folding />
                     </state>
                   </provider>
@@ -423,10 +410,10 @@
                   </provider>
                 </entry>
               </file>
-              <file leaf-file-name="Artist.php" pinned="false" current="false" current-in-tab="true">
+              <file leaf-file-name="Artist.php" pinned="false" current="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Entity/Artist.php">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state line="146" column="31" selection-start="3065" selection-end="3065" vertical-scroll-proportion="0.26086956">
+                    <state line="146" column="31" selection-start="3065" selection-end="3065" vertical-scroll-proportion="-0.65384614">
                       <folding />
                     </state>
                   </provider>
@@ -454,22 +441,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/config/parameters_prod.yml" />
-        <option value="$PROJECT_DIR$/app/config/config_prod.yml" />
         <option value="$PROJECT_DIR$/app/config/config.yml" />
         <option value="$PROJECT_DIR$/src/JJ/MainBundle/Entity/Album.php" />
         <option value="$PROJECT_DIR$/src/JJ/MainBundle/Entity/Rating.php" />
-        <option value="$PROJECT_DIR$/src/JJ/MainBundle/Entity/Song.php" />
         <option value="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player_info.html" />
         <option value="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player_info_song.html" />
         <option value="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/services.js" />
         <option value="$PROJECT_DIR$/src/JJ/MainBundle/Controller/ArtistsController.php" />
         <option value="$PROJECT_DIR$/src/JJ/MainBundle/Manager/ArtistManager.php" />
         <option value="$PROJECT_DIR$/src/JJ/MainBundle/Manager/SongManager.php" />
-        <option value="$PROJECT_DIR$/src/JJ/MainBundle/Controller/SongsController.php" />
         <option value="$PROJECT_DIR$/src/JJ/MainBundle/Entity/Artist.php" />
         <option value="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player_info_artist.html" />
         <option value="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player.js" />
+        <option value="$PROJECT_DIR$/src/JJ/MainBundle/Entity/Song.php" />
+        <option value="$PROJECT_DIR$/src/JJ/MainBundle/Controller/SongsController.php" />
+        <option value="$PROJECT_DIR$/src/JJ/MainBundle/Manager/RatingManager.php" />
+        <option value="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/rater/rater.js" />
       </list>
     </option>
   </component>
@@ -1022,8 +1009,8 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="options.lastSelected" value="Symfony2.SettingsForm" />
     <property name="FullScreen" value="false" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -1077,7 +1064,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Symfony2" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Framework" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17662753" sideWeight="0.6703786" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.178762" sideWeight="0.6703786" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962137" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
@@ -1153,28 +1140,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/config/parameters_live.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="0" selection-start="245" selection-end="245" vertical-scroll-proportion="0.3222749">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/config.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="0" selection-start="153" selection-end="153" vertical-scroll-proportion="0.04028436" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/main/main.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="71" selection-start="1469" selection-end="1469" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player_info.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="7" column="8" selection-start="333" selection-end="333" vertical-scroll-proportion="0.0">
@@ -1182,16 +1147,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Entity/Song.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="1" selection-start="621" selection-end="621" vertical-scroll-proportion="-0.65384614">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player_info_song.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="0" selection-start="1815" selection-end="1815" vertical-scroll-proportion="-10.615385">
+        <state line="27" column="0" selection-start="1815" selection-end="1815" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -1212,49 +1170,84 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Controller/ArtistsController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="78" column="50" selection-start="1932" selection-end="1932" vertical-scroll-proportion="-12.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Manager/SongManager.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="203" column="24" selection-start="4649" selection-end="4649" vertical-scroll-proportion="0.46614584">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Controller/SongsController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="101" column="48" selection-start="2375" selection-end="2375" vertical-scroll-proportion="-7.5384617">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Entity/Artist.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="146" column="31" selection-start="3065" selection-end="3065" vertical-scroll-proportion="0.26086956">
+        <state line="78" column="50" selection-start="1932" selection-end="1932" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/library/artists.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="60" selection-start="726" selection-end="726" vertical-scroll-proportion="-8.692307">
+        <state line="16" column="60" selection-start="726" selection-end="726" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player_info_artist.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="50" selection-start="1260" selection-end="1260" vertical-scroll-proportion="0.76455027">
+        <state line="17" column="50" selection-start="1260" selection-end="1260" vertical-scroll-proportion="-2.1538463">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Entity/Album.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="28" selection-start="470" selection-end="470" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Entity/Artist.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="146" column="31" selection-start="3065" selection-end="3065" vertical-scroll-proportion="-0.65384614">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="137" column="0" selection-start="4815" selection-end="4815" vertical-scroll-proportion="0.49756098">
+        <state line="141" column="38" selection-start="4931" selection-end="4931" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/rater/rater.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="0" selection-start="1060" selection-end="1060" vertical-scroll-proportion="0.46031746">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Manager/SongManager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="86" column="20" selection-start="1694" selection-end="1694" vertical-scroll-proportion="-1.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Entity/Song.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="182" column="0" selection-start="3618" selection-end="3618" vertical-scroll-proportion="0.67460316">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Controller/SongsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="74" column="45" selection-start="1795" selection-end="1795" vertical-scroll-proportion="-12.923077">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Manager/RatingManager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="151" column="31" selection-start="3713" selection-end="3713" vertical-scroll-proportion="0.20052083">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/rater/rater.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="63" column="67" selection-start="2244" selection-end="2244" vertical-scroll-proportion="0.87560976">
           <folding />
         </state>
       </provider>

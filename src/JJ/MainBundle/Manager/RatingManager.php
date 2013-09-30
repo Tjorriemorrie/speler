@@ -149,7 +149,7 @@ class RatingManager
         $iteration = 0;
         do {
             $iteration++;
-            if ($iteration > $countSongs) {
+            if ($iteration > 10) {
                 return null;
             }
 
