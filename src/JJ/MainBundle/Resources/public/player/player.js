@@ -10,15 +10,21 @@ angular.module('player', [])
         var findNext = function() {
             var dfd = $q.defer();
             if (playList.length >= playListSize) {
+                $log.info('PLAYLIST', playList.length);
                 dfd.resolve();
             } else {
                 songsServ.findNext(playList).then(function(data) {
                     playList = playList.concat(data);
-                    console.info('PLAYLIST', playList);
+                    $log.info('PLAYLIST', playList.length);
                     dfd.resolve();
                 });
             }
             return dfd.promise;
+        };
+
+        $scope.skipSong = function() {
+            accrete();
+            $scope.endSong();
         };
 
         // ACCRETE
@@ -37,12 +43,12 @@ angular.module('player', [])
             if (playList.length < 1) {
                 $rootScope.song = null;
                 document.title = 'No songs to play';
-                console.warn('setSong song NONE');
+                $log.warn('setSong song NONE');
                 dfd.reject('No song');
             } else {
     //            songPlayingProgress = 0;
                 $rootScope.song = playList[0];
-                console.info('setSong song', $rootScope.song);
+                $log.info('setSong song', $rootScope.song);
 
     //            $('#jp_container_1').show();
     //            Titel.setJplayerTitle();
@@ -68,21 +74,9 @@ angular.module('player', [])
 
         // END SONG
         $scope.endSong = function() {
-            console.info('endSong');
+            $log.log('endSong');
             document.title = 'loading...';
             playList.shift();
-
-            /*
-            Player.songPlaying = null;
-            Titel.loadJplayerTitle();
-            Rater.end();
-            Rater.statsHide();
-            Player.hideSkip();
-            Charter.hidePlaying();
-
-            //Notifier.info('Player.playList has ' + Player.playList.length + ' songs after cleanup!');
-*/
-
             setSong().then(function(data) {
                 findNext();
             });
@@ -111,40 +105,48 @@ angular.module('player', [])
                         accrete();
                     }
                 }
-            }
+            },
 //            progress: function(event) {
 //                songPlayingProgress = event.jPlayer.status.seekPercent;
 //            }
+            error: function(event) {
+                alert('error');
+            }
         });
 
     }])
 
     .controller('infoCtrl', ['editsServ', '$rootScope', '$q', 'storage', '$log', '$scope', function(editsServ, $rootScope, $q, storage, $log, $scope) {
 
+        // SWITCH
         $scope.edit = { 'switch': 'display' };
+        // WATCH SONG (goto display on change)
+        $rootScope.$watch('song', function(song) {
+            $log.debug('song changed, closing info edit forms');
+            $scope.edit.switch = 'display';
+        });
 
         // EDIT INFO
         $scope.editInfo = function(infoSwitch) {
-            $log.log('editInfo', infoSwitch);
             $scope.edit = {
                 switch: infoSwitch,
                 song: Object.create($rootScope.song),
+                'artist': $rootScope.song.hasOwnProperty('artist') ? Object.create($rootScope.song.artist) : Object.create(artist_blank),
                 'album': {
                     'name': $rootScope.song.hasOwnProperty('album') ? $rootScope.song.album.name : ''
-                },
-                'artist': $rootScope.song.hasOwnProperty('artist') ? Object.create($rootScope.song.artist) : Object.create(artist_blank)
+                }
             };
             $scope.edit.artist.create = false;
-            $log.debug('edit', $scope.edit);
+            $log.debug('edit info', infoSwitch, $scope.edit);
         };
 
         // SAVE SONG
-        $scope.saveSong = function() {
+        $scope.saveSong = function(infoSwitch) {
             $log.log('saveSong', $scope.edit.song);
             editsServ.saveSong($scope.edit.song);
             $rootScope.song.name = $scope.edit.song.name;
             $rootScope.song.number = $scope.edit.song.number;
-            $scope.edit.switch = 'display';
+            $scope.editInfo('display');
         };
 
         // SAVE ARTIST

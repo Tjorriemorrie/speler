@@ -21,6 +21,7 @@
         "angular-route": "latest",
         "angular-animate": "latest",
         "Angular-localStorage": "latest",
-        "jplayer": "latest"
+        "jplayer": "latest",
+        "favico.js": "latest"
     }
 }

@@ -89,7 +89,17 @@ class ArtistManager
 		} else {
 			$artist = $song->getArtist();
 			if ($artist) {
-				$artist->setName($formData['name']);
+				$artistExist = $this->findOneByName($formData['name']);
+				if (!$artistExist) { // clean rename
+					$artist->setName($formData['name']);
+				} else { // conflict: have to change associations for all songs and albums
+					foreach ($artist->getSongs() as $artistSong) {
+						$artistSong->setArtist($artistExist);
+					}
+					foreach ($artist->getAlbums() as $artistAlbum) {
+						$artistAlbum->setArtist($artistExist);
+					}
+				}
 			} else {
 				$artist = $this->findOneByName($formData['name']);
 				if (!$artist) {

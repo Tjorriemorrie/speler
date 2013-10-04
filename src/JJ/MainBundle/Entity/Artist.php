@@ -312,7 +312,7 @@ class Artist
     /**
      * Get albums
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return Album[]
      */
     public function getAlbums()
     {

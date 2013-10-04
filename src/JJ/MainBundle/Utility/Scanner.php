@@ -61,14 +61,14 @@ class Scanner
             }
         }
         $this->em->flush();
-        
+
         foreach ($this->albumMan->findAll() as $album) {
             if (!$album->getSongs()) {
                 $this->em->remove($album);
             }
         }
         $this->em->flush();
-        
+
         foreach ($this->artistMan->findAll() as $artist) {
             if (!$artist->getSongs() && !$artist->getAlbums()) {
                 $this->em->remove($artist);

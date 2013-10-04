@@ -194,10 +194,19 @@ class Song
      */
     public function fileExists()
     {
-        return file_exists(PATH_AUDIO . DIRECTORY_SEPARATOR . $this->getPath());
+        return file_exists($this->getAbsolutePath());
     }
 
-    ///////////////////////////////////////////////////////////////////////////////////////////
+	/**
+	 * Get absolute path
+	 * @return string
+	 */
+	public function getAbsolutePath()
+	{
+		return realpath(PATH_AUDIO . '/' . $this->getPath());
+	}
+
+	///////////////////////////////////////////////////////////////////////////////////////////
     // GETTERS AND SETTERS
     ///////////////////////////////////////////////////////////////////////////////////////////
 

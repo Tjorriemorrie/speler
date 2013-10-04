@@ -3,6 +3,8 @@
 namespace JJ\MainBundle\Utility;
 
 use GetId3\GetId3Core as GetId3;
+use GetId3\Write\Tags;
+use JJ\MainBundle\Entity\Song;
 
 /**
  * Identifier
@@ -37,4 +39,50 @@ class Identifier
         //die(var_dump($data));
         return $data;
     }
+
+	/**
+	 * Set ID3
+	 *
+	 * @param Song $song
+	 * @throws \Exception
+	 */
+	public function setId3(Song $song)
+	{
+		$tagWriter = new Tags();
+		$tagWriter->filename = $song->getAbsolutePath();
+		$tagWriter->tagformats = array('id3v1', 'id3v2.3');
+		$tagWriter->overwrite_tags = true;
+		$tagWriter->tag_encoding = 'ISO-8859-1';
+		$tagWriter->remove_other_tags = false;
+
+		$tagData = array(
+			'title' => array($song->getName()),
+			'track' => array($song->getNumber()),
+		);
+
+		if ($song->getArtist()) {
+			$tagData['artist'] = array($song->getArtist()->getName());
+		}
+
+		if ($song->getAlbum()) {
+			$tagData['album'] = array($song->getAlbum()->getName());
+			if ($song->getAlbum()->getYear()) {
+				$tagData['year'] = array($song->getAlbum()->getYear());
+			}
+			if ($song->getAlbum()->getSize()) {
+				$tagData['track'][0] .= '/' . $song->getAlbum()->getSize();
+			}
+		}
+
+		//'genre' => array('Electronic' . $hash),
+		//'comment' => array('excellent!' . $hash),
+
+		//die(var_dump($tagData));
+		$tagWriter->tag_data = $tagData;
+		$tagWritten = $tagWriter->WriteTags();
+
+		if (!$tagWritten) {
+			throw new \Exception('Could not write tags!', 500);
+		}
+	}
 }

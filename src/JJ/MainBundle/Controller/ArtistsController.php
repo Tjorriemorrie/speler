@@ -11,6 +11,7 @@ use JMS\Serializer\Serializer;
 
 use JJ\MainBundle\Manager\ArtistManager;
 use JJ\MainBundle\Entity\Artist;
+use JJ\MainBundle\Utility\Identifier;
 
 /**
  * @Route("artists")
@@ -75,6 +76,10 @@ class ArtistsController extends Controller
 		$formData = $this->getRequest()->request->all();
 
 		$artist = $this->getArtistManager()->update($song, $formData);
+
+		/** @var Identifier $identifier */
+		$identifier = $this->get('identifier');
+		$identifier->setId3($song);
 
 		return $this->createJsonResponse($artist);
 	}

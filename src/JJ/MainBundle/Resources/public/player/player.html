@@ -22,7 +22,7 @@
                                 <li><a href="javascript:;" class="jp-mute" tabindex="1" title="mute">mute</a></li>
                                 <li><a href="javascript:;" class="jp-unmute" tabindex="1" title="unmute">unmute</a></li>
                                 <li><a href="javascript:;" class="jp-volume-max" style="margin-left: 55px;" tabindex="1" title="max volume">max volume</a></li>
-	                            <li><a ng-disabled="playList.length < 2" ng-click="endSong()" href="javascript:;" class="jp-next" style="margin-left: -27px; margin-top: -21px;" tabindex="1" title="next">next</a></li>
+	                            <li><a ng-disabled="playList.length < 2" ng-click="skipSong()" href="javascript:;" class="jp-next" style="margin-left: -27px; margin-top: -21px;" tabindex="1" title="next">next</a></li>
                             </ul>
                             <div class="jp-progress">
                                 <div class="jp-seek-bar">
@@ -41,6 +41,9 @@
                                 </ul>
                             </div>
                         </div>
+	                    <div class="jp-title">
+		                    <p class="text-muted" style="font-size:0.8rem; margin:0; padding:0.4rem;">{{ song.path }}</p>
+	                    </div>
                         <div class="jp-no-solution">
                             <span>Update Required</span>
                             To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
