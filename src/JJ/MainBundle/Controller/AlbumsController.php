@@ -10,6 +10,8 @@ use JMS\Serializer\Serializer;
 
 use JJ\MainBundle\Manager\AlbumManager;
 use JJ\MainBundle\Entity\Album;
+use JJ\MainBundle\Entity\Song;
+use JJ\MainBundle\Utility\Identifier;
 
 /**
  * @Route("albums")
@@ -54,7 +56,7 @@ class AlbumsController extends Controller
         $albums = $this->getAlbumManager()->findAll();
         return $this->createJsonResponse($albums);
     }
-    
+
     /**
      * @Route("/count", name="albums_count")
      * @Method({"get"})
@@ -64,4 +66,23 @@ class AlbumsController extends Controller
         $countAlbums = $this->getAlbumManager()->countAll();
         return new JsonResponse($countAlbums);
     }
+
+	/**
+	 * @Route("/update/{song}", requirements={"_format" = "json"}, name="albums_update")
+	 * @Method({"post"})
+	 */
+	public function updateAction(Song $song)
+	{
+		$formData = $this->getRequest()->request->all();
+
+		$album = $this->getAlbumManager()->update($song, $formData);
+
+		/** @var Identifier $identifier */
+		$identifier = $this->get('identifier');
+		foreach ($album->getSongs() as $song) {
+			$identifier->setId3($song);
+		}
+
+		return $this->createJsonResponse($album);
+	}
 }

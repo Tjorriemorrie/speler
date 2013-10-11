@@ -79,7 +79,9 @@ class ArtistsController extends Controller
 
 		/** @var Identifier $identifier */
 		$identifier = $this->get('identifier');
-		$identifier->setId3($song);
+		foreach ($artist->getSongs() as $song) {
+			$identifier->setId3($song);
+		}
 
 		return $this->createJsonResponse($artist);
 	}

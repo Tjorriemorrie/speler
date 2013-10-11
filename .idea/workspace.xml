@@ -2,28 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d1ca1b1a-fa57-4219-8898-794e07d3a59d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/favicon.ico" afterPath="$PROJECT_DIR$/web/favicon.ico" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JJ/MainBundle/Entity/Artist.php" afterPath="$PROJECT_DIR$/src/JJ/MainBundle/Entity/Artist.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player_info_album.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/.htaccess" afterPath="$PROJECT_DIR$/web/.htaccess" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JJ/MainBundle/Entity/Album.php" afterPath="$PROJECT_DIR$/src/JJ/MainBundle/Entity/Album.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JJ/MainBundle/Manager/AlbumManager.php" afterPath="$PROJECT_DIR$/src/JJ/MainBundle/Manager/AlbumManager.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JJ/MainBundle/Controller/AlbumsController.php" afterPath="$PROJECT_DIR$/src/JJ/MainBundle/Controller/AlbumsController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JJ/MainBundle/Manager/ArtistManager.php" afterPath="$PROJECT_DIR$/src/JJ/MainBundle/Manager/ArtistManager.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JJ/MainBundle/Controller/ArtistsController.php" afterPath="$PROJECT_DIR$/src/JJ/MainBundle/Controller/ArtistsController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JJ/MainBundle/Utility/Identifier.php" afterPath="$PROJECT_DIR$/src/JJ/MainBundle/Utility/Identifier.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JJ/MainBundle/Manager/RatingManager.php" afterPath="$PROJECT_DIR$/src/JJ/MainBundle/Manager/RatingManager.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JJ/MainBundle/Utility/Scanner.php" afterPath="$PROJECT_DIR$/src/JJ/MainBundle/Utility/Scanner.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JJ/MainBundle/Entity/Song.php" afterPath="$PROJECT_DIR$/src/JJ/MainBundle/Entity/Song.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JJ/MainBundle/Controller/SongsController.php" afterPath="$PROJECT_DIR$/src/JJ/MainBundle/Controller/SongsController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/bower.json" afterPath="$PROJECT_DIR$/web/bower.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JJ/MainBundle/Resources/views/Default/index.html.twig" afterPath="$PROJECT_DIR$/src/JJ/MainBundle/Resources/views/Default/index.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player.html" afterPath="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player.js" afterPath="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player_info.html" afterPath="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player_info.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player_info_artist.html" afterPath="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player_info_artist.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player_info_song.html" afterPath="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player_info_song.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/rater/rater.html" afterPath="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/rater/rater.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/rater/rater.js" afterPath="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/rater/rater.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/services.js" afterPath="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/services.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="speler.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380879454567" ignored="false" />
+    <file path="/Dummy.txt" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381492502046" ignored="false" />
     <file path="/.gitignore" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1379854410606" ignored="false" />
     <file path="/DefaultController.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1379853742140" ignored="false" />
     <file path="/nav.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380792337688" ignored="false" />
@@ -35,22 +31,22 @@
     <file path="/Scanner.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380810391837" ignored="false" />
     <file path="/SongManager.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380286705855" ignored="false" />
     <file path="/Identifier.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380811771469" ignored="false" />
-    <file path="/Song.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380810227166" ignored="false" />
-    <file path="/Album.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1379887482820" ignored="false" />
-    <file path="/AlbumManager.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1379880565932" ignored="false" />
+    <file path="/Song.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381488908025" ignored="false" />
+    <file path="/Album.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381388545329" ignored="false" />
+    <file path="/AlbumManager.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381490966881" ignored="false" />
     <file path="/ArtistRepository.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1379882418412" ignored="false" />
     <file path="/Artist.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380287776863" ignored="false" />
     <file path="/config.yml" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380788375532" ignored="false" />
-    <file path="/bower.json" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380801872988" ignored="false" />
-    <file path="/index.html.twig" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380637193410" ignored="false" />
+    <file path="/bower.json" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381241238107" ignored="false" />
+    <file path="/index.html.twig" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381235399858" ignored="false" />
     <file path="/main.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1379880624996" ignored="false" />
     <file path="/player.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380719412712" ignored="false" />
-    <file path="/player.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380879604680" ignored="false" />
-    <file path="/services.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380878620510" ignored="false" />
-    <file path="/SongsController.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380810733167" ignored="false" />
+    <file path="/player.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381491171565" ignored="false" />
+    <file path="/services.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381386586209" ignored="false" />
+    <file path="/SongsController.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381488951391" ignored="false" />
     <file path="/SongRepository.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380095583202" ignored="false" />
     <file path="/directives.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380874452016" ignored="false" />
-    <file path="/app.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380637143705" ignored="false" />
+    <file path="/app.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381316500070" ignored="false" />
     <file path="/library.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1379886231830" ignored="false" />
     <file path="/AlbumRepository.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1379882328140" ignored="false" />
     <file path="/library.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1379886103139" ignored="false" />
@@ -110,7 +106,7 @@
     <file path="$PROJECT_DIR$/../smartscore-certificates/src/Talentec/CertificatesBundle/Entity/Company.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380784752355" ignored="false" />
     <file path="$PROJECT_DIR$/../smartscore-certificates/src/Talentec/CertificatesBundle/Entity/Certificate.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380188619191" ignored="false" />
     <file path="$PROJECT_DIR$/../smartscore-certificates/src/Talentec/CertificatesBundle/Resources/public/nav/nav.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380192018555" ignored="false" />
-    <file path="$PROJECT_DIR$/../smartscore-certificates/src/Talentec/CertificatesBundle/Resources/public/app.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380718568252" ignored="false" />
+    <file path="$PROJECT_DIR$/../smartscore-certificates/src/Talentec/CertificatesBundle/Resources/public/app.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381243158226" ignored="false" />
     <file path="$PROJECT_DIR$/../smartscore-certificates/app/cache/dev/doctrine/orm/Proxies/__CG__TalentecMainBundleEntityClient.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380195107512" ignored="false" />
     <file path="$PROJECT_DIR$/../smartscore-certificates/app/cache/dev/twig/a2/93/f69d92312d26331318db83921848.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380189717499" ignored="false" />
     <file path="$PROJECT_DIR$/../smartscore-certificates/src/Talentec/CertificatesBundle/Resources/public/reminders/reminders.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380638917881" ignored="false" />
@@ -124,7 +120,7 @@
     <file path="$PROJECT_DIR$/../smartscore-certificates/src/Talentec/SdBundle/Entity/Course.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380192018555" ignored="false" />
     <file path="$PROJECT_DIR$/../smartscore-certificates/src/Talentec/CertificatesBundle/Manager/EmailManager.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380698522903" ignored="false" />
     <file path="$PROJECT_DIR$/../smartscore-certificates/src/Talentec/CertificatesBundle/Controller/EmailRemindersController.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380276774592" ignored="false" />
-    <file path="/player_info.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380281887380" ignored="false" />
+    <file path="/player_info.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381492594688" ignored="false" />
     <file path="/config_prod.yml" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380786152748" ignored="false" />
     <file path="$PROJECT_DIR$/../talentec-portal/src/Talentec/MainBundle/Resources/public/admin/companies/companies.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380879115045" ignored="false" />
     <file path="$PROJECT_DIR$/../talentec-portal/src/Talentec/MainBundle/Controller/CompaniesController.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380879115045" ignored="false" />
@@ -193,9 +189,9 @@
     <file path="/ProductManager.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380278590515" ignored="false" />
     <file path="$PROJECT_DIR$/../talentec-portal/src/Talentec/MainBundle/Resources/public/admin/products/products_categories.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380283377892" ignored="false" />
     <file path="/products_categories.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380283376293" ignored="false" />
-    <file path="/player_info_artist.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380880495023" ignored="false" />
-    <file path="/ArtistsController.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380880731372" ignored="false" />
-    <file path="/ArtistManager.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380881657525" ignored="false" />
+    <file path="/player_info_artist.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381491307675" ignored="false" />
+    <file path="/ArtistsController.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381387877878" ignored="false" />
+    <file path="/ArtistManager.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381490994646" ignored="false" />
     <file path="$PROJECT_DIR$/../smartscore-certificates/src/Talentec/CertificatesBundle/Controller/CertificatesController.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380784752355" ignored="false" />
     <file path="/CertificatesController.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380715774776" ignored="false" />
     <file path="$PROJECT_DIR$/../smartscore-certificates/src/Talentec/CertificatesBundle/Resources/views/Certificates/uploadHash.html.twig" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380633104657" ignored="false" />
@@ -287,6 +283,175 @@
     <file path="$PROJECT_DIR$/../talentec-portal/src/Talentec/MainBundle/Resources/public/admin/charts/charts.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380879115045" ignored="false" />
     <file path="$PROJECT_DIR$/../talentec-portal/web/libraries/bootstrap-datetimepicker/tests/assets/jquery-1.7.1.min.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380879450717" ignored="false" />
     <file path="/player_info_song.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380880054847" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/www/js/websql.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381315653456" ignored="false" />
+    <file path="/websql.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381315648476" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/www/js/app.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381316505428" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/www/index.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381316626069" ignored="false" />
+    <file path="/index.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381316625723" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/www/js/services.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317281436" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/www/js/login/login.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317858845" ignored="false" />
+    <file path="/login.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317858845" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/config.xml" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381408113462" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/index.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381241852077" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/js/tests/vendor/qunit.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381330004766" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/src/coza/talentec/akhile/AkhileAMS.java" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381330004766" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/cordova.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381330004766" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/phonegap.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381330004766" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/angular/angular.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381330004766" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/angular/angular.min.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381330004766" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/AndroidManifest.xml" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381408113462" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/www/js/index.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381242679795" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/js/index.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381308600953" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/js/services.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381241852077" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/bin/AndroidManifest.xml" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381408113462" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/res/values/strings.xml" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381408113462" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/res/xml/config.xml" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381408113462" ignored="false" />
+    <file path="/index.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381240200100" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/www/bower.json" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381241240907" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/www/bower_components/angular-phonegap-geolocation/geolocation.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381303055058" ignored="false" />
+    <file path="/geolocation.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381303007018" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/www/js/login/login.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317677215" ignored="false" />
+    <file path="/login.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381308164385" ignored="false" />
+    <file path="/login_loading.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381306749808" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/www/js/login/login_loading.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381306788584" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/www/js/login/login_form.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317499484" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/www/js/login/login_sync.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381306902678" ignored="false" />
+    <file path="/login_sync.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381306898950" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/less/theme.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494068" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/dist/css/bootstrap.min.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494068" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/bootstrap-2.3.2/alerts.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494068" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/dist/css/bootstrap-theme.min.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494069" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/less/alerts.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494068" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/dist/css/bootstrap-theme.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494069" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/dist/css/bootstrap.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494068" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/less/scaffolding.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494069" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery/jquery.min.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381330004766" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery/jquery.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381310240370" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/js/tests/vendor/jquery.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381310240370" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/js/jquery-1.7.1.min.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381310547056" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/cordova_plugins.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381312590787" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/bootstrap-2.3.2/forms.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494068" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/less/forms.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494068" ignored="false" />
+    <file path="/login_form.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381316257665" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/bootstrap-2.3.2/mixins.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494068" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/www/js/takeon/takeon.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381407931727" ignored="false" />
+    <file path="/takeon.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381407931389" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/www/js/header/header.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317643002" ignored="false" />
+    <file path="/header.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317208734" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/www/js/header/header.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317422167" ignored="false" />
+    <file path="/header.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317394466" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/www/js/sync/sync.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317708656" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/www/js/sync/sync.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381316565276" ignored="false" />
+    <file path="/sync.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381316564588" ignored="false" />
+    <file path="/sync.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317055872" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/www/js/footer/footer.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317301580" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/font-awesome/scss/_variables.scss" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494067" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/less/code.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494067" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/less/popovers.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494067" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/less/progress-bars.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494067" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/less/input-groups.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494067" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/less/tables.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494067" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/less/list-group.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494067" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/less/type.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494067" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/scss/_icons.scss" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494067" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/font-awesome/less/bootstrap.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494067" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/font-awesome/less/core.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494067" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/less/dropdowns.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494067" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/font-awesome/less/icons.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494067" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/font-awesome/less/font-awesome-ie7.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494067" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/font-awesome/scss/_extras.scss" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494067" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/sticky-footer.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494067" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/bootstrap-2.3.2/media.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494067" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/bootstrap-2.3.2/responsive-utilities.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494068" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/css/prettify.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494068" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/less/grid.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494068" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/bootstrap-2.3.2/breadcrumbs.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494068" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/bootstrap-2.3.2/pager.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494068" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/less/component-animations.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494068" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/bootstrap-2.3.2/accordion.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494068" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/bootstrap-2.3.2/tooltip.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494068" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/bootstrap-2.3.2/dropdowns.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494068" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/bootstrap-2.3.2/button-groups.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494068" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/bootstrap-2.3.2/carousel.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494068" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/bootstrap-2.3.2/utilities.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494068" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/less/navs.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494068" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/less/panels.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494068" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/bootstrap-2.3.2/pagination.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494068" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/bootstrap-2.3.2/modals.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494068" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/less/extras.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494068" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/bootstrap-2.3.2/hero-unit.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494068" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/scss/_extras.scss" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494068" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/less/jumbotron.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494068" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/bootstrap-2.3.2/progress-bars.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494068" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/bootstrap-2.3.2/thumbnails.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494068" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/bootstrap-2.3.2/navbar.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494068" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/less/thumbnails.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494068" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/less/icons.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494068" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/bootstrap-2.3.2/component-animations.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494068" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/less/bootstrap.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494068" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/bootstrap-2.3.2/tables.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494068" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/css/font-awesome-ie7.min.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494068" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/bootstrap-2.3.2/navs.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494068" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/css/font-awesome.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494068" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/less/button-groups.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494068" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/less/carousel.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494068" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/less/mixins.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494068" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/less/tooltip.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494068" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/bootstrap-2.3.2/code.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494068" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/bootstrap-2.3.2/sprites.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494068" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/less/core.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494068" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/less/font-awesome-ie7.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494068" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/less/modals.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494068" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/js/tests/vendor/qunit.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494068" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/less/responsive-utilities.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494068" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/less/close.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494068" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/scss/_core.scss" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494068" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/scss/font-awesome-ie7.scss" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494068" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/less/breadcrumbs.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494068" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/less/wells.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494068" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/less/navbar.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494068" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/bootstrap-2.3.2/wells.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494068" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/bootstrap-2.3.2/type.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494068" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/bootstrap-2.3.2/buttons.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494068" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/css/index.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494068" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/css/font-awesome-ie7.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494068" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/site.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494068" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/scss/_bootstrap.scss" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494068" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/bootstrap-2.3.2/labels-badges.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494068" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/font-awesome/less/extras.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494068" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/font-awesome/scss/_icons.scss" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494068" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/css/font-awesome.min.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494068" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/less/badges.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494068" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/bootstrap-2.3.2/layouts.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494068" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/font-awesome/scss/_core.scss" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494068" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/bootstrap-2.3.2/close.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494068" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/less/utilities.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494068" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/spec/lib/jasmine-1.2.0/jasmine.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494068" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/lazy.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494068" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/bootstrap-2.3.2/scaffolding.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494068" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/less/buttons.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494068" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/less/labels.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494068" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/bootstrap-2.3.2/popovers.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494069" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/less/glyphicons.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494069" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/less/pager.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494069" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/font-awesome/less/variables.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494069" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/less/media.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494069" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/less/pagination.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494069" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/css/pygments.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494069" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/angular-mobile-nav/mobile-nav.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494069" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/font-awesome/scss/_bootstrap.scss" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494069" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/www/js/angular-navigator.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381329583933" ignored="false" />
+    <file path="/angular-navigator.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381329555237" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/www/js/takeon/takeon.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381407653045" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/plugins/org.apache.cordova.geolocation/www/geolocation.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381330004766" ignored="false" />
+    <file path="/player_info_album.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381491279803" ignored="false" />
+    <file path="/AlbumsController.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381490010667" ignored="false" />
+    <file path="/takeon_dropdown.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381407903796" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/www/js/takeon/takeon_dropdown.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381407903796" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/www/js/takeon/takeon_form.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381408090454" ignored="false" />
+    <file path="/takeon_form.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381408090454" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/www/js/check/check.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381489500070" ignored="false" />
+    <file path="/check.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381489487695" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -310,47 +475,50 @@
         <splitter split-orientation="vertical" split-proportion="0.5">
           <split-first>
             <leaf>
+              <file leaf-file-name="ArtistsController.php" pinned="false" current="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Controller/ArtistsController.php">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state line="79" column="0" selection-start="1926" selection-end="1926" vertical-scroll-proportion="0.0">
+                      <folding />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
               <file leaf-file-name="SongsController.php" pinned="false" current="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Controller/SongsController.php">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state line="114" column="35" selection-start="2629" selection-end="2735" vertical-scroll-proportion="-6.5384617">
+                    <state line="75" column="46" selection-start="1834" selection-end="1834" vertical-scroll-proportion="0.0">
                       <folding />
                     </state>
                   </provider>
                 </entry>
               </file>
-              <file leaf-file-name="ArtistsController.php" pinned="false" current="false" current-in-tab="true">
-                <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Controller/ArtistsController.php">
+              <file leaf-file-name="AlbumsController.php" pinned="false" current="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Controller/AlbumsController.php">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state line="80" column="47" selection-start="2004" selection-end="2004" vertical-scroll-proportion="0.6010101">
+                    <state line="76" column="0" selection-start="1842" selection-end="1842" vertical-scroll-proportion="0.0">
                       <folding />
                     </state>
                   </provider>
                 </entry>
               </file>
-              <file leaf-file-name="ScanController.php" pinned="false" current="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Controller/ScanController.php">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state line="18" column="7" selection-start="395" selection-end="395" vertical-scroll-proportion="0.0">
-                      <folding />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file leaf-file-name="player.js" pinned="false" current="false" current-in-tab="false">
+              <file leaf-file-name="player.js" pinned="false" current="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player.js">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state line="133" column="16" selection-start="4589" selection-end="4589" vertical-scroll-proportion="0.0">
+                    <state line="160" column="12" selection-start="5782" selection-end="5782" vertical-scroll-proportion="0.041463416">
                       <folding />
                     </state>
                   </provider>
                 </entry>
               </file>
-              <file leaf-file-name="composer.json" pinned="false" current="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/composer.json">
+              <file leaf-file-name=".htaccess" pinned="false" current="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/web/.htaccess">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state line="25" column="0" selection-start="881" selection-end="881" vertical-scroll-proportion="0.0">
-                      <folding />
+                    <state line="1" column="0" selection-start="33" selection-end="33" vertical-scroll-proportion="0.0">
+                      <folding>
+                        <marker date="1381226861569" expanded="true" signature="701:2525" placeholder="&lt;IfModule mod_rewrite.c&gt;" />
+                        <marker date="1381226861569" expanded="true" signature="2527:2907" placeholder="&lt;IfModule !mod_rewrite.c&gt;" />
+                      </folding>
                     </state>
                   </provider>
                 </entry>
@@ -368,31 +536,19 @@
           </split-first>
           <split-second>
             <leaf>
-              <file leaf-file-name="base.html.twig" pinned="false" current="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
+              <file leaf-file-name="player.html" pinned="false" current="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player.html">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state line="16" column="16" selection-start="998" selection-end="998" vertical-scroll-proportion="0.0">
+                    <state line="37" column="55" selection-start="2311" selection-end="2311" vertical-scroll-proportion="0.0">
                       <folding />
                     </state>
                   </provider>
                 </entry>
               </file>
-              <file leaf-file-name="index.html.twig" pinned="false" current="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/views/Default/index.html.twig">
+              <file leaf-file-name="player_info.html" pinned="false" current="true" current-in-tab="true">
+                <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player_info.html">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state line="37" column="0" selection-start="1912" selection-end="1912" vertical-scroll-proportion="0.0">
-                      <folding>
-                        <marker date="1380614356320" expanded="true" signature="72:454" placeholder="..." />
-                        <marker date="1380614356320" expanded="true" signature="104:443" placeholder="..." />
-                      </folding>
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file leaf-file-name="player.html" pinned="false" current="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player.html">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state line="37" column="55" selection-start="2311" selection-end="2311" vertical-scroll-proportion="-0.65384614">
+                    <state line="5" column="80" selection-start="282" selection-end="282" vertical-scroll-proportion="0.13492064">
                       <folding />
                     </state>
                   </provider>
@@ -401,16 +557,25 @@
               <file leaf-file-name="player_info_song.html" pinned="false" current="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player_info_song.html">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state line="26" column="24" selection-start="1702" selection-end="1702" vertical-scroll-proportion="-11.115385">
+                    <state line="26" column="12" selection-start="1690" selection-end="1690" vertical-scroll-proportion="0.0">
                       <folding />
                     </state>
                   </provider>
                 </entry>
               </file>
-              <file leaf-file-name="player_info_artist.html" pinned="false" current="false" current-in-tab="true">
+              <file leaf-file-name="player_info_artist.html" pinned="false" current="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player_info_artist.html">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state line="15" column="60" selection-start="1079" selection-end="1079" vertical-scroll-proportion="0.41379312">
+                    <state line="25" column="38" selection-start="1642" selection-end="1642" vertical-scroll-proportion="-5.423077">
+                      <folding />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file leaf-file-name="player_info_album.html" pinned="false" current="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player_info_album.html">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state line="45" column="45" selection-start="2832" selection-end="2832" vertical-scroll-proportion="0.0">
                       <folding />
                     </state>
                   </provider>
@@ -463,16 +628,16 @@
               <file leaf-file-name="AlbumManager.php" pinned="false" current="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Manager/AlbumManager.php">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state line="72" column="20" selection-start="1405" selection-end="1405" vertical-scroll-proportion="0.0">
+                    <state line="110" column="0" selection-start="2474" selection-end="2474" vertical-scroll-proportion="0.0">
                       <folding />
                     </state>
                   </provider>
                 </entry>
               </file>
-              <file leaf-file-name="ArtistManager.php" pinned="false" current="true" current-in-tab="true">
+              <file leaf-file-name="ArtistManager.php" pinned="false" current="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Manager/ArtistManager.php">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state line="101" column="16" selection-start="2289" selection-end="2289" vertical-scroll-proportion="0.7780679">
+                    <state line="124" column="0" selection-start="2679" selection-end="2679" vertical-scroll-proportion="0.044270832">
                       <folding />
                     </state>
                   </provider>
@@ -481,7 +646,7 @@
               <file leaf-file-name="RatingManager.php" pinned="false" current="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Manager/RatingManager.php">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state line="150" column="35" selection-start="3692" selection-end="3692" vertical-scroll-proportion="-2.6153846">
+                    <state line="150" column="35" selection-start="3692" selection-end="3692" vertical-scroll-proportion="0.0">
                       <folding />
                     </state>
                   </provider>
@@ -494,7 +659,7 @@
               <file leaf-file-name="services.js" pinned="false" current="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/services.js">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state line="88" column="55" selection-start="3044" selection-end="3044" vertical-scroll-proportion="0.0">
+                    <state line="113" column="56" selection-start="4248" selection-end="4248" vertical-scroll-proportion="0.0">
                       <folding />
                     </state>
                   </provider>
@@ -503,25 +668,25 @@
               <file leaf-file-name="Song.php" pinned="false" current="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Entity/Song.php">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state line="46" column="5" selection-start="1016" selection-end="1016" vertical-scroll-proportion="-7.1923075">
+                    <state line="203" column="0" selection-start="4064" selection-end="4064" vertical-scroll-proportion="0.0">
                       <folding />
                     </state>
                   </provider>
                 </entry>
               </file>
-              <file leaf-file-name="Album.php" pinned="false" current="false" current-in-tab="false">
+              <file leaf-file-name="Album.php" pinned="false" current="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Entity/Album.php">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state line="65" column="20" selection-start="1424" selection-end="1424" vertical-scroll-proportion="0.0">
+                    <state line="76" column="0" selection-start="1630" selection-end="1630" vertical-scroll-proportion="0.044973545">
                       <folding />
                     </state>
                   </provider>
                 </entry>
               </file>
-              <file leaf-file-name="Artist.php" pinned="false" current="false" current-in-tab="true">
+              <file leaf-file-name="Artist.php" pinned="false" current="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Entity/Artist.php">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state line="314" column="22" selection-start="6112" selection-end="6112" vertical-scroll-proportion="0.2413793">
+                    <state line="314" column="22" selection-start="6112" selection-end="6112" vertical-scroll-proportion="0.0">
                       <folding />
                     </state>
                   </provider>
@@ -530,7 +695,7 @@
               <file leaf-file-name="Identifier.php" pinned="false" current="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Utility/Identifier.php">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state line="77" column="20" selection-start="2466" selection-end="2466" vertical-scroll-proportion="-13.192307">
+                    <state line="78" column="0" selection-start="2498" selection-end="2498" vertical-scroll-proportion="0.0">
                       <folding />
                     </state>
                   </provider>
@@ -567,22 +732,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/web/bower.json" />
-        <option value="$PROJECT_DIR$/src/JJ/MainBundle/Resources/views/Default/index.html.twig" />
-        <option value="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/rater/rater.html" />
-        <option value="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player.html" />
-        <option value="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/rater/rater.js" />
-        <option value="$PROJECT_DIR$/src/JJ/MainBundle/Utility/Scanner.php" />
-        <option value="$PROJECT_DIR$/src/JJ/MainBundle/Controller/SongsController.php" />
-        <option value="$PROJECT_DIR$/src/JJ/MainBundle/Utility/Identifier.php" />
-        <option value="$PROJECT_DIR$/src/JJ/MainBundle/Manager/RatingManager.php" />
         <option value="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player_info_song.html" />
-        <option value="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player_info_artist.html" />
-        <option value="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player.js" />
+        <option value="$PROJECT_DIR$/src/JJ/MainBundle/Entity/Artist.php" />
+        <option value="$PROJECT_DIR$/web/.htaccess" />
+        <option value="$PROJECT_DIR$/src/JJ/MainBundle/Resources/views/Default/index.html.twig" />
+        <option value="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/services.js" />
         <option value="$PROJECT_DIR$/src/JJ/MainBundle/Controller/ArtistsController.php" />
         <option value="$PROJECT_DIR$/src/JJ/MainBundle/Entity/Song.php" />
-        <option value="$PROJECT_DIR$/src/JJ/MainBundle/Entity/Artist.php" />
+        <option value="$PROJECT_DIR$/src/JJ/MainBundle/Controller/SongsController.php" />
+        <option value="$PROJECT_DIR$/src/JJ/MainBundle/Controller/AlbumsController.php" />
+        <option value="$PROJECT_DIR$/src/JJ/MainBundle/Entity/Album.php" />
+        <option value="$PROJECT_DIR$/src/JJ/MainBundle/Manager/AlbumManager.php" />
         <option value="$PROJECT_DIR$/src/JJ/MainBundle/Manager/ArtistManager.php" />
+        <option value="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player.js" />
+        <option value="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player_info_album.html" />
+        <option value="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player_info_artist.html" />
+        <option value="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player_info.html" />
       </list>
     </option>
   </component>
@@ -635,6 +800,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -664,46 +830,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="speler" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="speler" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bower_components" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="speler" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="speler" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bower_components" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="favico.js" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -794,6 +920,14 @@
               <option name="myItemId" value="Resources" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Default" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -882,10 +1016,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1023,7 +1153,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1031,8 +1160,8 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="options.lastSelected" value="Symfony2.SettingsForm" />
     <property name="FullScreen" value="false" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -1086,7 +1215,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Symfony2" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Framework" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18943436" sideWeight="0.6703786" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20864461" sideWeight="0.6703786" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962137" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
@@ -1162,114 +1291,110 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Manager/SongManager.php">
+    <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/services.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="113" column="56" selection-start="4248" selection-end="4248" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Utility/Scanner.php">
+    <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/views/Default/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="58" column="39" selection-start="1460" selection-end="1460" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Entity/Album.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="65" column="20" selection-start="1424" selection-end="1424" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Controller/ScanController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="7" selection-start="395" selection-end="395" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/config/services.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="31" selection-start="2191" selection-end="2201" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="41" column="69" selection-start="2193" selection-end="2193" vertical-scroll-proportion="-4.423077" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="55" selection-start="2311" selection-end="2311" vertical-scroll-proportion="-0.65384614">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player_info_song.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="24" selection-start="1702" selection-end="1702" vertical-scroll-proportion="-11.115385">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Manager/RatingManager.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="150" column="35" selection-start="3692" selection-end="3692" vertical-scroll-proportion="-2.6153846">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="133" column="16" selection-start="4589" selection-end="4589" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player_info_artist.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="60" selection-start="1079" selection-end="1079" vertical-scroll-proportion="0.41379312">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Controller/SongsController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="114" column="35" selection-start="2629" selection-end="2735" vertical-scroll-proportion="-6.5384617">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Utility/Identifier.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="77" column="20" selection-start="2466" selection-end="2466" vertical-scroll-proportion="-13.192307">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Controller/ArtistsController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="80" column="47" selection-start="2004" selection-end="2004" vertical-scroll-proportion="0.6010101">
+        <state line="37" column="55" selection-start="2311" selection-end="2311" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Entity/Song.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="5" selection-start="1016" selection-end="1016" vertical-scroll-proportion="-7.1923075">
+        <state line="203" column="0" selection-start="4064" selection-end="4064" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Entity/Artist.php">
+    <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Controller/ArtistsController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="314" column="22" selection-start="6112" selection-end="6112" vertical-scroll-proportion="0.2413793">
+        <state line="79" column="0" selection-start="1926" selection-end="1926" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Controller/ScanController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="7" selection-start="395" selection-end="395" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Controller/SongsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="75" column="46" selection-start="1834" selection-end="1834" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Entity/Album.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="76" column="0" selection-start="1630" selection-end="1630" vertical-scroll-proportion="0.044973545">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Manager/AlbumManager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="110" column="0" selection-start="2474" selection-end="2474" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Manager/ArtistManager.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="101" column="16" selection-start="2289" selection-end="2289" vertical-scroll-proportion="0.7780679">
+        <state line="124" column="0" selection-start="2679" selection-end="2679" vertical-scroll-proportion="0.044270832">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Controller/AlbumsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="76" column="0" selection-start="1842" selection-end="1842" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="160" column="12" selection-start="5782" selection-end="5782" vertical-scroll-proportion="0.041463416">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player_info_album.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="45" column="45" selection-start="2832" selection-end="2832" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player_info_song.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="12" selection-start="1690" selection-end="1690" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player_info_artist.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="38" selection-start="1642" selection-end="1642" vertical-scroll-proportion="-5.423077">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player_info.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="80" selection-start="282" selection-end="282" vertical-scroll-proportion="0.13492064">
           <folding />
         </state>
       </provider>

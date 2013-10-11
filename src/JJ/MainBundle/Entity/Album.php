@@ -18,6 +18,7 @@ use JJ\MainBundle\Entity\Artist;
  *
  * @ORM\Table(name="s_album")
  * @ORM\Entity(repositoryClass="JJ\MainBundle\Entity\AlbumRepository")
+ * @UniqueEntity({"artist", "name"})
  * @Ser\ExclusionPolicy("all")
  */
 class Album
@@ -52,7 +53,7 @@ class Album
     /**
      * @var string
      *
-     * @ORM\Column(name="name", type="string", length=255, unique=true)
+     * @ORM\Column(name="name", type="string", length=255)
      * @Assert\NotBlank
      * @Ser\Expose()
      */
@@ -63,6 +64,7 @@ class Album
      *
      * @ORM\Column(name="size", type="integer", nullable=true)
      * @Assert\Type("integer")
+     * @Assert\Range(min=1)
      * @Ser\Expose()
      */
     private $size;
@@ -71,6 +73,7 @@ class Album
      * @var int
      *
      * @ORM\Column(name="year", type="integer", nullable=true)
+     * @Assert\Type("integer")
      * @Assert\Range(min=1900, max=2020)
      * @Ser\Expose()
      */
@@ -146,7 +149,11 @@ class Album
             ->setMaxResults(1);
         /** @var Song $song */
         $song = $this->getSongs()->matching($criteria)->first();
-        return $song->getPlayedAt();
+	    if (!$song) {
+		    return null;
+	    } else {
+            return $song->getPlayedAt();
+	    }
     }
 
     /**

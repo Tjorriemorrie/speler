@@ -181,7 +181,7 @@ class Song
 	 *
 	 * @Ser\Expose()
 	 */
-	public $matches;
+	private $matches;
 
     ///////////////////////////////////////////////////////////////////////////////////////////
     // METHODS
@@ -204,6 +204,22 @@ class Song
 	public function getAbsolutePath()
 	{
 		return realpath(PATH_AUDIO . '/' . $this->getPath());
+	}
+
+	/**
+	 * @param \JJ\MainBundle\Entity\Song[] $matches
+	 */
+	public function setMatches($matches)
+	{
+		$this->matches = $matches;
+	}
+
+	/**
+	 * @return \JJ\MainBundle\Entity\Song[]
+	 */
+	public function getMatches()
+	{
+		return $this->matches;
 	}
 
 	///////////////////////////////////////////////////////////////////////////////////////////

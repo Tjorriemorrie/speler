@@ -104,6 +104,19 @@ angular.module('services', [])
                 }).then(function(result) {
                     return result.data;
                 });
+            },
+            saveAlbum: function(song, album) {
+                var formData = new FormData();
+                formData.append('name', album.name);
+                formData.append('create', album.create);
+                formData.append('size', album.size);
+                formData.append('year', album.year);
+                return $http.post(URL_SITE + '/albums/update/' + song.id, formData, {
+                    headers: {'Content-Type': undefined },
+                    transformRequest: angular.identity
+                }).then(function(result) {
+                    return result.data;
+                });
             }
         }
     }])

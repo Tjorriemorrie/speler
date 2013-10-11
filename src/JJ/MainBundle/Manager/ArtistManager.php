@@ -78,6 +78,7 @@ class ArtistManager
 	 */
 	public function update(Song $song, $formData)
 	{
+		// create new
 		if (filter_var($formData['create'], FILTER_VALIDATE_BOOLEAN)) {
 			$artist = $this->findOneByName($formData['name']);
 			if (!$artist) {
@@ -86,21 +87,30 @@ class ArtistManager
 				$artist->setName($formData['name']);
 			}
 			$song->setArtist($artist);
-		} else {
+		}
+		// rename current
+		else {
 			$artist = $song->getArtist();
+			// rename existing
 			if ($artist) {
 				$artistExist = $this->findOneByName($formData['name']);
-				if (!$artistExist) { // clean rename
+				// clean rename
+				if (!$artistExist) {
 					$artist->setName($formData['name']);
-				} else { // conflict: have to change associations for all songs and albums
+				}
+				// conflict: have to change associations for all songs and albums
+				else {
 					foreach ($artist->getSongs() as $artistSong) {
 						$artistSong->setArtist($artistExist);
 					}
 					foreach ($artist->getAlbums() as $artistAlbum) {
 						$artistAlbum->setArtist($artistExist);
 					}
+					$artist = $artistExist;
 				}
-			} else {
+			}
+			// create new
+			else {
 				$artist = $this->findOneByName($formData['name']);
 				if (!$artist) {
 					$artist = new Artist();
@@ -113,6 +123,7 @@ class ArtistManager
 
 		$this->validate($artist);
 		$this->em->flush();
+		$this->em->refresh($artist);
 		return $artist;
 	}
 

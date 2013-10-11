@@ -73,7 +73,7 @@ class SongsController extends Controller
 	    $ratingMan = $this->get('rating.manager');
 
 	    foreach ($songs as $song) {
-	        $song->matches = $ratingMan->findMatches($song);
+	        $song->setMatches($ratingMan->findMatches($song));
 	    }
 
         return $this->createJsonResponse($songs);
