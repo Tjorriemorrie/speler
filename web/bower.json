@@ -1,27 +1,28 @@
 {
-    "name": "speler",
-    "version": "0.1.0",
-    "homepage": "https://github.com/Tjorriemorrie/speler",
-    "authors": [
-        "Tjorriemorrie <jacoj82@gmail.com>"
-    ],
-    "description": "audio player",
-    "license": "MIT",
-    "ignore": [
-        "**/.*",
-        "node_modules",
-        "bower_components",
-        "test",
-        "tests"
-    ],
-    "dependencies": {
-        "bootstrap": "latest",
-        "font-awesome": "latest",
-        "angular": "latest",
-        "angular-route": "latest",
-        "angular-animate": "latest",
-        "angularLocalStorage": "latest",
-        "jplayer": "latest",
-        "favico.js": "latest"
-    }
+  "name": "speler",
+  "version": "0.1.0",
+  "homepage": "https://github.com/Tjorriemorrie/speler",
+  "authors": [
+    "Tjorriemorrie <jacoj82@gmail.com>"
+  ],
+  "description": "audio player",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "latest",
+    "font-awesome": "latest",
+    "angular": "latest",
+    "angular-route": "latest",
+    "angular-animate": "latest",
+    "angularLocalStorage": "latest",
+    "jplayer": "latest",
+    "favico.js": "latest",
+    "ngprogress": "~1.0.4"
+  }
 }

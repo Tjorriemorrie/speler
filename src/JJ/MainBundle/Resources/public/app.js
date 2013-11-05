@@ -2,7 +2,7 @@
 
 
 angular.module('app', ['ngRoute', 'ngAnimate',
-        'angularLocalStorage', 'ngTable',
+        'angularLocalStorage', 'ngTable', 'ngProgress',
         'services', 'directives', 'filters', 'ngPlayList',
         'nav', 'player', 'sidebar', 'main', 'library', 'rater'
     ])
@@ -27,27 +27,22 @@ angular.module('app', ['ngRoute', 'ngAnimate',
     }])
 
     .config(['$httpProvider', function ($httpProvider) {
-        $httpProvider.interceptors.push(['$q', '$log', '$rootScope', function ($q, $log, $rootScope) {
+        $httpProvider.interceptors.push(['$timeout', '$q', '$log', function ($timeout, $q, $log) {
             return {
                 'request': function(config) {
-                    $rootScope.$broadcast('spin');
+                    //$log.info('Request: ' + config);
                     return config || $q.when(config);
                 },
-
                 'requestError': function(rejection) {
+                    //$log.info('Request error: ' + rejection);
                     return $q.reject(rejection);
                 },
-
                 'response': function(response) {
                     //$log.info('Successful response: ' + response);
-                    $rootScope.$broadcast('unspin');
                     return response || $q.when(response);
                 },
-
                 'responseError': function(rejection) {
                     //$log.error('Response status: ' + status + '. ' + response);
-                    $rootScope.$broadcast('unspin');
-                    alert(rejection.data);
                     return $q.reject(rejection);
                 }
             }
