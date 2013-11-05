@@ -16,4 +16,4 @@ app/config/parameters.yml
 web/bower_components
 
 # audio
-web/audio/*
+web/audio

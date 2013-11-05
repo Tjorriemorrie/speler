@@ -2,29 +2,15 @@
 
 angular.module('player', [])
 
-    .controller('playerCtrl', ['songsServ', '$rootScope', '$q', 'storage', '$log', '$scope', function(songsServ, $rootScope, $q, storage, $log, $scope) {
+    .controller('playerCtrl', ['songsServ', 'playList', '$rootScope', '$q', 'storage', '$log', '$scope', function(songsServ, playList, $rootScope, $q, storage, $log, $scope) {
 
-        // PLAY LIST
-        var playList = [];
-        var playListSize = 10;
-        var findNext = function() {
-            var dfd = $q.defer();
-            if (playList.length >= playListSize) {
-                $log.info('PLAYLIST', playList.length);
-                dfd.resolve();
-            } else {
-                songsServ.findNext(playList).then(function(data) {
-                    playList = playList.concat(data);
-                    $log.info('PLAYLIST', playList.length);
-                    dfd.resolve();
-                });
-            }
-            return dfd.promise;
-        };
-
+        // SKIP SONG
         $scope.skipSong = function() {
-            accrete();
-            $scope.endSong();
+            $log.info('skipSong', playList.getPlayList().length);
+            if (playList.getPlayList().length > 1) {
+                accrete();
+                $scope.endSong();
+            }
         };
 
         // ACCRETE
@@ -40,13 +26,13 @@ angular.module('player', [])
         $rootScope.song = null;
         var setSong = function() {
             var dfd = $q.defer();
-            if (playList.length < 1) {
+            if (playList.isPlayListEmpty()) {
                 $rootScope.song = null;
                 document.title = 'No songs to play';
                 $log.warn('setSong song NONE');
                 dfd.reject('No song');
             } else {
-                $rootScope.song = playList[0];
+                $rootScope.song = playList.getFirst();
                 $log.info('setSong song', $rootScope.song);
 
                 var mediaObject = {};
@@ -73,9 +59,9 @@ angular.module('player', [])
         $scope.endSong = function() {
             $log.log('endSong');
             document.title = 'loading...';
-            playList.shift();
-            setSong().then(function(data) {
-                findNext();
+            playList.clearFirst();
+            setSong().finally(function(data) {
+                playList.findNext();
             });
         };
 
@@ -88,7 +74,7 @@ angular.module('player', [])
             preload: 'auto',
             ready: function(event) {
                 $log.info('jplayer: READY', event);
-                findNext().then(function() {
+                playList.findNext().finally(function() {
                     setSong();
                 });
             },

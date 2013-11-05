@@ -4,9 +4,16 @@
     <div ng-app="app">
         <div class="container">
             <ng-include src="'{{ asset('bundles/main/nav/nav.html') }}'"></ng-include>
-            <ng-include src="'{{ asset('bundles/main/player/player.html') }}'"></ng-include>
-            <ng-include src="'{{ asset('bundles/main/rater/rater.html') }}'"></ng-include>
-            <ng-view class="ng-view-anim"></ng-view>
+            <div class="row">
+                <div class="col-md-8">
+                    <ng-include src="'{{ asset('bundles/main/player/player.html') }}'"></ng-include>
+                    <ng-include src="'{{ asset('bundles/main/rater/rater.html') }}'"></ng-include>
+                    <ng-view class="ng-view-anim"></ng-view>
+                </div>
+                <div class="col-md-4">
+                    <ng-include src="'{{ asset('bundles/main/sidebar/sidebar.html') }}'"></ng-include>
+                </div>
+            </div>
         </div>
     </div>
 {% endblock %}
@@ -41,9 +48,12 @@
     <script src="{{ asset('bundles/main/services.js') }}"></script>
     <script src="{{ asset('bundles/main/directives.js') }}"></script>
     <script src="{{ asset('bundles/main/filters.js') }}"></script>
+    <script src="{{ asset('bundles/main/ng-play-list.js') }}"></script>
 
     <script src="{{ asset('bundles/main/nav/nav.js') }}"></script>
     <script src="{{ asset('bundles/main/player/player.js') }}"></script>
+    <script src="{{ asset('bundles/main/sidebar/sidebar.js') }}"></script>
+    <script src="{{ asset('bundles/main/main/main.js') }}"></script>
     <script src="{{ asset('bundles/main/library/library.js') }}"></script>
     <script src="{{ asset('bundles/main/rater/rater.js') }}"></script>
 {% endblock %}

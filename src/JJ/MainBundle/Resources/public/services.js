@@ -9,20 +9,6 @@ angular.module('services', [])
                     return result.data;
                 });
             },
-            findNext: function(playList) {
-                var ids = [];
-                playList.forEach(function(song) {
-                    ids.push(song.id);
-                });
-                var formData = new FormData();
-                formData.append('ids', ids);
-                return $http.post(URL_SITE + '/songs/next', formData, {
-                    headers: {'Content-Type': undefined },
-                    transformRequest: angular.identity
-                }).then(function(result) {
-                    return result.data;
-                });
-            },
             accrete: function(song) {
                 return $http.get(URL_SITE + '/songs/' + song.id + '/accrete').then(function(result) {
                     return result.data;

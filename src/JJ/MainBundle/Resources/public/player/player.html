@@ -5,11 +5,11 @@
     <div ng-show="song">
         <div class="row">
 
-            <div class="col-md-6">
+            <div class="col-md-5">
 	            <ng-include src="getIncludeSrc('/bundles/main/player/player_info.html')"></ng-include>
             </div>
 
-            <div class="col-md-6">
+            <div class="col-md-7">
                 <br/>
                 <div id="jquery_jplayer_1" class="jp-jplayer"></div>
                 <div id="jp_container_1" class="jp-audio">
@@ -22,7 +22,7 @@
                                 <li><a href="javascript:;" class="jp-mute" tabindex="1" title="mute">mute</a></li>
                                 <li><a href="javascript:;" class="jp-unmute" tabindex="1" title="unmute">unmute</a></li>
                                 <li><a href="javascript:;" class="jp-volume-max" style="margin-left: 55px;" tabindex="1" title="max volume">max volume</a></li>
-	                            <li><a ng-disabled="playList.length < 2" ng-click="skipSong()" href="javascript:;" class="jp-next" style="margin-left: -27px; margin-top: -21px;" tabindex="1" title="next">next</a></li>
+	                            <li><a ng-click="skipSong()" href="javascript:;" class="jp-next" style="margin-left: -27px; margin-top: -21px;" tabindex="1" title="next">next</a></li>
                             </ul>
                             <div class="jp-progress">
                                 <div class="jp-seek-bar">

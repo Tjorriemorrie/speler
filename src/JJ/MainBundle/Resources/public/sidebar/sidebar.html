@@ -1,0 +1,11 @@
+<section id="playList" ng-controller="sidebarCtrl">
+	<h3>Playlist</h3>
+	<p><em>{{ playList.length }} song<span ng-hide="playList.length == 1">s</span></em></p>
+	<div class="list-group">
+		<a ng-repeat="song in playList" class="list-group-item" ng-class="{'active': $first}">
+			<h5 class="list-group-item-heading"><strong>{{ song.name }}</strong></h5>
+			<p ng-if="song.artist" class="list-group-item-text"><small>{{ song.artist.name }}</small></p>
+			<p ng-if="song.album" class="list-group-item-text text-muted"><small>{{ song.album.name }}</small></p>
+		</a>
+	</div>
+</section>
