@@ -53,6 +53,8 @@ class AlbumsController extends Controller
      */
     public function allAction()
     {
+	    set_time_limit(0);
+
         $albums = $this->getAlbumManager()->findAll();
         return $this->createJsonResponse($albums);
     }
@@ -73,6 +75,8 @@ class AlbumsController extends Controller
 	 */
 	public function updateAction(Song $song)
 	{
+		set_time_limit(0);
+
 		$formData = $this->getRequest()->request->all();
 
 		$album = $this->getAlbumManager()->update($song, $formData);

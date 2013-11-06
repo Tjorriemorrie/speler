@@ -100,6 +100,7 @@ class ArtistManager
 				}
 				// conflict: have to change associations for all songs and albums
 				else {
+					$artistExist->setName($formData['name']);
 					foreach ($artist->getSongs() as $artistSong) {
 						$artistSong->setArtist($artistExist);
 					}

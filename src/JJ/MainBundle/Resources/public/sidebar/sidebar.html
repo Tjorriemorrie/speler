@@ -1,10 +1,22 @@
 <section id="playList" ng-controller="sidebarCtrl">
-	<h3><span class="label pull-right" ng-class="{'label-danger': playList.length <= 3, 'label-warning': playList.length <= 6, 'label-success': playList.length > 6}">{{ playList.length }}</span> Playlist</h3>
+	<h3><span class="label pull-right" ng-class="{'label-danger': playList.length <= 2, 'label-warning': playList.length <= 5, 'label-success': playList.length <= 8, 'label-primary': playList.length > 8}">{{ playList.length }}</span> Playlist</h3>
 	<div class="list-group">
-		<a ng-repeat="song in playList" class="list-group-item" ng-class="{'active': $first}">
-			<h5 class="list-group-item-heading"><strong>{{ song.name }}</strong></h5>
-			<p ng-if="song.artist" class="list-group-item-text"><small>{{ song.artist.name }}</small></p>
-			<p ng-if="song.album" class="list-group-item-text text-muted"><small>{{ song.album.name }}</small></p>
+		<a ng-repeat="song in playList track by $index" class="list-group-item" ng-class="{'active': $first}">
+			<h5 class="list-group-item-heading">
+				<span ng-show="song.count_rated" class="pull-right">
+					<i ng-class="{'icon-star': song.rating > 0.29, 'icon-star-empty': song.rating <= 0.14, 'icon-star-half-full': song.rating <= 0.29 && song.rating > 0.14}"></i>
+					<i ng-class="{'icon-star': song.rating > 0.57, 'icon-star-empty': song.rating <= 0.43, 'icon-star-half-full': song.rating <= 0.57 && song.rating > 0.43}"></i>
+					<i ng-class="{'icon-star': song.rating > 0.86, 'icon-star-empty': song.rating <= 0.71, 'icon-star-half-full': song.rating <= 0.86 && song.rating > 0.71}"></i>
+				</span>
+				<strong>{{ song.name }}</strong>
+			</h5>
+			<p class="list-group-item-text">
+				<small ng-if="song.artist">{{ song.artist.name }}</small>&nbsp;
+			</p>
+			<p class="list-group-item-text text-muted">
+				<em ng-show="song.count_played" class="pull-right"><i class="icon-calendar">&nbsp;{{ song.played_at_from }}</i></em>
+				<small ng-if="song.album">{{ song.album.name }}</small>&nbsp;
+			</p>
 		</a>
 	</div>
 </section>

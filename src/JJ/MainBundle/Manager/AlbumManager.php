@@ -105,6 +105,7 @@ class AlbumManager
 				}
 				// conflict: have to change associations for all songs and albums
 				else {
+					$albumExist->setName($formData['name']);
 					foreach ($album->getSongs() as $albumSong) {
 						$albumSong->setAlbum($albumExist);
 					}

@@ -2,6 +2,16 @@
 
 angular.module('services', [])
 
+    .factory('scanServ', ['$http', function($http) {
+        return {
+            run: function() {
+                return $http.get(URL_SITE + '/scan').then(function(result) {
+                    return result.data;
+                });
+            }
+        }
+    }])
+
     .factory('songsServ', ['$http', function($http) {
         return {
             findAll: function() {

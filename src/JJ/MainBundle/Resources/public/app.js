@@ -42,7 +42,7 @@ angular.module('app', ['ngRoute', 'ngAnimate',
                     return response || $q.when(response);
                 },
                 'responseError': function(rejection) {
-                    //$log.error('Response status: ' + status + '. ' + response);
+                    console.dir(rejection);
                     return $q.reject(rejection);
                 }
             }

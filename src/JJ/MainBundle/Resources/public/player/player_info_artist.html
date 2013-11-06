@@ -10,6 +10,9 @@
 			<span ng-show="form.fNameArtist.$error.required && form.fNameArtist.$dirty">Artist name is required!</span>
 		</span>
 	</div>
+	<div ng-show="edit.artist.name.length > 0" class="list-group">
+		<a ng-click="populateArtist(artist)" ng-show="(artists|filter:edit.artist.name).length > 1" ng-repeat="artist in artists | filter:edit.artist.name | orderBy:'count_played':true | limitTo:6" class="list-group-item" href="">{{ artist.name }}</a>
+	</div>
 
 	<div ng-show="edit.artist.id > 0" class="form-group" ng-class="{'has-success': form.fCreateArtist.$valid, 'has-error': form.fCreateArtist.$invalid && form.fCreateArtist.$dirty}">
 		<div class="checkbox">

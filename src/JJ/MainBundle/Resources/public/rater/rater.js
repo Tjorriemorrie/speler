@@ -2,7 +2,7 @@
 
 angular.module('rater', [])
 
-    .controller('raterCtrl', ['ratingsServ', '$rootScope', '$q', '$log', 'storage', '$scope', function (ratingsServ, $rootScope, $q, $log, storage, $scope) {
+    .controller('raterCtrl', ['playList', 'ratingsServ', '$rootScope', '$q', '$log', 'storage', '$scope', function (playList, ratingsServ, $rootScope, $q, $log, storage, $scope) {
 
         // STATS
         $scope.stats = null;
@@ -28,6 +28,9 @@ angular.module('rater', [])
                 rating = $scope.stats.wins / $scope.stats.count_rated;
             }
             $scope.stats.rating = rating;
+            playList.getFirst().rating = $scope.stats.rating;
+            playList.getFirst().count_rated = $scope.stats.count_rated;
+            storage.set('playList', playList.getPlayList());
             //$log.debug('stats', $scope.stats);
         }, true);
 
@@ -44,7 +47,9 @@ angular.module('rater', [])
         $rootScope.$watch('song.matches', function (matches) {
             favicon.badge(0);
             if (matches != null) {
-                $log.log('$watch matches', matches.length);
+                playList.getFirst().matches = matches;
+                storage.set('playList', playList.getPlayList());
+                //$log.log('$watch matches', matches.length);
                 if (!matches.length) {
                     $scope.match = null;
                 } else {
@@ -56,7 +61,7 @@ angular.module('rater', [])
 
         // SAVE MATCH
         $scope.setMatch = function (result) {
-            $log.log('setMatch...', result);
+            //$log.log('setMatch...', result);
             $scope.stats.count_rated++;
             if (result === 1) {
                 ratingsServ.match($scope.match, $rootScope.song);

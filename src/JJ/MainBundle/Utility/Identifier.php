@@ -48,6 +48,10 @@ class Identifier
 	 */
 	public function setId3(Song $song)
 	{
+		if (!$song->isMp3()) {
+			return;
+		}
+
 		$tagWriter = new Tags();
 		$tagWriter->filename = $song->getAbsolutePath();
 		$tagWriter->tagformats = array('id3v1', 'id3v2.3');

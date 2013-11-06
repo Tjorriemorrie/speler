@@ -10,6 +10,9 @@
 			<span ng-show="form.fNameAlbum.$error.required && form.fNameAlbum.$dirty">Album name is required!</span>
 		</span>
 	</div>
+	<div ng-show="edit.album.name.length > 0" class="list-group">
+		<a ng-click="populateAlbum(album)" ng-show="(albums|filter:edit.album.name).length > 1" ng-repeat="album in albums | filter:edit.album.name | orderBy:'count_played':true | limitTo:6" class="list-group-item" href="">{{ album.name }}</a>
+	</div>
 
 	<div ng-show="edit.album.id > 0" class="form-group" ng-class="{'has-success': form.fCreateAlbum.$valid, 'has-error': form.fCreateAlbum.$invalid && form.fCreateAlbum.$dirty}">
 		<div class="checkbox">
@@ -23,7 +26,7 @@
 	<div class="form-group" ng-class="{'has-success': form.fSizeAlbum.$valid, 'has-error': form.fSizeAlbum.$invalid && form.fSizeAlbum.$dirty}">
 		<label for="sizeAlbum" class="control-label">Album size</label>
 		<div class="input-group">
-			<input type="number" ng-model="edit.album.size" name="fSizeAlbum" ng-required="false" min="0" class="form-control" id="sizeAlbum" placeholder="Album size" autocomplete="off" autofocus />
+			<input type="number" ng-model="edit.album.size" name="fSizeAlbum" ng-required="false" min="0" class="form-control" id="sizeAlbum" placeholder="Album size" autocomplete="off" />
 			<span class="input-group-addon"><i ng-class="{'icon-ok': form.fSizeAlbum.$valid, 'icon-remove': !form.fSizeAlbum.$valid && form.fSizeAlbum.$dirty}"></i> </span>
 		</div>
 		<span class="help-block">
@@ -34,7 +37,7 @@
 	<div class="form-group" ng-class="{'has-success': form.fYearAlbum.$valid, 'has-error': form.fYearAlbum.$invalid && form.fYearAlbum.$dirty}">
 		<label for="yearAlbum" class="control-label">Album year</label>
 		<div class="input-group">
-			<input type="text" ng-model="edit.album.year" name="fYearAlbum" ng-required="false" class="form-control" id="yearAlbum" placeholder="Album year" autocomplete="off" autofocus />
+			<input type="text" ng-model="edit.album.year" name="fYearAlbum" ng-required="false" class="form-control" id="yearAlbum" placeholder="Album year" autocomplete="off" />
 			<span class="input-group-addon"><i ng-class="{'icon-ok': form.fYearAlbum.$valid, 'icon-remove': !form.fYearAlbum.$valid && form.fYearAlbum.$dirty}"></i> </span>
 		</div>
 		<span class="help-block">

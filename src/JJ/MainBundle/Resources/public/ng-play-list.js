@@ -2,8 +2,8 @@
 
 angular.module('ngPlayList', [])
 
-    .factory('playList', ['ngProgress', '$timeout', '$http', '$q', '$log', function(ngProgress, $timeout, $http, $q, $log) {
-        var playList = [];
+    .factory('playList', ['storage', 'ngProgress', '$timeout', '$http', '$q', '$log', function(storage, ngProgress, $timeout, $http, $q, $log) {
+        var playList = storage.get('playList') || [];
         var limit = 10;
         var busy = [];
         var durations = [20000, 20000, 20000, 20000, 20000];
@@ -15,9 +15,9 @@ angular.module('ngPlayList', [])
                 var completed = 0;
                 for (var i=0, l=busy.length; i<l; i++) {
                     busy[i] += 100;
-                    completed += busy[i] / avg;
+                    completed += busy[i];
                 }
-                var progress = Math.min(99, completed / busy.length * 100);
+                var progress = Math.min(99, completed / (avg * busy.length) * 100);
                 //$log.info(busy.length + ' progress ' + progress);
                 ngProgress.set(progress);
                 $timeout(function() {
@@ -46,7 +46,7 @@ angular.module('ngPlayList', [])
             },
             findNext: function() {
                 var dfd = $q.defer();
-                if (playList.length > limit) {
+                if (playList.length + (busy.length * 2) >= limit) {
                     //$log.info('playList.findNext', playList.length);
                     dfd.resolve();
                 } else {
@@ -79,12 +79,15 @@ angular.module('ngPlayList', [])
                             sum += durations[i];
                         }
                         avg = sum / durations.length;
-                        $log.info('avg', avg, durations);
+                        //$log.info('avg', avg, durations);
                         result.data.forEach(function(song) {
+                            if (song.count_played) {
+                                song.played_at_from = moment().diff(moment(song.played_at), 'days');
+                            }
                             playList.push(song);
                         });
-                        //playList = playList.concat(result.data);
-                        //$log.info('playList.findNext', playList.length);
+                        storage.set('playList', playList);
+                        //$log.info('playList.findNext', playList);
                         dfd.resolve();
                     });
                 }
@@ -93,6 +96,7 @@ angular.module('ngPlayList', [])
             clearFirst: function() {
                 if (playList.length > 0) {
                     playList.shift();
+                    storage.set('playList', playList);
                 }
                 //$log.info('playList.clearFirst');
             }

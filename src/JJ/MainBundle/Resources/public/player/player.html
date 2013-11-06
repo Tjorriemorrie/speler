@@ -1,7 +1,9 @@
 <section ng-controller="playerCtrl">
-	<div ng-hide="song" class="alert alert-danger">
-		There are no songs to play
+
+	<div ng-show="alert" class="alert" ng-class="alert.cls">
+		{{ alert.msg }}
 	</div>
+
     <div ng-show="song">
         <div class="row">
 

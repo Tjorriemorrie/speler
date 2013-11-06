@@ -53,6 +53,7 @@ class ArtistsController extends Controller
      */
     public function allAction()
     {
+	    set_time_limit(0);
         $artists = $this->getArtistManager()->findAll();
         return $this->createJsonResponse($artists);
     }
@@ -73,6 +74,8 @@ class ArtistsController extends Controller
 	 */
 	public function updateAction(Song $song)
 	{
+		set_time_limit(0);
+
 		$formData = $this->getRequest()->request->all();
 
 		$artist = $this->getArtistManager()->update($song, $formData);

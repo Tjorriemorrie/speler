@@ -1,7 +1,6 @@
 <nav class="navbar" role="navigation" ng-controller="navCtrl">
 
     <div class="navbar-header">
-		<span class="navbar-text ng-anim-visibility spinner" ng-show="spinner > 0"></span>
 		<a class="navbar-brand" href="#">Speler</a>
 	</div>
 
@@ -10,9 +9,9 @@
     </ul>
 
     <ul class="nav navbar-nav navbar-right text-muted">
+        <p ng-show="scan" class="navbar-text"><i class="icon-refresh"></i></p>
         <p class="navbar-text">{{ count_songs|number }} songs</p>
         <p class="navbar-text">{{ count_albums|number }} albums</p>
         <p class="navbar-text">{{ count_artists|number }} artists</p>
-        <p class="navbar-text"><a class="navbar-link text-muted" ng-href="{{ getIncludePath('/scan') }}"><i class="icon-refresh"></i></a></p>
     </ul>
 </nav>

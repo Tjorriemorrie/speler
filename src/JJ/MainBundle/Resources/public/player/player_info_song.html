@@ -14,7 +14,7 @@
 	<div class="form-group" ng-class="{'has-success': form.fNumberSong.$valid, 'has-error': form.fNumberSong.$invalid && form.fNumberSong.$dirty}">
 		<label for="numberSong" class="control-label">Song number</label>
 		<div class="input-group">
-			<input type="number" ng-model="edit.song.number" name="fNumberSong" ng-required="false" min="1" max="99" class="form-control" id="numberSong" placeholder="Song number" />
+			<input type="number" ng-model="edit.song.number" name="fNumberSong" ng-required="false" min="1" max="99" class="form-control" id="numberSong" placeholder="Song number" autocomplete="off" />
 			<span class="input-group-addon"><i ng-class="{'icon-ok': form.fNumberSong.$valid, 'icon-remove': !form.fNumberSong.$valid && form.fNumberSong.$dirty}"></i> </span>
 		</div>
 		<span class="help-block">
