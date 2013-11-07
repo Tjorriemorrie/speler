@@ -2,33 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d1ca1b1a-fa57-4219-8898-794e07d3a59d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JJ/MainBundle/Manager/AlbumManager.php" afterPath="$PROJECT_DIR$/src/JJ/MainBundle/Manager/AlbumManager.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JJ/MainBundle/Controller/AlbumsController.php" afterPath="$PROJECT_DIR$/src/JJ/MainBundle/Controller/AlbumsController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JJ/MainBundle/Manager/ArtistManager.php" afterPath="$PROJECT_DIR$/src/JJ/MainBundle/Manager/ArtistManager.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JJ/MainBundle/Controller/ArtistsController.php" afterPath="$PROJECT_DIR$/src/JJ/MainBundle/Controller/ArtistsController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JJ/MainBundle/Utility/Identifier.php" afterPath="$PROJECT_DIR$/src/JJ/MainBundle/Utility/Identifier.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JJ/MainBundle/Controller/ScanController.php" afterPath="$PROJECT_DIR$/src/JJ/MainBundle/Controller/ScanController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JJ/MainBundle/Entity/Song.php" afterPath="$PROJECT_DIR$/src/JJ/MainBundle/Entity/Song.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/app.js" afterPath="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/bower.json" afterPath="$PROJECT_DIR$/web/bower.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JJ/MainBundle/Resources/views/Default/index.html.twig" afterPath="$PROJECT_DIR$/src/JJ/MainBundle/Resources/views/Default/index.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/nav/nav.html" afterPath="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/nav/nav.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/nav/nav.js" afterPath="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/nav/nav.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/ng-play-list.js" afterPath="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/ng-play-list.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player.html" afterPath="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JJ/MainBundle/Manager/SongManager.php" afterPath="$PROJECT_DIR$/src/JJ/MainBundle/Manager/SongManager.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JJ/MainBundle/Entity/SongRepository.php" afterPath="$PROJECT_DIR$/src/JJ/MainBundle/Entity/SongRepository.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player.js" afterPath="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player_info.html" afterPath="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player_info.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player_info_album.html" afterPath="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player_info_album.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player_info_artist.html" afterPath="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player_info_artist.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player_info_song.html" afterPath="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player_info_song.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/rater/rater.js" afterPath="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/rater/rater.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/services.js" afterPath="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/services.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/rater/rater.html" afterPath="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/rater/rater.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/sidebar/sidebar.html" afterPath="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/sidebar/sidebar.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/sidebar/sidebar.js" afterPath="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/sidebar/sidebar.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="speler.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383748816525" ignored="false" />
+    <file path="/Dummy.txt" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383808344737" ignored="false" />
     <file path="/.gitignore" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1379854410606" ignored="false" />
     <file path="/DefaultController.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1379853742140" ignored="false" />
     <file path="/nav.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383727494928" ignored="false" />
@@ -38,7 +24,7 @@
     <file path="/ScanUtility.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1379859127136" ignored="false" />
     <file path="/a.dummy" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383750530122" ignored="false" />
     <file path="/Scanner.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380810391837" ignored="false" />
-    <file path="/SongManager.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380286705855" ignored="false" />
+    <file path="/SongManager.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383831078654" ignored="false" />
     <file path="/Identifier.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383744541285" ignored="false" />
     <file path="/Song.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383744612052" ignored="false" />
     <file path="/Album.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381388545329" ignored="false" />
@@ -50,10 +36,10 @@
     <file path="/index.html.twig" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383734241079" ignored="false" />
     <file path="/main.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383574483333" ignored="false" />
     <file path="/player.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383726649231" ignored="false" />
-    <file path="/player.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383748881837" ignored="false" />
+    <file path="/player.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383827193533" ignored="false" />
     <file path="/services.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383728113757" ignored="false" />
     <file path="/SongsController.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381488951391" ignored="false" />
-    <file path="/SongRepository.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380095583202" ignored="false" />
+    <file path="/SongRepository.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383831169181" ignored="false" />
     <file path="/directives.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380874452016" ignored="false" />
     <file path="/app.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383747255505" ignored="false" />
     <file path="/library.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1379886231830" ignored="false" />
@@ -62,7 +48,7 @@
     <file path="/albums.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1379887511487" ignored="false" />
     <file path="$PROJECT_DIR$/app/cache/dev/profiler/index.csv" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1379886799678" ignored="false" />
     <file path="/artists.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1379887731211" ignored="false" />
-    <file path="/rater.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380616231174" ignored="false" />
+    <file path="/rater.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383823956288" ignored="false" />
     <file path="/rater.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383733176867" ignored="false" />
     <file path="/RatingsController.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380094629055" ignored="false" />
     <file path="/Rating.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1379957137030" ignored="false" />
@@ -198,7 +184,7 @@
     <file path="/ProductManager.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380278590515" ignored="false" />
     <file path="$PROJECT_DIR$/../talentec-portal/src/Talentec/MainBundle/Resources/public/admin/products/products_categories.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380283377892" ignored="false" />
     <file path="/products_categories.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380283376293" ignored="false" />
-    <file path="/player_info_artist.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383741761116" ignored="false" />
+    <file path="/player_info_artist.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383827153178" ignored="false" />
     <file path="/ArtistsController.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739005476" ignored="false" />
     <file path="/ArtistManager.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383658248385" ignored="false" />
     <file path="$PROJECT_DIR$/../smartscore-certificates/src/Talentec/CertificatesBundle/Controller/CertificatesController.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380784752355" ignored="false" />
@@ -292,29 +278,29 @@
     <file path="$PROJECT_DIR$/../talentec-portal/src/Talentec/MainBundle/Resources/public/admin/charts/charts.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380879115045" ignored="false" />
     <file path="$PROJECT_DIR$/../talentec-portal/web/libraries/bootstrap-datetimepicker/tests/assets/jquery-1.7.1.min.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380879450717" ignored="false" />
     <file path="/player_info_song.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383742427637" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/www/js/websql.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383562443571" ignored="false" />
-    <file path="/websql.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381315648476" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/www/js/websql.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383813239288" ignored="false" />
+    <file path="/websql.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383813239288" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/www/js/app.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383740839743" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/www/index.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383747368505" ignored="false" />
     <file path="/index.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383747367666" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/www/js/services.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317281436" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/www/js/login/login.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317858845" ignored="false" />
     <file path="/login.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317858845" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/config.xml" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383750802917" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/config.xml" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383832865680" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/index.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381241852077" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/js/tests/vendor/qunit.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381330004766" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/src/coza/talentec/akhile/AkhileAMS.java" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381330004766" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/cordova.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381330004766" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/phonegap.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381330004766" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/angular/angular.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383744510127" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/angular/angular.min.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381330004766" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/AndroidManifest.xml" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383750802917" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/angular/angular.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383826486469" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/angular/angular.min.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383826486469" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/AndroidManifest.xml" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383832117263" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/www/js/index.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381242679795" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/js/index.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381308600953" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/js/services.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381241852077" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/bin/AndroidManifest.xml" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383750802917" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/res/values/strings.xml" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383750802917" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/res/xml/config.xml" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383750802917" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/js/services.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383814949562" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/bin/AndroidManifest.xml" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383832117263" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/res/values/strings.xml" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383832117263" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/res/xml/config.xml" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383832117263" ignored="false" />
     <file path="/index.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381240200100" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/www/bower.json" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383740757973" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/www/bower_components/angular-phonegap-geolocation/geolocation.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381303055058" ignored="false" />
@@ -326,119 +312,119 @@
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/www/js/login/login_form.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317499484" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/www/js/login/login_sync.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381306902678" ignored="false" />
     <file path="/login_sync.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381306898950" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/less/theme.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853984" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/dist/css/bootstrap.min.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853987" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/bootstrap-2.3.2/alerts.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383564730260" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/less/theme.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/dist/css/bootstrap.min.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/bootstrap-2.3.2/alerts.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/dist/css/bootstrap-theme.min.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853987" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/less/alerts.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853985" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/dist/css/bootstrap-theme.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853988" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/dist/css/bootstrap.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853983" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/less/scaffolding.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853983" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/dist/css/bootstrap-theme.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/dist/css/bootstrap.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/less/scaffolding.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery/jquery.min.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381330004766" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery/jquery.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381310240370" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/js/tests/vendor/jquery.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381310240370" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/js/jquery-1.7.1.min.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381310547056" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/cordova_plugins.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381312590787" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/bootstrap-2.3.2/forms.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383735200710" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/less/forms.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853985" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/less/forms.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
     <file path="/login_form.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381316257665" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/bootstrap-2.3.2/mixins.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383564730262" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/bootstrap-2.3.2/mixins.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/www/js/takeon/takeon.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381407931727" ignored="false" />
     <file path="/takeon.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381407931389" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/www/js/header/header.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317643002" ignored="false" />
     <file path="/header.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317208734" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/www/js/header/header.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317422167" ignored="false" />
     <file path="/header.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317394466" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/www/js/sync/sync.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317708656" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/www/js/sync/sync.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383813290824" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/www/js/sync/sync.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381316565276" ignored="false" />
     <file path="/sync.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381316564588" ignored="false" />
-    <file path="/sync.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317055872" ignored="false" />
+    <file path="/sync.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383813290200" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/www/js/footer/footer.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317301580" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/font-awesome/scss/_variables.scss" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383733943215" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/less/code.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853984" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/font-awesome/scss/_variables.scss" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/less/code.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/less/popovers.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853986" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/less/progress-bars.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853987" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/less/input-groups.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853985" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/less/tables.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853987" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/less/list-group.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853987" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/less/list-group.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/less/type.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853986" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/scss/_icons.scss" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383744257003" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/font-awesome/less/bootstrap.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383735200710" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/scss/_icons.scss" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/font-awesome/less/bootstrap.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/font-awesome/less/core.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383564730261" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/less/dropdowns.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853984" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/font-awesome/less/icons.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383564730260" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/font-awesome/less/font-awesome-ie7.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383735200711" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/font-awesome/scss/_extras.scss" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383564730261" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/sticky-footer.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383564730259" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/bootstrap-2.3.2/media.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383564730259" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/bootstrap-2.3.2/responsive-utilities.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383564730258" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/css/prettify.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383564730261" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/less/grid.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853986" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/less/dropdowns.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/font-awesome/less/icons.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/font-awesome/less/font-awesome-ie7.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/font-awesome/scss/_extras.scss" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/sticky-footer.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/bootstrap-2.3.2/media.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/bootstrap-2.3.2/responsive-utilities.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/css/prettify.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/less/grid.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/bootstrap-2.3.2/breadcrumbs.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383564730262" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/bootstrap-2.3.2/pager.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383564730260" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/less/component-animations.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853983" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/bootstrap-2.3.2/accordion.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383564730260" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/bootstrap-2.3.2/tooltip.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383564730261" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/bootstrap-2.3.2/dropdowns.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383564730259" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/bootstrap-2.3.2/button-groups.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383735200710" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/bootstrap-2.3.2/carousel.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383564730260" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/bootstrap-2.3.2/utilities.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383564730261" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/less/component-animations.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/bootstrap-2.3.2/accordion.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380092" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/bootstrap-2.3.2/tooltip.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/bootstrap-2.3.2/dropdowns.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/bootstrap-2.3.2/button-groups.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/bootstrap-2.3.2/carousel.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/bootstrap-2.3.2/utilities.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/less/navs.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853983" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/less/panels.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853987" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/bootstrap-2.3.2/pagination.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383564730259" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/bootstrap-2.3.2/modals.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383564730262" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/less/extras.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853987" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/bootstrap-2.3.2/hero-unit.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383564730259" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/bootstrap-2.3.2/pagination.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/bootstrap-2.3.2/modals.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/less/extras.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/bootstrap-2.3.2/hero-unit.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/scss/_extras.scss" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853986" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/less/jumbotron.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853984" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/bootstrap-2.3.2/progress-bars.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383564730260" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/bootstrap-2.3.2/thumbnails.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383564730260" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/bootstrap-2.3.2/navbar.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383564730258" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/less/jumbotron.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/bootstrap-2.3.2/progress-bars.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/bootstrap-2.3.2/thumbnails.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/bootstrap-2.3.2/navbar.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/less/thumbnails.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853987" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/less/icons.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853988" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/less/icons.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/bootstrap-2.3.2/component-animations.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383564730261" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/less/bootstrap.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853985" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/bootstrap-2.3.2/tables.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383565403455" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/css/font-awesome-ie7.min.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383744257004" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/less/bootstrap.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/bootstrap-2.3.2/tables.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/css/font-awesome-ie7.min.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/bootstrap-2.3.2/navs.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383564730258" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/css/font-awesome.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853984" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/less/button-groups.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853988" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/less/carousel.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853984" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/css/font-awesome.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/less/button-groups.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/less/carousel.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/less/mixins.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853988" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/less/tooltip.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853986" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/bootstrap-2.3.2/code.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383564730259" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/bootstrap-2.3.2/sprites.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383564730259" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/less/core.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853987" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/less/font-awesome-ie7.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853987" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/less/tooltip.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/bootstrap-2.3.2/code.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/bootstrap-2.3.2/sprites.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/less/core.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/less/font-awesome-ie7.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380092" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/less/modals.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853987" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/js/tests/vendor/qunit.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383564730260" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/js/tests/vendor/qunit.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/less/responsive-utilities.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853984" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/less/close.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853986" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/less/close.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/scss/_core.scss" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853988" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/scss/font-awesome-ie7.scss" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383744257003" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/scss/font-awesome-ie7.scss" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/less/breadcrumbs.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853987" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/less/wells.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853983" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/less/navbar.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853984" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/bootstrap-2.3.2/wells.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383564730258" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/bootstrap-2.3.2/wells.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380092" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/bootstrap-2.3.2/type.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383564730260" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/bootstrap-2.3.2/buttons.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383735200710" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/bootstrap-2.3.2/buttons.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/css/index.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853985" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/css/font-awesome-ie7.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383744257003" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/site.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383733943215" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/scss/_bootstrap.scss" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853987" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/bootstrap-2.3.2/labels-badges.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383735200711" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/font-awesome/less/extras.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383564730261" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/font-awesome/scss/_icons.scss" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383564730261" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/css/font-awesome.min.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853983" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/css/font-awesome-ie7.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/site.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/scss/_bootstrap.scss" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/bootstrap-2.3.2/labels-badges.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/font-awesome/less/extras.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/font-awesome/scss/_icons.scss" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/css/font-awesome.min.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/less/badges.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853985" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/bootstrap-2.3.2/layouts.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383564730262" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/font-awesome/scss/_core.scss" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383564730260" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/font-awesome/scss/_core.scss" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/bootstrap-2.3.2/close.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383564730258" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/less/utilities.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853984" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/spec/lib/jasmine-1.2.0/jasmine.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853987" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/lazy.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383564730259" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/bootstrap-2.3.2/scaffolding.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383564730259" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/less/buttons.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853984" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/lazy.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/bootstrap-2.3.2/scaffolding.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/less/buttons.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/less/labels.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853985" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/bootstrap-2.3.2/popovers.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383564730260" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/less/glyphicons.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853987" ignored="false" />
@@ -446,14 +432,14 @@
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/font-awesome/less/variables.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383565403455" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/less/media.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853985" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/less/pagination.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853984" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/css/pygments.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383564730260" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/css/pygments.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/angular-mobile-nav/mobile-nav.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317494069" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/font-awesome/scss/_bootstrap.scss" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383735200710" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/www/js/angular-navigator.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381329583933" ignored="false" />
     <file path="/angular-navigator.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381329555237" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/www/js/takeon/takeon.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381407653045" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/plugins/org.apache.cordova.geolocation/www/geolocation.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381330004766" ignored="false" />
-    <file path="/player_info_album.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383742295225" ignored="false" />
+    <file path="/player_info_album.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383827183362" ignored="false" />
     <file path="/AlbumsController.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739021574" ignored="false" />
     <file path="/takeon_dropdown.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381407903796" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/www/js/takeon/takeon_dropdown.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381407903796" ignored="false" />
@@ -462,166 +448,166 @@
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/www/js/check/check.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381489500070" ignored="false" />
     <file path="/check.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381489487695" ignored="false" />
     <file path="/main.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383573295316" ignored="false" />
-    <file path="/writeoff.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383564373916" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/www/js/writeoff/writeoff.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383564995703" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/libraries/bootstrap/css/bootstrap.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853987" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/libraries/bootstrap/css/bootstrap.min.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853985" ignored="false" />
+    <file path="/writeoff.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383814766720" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/www/js/writeoff/writeoff.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383814834825" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/libraries/bootstrap/css/bootstrap.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380092" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/libraries/bootstrap/css/bootstrap.min.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/js/writeoff/writeoff.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383750802917" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/js/verification/verification.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383750802917" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/js/acquisition/acquisition.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383563226610" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/js/websql.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383568835475" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/js/websql.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383826714378" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/js/take/take.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383750802917" ignored="false" />
     <file path="/ng-play-list.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383745364600" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/www/js/writeoff/list.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383750556391" ignored="false" />
-    <file path="/list.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383747406593" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/www/js/writeoff/list.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818551872" ignored="false" />
+    <file path="/list.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383817981051" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/www/js/acquisition/acquisition_dropdown.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383750834600" ignored="false" />
     <file path="/acquisition_dropdown.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383750833850" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/ui-lightness/jquery.ui.theme.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853985" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/font-awesome/src/assets/less/bootstrap-2.3.2/reset.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383564730258" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/examples/grid/grid.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853985" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/examples/theme/theme.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853985" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/examples/theme/theme.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/swanky-purse/jquery-ui.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853985" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap-switch/static/stylesheets/flat-ui-fonts.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853984" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/angular-localstorage/examples/assets/style.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383733943215" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/base/minified/jquery.ui.resizable.min.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383564730258" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap-switch/static/stylesheets/flat-ui-fonts.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/angular-localstorage/examples/assets/style.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/base/minified/jquery.ui.resizable.min.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/south-street/jquery-ui.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853986" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/south-street/jquery.ui.theme.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853988" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/swanky-purse/jquery-ui.min.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853984" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/south-street/jquery.ui.theme.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380092" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/swanky-purse/jquery-ui.min.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/overcast/jquery-ui.min.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853985" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap-switch/static/less/bootstrap-switch.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853984" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap-switch/static/less/bootstrap-switch.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/excite-bike/jquery-ui.min.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853984" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/eggplant/jquery.ui.theme.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853987" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/base/jquery.ui.tabs.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853986" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/eggplant/jquery.ui.theme.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/base/jquery.ui.tabs.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/le-frog/jquery.ui.theme.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853984" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/black-tie/jquery-ui.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853988" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/black-tie/jquery.ui.theme.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853984" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/black-tie/jquery-ui.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/black-tie/jquery.ui.theme.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/base/jquery.ui.theme.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853986" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/ui-lightness/jquery-ui.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853984" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/ui-lightness/jquery-ui.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/ui-darkness/jquery-ui.min.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853986" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/angular-localstorage/examples/assets/style.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383564730258" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/base/minified/jquery.ui.button.min.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383564730258" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/eggplant/jquery-ui.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853986" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/hot-sneaks/jquery-ui.min.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853987" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/angular-localstorage/examples/assets/style.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/base/minified/jquery.ui.button.min.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/eggplant/jquery-ui.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/hot-sneaks/jquery-ui.min.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/base/jquery.ui.datepicker.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853985" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/start/jquery.ui.theme.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853985" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/base/jquery.ui.slider.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853987" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/base/jquery.ui.resizable.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853985" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/sunny/jquery.ui.theme.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853985" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/base/jquery.ui.slider.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/base/jquery.ui.resizable.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/sunny/jquery.ui.theme.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap-switch/static/less/deps/mixins.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383564730258" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/flick/jquery-ui.min.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853986" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/base/minified/jquery.ui.menu.min.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383564730258" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/trontastic/jquery-ui.min.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853984" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/base/minified/jquery.ui.tooltip.min.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383564730258" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/examples/navbar/navbar.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853987" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/examples/signin/signin.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853986" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/mint-choc/jquery-ui.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853984" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/trontastic/jquery-ui.min.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/base/minified/jquery.ui.tooltip.min.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/examples/navbar/navbar.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/examples/signin/signin.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/mint-choc/jquery-ui.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/examples/carousel/carousel.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853986" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/examples/navbar-static-top/navbar-static-top.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853986" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/angularLocalStorage/examples/assets/foundation.min.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739960228" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/examples/non-responsive/non-responsive.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853986" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/base/minified/jquery.ui.selectable.min.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383564730259" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/base/minified/jquery.ui.autocomplete.min.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383564730259" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/examples/starter-template/starter-template.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853986" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/base/minified/jquery.ui.theme.min.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383564730259" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/flick/jquery-ui.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853984" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/pepper-grinder/jquery-ui.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853987" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/base/minified/jquery.ui.selectable.min.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/base/minified/jquery.ui.autocomplete.min.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/examples/starter-template/starter-template.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380092" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/base/minified/jquery.ui.theme.min.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/flick/jquery-ui.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/pepper-grinder/jquery-ui.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/examples/sticky-footer/sticky-footer.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853988" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/assets/css/pygments-manni.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853983" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/examples/jumbotron-narrow/jumbotron-narrow.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853988" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/examples/justified-nav/justified-nav.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853987" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/trontastic/jquery.ui.theme.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853985" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/hot-sneaks/jquery.ui.theme.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853984" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/start/jquery-ui.min.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853988" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/blitzer/jquery-ui.min.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853984" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/assets/css/pygments-manni.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/examples/jumbotron-narrow/jumbotron-narrow.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/examples/justified-nav/justified-nav.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/trontastic/jquery.ui.theme.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/hot-sneaks/jquery.ui.theme.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380092" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/start/jquery-ui.min.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/blitzer/jquery-ui.min.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/hot-sneaks/jquery-ui.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853985" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/sunny/jquery-ui.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853985" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/sunny/jquery-ui.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/trontastic/jquery-ui.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853985" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/redmond/jquery-ui.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853986" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/redmond/jquery-ui.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/base/minified/jquery.ui.tabs.min.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383564730259" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/base/jquery.ui.selectable.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853985" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/assets/css/docs.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853986" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/less/normalize.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383565403455" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/mint-choc/jquery.ui.theme.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853984" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/vader/jquery.ui.theme.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853988" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/excite-bike/jquery.ui.theme.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853987" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/base/jquery.ui.selectable.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/assets/css/docs.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/less/normalize.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/mint-choc/jquery.ui.theme.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380092" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/vader/jquery.ui.theme.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/excite-bike/jquery.ui.theme.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/base/jquery.ui.core.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853988" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/base/jquery-ui.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853986" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/base/jquery.ui.menu.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853986" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/base/jquery.ui.dialog.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853984" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/base/minified/jquery.ui.spinner.min.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383564730259" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/base/jquery-ui.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/base/jquery.ui.menu.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/base/jquery.ui.dialog.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/base/minified/jquery.ui.spinner.min.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/cupertino/jquery.ui.theme.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853985" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/pepper-grinder/jquery-ui.min.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853987" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/le-frog/jquery-ui.min.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853984" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/humanity/jquery-ui.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853985" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/angularLocalStorage/examples/assets/style.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853987" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/angular-localstorage/examples/assets/foundation.min.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383564730260" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/base/jquery.ui.tooltip.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853985" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/le-frog/jquery-ui.min.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/humanity/jquery-ui.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/angularLocalStorage/examples/assets/style.less" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380092" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/angular-localstorage/examples/assets/foundation.min.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/base/jquery.ui.tooltip.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/angularLocalStorage/examples/assets/style.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853987" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/start/jquery-ui.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853984" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/ui-darkness/jquery.ui.theme.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853987" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/dot-luv/jquery-ui.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853984" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/vader/jquery-ui.min.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853988" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/base/jquery.ui.autocomplete.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853986" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/redmond/jquery-ui.min.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853987" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/base/jquery.ui.progressbar.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853988" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/base/jquery.ui.spinner.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853986" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/ui-darkness/jquery.ui.theme.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/dot-luv/jquery-ui.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/vader/jquery-ui.min.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/base/jquery.ui.autocomplete.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/redmond/jquery-ui.min.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/base/jquery.ui.progressbar.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/base/jquery.ui.spinner.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/smoothness/jquery-ui.min.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853985" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/pepper-grinder/jquery.ui.theme.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853985" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/south-street/jquery-ui.min.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853986" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/base/jquery.ui.accordion.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853984" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/south-street/jquery-ui.min.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/base/jquery.ui.accordion.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/ui-darkness/jquery-ui.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853987" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/overcast/jquery-ui.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853988" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap-switch/static/stylesheets/bootstrap-switch.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853988" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/overcast/jquery-ui.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap-switch/static/stylesheets/bootstrap-switch.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/base/minified/jquery.ui.accordion.min.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383564730261" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/black-tie/jquery-ui.min.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853987" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/black-tie/jquery-ui.min.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/redmond/jquery.ui.theme.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853987" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/eggplant/jquery-ui.min.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853988" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/ui-lightness/jquery-ui.min.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853985" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/eggplant/jquery-ui.min.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/ui-lightness/jquery-ui.min.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/base/minified/jquery.ui.datepicker.min.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383564730261" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/blitzer/jquery.ui.theme.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853988" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/blitzer/jquery.ui.theme.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/examples/sticky-footer-navbar/sticky-footer-navbar.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853986" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/flick/jquery.ui.theme.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853985" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/humanity/jquery-ui.min.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853986" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/angular-localstorage/examples/assets/prettify.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383564730261" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/dark-hive/jquery-ui.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853985" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/dark-hive/jquery.ui.theme.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853988" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/examples/offcanvas/offcanvas.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853986" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/humanity/jquery-ui.min.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/angular-localstorage/examples/assets/prettify.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/dark-hive/jquery-ui.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/dark-hive/jquery.ui.theme.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/examples/offcanvas/offcanvas.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/excite-bike/jquery-ui.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853986" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/base/jquery.ui.button.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853985" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/dark-hive/jquery-ui.min.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853986" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/base/jquery.ui.button.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/dark-hive/jquery-ui.min.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/blitzer/jquery-ui.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853984" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/mint-choc/jquery-ui.min.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853984" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/vader/jquery-ui.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853987" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/le-frog/jquery-ui.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853986" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/smoothness/jquery.ui.theme.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853987" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/base/minified/jquery.ui.slider.min.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383564730261" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/base/minified/jquery.ui.core.min.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383564730261" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/humanity/jquery.ui.theme.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853985" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/base/minified/jquery.ui.progressbar.min.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383564730261" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/smoothness/jquery.ui.theme.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/base/minified/jquery.ui.slider.min.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/base/minified/jquery.ui.core.min.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/humanity/jquery.ui.theme.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/base/minified/jquery.ui.progressbar.min.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/base/minified/jquery.ui.dialog.min.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383564730261" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/cupertino/jquery-ui.min.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853986" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/dot-luv/jquery-ui.min.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853986" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/dot-luv/jquery.ui.theme.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853986" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/base/minified/jquery-ui.min.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383564730261" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/smoothness/jquery-ui.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853984" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/overcast/jquery.ui.theme.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853988" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/angularLocalStorage/examples/assets/prettify.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853985" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/cupertino/jquery-ui.min.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/dot-luv/jquery-ui.min.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/dot-luv/jquery.ui.theme.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/base/minified/jquery-ui.min.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/smoothness/jquery-ui.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/overcast/jquery.ui.theme.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/angularLocalStorage/examples/assets/prettify.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/sunny/jquery-ui.min.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853985" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/swanky-purse/jquery.ui.theme.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853987" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/jquery-ui/themes/cupertino/jquery-ui.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739853986" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/www/css/index.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383658814838" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/www/js/register/register.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383750694241" ignored="false" />
-    <file path="/register.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383747385057" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/www/js/register/register.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818636248" ignored="false" />
+    <file path="/register.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818626047" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/www/js/register/register.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383750166803" ignored="false" />
     <file path="/register.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383741009399" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/www/js/take/takeAssets.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383745009727" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/www/js/take/takeAssets.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383814011536" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/www/js/take/takeLocations.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383745019328" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/www/js/take/take.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739898031" ignored="false" />
-    <file path="/take.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383739897145" ignored="false" />
-    <file path="/takeAssets.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383744849761" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/www/js/take/take.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383813345494" ignored="false" />
+    <file path="/take.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383813345494" ignored="false" />
+    <file path="/takeAssets.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383813976489" ignored="false" />
     <file path="/index.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383658592990" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/js/login/login.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383568835475" ignored="false" />
-    <file path="/sidebar.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383750274316" ignored="false" />
+    <file path="/sidebar.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383824549458" ignored="false" />
     <file path="/sidebar.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383651810080" ignored="false" />
     <file path="/filters.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383729715371" ignored="false" />
     <file path="/takeLocations.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383735047862" ignored="false" />
@@ -639,13 +625,19 @@
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/js/writeoff/list.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383747659442" ignored="false" />
     <file path="/ver_loc.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383747395497" ignored="false" />
     <file path="/verification.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383745033359" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/www/js/verification/ver_loc.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383750707059" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/www/js/verification/ver_loc.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818863296" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/www/js/verification/verification.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383750701706" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/js/register/register.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383750802917" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/www/js/acquisition/acquisition_details.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383750824592" ignored="false" />
-    <file path="/acquisition_details.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383750812888" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/www/js/acquisition/acquisition_details.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383830044452" ignored="false" />
+    <file path="/acquisition_details.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383830044452" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/www/js/acquisition/acquisition_location.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383750841351" ignored="false" />
     <file path="/acquisition_location.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383750840432" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/www/js/acquisition/acquisition.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383813314679" ignored="false" />
+    <file path="/acquisition.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383813314193" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/assets/js/uglify.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383831072697" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/css/animations.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383818380093" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/bower_components/bootstrap/assets/js/less.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383826486469" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/platforms/android/assets/www/js/sync/sync.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383826714378" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -672,16 +664,7 @@
               <file leaf-file-name="SongsController.php" pinned="false" current="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Controller/SongsController.php">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-                      <folding />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file leaf-file-name="ArtistsController.php" pinned="false" current="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Controller/ArtistsController.php">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state line="77" column="0" selection-start="1853" selection-end="1853" vertical-scroll-proportion="0.0">
+                    <state line="65" column="26" selection-start="1534" selection-end="1534" vertical-scroll-proportion="-6.3846154">
                       <folding />
                     </state>
                   </provider>
@@ -699,7 +682,7 @@
               <file leaf-file-name="player.js" pinned="false" current="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player.js">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state line="155" column="34" selection-start="6003" selection-end="6003" vertical-scroll-proportion="0.45609757">
+                    <state line="245" column="29" selection-start="9627" selection-end="9627" vertical-scroll-proportion="0.87560976">
                       <folding />
                     </state>
                   </provider>
@@ -723,32 +706,23 @@
                   </provider>
                 </entry>
               </file>
+              <file leaf-file-name="rater.js" pinned="false" current="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/rater/rater.js">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state line="6" column="16" selection-start="240" selection-end="240" vertical-scroll-proportion="0.0">
+                      <folding />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
             </leaf>
           </split-first>
           <split-second>
             <leaf>
-              <file leaf-file-name="base.html.twig" pinned="false" current="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state line="33" column="21" selection-start="1732" selection-end="1732" vertical-scroll-proportion="0.0">
-                      <folding />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file leaf-file-name="index.html.twig" pinned="false" current="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/views/Default/index.html.twig">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state line="47" column="4" selection-start="2486" selection-end="2486" vertical-scroll-proportion="0.0">
-                      <folding />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file leaf-file-name="player_info_artist.html" pinned="false" current="false" current-in-tab="false">
+              <file leaf-file-name="player_info_artist.html" pinned="false" current="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player_info_artist.html">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state line="13" column="214" selection-start="1096" selection-end="1096" vertical-scroll-proportion="0.0">
+                    <state line="27" column="8" selection-start="1692" selection-end="1692" vertical-scroll-proportion="0.67460316">
                       <folding />
                     </state>
                   </provider>
@@ -757,7 +731,16 @@
               <file leaf-file-name="player_info_album.html" pinned="false" current="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player_info_album.html">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state line="12" column="25" selection-start="830" selection-end="830" vertical-scroll-proportion="-0.65384614">
+                    <state line="13" column="46" selection-start="874" selection-end="874" vertical-scroll-proportion="-8.5">
+                      <folding />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file leaf-file-name="rater.html" pinned="false" current="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/rater/rater.html">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state line="2" column="22" selection-start="56" selection-end="56" vertical-scroll-proportion="-1.3076923">
                       <folding />
                     </state>
                   </provider>
@@ -766,16 +749,25 @@
               <file leaf-file-name="player_info_song.html" pinned="false" current="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player_info_song.html">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state line="16" column="179" selection-start="1204" selection-end="1223" vertical-scroll-proportion="0.0">
+                    <state line="16" column="179" selection-start="1204" selection-end="1223" vertical-scroll-proportion="-0.65384614">
                       <folding />
                     </state>
                   </provider>
                 </entry>
               </file>
-              <file leaf-file-name="sidebar.html" pinned="false" current="true" current-in-tab="true">
+              <file leaf-file-name="sidebar.html" pinned="false" current="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/sidebar/sidebar.html">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state line="16" column="98" selection-start="1320" selection-end="1320" vertical-scroll-proportion="0.35185185">
+                    <state line="6" column="45" selection-start="555" selection-end="555" vertical-scroll-proportion="-3.4230769">
+                      <folding />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file leaf-file-name="player_info.html" pinned="false" current="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player_info.html">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state line="10" column="12" selection-start="495" selection-end="495" vertical-scroll-proportion="-6.5384617">
                       <folding />
                     </state>
                   </provider>
@@ -789,28 +781,19 @@
         <splitter split-orientation="vertical" split-proportion="0.5">
           <split-first>
             <leaf>
-              <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="true">
+              <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/app.js">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state line="44" column="27" selection-start="1782" selection-end="1782" vertical-scroll-proportion="0.37317073">
+                    <state line="44" column="27" selection-start="1782" selection-end="1782" vertical-scroll-proportion="0.0">
                       <folding />
                     </state>
                   </provider>
                 </entry>
               </file>
-              <file leaf-file-name="SongManager.php" pinned="false" current="false" current-in-tab="false">
+              <file leaf-file-name="SongManager.php" pinned="false" current="true" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Manager/SongManager.php">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-                      <folding />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file leaf-file-name="AlbumManager.php" pinned="false" current="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Manager/AlbumManager.php">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state line="107" column="60" selection-start="2421" selection-end="2421" vertical-scroll-proportion="0.0">
+                    <state line="123" column="10" selection-start="2508" selection-end="2508" vertical-scroll-proportion="0.9088542">
                       <folding />
                     </state>
                   </provider>
@@ -847,46 +830,10 @@
           </split-first>
           <split-second>
             <leaf>
-              <file leaf-file-name="bower.json" pinned="false" current="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/web/bower.json">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state line="29" column="0" selection-start="628" selection-end="628" vertical-scroll-proportion="0.0">
-                      <folding />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file leaf-file-name="filters.js" pinned="false" current="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/filters.js">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state line="6" column="13" selection-start="129" selection-end="129" vertical-scroll-proportion="0.0">
-                      <folding />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file leaf-file-name="ng-play-list.js" pinned="false" current="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/ng-play-list.js">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state line="73" column="43" selection-start="2832" selection-end="2832" vertical-scroll-proportion="0.0">
-                      <folding />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file leaf-file-name="font-awesome.css" pinned="false" current="false" current-in-tab="true">
+              <file leaf-file-name="font-awesome.css" pinned="false" current="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/web/bower_components/font-awesome/css/font-awesome.css">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state line="1174" column="17" selection-start="22409" selection-end="22409" vertical-scroll-proportion="0.042079207">
-                      <folding />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file leaf-file-name="Scanner.php" pinned="false" current="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Utility/Scanner.php">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state line="95" column="11" selection-start="2454" selection-end="2454" vertical-scroll-proportion="0.0">
+                    <state line="465" column="10" selection-start="11305" selection-end="11309" vertical-scroll-proportion="-2.2941177">
                       <folding />
                     </state>
                   </provider>
@@ -896,6 +843,42 @@
                 <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Entity/Song.php">
                   <provider selected="true" editor-type-id="text-editor">
                     <state line="225" column="13" selection-start="4423" selection-end="4423" vertical-scroll-proportion="0.0">
+                      <folding />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file leaf-file-name="SongRepository.php" pinned="false" current="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Entity/SongRepository.php">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state line="54" column="26" selection-start="1202" selection-end="1202" vertical-scroll-proportion="11.115385">
+                      <folding />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file leaf-file-name="RatingRepository.php" pinned="false" current="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Entity/RatingRepository.php">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state line="19" column="20" selection-start="349" selection-end="349" vertical-scroll-proportion="-5.0">
+                      <folding />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file leaf-file-name="ArtistRepository.php" pinned="false" current="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Entity/ArtistRepository.php">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state line="19" column="20" selection-start="334" selection-end="334" vertical-scroll-proportion="-5.0">
+                      <folding />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file leaf-file-name="AlbumRepository.php" pinned="false" current="false" current-in-tab="true">
+                <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Entity/AlbumRepository.php">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state line="19" column="20" selection-start="332" selection-end="332" vertical-scroll-proportion="0.33248082">
                       <folding />
                     </state>
                   </provider>
@@ -923,22 +906,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/web/bower.json" />
-        <option value="$PROJECT_DIR$/src/JJ/MainBundle/Resources/views/Default/index.html.twig" />
-        <option value="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
-        <option value="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/sidebar/sidebar.js" />
         <option value="$PROJECT_DIR$/src/JJ/MainBundle/Controller/ArtistsController.php" />
         <option value="$PROJECT_DIR$/src/JJ/MainBundle/Controller/AlbumsController.php" />
         <option value="$PROJECT_DIR$/web/.htaccess" />
-        <option value="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player_info_artist.html" />
         <option value="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player_info_song.html" />
         <option value="$PROJECT_DIR$/src/JJ/MainBundle/Utility/Identifier.php" />
         <option value="$PROJECT_DIR$/src/JJ/MainBundle/Entity/Song.php" />
         <option value="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/ng-play-list.js" />
-        <option value="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player_info_album.html" />
         <option value="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/app.js" />
-        <option value="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player.js" />
+        <option value="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/rater/rater.html" />
         <option value="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/sidebar/sidebar.html" />
+        <option value="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player_info.html" />
+        <option value="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player_info_artist.html" />
+        <option value="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player_info_album.html" />
+        <option value="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player.js" />
+        <option value="$PROJECT_DIR$/src/JJ/MainBundle/Entity/SongRepository.php" />
+        <option value="$PROJECT_DIR$/src/JJ/MainBundle/Manager/SongManager.php" />
       </list>
     </option>
   </component>
@@ -1037,73 +1020,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="speler" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="speler" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="bower_components" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="speler" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="speler" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bower_components" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="momentjs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="speler" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="speler" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bower_components" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="momentjs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="min" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1188,32 +1105,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="MainBundle" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="speler" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="speler" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="JJ" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MainBundle" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Utility" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1240,14 +1131,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Default" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1439,32 +1322,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="speler" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="speler" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="JJ" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MainBundle" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="Manager" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -1518,42 +1375,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Controller" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="speler" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="speler" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="speler" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="speler" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1614,7 +1435,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1622,7 +1443,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Symfony2" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Framework" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19903949" sideWeight="0.6703786" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20330843" sideWeight="0.6703786" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962137" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
@@ -1700,38 +1521,35 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player_info.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+        <state line="10" column="12" selection-start="495" selection-end="495" vertical-scroll-proportion="-6.5384617">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/.htaccess">
+    <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/sidebar/sidebar.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="4" selection-start="2127" selection-end="2127" vertical-scroll-proportion="0.48920864">
+        <state line="7" column="0" selection-start="193" selection-end="193" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player_info_album.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="46" selection-start="874" selection-end="874" vertical-scroll-proportion="-8.5">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="245" column="29" selection-start="9627" selection-end="9627" vertical-scroll-proportion="0.87560976">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player_info_artist.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="214" selection-start="1096" selection-end="1096" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/rater/rater.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="46" selection-start="1219" selection-end="1219" vertical-scroll-proportion="-7.730769" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player_info_song.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="179" selection-start="1204" selection-end="1223" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Controller/AlbumsController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="86" column="27" selection-start="2093" selection-end="2093" vertical-scroll-proportion="0.0">
+        <state line="27" column="8" selection-start="1692" selection-end="1692" vertical-scroll-proportion="0.67460316">
           <folding />
         </state>
       </provider>
@@ -1743,30 +1561,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Utility/Identifier.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="0" selection-start="1689" selection-end="1689" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Entity/Song.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="225" column="13" selection-start="4423" selection-end="4423" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player_info_album.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="25" selection-start="830" selection-end="830" vertical-scroll-proportion="-0.65384614">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="27" selection-start="1782" selection-end="1782" vertical-scroll-proportion="0.37317073">
+        <state line="44" column="27" selection-start="1782" selection-end="1782" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Entity/SongRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="54" column="26" selection-start="1202" selection-end="1202" vertical-scroll-proportion="11.115385">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/bower.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="0" selection-start="628" selection-end="628" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/filters.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="13" selection-start="129" selection-end="129" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Entity/RatingRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="20" selection-start="349" selection-end="349" vertical-scroll-proportion="-5.0">
           <folding />
         </state>
       </provider>
@@ -1778,9 +1603,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/bower_components/font-awesome/css/font-awesome.css">
+    <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Entity/ArtistRepository.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1174" column="17" selection-start="22409" selection-end="22409" vertical-scroll-proportion="0.042079207">
+        <state line="19" column="20" selection-start="334" selection-end="334" vertical-scroll-proportion="-5.0">
           <folding />
         </state>
       </provider>
@@ -1792,16 +1617,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player.js">
+    <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Entity/AlbumRepository.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="155" column="34" selection-start="6003" selection-end="6003" vertical-scroll-proportion="0.45609757">
+        <state line="19" column="20" selection-start="332" selection-end="332" vertical-scroll-proportion="0.33248082">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/sidebar/sidebar.html">
+    <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Manager/SongManager.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="98" selection-start="1320" selection-end="1320" vertical-scroll-proportion="0.35185185">
+        <state line="123" column="10" selection-start="2508" selection-end="2508" vertical-scroll-proportion="0.9088542">
           <folding />
         </state>
       </provider>

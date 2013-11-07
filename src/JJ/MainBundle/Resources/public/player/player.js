@@ -223,17 +223,27 @@ angular.module('player', [])
         });
 
         // POPULATE ARTIST
-        $scope.populateArtist = function(artist) {
+        $scope.populateArtist = function(artist, form) {
             $log.info('populating artist', artist);
             $scope.edit.artist.name = artist.name;
-        }
+            form.$setDirty();
+        };
+
+        // FILTER ALBUMS
+        $scope.albumFilter = function(album) {
+            if (!album.hasOwnProperty('artist')) {
+                return false;
+            }
+            return album.artist.id == $rootScope.song.artist.id;
+        };
 
         // POPULATE ALBUM
-        $scope.populateAlbum = function(album) {
+        $scope.populateAlbum = function(album, form) {
             $log.info('populating album', album);
             $scope.edit.album.name = album.name;
             $scope.edit.album.size = album.size;
             $scope.edit.album.year = album.year;
-        }
+            form.$setDirty();
+        };
     }])
 ;

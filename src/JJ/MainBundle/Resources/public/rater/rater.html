@@ -1,6 +1,6 @@
 <section ng-controller="raterCtrl">
 
-	<div class="row text-center">
+	<div ng-hide="true" class="row text-center">
 		<div class="col-sm-4">
 			<p ng-show="stats.count_played < 1">Song not played before</p>
 			<p ng-show="stats.count_played > 0">Played {{ stats.count_played }} times ({{ stats.played_at|date }})</p>

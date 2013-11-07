@@ -52,7 +52,7 @@ class SongRepository extends EntityRepository
     public function findLastPlayedAt()
     {
         $query = $this->getEntityManager()->createQuery("
-                SELECT MAX(s.playedAt)
+                SELECT MIN(s.playedAt)
                 FROM MainBundle:Song s
             ");
         $result = $query->getSingleScalarResult();

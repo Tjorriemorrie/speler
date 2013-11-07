@@ -121,6 +121,7 @@ class SongManager
         $priorityCutOff /= 2;
 
         $lastPlayedAt = $this->findLastPlayedAt();
+	    //die(var_dump($lastPlayedAt));
         $diff = time() - $lastPlayedAt->getTimestamp();
         $timeIncrement = max(1, $diff / $countSongs);
         $lastPlayedAt->modify('+' . round($diff / 2) . ' seconds');

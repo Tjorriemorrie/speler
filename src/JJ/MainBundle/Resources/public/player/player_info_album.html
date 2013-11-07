@@ -10,8 +10,8 @@
 			<span ng-show="form.fNameAlbum.$error.required && form.fNameAlbum.$dirty">Album name is required!</span>
 		</span>
 	</div>
-	<div ng-show="edit.album.name.length > 0" class="list-group">
-		<a ng-click="populateAlbum(album)" ng-show="(albums|filter:edit.album.name).length > 1" ng-repeat="album in albums | filter:edit.album.name | orderBy:'count_played':true | limitTo:6" class="list-group-item" href="">{{ album.name }}</a>
+	<div class="list-group">
+		<a ng-click="populateAlbum(album, form)" ng-repeat="album in albums | filter:edit.album.name | filter:albumFilter | orderBy:'count_played':true | limitTo:6" class="list-group-item" href="">{{ album.name }}</a>
 	</div>
 
 	<div ng-show="edit.album.id > 0" class="form-group" ng-class="{'has-success': form.fCreateAlbum.$valid, 'has-error': form.fCreateAlbum.$invalid && form.fCreateAlbum.$dirty}">
