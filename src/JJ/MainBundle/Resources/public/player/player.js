@@ -2,13 +2,14 @@
 
 angular.module('player', [])
 
-    .controller('playerCtrl', ['songsServ', 'playList', '$rootScope', '$q', 'storage', '$log', '$scope', function(songsServ, playList, $rootScope, $q, storage, $log, $scope) {
+    .controller('playerCtrl', ['lastFm', 'songsServ', 'playList', '$rootScope', '$q', 'storage', '$log', '$scope', function(lastFm, songsServ, playList, $rootScope, $q, storage, $log, $scope) {
 
         // SKIP SONG
         $scope.skipSong = function() {
             $log.info('skipSong', playList.getPlayList().length);
             if (playList.getPlayList().length > 1) {
                 accrete();
+                lastFm.scrobble($rootScope.song);
                 $scope.endSong();
             }
         };
@@ -95,8 +96,12 @@ angular.module('player', [])
                 var progress = Math.round(event.jPlayer.status.currentPercentAbsolute);
                 //console.info('complete', progress);
                 if (progress >= 0) {
-                    if (progress >= 90) {
+                    if (progress >= 84) {
+                        lastFm.scrobble($rootScope.song);
+                    }
+                    if (progress >= 88) {
                         accrete();
+                        lastFm.scrobble($rootScope.song);
                     }
                 }
             },
@@ -115,7 +120,7 @@ angular.module('player', [])
         $scope.edit = { 'switch': 'display' };
         // WATCH SONG (goto display on change)
         $rootScope.$watch('song', function(song) {
-            $log.debug('song changed, closing info edit forms');
+            //$log.debug('song changed, closing info edit forms');
             $scope.edit.switch = 'display';
         });
 
@@ -128,12 +133,12 @@ angular.module('player', [])
                 'album': $rootScope.song.hasOwnProperty('album') ? Object.create($rootScope.song.album) : Object.create(album_blank)
             };
             $scope.edit.artist.create = false;
-            $log.debug('edit info', infoSwitch, $scope.edit);
+            //$log.debug('edit info', infoSwitch, $scope.edit);
         };
 
         // SAVE SONG
         $scope.saveSong = function(infoSwitch) {
-            $log.info('saveSong', $scope.edit.song);
+            //$log.info('saveSong', $scope.edit.song);
             $rootScope.song.name = $scope.edit.song.name;
             $rootScope.song.number = $scope.edit.song.number;
             editsServ.saveSong($scope.edit.song).then(function(songResponse) {
@@ -147,7 +152,7 @@ angular.module('player', [])
         // SAVE ARTIST
         var artist_blank = {'id': 0, 'name': null};
         $scope.saveArtist = function(infoSwitch) {
-            $log.info('saveArtist', $scope.edit.artist);
+            //$log.info('saveArtist', $scope.edit.artist);
             $rootScope.song.artist = {
                 'name': $scope.edit.artist.name
             };
@@ -160,12 +165,12 @@ angular.module('player', [])
                     if (artist.id == artistResponse.id) {
                         found = true;
                         $scope.artists[index] = artistResponse;
-                        $log.info('artist replace in list', artistResponse);
+                        //$log.info('artist replace in list', artistResponse);
                     }
                 });
                 if (!found) {
                     $scope.artists.push(artistResponse);
-                    $log.info('artist added to list', artistResponse);
+                    //$log.info('artist added to list', artistResponse);
                 }
             });
             $scope.editInfo(infoSwitch);
@@ -174,7 +179,7 @@ angular.module('player', [])
         // SAVE ALBUM
         var album_blank = {'id': 0, 'name': null, 'size': null, 'year': null};
         $scope.saveAlbum = function() {
-            $log.info('saveAlbum', $scope.edit.album);
+            //$log.info('saveAlbum', $scope.edit.album);
             $rootScope.song.album = {
                 'name': $scope.edit.album.name,
                 'size': $scope.edit.album.size,
@@ -183,18 +188,18 @@ angular.module('player', [])
             playList.getFirst().album = $scope.edit.album;
             storage.set('playList', playList.getPlayList());
             editsServ.saveAlbum($scope.edit.song, $scope.edit.album).then(function(albumResponse) {
-                $log.info('album saved', albumResponse);
+                //$log.info('album saved', albumResponse);
                 var found = false;
                 $scope.albums.forEach(function(album, index) {
                     if (album.id == albumResponse.id) {
                         found = true;
                         $scope.albums[index] = albumResponse;
-                        $log.info('album replace in list', albumResponse);
+                        //$log.info('album replace in list', albumResponse);
                     }
                 });
                 if (!found) {
                     $scope.albums.push(albumResponse);
-                    $log.info('album added to list', albumResponse);
+                    //$log.info('album added to list', albumResponse);
                 }
             });
             $scope.edit.switch = 'display';
@@ -208,7 +213,7 @@ angular.module('player', [])
             });
         }
         $scope.$watch('artists', function(artists) {
-            $log.info('list artists = ' + $scope.artists.length);
+            //$log.info('list artists = ' + $scope.artists.length);
         });
 
         // LIST ALBUMS
@@ -219,12 +224,12 @@ angular.module('player', [])
             });
         }
         $scope.$watch('albums', function(artists) {
-            $log.info('list albums = ' + $scope.albums.length);
+            //$log.info('list albums = ' + $scope.albums.length);
         });
 
         // POPULATE ARTIST
         $scope.populateArtist = function(artist, form) {
-            $log.info('populating artist', artist);
+            //$log.info('populating artist', artist);
             $scope.edit.artist.name = artist.name;
             form.$setDirty();
         };
@@ -239,7 +244,7 @@ angular.module('player', [])
 
         // POPULATE ALBUM
         $scope.populateAlbum = function(album, form) {
-            $log.info('populating album', album);
+            //$log.info('populating album', album);
             $scope.edit.album.name = album.name;
             $scope.edit.album.size = album.size;
             $scope.edit.album.year = album.year;

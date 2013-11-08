@@ -22,7 +22,8 @@
 
         "stof/doctrine-extensions-bundle": "*",
         "jms/serializer-bundle": "*",
-        "phansys/getid3": "2.1.*@dev"
+        "phansys/getid3": "2.1.*@dev",
+        "kriswallsmith/buzz": "*"
     },
     "scripts": {
         "post-install-cmd": [

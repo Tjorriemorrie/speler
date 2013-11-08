@@ -4,7 +4,7 @@
 angular.module('app', ['ngRoute', 'ngAnimate',
         'angularLocalStorage', 'ngTable', 'ngProgress',
         'services', 'directives', 'filters', 'ngPlayList',
-        'nav', 'player', 'sidebar', 'main', 'library', 'rater'
+        'nav', 'player', 'sidebar', 'main', 'library', 'rater', 'lastfm'
     ])
 
     .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
@@ -42,7 +42,9 @@ angular.module('app', ['ngRoute', 'ngAnimate',
                     return response || $q.when(response);
                 },
                 'responseError': function(rejection) {
-                    console.dir(rejection);
+                    //console.dir(rejection);
+                    //alert(rejection.status, rejection.data);
+                    $log.error('responseError', rejection.status, rejection.data.message);
                     return $q.reject(rejection);
                 }
             }

@@ -1,0 +1,66 @@
+<?php
+
+namespace JJ\MainBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
+use Gedmo\Mapping\Annotation as Gedmo;
+use JMS\Serializer\Annotation as JMS;
+
+/**
+ * @ORM\Table(name="s_lastfm")
+ * @ORM\Entity
+ * @UniqueEntity({"serviceSession"})
+ * @JMS\ExclusionPolicy("all")
+ */
+class LastFm
+{
+    /**
+     * @ORM\Column(type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+
+    /**
+     * @ORM\Column(name="screen_name", type="string", length=145, nullable=true)
+     * @Assert\Length(min=1, max=145)
+     */
+    protected $screenName;
+
+    /**
+     * @ORM\Column(name="service_session", type="string", length=45, unique=true, nullable=true)
+     * @Assert\Length(min=32, max=32)
+     */
+    protected $serviceSession;
+
+    /**
+     * @ORM\Column(name="authorised_at", type="datetime", nullable=true)
+     * @Assert\DateTime()
+     */
+    protected $authorisedAt;
+
+    /**
+     * @ORM\Column(name="created_at", type="datetime")
+     * @Gedmo\Timestampable(on="create")
+     */
+    protected $createdAt;
+
+    /**
+     * @ORM\Column(name="updated_at", type="datetime")
+     * @Gedmo\Timestampable(on="update")
+     */
+    protected $updatedAt;
+
+    //////////////////////////////////////////////////////////////////////////////////////
+    // METHODS
+    //////////////////////////////////////////////////////////////////////////////////////
+
+    //////////////////////////////////////////////////////////////////////////////////////
+    // GETTERS & SETTERS
+    //////////////////////////////////////////////////////////////////////////////////////
+
+
+}

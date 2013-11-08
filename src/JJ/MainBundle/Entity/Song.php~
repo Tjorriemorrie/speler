@@ -17,7 +17,7 @@ use JJ\MainBundle\Entity\Rating;
 /**
  * Song
  *
- * @ORM\Table()
+ * @ORM\Table(name="s_song")
  * @ORM\Entity(repositoryClass="JJ\MainBundle\Entity\SongRepository")
  * @Ser\ExclusionPolicy("all")
  */
@@ -109,14 +109,14 @@ class Song
     /**
      * @var Rating[]
      *
-     * @ORM\OneToMany(targetEntity="JJ\MainBundle\Entity\Rating", mappedBy="winner")
+     * @ORM\OneToMany(targetEntity="JJ\MainBundle\Entity\Rating", mappedBy="winner", cascade={"remove"})
      */
     private $winners;
 
     /**
      * @var Rating[]
      *
-     * @ORM\OneToMany(targetEntity="JJ\MainBundle\Entity\Rating", mappedBy="loser")
+     * @ORM\OneToMany(targetEntity="JJ\MainBundle\Entity\Rating", mappedBy="loser", cascade={"remove"})
      */
     private $losers;
 
@@ -134,13 +134,14 @@ class Song
      *
      * @ORM\Column(name="count_rated", type="integer")
      * @Assert\Range(min=0)
+     * @Ser\Expose()
      */
     private $countRated;
 
 	/**
 	 * @var float
 	 *
-	 * @ORM\Column(name="rating", type="float")
+	 * @ORM\Column(name="rating", type="float", nullable=true)
 	 * @Assert\Range(min=0, max=1)
 	 * @Ser\Expose()
 	 */
@@ -175,6 +176,12 @@ class Song
      */
     private $updatedAt;
 
+	/**
+	 * @var Song[]
+	 *
+	 * @Ser\Expose()
+	 */
+	private $matches;
 
     ///////////////////////////////////////////////////////////////////////////////////////////
     // METHODS
@@ -187,10 +194,44 @@ class Song
      */
     public function fileExists()
     {
-        return file_exists(PATH_AUDIO . DIRECTORY_SEPARATOR . $this->getPath());
+        return file_exists($this->getAbsolutePath());
     }
 
-    ///////////////////////////////////////////////////////////////////////////////////////////
+	/**
+	 * Get absolute path
+	 * @return string
+	 */
+	public function getAbsolutePath()
+	{
+		return realpath(PATH_AUDIO . '/' . $this->getPath());
+	}
+
+	/**
+	 * @param \JJ\MainBundle\Entity\Song[] $matches
+	 */
+	public function setMatches($matches)
+	{
+		$this->matches = $matches;
+	}
+
+	/**
+	 * @return \JJ\MainBundle\Entity\Song[]
+	 */
+	public function getMatches()
+	{
+		return $this->matches;
+	}
+
+	/**
+	 * Is mp3
+	 * @return bool
+	 */
+	public function isMp3()
+	{
+		return strtolower($this->getExtension()) === 'mp3';
+	}
+
+	///////////////////////////////////////////////////////////////////////////////////////////
     // GETTERS AND SETTERS
     ///////////////////////////////////////////////////////////////////////////////////////////
 
@@ -576,5 +617,28 @@ class Song
     public function getLosers()
     {
         return $this->losers;
+    }
+
+    /**
+     * Set rating
+     *
+     * @param float $rating
+     * @return Song
+     */
+    public function setRating($rating)
+    {
+        $this->rating = $rating;
+
+        return $this;
+    }
+
+    /**
+     * Get rating
+     *
+     * @return float
+     */
+    public function getRating()
+    {
+        return $this->rating;
     }
 }

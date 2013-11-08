@@ -5,16 +5,25 @@
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <parameters>
+        <parameter key="exception_listener.class">JJ\MainBundle\EventListener\ExceptionListener</parameter>
+
         <parameter key="song_manager.class">JJ\MainBundle\Manager\SongManager</parameter>
         <parameter key="album_manager.class">JJ\MainBundle\Manager\AlbumManager</parameter>
         <parameter key="artist_manager.class">JJ\MainBundle\Manager\ArtistManager</parameter>
         <parameter key="rating_manager.class">JJ\MainBundle\Manager\RatingManager</parameter>
+        <parameter key="lastfm_manager.class">JJ\MainBundle\Manager\LastFmManager</parameter>
 
+        <parameter key="lastfm.class">JJ\MainBundle\Service\LastFm</parameter>
         <parameter key="scanner.class">JJ\MainBundle\Utility\Scanner</parameter>
         <parameter key="identifier.class">JJ\MainBundle\Utility\Identifier</parameter>
     </parameters>
 
     <services>
+        <service id="exception_listener" class="%exception_listener.class%">
+            <tag name="kernel.event_listener" event="kernel.exception" method="onKernelException" priority="-10" />
+        </service>
+
+
         <service id="song.manager" class="%song_manager.class%">
             <argument type="service" id="doctrine.orm.entity_manager" />
             <argument type="service" id="validator" />
@@ -29,14 +38,20 @@
             <argument type="service" id="doctrine.orm.entity_manager" />
             <argument type="service" id="validator" />
         </service>
-        
+
         <service id="rating.manager" class="%rating_manager.class%">
             <argument type="service" id="doctrine.orm.entity_manager" />
             <argument type="service" id="validator" />
             <argument type="service" id="song.manager" />
         </service>
 
-        
+        <service id="lastfm.manager" class="%lastfm_manager.class%">
+            <argument type="service" id="doctrine.orm.entity_manager" />
+            <argument type="service" id="validator" />
+            <argument type="service" id="lastfm.service" />
+        </service>
+
+
         <service id="scanner" class="%scanner.class%">
             <argument type="service" id="doctrine.orm.entity_manager" />
             <argument type="service" id="identifier" />
@@ -46,6 +61,9 @@
         </service>
 
         <service id="identifier" class="%identifier.class%">
+        </service>
+
+        <service id="lastfm.service" class="%lastfm.class%">
         </service>
 
     </services>
