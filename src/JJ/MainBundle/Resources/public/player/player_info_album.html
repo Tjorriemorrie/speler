@@ -4,7 +4,7 @@
 		<label for="nameAlbum" class="control-label">Album name</label>
 		<div class="input-group">
 			<input type="text" ng-model="edit.album.name" name="fNameAlbum" ng-required="true" class="form-control" id="nameAlbum" placeholder="Album name" autocomplete="off" autofocus />
-			<span class="input-group-addon"><i ng-class="{'icon-ok': form.fNameAlbum.$valid, 'icon-remove': !form.fNameAlbum.$valid && form.fNameAlbum.$dirty}"></i> </span>
+			<span class="input-group-addon"><i ng-class="{'fa fa-ok': form.fNameAlbum.$valid, 'fa fa-remove': !form.fNameAlbum.$valid && form.fNameAlbum.$dirty}"></i> </span>
 		</div>
 		<span class="help-block">
 			<span ng-show="form.fNameAlbum.$error.required && form.fNameAlbum.$dirty">Album name is required!</span>
@@ -27,7 +27,7 @@
 		<label for="sizeAlbum" class="control-label">Album size</label>
 		<div class="input-group">
 			<input type="number" ng-model="edit.album.size" name="fSizeAlbum" ng-required="false" min="0" class="form-control" id="sizeAlbum" placeholder="Album size" autocomplete="off" />
-			<span class="input-group-addon"><i ng-class="{'icon-ok': form.fSizeAlbum.$valid, 'icon-remove': !form.fSizeAlbum.$valid && form.fSizeAlbum.$dirty}"></i> </span>
+			<span class="input-group-addon"><i ng-class="{'fa fa-ok': form.fSizeAlbum.$valid, 'fa fa-remove': !form.fSizeAlbum.$valid && form.fSizeAlbum.$dirty}"></i> </span>
 		</div>
 		<span class="help-block">
 			<span ng-show="form.fSizeAlbum.$error.min && form.fSizeAlbum.$dirty">Album size must be more than 0!</span>
@@ -38,7 +38,7 @@
 		<label for="yearAlbum" class="control-label">Album year</label>
 		<div class="input-group">
 			<input type="text" ng-model="edit.album.year" name="fYearAlbum" ng-required="false" class="form-control" id="yearAlbum" placeholder="Album year" autocomplete="off" />
-			<span class="input-group-addon"><i ng-class="{'icon-ok': form.fYearAlbum.$valid, 'icon-remove': !form.fYearAlbum.$valid && form.fYearAlbum.$dirty}"></i> </span>
+			<span class="input-group-addon"><i ng-class="{'fa fa-ok': form.fYearAlbum.$valid, 'fa fa-remove': !form.fYearAlbum.$valid && form.fYearAlbum.$dirty}"></i> </span>
 		</div>
 		<span class="help-block">
 			<span ng-show="form.fYearAlbum.$error.required && form.fYearAlbum.$dirty">Album year is required!</span>

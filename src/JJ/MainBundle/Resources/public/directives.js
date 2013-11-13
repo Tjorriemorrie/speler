@@ -16,7 +16,7 @@ angular.module('directives', [])
                     '<label for="formLeadDate" class="control-label" ng-transclude></label>' +
                     '<div class="input-group">' +
                         '<input type="text" id="formLeadDate" class="form-control" ngModel>' +
-                        '<span class="input-group-addon"><i class="icon-calendar"></i></span>' +
+                        '<span class="input-group-addon"><i class="fa fa-calendar"></i></span>' +
                     '</div>' +
                 '</div>',
             link: function(scope, element, attrs) {

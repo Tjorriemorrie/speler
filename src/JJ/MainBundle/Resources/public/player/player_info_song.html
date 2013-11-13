@@ -4,7 +4,7 @@
 		<label for="nameSong" class="control-label">Song name</label>
 		<div class="input-group">
 			<input type="text" ng-model="edit.song.name" name="fNameSong" ng-required="true" class="form-control" id="nameSong" placeholder="Song name" autocomplete="off" autofocus />
-			<span class="input-group-addon"><i ng-class="{'icon-ok': form.fNameSong.$valid, 'icon-remove': !form.fNameSong.$valid && form.fNameSong.$dirty}"></i> </span>
+			<span class="input-group-addon"><i ng-class="{'fa fa-ok': form.fNameSong.$valid, 'fa fa-remove': !form.fNameSong.$valid && form.fNameSong.$dirty}"></i> </span>
 		</div>
 		<span class="help-block">
 			<span ng-show="form.fNameSong.$error.required && form.fNameSong.$dirty">Song name is required!</span>
@@ -15,7 +15,7 @@
 		<label for="numberSong" class="control-label">Song number</label>
 		<div class="input-group">
 			<input type="number" ng-model="edit.song.number" name="fNumberSong" ng-required="false" min="1" max="99" class="form-control" id="numberSong" placeholder="Song number" autocomplete="off" />
-			<span class="input-group-addon"><i ng-class="{'icon-ok': form.fNumberSong.$valid, 'icon-remove': !form.fNumberSong.$valid && form.fNumberSong.$dirty}"></i> </span>
+			<span class="input-group-addon"><i ng-class="{'fa fa-ok': form.fNumberSong.$valid, 'fa fa-remove': !form.fNumberSong.$valid && form.fNumberSong.$dirty}"></i> </span>
 		</div>
 		<span class="help-block">
 			<span ng-show="form.fNumberSong.$error.min && form.fNumberSong.$dirty">The number must be 1 or greater</span>
