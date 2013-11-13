@@ -60,7 +60,7 @@ class SongManager
         $this->em->persist($song);
 
         $song->setPath($path);
-        $song->setExtension($file->getExtension());
+        $song->setExtension(strtolower($file->getExtension()));
 
         $song->setPlayedAt(null);
         $song->setCountPlayed(0);

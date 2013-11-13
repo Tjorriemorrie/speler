@@ -239,7 +239,7 @@ angular.module('player', [])
             if (!album.hasOwnProperty('artist')) {
                 return false;
             }
-            return album.artist.id == $rootScope.song.artist.id;
+            return album.artist.name == $rootScope.song.artist.name;
         };
 
         // POPULATE ALBUM
