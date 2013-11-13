@@ -23,7 +23,7 @@
     "angularLocalStorage": "latest",
     "jplayer": "latest",
     "favico.js": "latest",
-    "ngprogress": "~1.0.4",
-    "momentjs": "~2.4.0"
+    "ngprogress": "latest",
+    "momentjs": "latest"
   }
 }

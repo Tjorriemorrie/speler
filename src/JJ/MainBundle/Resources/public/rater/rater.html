@@ -14,22 +14,20 @@
 		</div>
 	</div>
 
-    <div ng-show="match" class="well clearfix">
-        <div class="btn-group pull-right">
-            <div ng-click="setMatch(1)" class="btn btn-success btn-sm"><i class="icon-ok"></i> Better</div>
-            <div ng-click="setMatch(-1)" class="btn btn-danger btn-sm"><i class="icon-remove"></i> Worse</div>
-        </div>
-        <h4>
-            <small class="text-muted">#{{ match.number }}<span ng-show="match.album">/{{ match.album.size }}</span></small>
-            {{ match.name }}
-        </h4>
-        <h5 ng-show="match.artist">{{ match.artist.name }}</h5>
-        <h5 ng-show="match.album">
-            <small class="text-muted">[{{ match.album.year }}]</small>
-            {{ match.album.name }}
-        </h5>
-	    <p><small class="text-muted">{{ match.path }}</small></p>
-    </div>
+	<div ng-show="match" class="btn-group btn-group-justified">
+		<a class="btn btn-default" ng-class="{'btn-success': hover.left, 'btn-danger': hover.right}" ng-click="setMatch(-1)" role="button" ng-mouseenter="hover.left = true;" ng-mouseleave="hover.left = false;">
+			<i class="fa fa-thumbs-o-up fa-5x pull-left" ng-class="{'fa-rotate-90': !hover.left && !hover.right, 'fa-flip-vertical': hover.right}"></i>
+			<h5 class="list-group-item-heading"><strong>{{ song.name }}</strong></h5>
+			<p class="list-group-item-text"><small ng-if="song.artist">{{ song.artist.name }}</small>&nbsp;</p>
+			<p class="list-group-item-text"><small ng-if="song.album" class="">{{ song.album.name }}</small>&nbsp;</p>
+		</a>
+		<a class="btn btn-default" ng-class="{'btn-success': hover.right, 'btn-danger': hover.left}" ng-click="setMatch(1)" role="button" ng-mouseenter="hover.right = true;" ng-mouseleave="hover.right = false;">
+			<i class="fa fa-thumbs-o-up fa-5x pull-right" ng-class="{'fa-rotate-270': !hover.left && !hover.right, 'fa-flip-vertical': hover.left}"></i>
+			<h5 class="list-group-item-heading"><strong>{{ match.name }}</strong></h5>
+			<p class="list-group-item-text"><small ng-if="match.artist">{{ match.artist.name }}</small>&nbsp;</p>
+			<p class="list-group-item-text"><small ng-if="match.album" class="">{{ match.album.name }}</small>&nbsp;</p>
+		</a>
+	</div>
 
 </section>
 
