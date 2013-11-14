@@ -52,7 +52,7 @@ angular.module('nav', [])
         var lastScan = +storage.get('lastScan');
         if (lastScan + 57600000 < new Date().getTime()) {
             $scope.scan = true;
-            scanServ.run().then(function() {
+            scanServ.run().finally(function() {
                 $scope.scan = false;
                 $scope.updateCounts();
                 storage.set('lastScan', new Date().getTime());
