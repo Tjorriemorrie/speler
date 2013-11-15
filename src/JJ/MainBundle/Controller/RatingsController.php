@@ -57,12 +57,21 @@ class RatingsController extends Controller
     }
 
 	/**
-	 * @Route("/{winner}/{loser}", name="ratings_match")
+	 * @Route("/winner/{winner}/loser/{loser}", name="ratings_match")
 	 * @Method({"get"})
 	 */
 	public function matchAction(Song $winner, Song $loser)
 	{
 		$rating = $this->getRatingManager()->setMatch($winner, $loser);
 		return $this->createJsonResponse($rating);
+	}
+
+	/**
+	 * @Route("/rankings/{id}", name="ratings_rankings")
+	 * @Method({"get"})
+	 */
+	public function rankingsAction(Song $song)
+	{
+		return $this->createJsonResponse(array($song));
 	}
 }

@@ -12,7 +12,7 @@ angular.module('nav', [])
         };
     }])
 
-    .controller('navCtrl', ['scanServ', 'songsServ', 'albumsServ', 'artistsServ', 'storage', '$log', '$scope', function(scanServ, songsServ, albumsServ, artistsServ, storage, $log, $scope) {
+    .controller('navCtrl', ['scanServ', 'songsServ', 'albumsMdl', 'artistsMdl', 'storage', '$log', '$scope', function(scanServ, songsServ, albumsMdl, artistsMdl, storage, $log, $scope) {
 
         $scope.nav = 'Main';
         $scope.setNav = function(nav) {
@@ -31,19 +31,13 @@ angular.module('nav', [])
         };
 
         storage.bind($scope, 'count_songs', {defaultValue: 0});
-        storage.bind($scope, 'count_albums', {defaultValue: 0});
-        storage.bind($scope, 'count_artists', {defaultValue: 0});
+        $scope.count_albums = albumsMdl.albums.length;
+        $scope.count_artists = artistsMdl.artists.length;
 
         // update counts
         $scope.updateCounts = function() {
             songsServ.countAll().then(function(data) {
                 $scope.count_songs = data;
-            });
-            albumsServ.countAll().then(function(data) {
-                $scope.count_albums = data;
-            });
-            artistsServ.countAll().then(function(data) {
-                $scope.count_artists = data;
             });
         };
 

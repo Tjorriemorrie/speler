@@ -4,6 +4,7 @@ angular.module('filters', [])
 
     .filter('perc', function() {
         return function(input, dec) {
+            input = +input;
             if (dec == 2) {
                 return Math.round(input * 10000) / 100 + '%';
             } else if (dec == 1) {

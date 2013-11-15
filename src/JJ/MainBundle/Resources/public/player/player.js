@@ -114,7 +114,7 @@ angular.module('player', [])
 
     }])
 
-    .controller('infoCtrl', ['playList', 'albumsServ', 'artistsServ', 'editsServ', '$filter', '$rootScope', '$q', 'storage', '$log', '$scope', function(playList, albumsServ, artistsServ, editsServ, $filter, $rootScope, $q, storage, $log, $scope) {
+    .controller('infoCtrl', ['artistsMdl', 'albumsMdl', 'playList', 'editsServ', '$filter', '$rootScope', '$q', 'storage', '$log', '$scope', function(artistsMdl, albumsMdl, playList, editsServ, $filter, $rootScope, $q, storage, $log, $scope) {
 
         // SWITCH
         $scope.edit = { 'switch': 'display' };
@@ -187,45 +187,18 @@ angular.module('player', [])
             };
             playList.getFirst().album = $scope.edit.album;
             storage.set('playList', playList.getPlayList());
-            editsServ.saveAlbum($scope.edit.song, $scope.edit.album).then(function(albumResponse) {
-                //$log.info('album saved', albumResponse);
-                var found = false;
-                $scope.albums.forEach(function(album, index) {
-                    if (album.id == albumResponse.id) {
-                        found = true;
-                        $scope.albums[index] = albumResponse;
-                        //$log.info('album replace in list', albumResponse);
-                    }
-                });
-                if (!found) {
-                    $scope.albums.push(albumResponse);
-                    //$log.info('album added to list', albumResponse);
-                }
+            editsServ.saveAlbum($scope.edit.song, $scope.edit.album).then(function(album) {
+                $rootScope.song.album = album;
+                albumsMdl.check(album);
             });
             $scope.edit.switch = 'display';
         };
 
         // LIST ARTISTS
-        storage.bind($scope, 'artists', {defaultValue: []});
-        if ($scope.artists.length < 1 || Math.random() < 0.10) {
-            artistsServ.findAll().then(function(artists) {
-                $scope.artists = artists;
-            });
-        }
-        $scope.$watch('artists', function(artists) {
-            //$log.info('list artists = ' + $scope.artists.length);
-        });
+        $scope.artists = artistsMdl.artists;
 
         // LIST ALBUMS
-        storage.bind($scope, 'albums', {defaultValue: []});
-        if ($scope.albums.length < 1 || Math.random() < 0.10) {
-            albumsServ.findAll().then(function(albums) {
-                $scope.albums = albums;
-            });
-        }
-        $scope.$watch('albums', function(artists) {
-            //$log.info('list albums = ' + $scope.albums.length);
-        });
+        $scope.albums = albumsMdl.albums;
 
         // POPULATE ARTIST
         $scope.populateArtist = function(artist, form) {

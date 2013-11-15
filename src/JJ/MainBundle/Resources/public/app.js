@@ -4,6 +4,8 @@
 angular.module('app', ['ngRoute', 'ngAnimate',
         'angularLocalStorage', 'ngTable', 'ngProgress',
         'services', 'directives', 'filters', 'ngPlayList',
+        'albums', 'artists',
+        'ranks',
         'nav', 'player', 'sidebar', 'main', 'library', 'rater', 'lastfm'
     ])
 

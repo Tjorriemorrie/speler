@@ -4,9 +4,9 @@
 		<a ng-repeat="song in playList track by $index" class="list-group-item" ng-class="{'active': $first}">
 			<h5 class="list-group-item-heading">
 				<span ng-show="song.count_rated" class="pull-right">
-					<i ng-class="{'fa fa-star': song.rating > 0.29, 'fa fa-star-empty': song.rating <= 0.14, 'fa fa-star-half-full': song.rating <= 0.29 && song.rating > 0.14}"></i>
-					<i ng-class="{'fa fa-star': song.rating > 0.57, 'fa fa-star-empty': song.rating <= 0.43, 'fa fa-star-half-full': song.rating <= 0.57 && song.rating > 0.43}"></i>
-					<i ng-class="{'fa fa-star': song.rating > 0.86, 'fa fa-star-empty': song.rating <= 0.71, 'fa fa-star-half-full': song.rating <= 0.86 && song.rating > 0.71}"></i>
+					<i ng-class="{'fa fa-star': song.rating > 0.29, 'fa fa-star-o': song.rating <= 0.14, 'fa fa-star-half-full': song.rating <= 0.29 && song.rating > 0.14}"></i>
+					<i ng-class="{'fa fa-star': song.rating > 0.57, 'fa fa-star-o': song.rating <= 0.43, 'fa fa-star-half-full': song.rating <= 0.57 && song.rating > 0.43}"></i>
+					<i ng-class="{'fa fa-star': song.rating > 0.86, 'fa fa-star-o': song.rating <= 0.71, 'fa fa-star-half-full': song.rating <= 0.86 && song.rating > 0.71}"></i>
 				</span>
 				<strong>{{ song.name }}</strong>
 			</h5>

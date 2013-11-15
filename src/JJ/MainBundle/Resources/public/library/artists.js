@@ -1,0 +1,38 @@
+'use strict'
+
+angular.module('artists', [])
+
+    .factory('artistsMdl', ['artistsSrv', 'storage', '$log', function(artistsSrv, storage, $log) {
+
+        var artistsMdl = {
+            artists: [],
+
+            findAll: function(r) {
+                artistsSrv.findAll(r).then(function(artists) {
+                    artistsMdl.artists = artists;
+                    storage.set('artists', artists);
+                    return artists;
+                });
+            }
+
+        };
+
+        artistsMdl.artists = storage.get('artists');
+        if (artistsMdl.artists.length < 1 || Math.random() < 0.10) {
+            $log.info('refreshing artists...');
+            artistsMdl.findAll();
+        }
+
+        return artistsMdl;
+    }])
+
+    .service('artistsSrv', ['$http', '$log', function($http, $log) {
+
+        this.findAll = function(r) {
+            return $http.get(URL_SITE + '/artists', {'cache': !(!!r)}).then(function(result) {
+                return result.data;
+            });
+        };
+
+    }])
+;

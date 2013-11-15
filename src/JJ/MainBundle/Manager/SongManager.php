@@ -5,6 +5,7 @@ namespace JJ\MainBundle\Manager;
 use Doctrine\ORM\EntityManager;
 use JJ\MainBundle\Entity\SongRepository;
 use Symfony\Component\Validator\Validator;
+use JJ\MainBundle\Manager\AlbumManager;
 
 use JJ\MainBundle\Entity\Song;
 
@@ -18,18 +19,21 @@ class SongManager
 	protected $validator;
 	/** @var SongRepository */
 	protected $repo;
+	protected $albumMan;
 
 	/**
 	 * Construct
 	 *
-	 * @param EntityManager        $em
-	 * @param Validator            $validator
+	 * @param EntityManager $em
+	 * @param Validator     $validator
+	 * @param AlbumManager  $albumMan
 	 */
-	public function __construct(EntityManager $em, Validator $validator)
+	public function __construct(EntityManager $em, Validator $validator, AlbumManager $albumMan)
 	{
 		$this->em = $em;
 		$this->validator = $validator;
 		$this->repo = $em->getRepository('MainBundle:Song');
+		$this->albumMan = $albumMan;
 	}
 
 	/**
@@ -162,6 +166,8 @@ class SongManager
 
         $this->validate($song);
         $this->em->flush();
+
+
     }
 
     /**
@@ -177,6 +183,10 @@ class SongManager
         $priority = abs($song->getRating()) - abs($weightCountPlayed * 99/100) - abs((1 - $song->getRating()) * 99/100);
         $priority = max(-1, $priority);
         $song->setPriority($priority);
+
+	    if ($song->getAlbum()) {
+	        $this->albumMan->updateRating($song->getAlbum());
+	    }
     }
 
 	/**

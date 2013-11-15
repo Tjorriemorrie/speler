@@ -32,37 +32,7 @@ angular.module('services', [])
         }
     }])
 
-    .factory('albumsServ', ['$http', function($http) {
-        return {
-            countAll: function() {
-                return $http.get(URL_SITE + '/albums/count').then(function(result) {
-                    return result.data;
-                });
-            },
-            findAll: function() {
-                return $http.get(URL_SITE + '/albums').then(function(result) {
-                    return result.data;
-                });
-            }
-        }
-    }])
-
-    .factory('artistsServ', ['$http', function($http) {
-        return {
-            countAll: function() {
-                return $http.get(URL_SITE + '/artists/count').then(function(result) {
-                    return result.data;
-                });
-            },
-            findAll: function() {
-                return $http.get(URL_SITE + '/artists').then(function(result) {
-                    return result.data;
-                });
-            }
-        }
-    }])
-
-    .factory('ratingsServ', ['$http', function($http) {
+    .factory('ratingsServ', ['albumsMdl', '$http', function(albumsMdl, $http) {
         return {
             find: function(song) {
                 return $http.get(URL_SITE + '/ratings/' + song.id).then(function(result) {
@@ -70,7 +40,13 @@ angular.module('services', [])
                 });
             },
             match: function(winner, loser) {
-                return $http.get(URL_SITE + '/ratings/' + winner.id + '/' + loser.id).then(function(result) {
+                return $http.get(URL_SITE + '/ratings/winner/' + winner.id + '/loser/' + loser.id).then(function(result) {
+                    if (winner.album != null && winner.album.id != null) {
+                        albumsMdl.refresh(winner.album.id);
+                    }
+                    if (loser.album != null && loser.album.id != null) {
+                        albumsMdl.refresh(loser.album.id);
+                    }
                     return result.data;
                 });
             }

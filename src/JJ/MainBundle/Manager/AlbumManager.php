@@ -8,6 +8,7 @@ use Symfony\Component\Validator\Validator;
 
 use JJ\MainBundle\Entity\Album;
 use JJ\MainBundle\Entity\Song;
+use Doctrine\Common\Collections\Criteria;
 
 
 /**
@@ -131,6 +132,44 @@ class AlbumManager
 		$this->validate($album);
 		$this->em->flush();
 		$this->em->refresh($album);
+		return $album;
+	}
+
+	/**
+	 * Update rating
+	 *
+	 * @param Album $album
+	 * @return \JJ\MainBundle\Entity\Album
+	 */
+	public function updateRating(Album $album)
+	{
+		$this->em->refresh($album);
+		$album->setCountSongs($album->getSongs()->count());
+
+		$criteria = Criteria::create()
+			->orderBy(array('playedAt' => Criteria::DESC))
+			->setMaxResults(1);
+		/** @var Song $song */
+		$song = $album->getSongs()->matching($criteria)->first();
+		if ($song) {
+			$album->setPlayedAt($song->getPlayedAt());
+		}
+
+		$countPlayed = 0;
+		$winners = 0;
+		$losers = 0;
+		foreach ($album->getSongs() as $song) {
+			$countPlayed += $song->getCountPlayed();
+			$winners += $song->getWinners()->count();
+			$losers += $song->getLosers()->count();
+		}
+		$album->setCountPlayed($countPlayed);
+		$rated = $winners + $losers;
+		$album->setCountRated($rated);
+		$album->setRating(!$rated ? null : $winners / $rated);
+
+		$this->validate($album);
+		$this->em->flush();
 		return $album;
 	}
 

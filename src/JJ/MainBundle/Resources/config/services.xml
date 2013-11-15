@@ -27,6 +27,7 @@
         <service id="song.manager" class="%song_manager.class%">
             <argument type="service" id="doctrine.orm.entity_manager" />
             <argument type="service" id="validator" />
+            <argument type="service" id="album.manager" />
         </service>
 
         <service id="album.manager" class="%album_manager.class%">

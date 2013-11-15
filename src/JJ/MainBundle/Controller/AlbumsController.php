@@ -48,6 +48,17 @@ class AlbumsController extends Controller
     }
 
     /**
+     * @Route("/{id}", name="albums_single")
+     * @Method({"get"})
+     */
+    public function singleAction(Album $album)
+    {
+	    set_time_limit(0);
+
+	    return $this->createJsonResponse($album);
+    }
+
+    /**
      * @Route("", name="albums_all")
      * @Method({"get"})
      */
@@ -57,16 +68,6 @@ class AlbumsController extends Controller
 
         $albums = $this->getAlbumManager()->findAll();
         return $this->createJsonResponse($albums);
-    }
-
-    /**
-     * @Route("/count", name="albums_count")
-     * @Method({"get"})
-     */
-    public function countAction()
-    {
-        $countAlbums = $this->getAlbumManager()->countAll();
-        return new JsonResponse($countAlbums);
     }
 
 	/**

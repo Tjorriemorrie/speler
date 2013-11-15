@@ -79,6 +79,46 @@ class Album
      */
     private $year;
 
+	/**
+	 * @var int
+	 *
+	 * @ORM\Column(name="count_songs", type="integer")
+	 * @Assert\Range(min=0)
+	 */
+	private $countSongs;
+
+	/**
+	 * @var int
+	 *
+	 * @ORM\Column(name="count_played", type="integer")
+	 * @Assert\Range(min=0)
+	 */
+	private $countPlayed;
+
+	/**
+	 * @var int
+	 *
+	 * @ORM\Column(name="count_rated", type="integer")
+	 * @Assert\Range(min=0)
+	 */
+	private $countRated;
+
+	/**
+	 * @var float
+	 *
+	 * @ORM\Column(name="rating", type="decimal", scale=14, precision=18, nullable=true)
+	 * @Assert\Range(min=0, max=1)
+	 */
+	private $rating;
+
+	/**
+	 * @var int
+	 *
+	 * @ORM\Column(name="playedAt", type="datetime", nullable=true)
+	 * @Assert\DateTime()
+	 */
+	private $playedAt;
+
 
     /**
      * @var \DateTime
@@ -97,31 +137,6 @@ class Album
      * @Assert\DateTime
      */
     private $updatedAt;
-
-
-    /**
-     * @var int
-     *
-     * @Ser\Expose()
-     * @Ser\Accessor(getter="countSongs")
-     */
-    private $countSongs;
-
-    /**
-     * @var int
-     *
-     * @Ser\Expose()
-     * @Ser\Accessor(getter="countPlayed")
-     */
-    private $countPlayed;
-
-    /**
-     * @var \DateTime
-     *
-     * @Ser\Expose()
-     * @Ser\Accessor(getter="getLastPlayedAt")
-     */
-    private $playedAt;
 
     ///////////////////////////////////////////////////////////////////////////////////////////
     // METHODS
@@ -170,6 +185,22 @@ class Album
         return $count;
     }
 
+    /**
+     * Get rating
+     *
+     * @return float
+     */
+    public function getRating()
+    {
+	    $winners = 0;
+	    $losers = 0;
+        foreach ($this->getSongs() as $song) {
+            $winners += $song->getWinners()->count();
+            $losers += $song->getLosers()->count();
+        }
+        return !$winners && !$losers ? null : $winners / ($winners + $losers);
+    }
+
     ///////////////////////////////////////////////////////////////////////////////////////////
     // GETTERS AND SETTERS
     ///////////////////////////////////////////////////////////////////////////////////////////
@@ -179,6 +210,8 @@ class Album
      */
     public function __construct()
     {
+	    $this->played = 0;
+	    $this->rated = 0;
         $this->songs = new \Doctrine\Common\Collections\ArrayCollection();
     }
 

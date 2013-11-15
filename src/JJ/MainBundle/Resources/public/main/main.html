@@ -1,0 +1,19 @@
+<div class="row">
+
+	<div class="col-lg-4">
+
+	</div>
+
+	<div class="col-lg-4">
+		<p class="lead text-center">Albums</p>
+		<div class="list-group">
+			<a ng-class="{'active': album.id == song.album.id}" ng-repeat="album in albums | orderBy:'rating':true | startFrom:albums_start_from | limitTo:9" class="list-group-item">
+				<span class="badge">#{{ albums_rank_start_at + $index }}</span> {{ album.name }}
+			</a>
+		</div>
+	</div>
+
+	<div class="col-lg-4">
+
+	</div>
+</div>
