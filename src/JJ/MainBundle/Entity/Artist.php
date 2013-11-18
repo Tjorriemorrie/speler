@@ -76,90 +76,58 @@ class Artist
     private $updatedAt;
 
 
-    /**
-     * @var int
-     *
-     * @Ser\Expose()
-     * @Ser\Accessor(getter="countSongs")
-     */
-    private $countSongs;
+	/**
+	 * @var int
+	 *
+	 * @ORM\Column(name="count_songs", type="integer")
+	 * @Assert\Range(min=0)
+	 */
+	private $countSongs;
 
-    /**
-     * @var int
-     *
-     * @Ser\Expose()
-     * @Ser\Accessor(getter="countAlbums")
-     */
-    private $countAlbums;
+	/**
+	 * @var int
+	 *
+	 * @ORM\Column(name="count_albums", type="integer")
+	 * @Assert\Range(min=0)
+	 */
+	private $countAlbums;
 
-    /**
-     * @var int
-     *
-     * @Ser\Expose()
-     * @Ser\Accessor(getter="countPlayed")
-     */
-    private $countPlayed;
+	/**
+	 * @var int
+	 *
+	 * @ORM\Column(name="count_played", type="integer")
+	 * @Assert\Range(min=0)
+	 */
+	private $countPlayed;
 
-    /**
-     * @var \DateTime
-     *
-     * @Ser\Expose()
-     * @Ser\Accessor(getter="getLastPlayedAt")
-     */
-    private $playedAt;
+	/**
+	 * @var int
+	 *
+	 * @ORM\Column(name="count_rated", type="integer")
+	 * @Assert\Range(min=0)
+	 */
+	private $countRated;
+
+	/**
+	 * @var float
+	 *
+	 * @ORM\Column(name="rating", type="decimal", scale=14, precision=18, nullable=true)
+	 * @Assert\Range(min=0, max=1)
+	 * @Ser\Expose()
+	 */
+	private $rating;
+
+	/**
+	 * @var int
+	 *
+	 * @ORM\Column(name="playedAt", type="datetime", nullable=true)
+	 * @Assert\DateTime()
+	 */
+	private $playedAt;
 
     ///////////////////////////////////////////////////////////////////////////////////////////
     // METHODS
     ///////////////////////////////////////////////////////////////////////////////////////////
-
-    /**
-     * Count songs
-     *
-     * @return int
-     */
-    public function countSongs()
-    {
-        return $this->getSongs()->count();
-    }
-
-    /**
-     * Count albums
-     *
-     * @return int
-     */
-    public function countAlbums()
-    {
-        return $this->getAlbums()->count();
-    }
-
-    /**
-     * Get last played at
-     *
-     * @return \DateTime
-     */
-    public function getLastPlayedAt()
-    {
-        $criteria = Criteria::create()
-            ->orderBy(array('playedAt' => Criteria::DESC))
-            ->setMaxResults(1);
-        /** @var Song $song */
-        $song = $this->getSongs()->matching($criteria)->first();
-        return !$song ? null : $song->getPlayedAt();
-    }
-
-    /**
-     * Count played
-     *
-     * @return int
-     */
-    public function countPlayed()
-    {
-        $count = 0;
-        foreach ($this->getSongs() as $song) {
-            $count += $song->getCountPlayed();
-        }
-        return $count;
-    }
 
     ///////////////////////////////////////////////////////////////////////////////////////////
     // GETTERS AND SETTERS
@@ -170,6 +138,10 @@ class Artist
      */
     public function __construct()
     {
+	    $this->countSongs = 0;
+	    $this->countAlbums = 0;
+	    $this->countPlayed = 0;
+	    $this->countRated = 0;
         $this->songs = new \Doctrine\Common\Collections\ArrayCollection();
         $this->albums = new \Doctrine\Common\Collections\ArrayCollection();
     }
@@ -317,5 +289,143 @@ class Artist
     public function getAlbums()
     {
         return $this->albums;
+    }
+
+    /**
+     * Set countSongs
+     *
+     * @param integer $countSongs
+     * @return Artist
+     */
+    public function setCountSongs($countSongs)
+    {
+        $this->countSongs = $countSongs;
+    
+        return $this;
+    }
+
+    /**
+     * Get countSongs
+     *
+     * @return integer 
+     */
+    public function getCountSongs()
+    {
+        return $this->countSongs;
+    }
+
+    /**
+     * Set countAlbums
+     *
+     * @param integer $countAlbums
+     * @return Artist
+     */
+    public function setCountAlbums($countAlbums)
+    {
+        $this->countAlbums = $countAlbums;
+    
+        return $this;
+    }
+
+    /**
+     * Get countAlbums
+     *
+     * @return integer 
+     */
+    public function getCountAlbums()
+    {
+        return $this->countAlbums;
+    }
+
+    /**
+     * Set countPlayed
+     *
+     * @param integer $countPlayed
+     * @return Artist
+     */
+    public function setCountPlayed($countPlayed)
+    {
+        $this->countPlayed = $countPlayed;
+    
+        return $this;
+    }
+
+    /**
+     * Get countPlayed
+     *
+     * @return integer 
+     */
+    public function getCountPlayed()
+    {
+        return $this->countPlayed;
+    }
+
+    /**
+     * Set countRated
+     *
+     * @param integer $countRated
+     * @return Artist
+     */
+    public function setCountRated($countRated)
+    {
+        $this->countRated = $countRated;
+    
+        return $this;
+    }
+
+    /**
+     * Get countRated
+     *
+     * @return integer 
+     */
+    public function getCountRated()
+    {
+        return $this->countRated;
+    }
+
+    /**
+     * Set rating
+     *
+     * @param float $rating
+     * @return Artist
+     */
+    public function setRating($rating)
+    {
+        $this->rating = $rating;
+    
+        return $this;
+    }
+
+    /**
+     * Get rating
+     *
+     * @return float 
+     */
+    public function getRating()
+    {
+        return $this->rating;
+    }
+
+    /**
+     * Set playedAt
+     *
+     * @param \DateTime $playedAt
+     * @return Artist
+     */
+    public function setPlayedAt($playedAt)
+    {
+        $this->playedAt = $playedAt;
+    
+        return $this;
+    }
+
+    /**
+     * Get playedAt
+     *
+     * @return \DateTime 
+     */
+    public function getPlayedAt()
+    {
+        return $this->playedAt;
     }
 }

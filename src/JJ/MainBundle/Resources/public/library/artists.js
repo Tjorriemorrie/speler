@@ -13,6 +13,28 @@ angular.module('artists', [])
                     storage.set('artists', artists);
                     return artists;
                 });
+            },
+
+            check: function(artist) {
+                var found = false;
+                artistsMdl.artists.forEach(function(item, index) {
+                    if (item.id == artist.id) {
+                        found = true;
+                        artistsMdl.artists[index] = artist;
+                    }
+                });
+                if (!found) {
+                    artistsMdl.artists.push(artist);
+                }
+                storage.set('artists', artistsMdl.artists);
+                $log.info('artistsMdl.check', found, artist);
+            },
+
+            refresh: function(id) {
+                artistsSrv.find(id, false).then(function(artist) {
+                    $log.info('artistsMdl.refresh', artist);
+                    artistsMdl.check(artist);
+                });
             }
 
         };

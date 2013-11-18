@@ -11,7 +11,7 @@ angular.module('app', ['ngRoute', 'ngAnimate',
 
     .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
         $routeProvider
-            .when('/', {templateUrl: URL_BASE + '/bundles/main/main/main.html', controller: 'mainCtrl'})
+            .when('/', {templateUrl: URL_BASE + '/bundles/main/main/main.html'})
 
             .when('/library/artists', {
                 templateUrl: URL_BASE + '/bundles/main/library/artists.html'

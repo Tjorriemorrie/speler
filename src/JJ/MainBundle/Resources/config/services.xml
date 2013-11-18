@@ -33,6 +33,7 @@
         <service id="album.manager" class="%album_manager.class%">
             <argument type="service" id="doctrine.orm.entity_manager" />
             <argument type="service" id="validator" />
+            <argument type="service" id="artist.manager" />
         </service>
 
         <service id="artist.manager" class="%artist_manager.class%">

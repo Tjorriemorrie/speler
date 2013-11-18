@@ -443,4 +443,14 @@ class Album
     {
         return $this->playedAt;
     }
+
+    /**
+     * Get rating
+     *
+     * @return float 
+     */
+    public function getRating()
+    {
+        return $this->rating;
+    }
 }

@@ -40,7 +40,7 @@ angular.module('albums', [])
         };
 
         albumsMdl.albums = storage.get('albums');
-        if (albumsMdl.albums.length < 1 || Math.random() < 10) {
+        if (albumsMdl.albums.length < 1 || Math.random() < 0.10) {
             $log.info('refreshing albums...');
             albumsMdl.findAll();
         }

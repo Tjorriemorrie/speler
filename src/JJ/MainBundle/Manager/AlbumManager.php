@@ -5,6 +5,7 @@ namespace JJ\MainBundle\Manager;
 use Doctrine\ORM\EntityManager;
 use JJ\MainBundle\Entity\AlbumRepository;
 use Symfony\Component\Validator\Validator;
+use JJ\MainBundle\Manager\ArtistManager;
 
 use JJ\MainBundle\Entity\Album;
 use JJ\MainBundle\Entity\Song;
@@ -20,6 +21,7 @@ class AlbumManager
 	protected $validator;
 	/** @var AlbumRepository */
 	protected $repo;
+	protected $artistMan;
 
 	/**
 	 * Construct
@@ -27,11 +29,12 @@ class AlbumManager
 	 * @param EntityManager        $em
 	 * @param Validator            $validator
 	 */
-	public function __construct(EntityManager $em, Validator $validator)
+	public function __construct(EntityManager $em, Validator $validator, ArtistManager $artistMan)
 	{
 		$this->em = $em;
 		$this->validator = $validator;
 		$this->repo = $em->getRepository('MainBundle:Album');
+		$this->artistMan = $artistMan;
 	}
 
 	/**
@@ -170,6 +173,9 @@ class AlbumManager
 
 		$this->validate($album);
 		$this->em->flush();
+
+		$this->artistMan->updateRating($album->getArtist());
+
 		return $album;
 	}
 

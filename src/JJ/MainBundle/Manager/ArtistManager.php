@@ -7,6 +7,8 @@ use JJ\MainBundle\Entity\ArtistRepository;
 use JJ\MainBundle\Entity\Song;
 use Symfony\Component\Validator\Validator;
 
+use Doctrine\Common\Collections\Criteria;
+
 use JJ\MainBundle\Entity\Artist;
 
 
@@ -125,6 +127,45 @@ class ArtistManager
 		$this->validate($artist);
 		$this->em->flush();
 		$this->em->refresh($artist);
+		return $artist;
+	}
+
+	/**
+	 * Update rating
+	 *
+	 * @param Artist $artist
+	 * @return \JJ\MainBundle\Entity\Artist
+	 */
+	public function updateRating(Artist $artist)
+	{
+		$this->em->refresh($artist);
+		$artist->setCountSongs($artist->getSongs()->count());
+		$artist->setCountAlbums($artist->getAlbums()->count());
+
+		$criteria = Criteria::create()
+			->orderBy(array('playedAt' => Criteria::DESC))
+			->setMaxResults(1);
+		/** @var Song $song */
+		$song = $artist->getSongs()->matching($criteria)->first();
+		if ($song) {
+			$artist->setPlayedAt($song->getPlayedAt());
+		}
+
+		$countPlayed = 0;
+		$winners = 0;
+		$losers = 0;
+		foreach ($artist->getSongs() as $song) {
+			$countPlayed += $song->getCountPlayed();
+			$winners += $song->getWinners()->count();
+			$losers += $song->getLosers()->count();
+		}
+		$artist->setCountPlayed($countPlayed);
+		$rated = $winners + $losers;
+		$artist->setCountRated($rated);
+		$artist->setRating(!$rated ? null : $winners / $rated);
+
+		$this->validate($artist);
+		$this->em->flush();
 		return $artist;
 	}
 
