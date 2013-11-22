@@ -2,7 +2,7 @@
 	<h3><span class="label pull-right" ng-class="{'label-danger': playList.length <= 2, 'label-warning': playList.length <= 5, 'label-success': playList.length <= 8, 'label-primary': playList.length > 8}">{{ playList.length }}</span> Playlist</h3>
 	<div class="list-group">
 		<a ng-repeat="song in playList track by $index" class="list-group-item" ng-class="{'active': $first}">
-			<h5 class="list-group-item-heading">
+			<h5 class="list-group-item-heading ellipse">
 				<span ng-show="song.count_rated" class="pull-right">
 					<i ng-class="{'fa fa-star': song.rating > 0.29, 'fa fa-star-o': song.rating <= 0.14, 'fa fa-star-half-full': song.rating <= 0.29 && song.rating > 0.14}"></i>
 					<i ng-class="{'fa fa-star': song.rating > 0.57, 'fa fa-star-o': song.rating <= 0.43, 'fa fa-star-half-full': song.rating <= 0.57 && song.rating > 0.43}"></i>
@@ -10,16 +10,16 @@
 				</span>
 				<strong>{{ song.name }}</strong>
 			</h5>
-			<p class="list-group-item-text">
+			<p class="list-group-item-text ellipse">
 				<small class="pull-right">
 					<span ng-show="song.count_played"><i class="fa fa-play-circle">&nbsp;{{ song.count_played }}</i></span>
 					<span ng-show="song.count_rated"><i class="fa fa-shield">&nbsp;{{ song.count_rated }}</i></span>
 				</small>
 				<small ng-if="song.artist">{{ song.artist.name }}</small>&nbsp;
 			</p>
-			<p class="list-group-item-text">
+			<p class="list-group-item-text ellipse">
 				<small ng-show="song.count_played" class="pull-right"><i class="fa fa-calendar">&nbsp;{{ song.played_at_from }}</i></small>
-				<small ng-if="song.album" class="">{{ song.album.name }}</small>&nbsp;
+				<small ng-if="song.album">{{ song.album.name }}</small>&nbsp;
 			</p>
 		</a>
 	</div>

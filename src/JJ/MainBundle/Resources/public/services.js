@@ -12,7 +12,7 @@ angular.module('services', [])
         }
     }])
 
-    .factory('songsServ', ['$http', function($http) {
+    .factory('songsServ', ['albumsMdl', 'artistsMdl', '$http', function(albumsMdl, artistsMdl, $http) {
         return {
             findAll: function() {
                 return $http.get(URL_SITE + '/songs').then(function(result) {
@@ -21,6 +21,12 @@ angular.module('services', [])
             },
             accrete: function(song) {
                 return $http.get(URL_SITE + '/songs/' + song.id + '/accrete').then(function(result) {
+                    if (song.artist != null) {
+//                        artistsMdl.refresh(song.artist.id);
+                    }
+                    if (song.album != null) {
+//                        albumsMdl.refresh(song.album.id);
+                    }
                     return result.data;
                 });
             },
@@ -32,7 +38,7 @@ angular.module('services', [])
         }
     }])
 
-    .factory('ratingsServ', ['albumsMdl', '$http', function(albumsMdl, $http) {
+    .factory('ratingsServ', ['artistsMdl', 'albumsMdl', '$http', function(artistsMdl, albumsMdl, $http) {
         return {
             find: function(song) {
                 return $http.get(URL_SITE + '/ratings/' + song.id).then(function(result) {
@@ -46,6 +52,12 @@ angular.module('services', [])
                     }
                     if (loser.album != null && loser.album.id != null) {
                         albumsMdl.refresh(loser.album.id);
+                    }
+                    if (winner.artist != null && winner.artist.id != null) {
+                        artistsMdl.refresh(winner.artist.id);
+                    }
+                    if (loser.artist != null && loser.artist.id != null) {
+                        artistsMdl.refresh(loser.artist.id);
                     }
                     return result.data;
                 });

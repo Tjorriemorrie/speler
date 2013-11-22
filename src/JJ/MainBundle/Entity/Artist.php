@@ -97,6 +97,7 @@ class Artist
 	 *
 	 * @ORM\Column(name="count_played", type="integer")
 	 * @Assert\Range(min=0)
+	 * @Ser\Expose()
 	 */
 	private $countPlayed;
 
@@ -105,6 +106,7 @@ class Artist
 	 *
 	 * @ORM\Column(name="count_rated", type="integer")
 	 * @Assert\Range(min=0)
+	 * @Ser\Expose()
 	 */
 	private $countRated;
 
@@ -112,7 +114,7 @@ class Artist
 	 * @var float
 	 *
 	 * @ORM\Column(name="rating", type="decimal", scale=14, precision=18, nullable=true)
-	 * @Assert\Range(min=0, max=1)
+	 * @Assert\Range(min=0)
 	 * @Ser\Expose()
 	 */
 	private $rating;
@@ -300,14 +302,14 @@ class Artist
     public function setCountSongs($countSongs)
     {
         $this->countSongs = $countSongs;
-    
+
         return $this;
     }
 
     /**
      * Get countSongs
      *
-     * @return integer 
+     * @return integer
      */
     public function getCountSongs()
     {
@@ -323,14 +325,14 @@ class Artist
     public function setCountAlbums($countAlbums)
     {
         $this->countAlbums = $countAlbums;
-    
+
         return $this;
     }
 
     /**
      * Get countAlbums
      *
-     * @return integer 
+     * @return integer
      */
     public function getCountAlbums()
     {
@@ -346,14 +348,14 @@ class Artist
     public function setCountPlayed($countPlayed)
     {
         $this->countPlayed = $countPlayed;
-    
+
         return $this;
     }
 
     /**
      * Get countPlayed
      *
-     * @return integer 
+     * @return integer
      */
     public function getCountPlayed()
     {
@@ -369,14 +371,14 @@ class Artist
     public function setCountRated($countRated)
     {
         $this->countRated = $countRated;
-    
+
         return $this;
     }
 
     /**
      * Get countRated
      *
-     * @return integer 
+     * @return integer
      */
     public function getCountRated()
     {
@@ -392,14 +394,14 @@ class Artist
     public function setRating($rating)
     {
         $this->rating = $rating;
-    
+
         return $this;
     }
 
     /**
      * Get rating
      *
-     * @return float 
+     * @return float
      */
     public function getRating()
     {
@@ -415,14 +417,14 @@ class Artist
     public function setPlayedAt($playedAt)
     {
         $this->playedAt = $playedAt;
-    
+
         return $this;
     }
 
     /**
      * Get playedAt
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getPlayedAt()
     {

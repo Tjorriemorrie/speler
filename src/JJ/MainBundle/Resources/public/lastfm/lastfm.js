@@ -82,7 +82,7 @@ angular.module('lastfm', [])
             },
 
             nowPlaying: function(song) {
-                if (song != null) {
+                if (song != null && song.hasOwnProperty('artist')) {
                     if (song.id == nowPlayingId) {
                         //$log.info('lastFm.nowPlaying already updated', song.id);
                     } else {
@@ -102,7 +102,7 @@ angular.module('lastfm', [])
             },
 
             scrobble: function(song) {
-                if (song != null) {
+                if (song != null && song.hasOwnProperty('artist')) {
                     if (song.id == scrobbleId) {
                         //$log.info('lastFm.scrobble already updated', song.id);
                     } else {

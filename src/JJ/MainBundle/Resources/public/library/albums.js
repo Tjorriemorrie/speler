@@ -9,6 +9,13 @@ angular.module('albums', [])
 
             findAll: function(r) {
                 albumsSrv.findAll(r).then(function(albums) {
+                    angular.forEach(albums, function(album) {
+                        if (album.hasOwnProperty('rating')) {
+                            album.rating = parseFloat(album.rating);
+                        } else {
+                            album.rating = 0;
+                        }
+                    });
                     albumsMdl.albums = albums;
                     storage.set('albums', albums);
                     return albums;
@@ -27,21 +34,26 @@ angular.module('albums', [])
                     albumsMdl.albums.push(album);
                 }
                 storage.set('albums', albumsMdl.albums);
-                $log.info('albumsMdl.check', found, album);
+                //$log.info('albumsMdl.check', found, album);
             },
 
             refresh: function(id) {
                 albumsSrv.find(id, false).then(function(album) {
-                    $log.info('albumsMdl.refresh', album);
+                    if (album.hasOwnProperty('rating')) {
+                        album.rating = parseFloat(album.rating);
+                    } else {
+                        album.rating = 0;
+                    }
+                    //$log.info('albumsMdl.refresh', album);
                     albumsMdl.check(album);
                 });
-            }
+            },
 
         };
 
         albumsMdl.albums = storage.get('albums');
-        if (albumsMdl.albums.length < 1 || Math.random() < 0.10) {
-            $log.info('refreshing albums...');
+        if (albumsMdl.albums == null || albumsMdl.albums.length < 1 || Math.random() < 0.10) {
+            //$log.info('refreshing albums...');
             albumsMdl.findAll();
         }
 

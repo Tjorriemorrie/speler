@@ -47,6 +47,16 @@ class ArtistsController extends Controller
         return $response;
     }
 
+	/**
+	 * @Route("/{id}", name="artists_single")
+	 * @Method({"get"})
+	 */
+	public function singleAction(Artist $artist)
+	{
+		set_time_limit(0);
+		return $this->createJsonResponse($artist);
+	}
+
     /**
      * @Route("", name="artists_all")
      * @Method({"get"})

@@ -159,17 +159,16 @@ class AlbumManager
 		}
 
 		$countPlayed = 0;
-		$winners = 0;
-		$losers = 0;
+		$rated = 0;
+		$rating = 0;
 		foreach ($album->getSongs() as $song) {
 			$countPlayed += $song->getCountPlayed();
-			$winners += $song->getWinners()->count();
-			$losers += $song->getLosers()->count();
+			$rated += $song->getCountRated();
+			$rating += $song->getRating();
 		}
 		$album->setCountPlayed($countPlayed);
-		$rated = $winners + $losers;
 		$album->setCountRated($rated);
-		$album->setRating(!$rated ? null : $winners / $rated);
+		$album->setRating($rating);
 
 		$this->validate($album);
 		$this->em->flush();

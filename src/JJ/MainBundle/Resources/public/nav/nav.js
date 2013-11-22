@@ -31,8 +31,8 @@ angular.module('nav', [])
         };
 
         storage.bind($scope, 'count_songs', {defaultValue: 0});
-        $scope.count_albums = albumsMdl.albums.length;
-        $scope.count_artists = artistsMdl.artists.length;
+        $scope.count_albums = albumsMdl.albums == null ? 0 : albumsMdl.albums.length;
+        $scope.count_artists = artistsMdl.artists == null ? 0 : artistsMdl.artists.length;
 
         // update counts
         $scope.updateCounts = function() {

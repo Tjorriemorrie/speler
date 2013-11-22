@@ -92,6 +92,7 @@ class Album
 	 *
 	 * @ORM\Column(name="count_played", type="integer")
 	 * @Assert\Range(min=0)
+	 * @Ser\Expose()
 	 */
 	private $countPlayed;
 
@@ -100,6 +101,7 @@ class Album
 	 *
 	 * @ORM\Column(name="count_rated", type="integer")
 	 * @Assert\Range(min=0)
+	 * @Ser\Expose()
 	 */
 	private $countRated;
 
@@ -107,7 +109,7 @@ class Album
 	 * @var float
 	 *
 	 * @ORM\Column(name="rating", type="decimal", scale=14, precision=18, nullable=true)
-	 * @Assert\Range(min=0, max=1)
+	 * @Assert\Range(min=0)
 	 * @Ser\Expose()
 	 */
 	private $rating;
@@ -447,7 +449,7 @@ class Album
     /**
      * Get rating
      *
-     * @return float 
+     * @return float
      */
     public function getRating()
     {

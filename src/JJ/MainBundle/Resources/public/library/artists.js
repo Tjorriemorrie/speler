@@ -9,6 +9,13 @@ angular.module('artists', [])
 
             findAll: function(r) {
                 artistsSrv.findAll(r).then(function(artists) {
+                    angular.forEach(artists, function(artist) {
+                        if (artist.hasOwnProperty('rating')) {
+                            artist.rating = parseFloat(artist.rating);
+                        } else {
+                            artist.rating = 0;
+                        }
+                    });
                     artistsMdl.artists = artists;
                     storage.set('artists', artists);
                     return artists;
@@ -27,12 +34,17 @@ angular.module('artists', [])
                     artistsMdl.artists.push(artist);
                 }
                 storage.set('artists', artistsMdl.artists);
-                $log.info('artistsMdl.check', found, artist);
+                //$log.info('artistsMdl.check', found, artist);
             },
 
             refresh: function(id) {
                 artistsSrv.find(id, false).then(function(artist) {
-                    $log.info('artistsMdl.refresh', artist);
+                    if (artist.hasOwnProperty('rating')) {
+                        artist.rating = parseFloat(artist.rating);
+                    } else {
+                        artist.rating = 0;
+                    }
+                    //$log.info('artistsMdl.refresh', artist);
                     artistsMdl.check(artist);
                 });
             }
@@ -40,8 +52,8 @@ angular.module('artists', [])
         };
 
         artistsMdl.artists = storage.get('artists');
-        if (artistsMdl.artists.length < 1 || Math.random() < 0.10) {
-            $log.info('refreshing artists...');
+        if (artistsMdl.artists == null || artistsMdl.artists.length < 1 || Math.random() < 0.10) {
+            //$log.info('refreshing artists...');
             artistsMdl.findAll();
         }
 
@@ -49,6 +61,12 @@ angular.module('artists', [])
     }])
 
     .service('artistsSrv', ['$http', '$log', function($http, $log) {
+
+        this.find = function(id, r) {
+            return $http.get(URL_SITE + '/artists/' + id, {'cache': !(!!r)}).then(function(result) {
+                return result.data;
+            });
+        };
 
         this.findAll = function(r) {
             return $http.get(URL_SITE + '/artists', {'cache': !(!!r)}).then(function(result) {

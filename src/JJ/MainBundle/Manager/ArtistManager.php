@@ -152,17 +152,16 @@ class ArtistManager
 		}
 
 		$countPlayed = 0;
-		$winners = 0;
-		$losers = 0;
+		$rated = 0;
+		$rating = 0;
 		foreach ($artist->getSongs() as $song) {
 			$countPlayed += $song->getCountPlayed();
-			$winners += $song->getWinners()->count();
-			$losers += $song->getLosers()->count();
+			$rated += $song->getCountRated();
+			$rating += $song->getRating();
 		}
 		$artist->setCountPlayed($countPlayed);
-		$rated = $winners + $losers;
 		$artist->setCountRated($rated);
-		$artist->setRating(!$rated ? null : $winners / $rated);
+		$artist->setRating($rating);
 
 		$this->validate($artist);
 		$this->em->flush();

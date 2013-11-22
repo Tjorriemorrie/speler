@@ -62,6 +62,12 @@ angular.module('rater', [])
         // SAVE MATCH
         $scope.setMatch = function (result) {
             //$log.log('setMatch...', result);
+            if ($rootScope.song.hasOwnProperty('artist')) {
+                $scope.song.artist.rnd = 123;
+            }
+            if ($rootScope.song.hasOwnProperty('album')) {
+                $scope.song.album.rnd = 123;
+            }
             $scope.stats.count_rated++;
             if (result === 1) {
                 ratingsServ.match($scope.match, $rootScope.song);
