@@ -146,10 +146,13 @@ class RatingManager
         //die(var_dump($lastRatedIncrement));
         $lastRatedAt->modify('+' . round($diff / 2) . ' seconds');
 
+	    $ratedDecrement *= 2;
+	    $lastRatedIncrement *= 2;
+
         $start = time();
         do {
             if (time() - $start > 1) {
-                return null;
+//                return null;
             }
 
             $lastRatedAt->modify('+' . round($lastRatedIncrement) . ' seconds');

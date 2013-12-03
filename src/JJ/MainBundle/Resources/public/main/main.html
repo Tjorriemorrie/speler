@@ -3,7 +3,7 @@
 	<div class="col-lg-6" ng-controller="mnArtistsCtrl">
 		<p ng-if="false" class="lead text-center">{{ artists.length }} Artists</p>
 		<div class="list-group">
-			<a ng-class="{'active': artist.id == song.artist.id}" ng-repeat="artist in artists | orderBy:['-rating', '-count_played', 'name'] | startFrom:artists_start_from | limitTo:7" class="list-group-item ellipse">
+			<a ng-class="{'active': artist.id == song.artist.id}" ng-repeat="artist in artists | orderBy:['-rating', '-count_played', 'name'] | startFrom:artists_start_from | limitTo:9" class="list-group-item ellipse">
 				<span class="badge">{{ artist.rank }}</span>
 				<small class="label label-default">{{ (artist.rating*100) | number:0 }}</small> {{ artist.name }}
 			</a>
@@ -13,7 +13,7 @@
 	<div class="col-lg-6" ng-controller="mnAlbumsCtrl">
 		<p ng-if="false" class="lead text-center">{{ albums.length }} Albums</p>
 		<div class="list-group">
-			<a ng-class="{'active': album.id == song.album.id}" ng-repeat="album in albums | orderBy:['-rating', '-count_played', 'name'] | startFrom:albums_start_from | limitTo:7" class="list-group-item ellipse">
+			<a ng-class="{'active': album.id == song.album.id}" ng-repeat="album in albums | orderBy:['-rating', '-count_played', 'name'] | startFrom:albums_start_from | limitTo:9" class="list-group-item ellipse">
 				<span class="badge">{{ album.rank }}</span>
 				<small class="label label-default">{{ (album.rating*100) | number:0 }}</small> {{ album.name }}
 			</a>

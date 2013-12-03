@@ -4,7 +4,7 @@ angular.module('ngPlayList', [])
 
     .factory('playList', ['storage', 'ngProgress', '$timeout', '$http', '$q', '$log', function(storage, ngProgress, $timeout, $http, $q, $log) {
         var playList = storage.get('playList') || [];
-        var limit = 10;
+        var limit = 8;
         var busy = [];
         var durations = [20000, 20000, 20000, 20000, 20000];
         var avg = 20000;

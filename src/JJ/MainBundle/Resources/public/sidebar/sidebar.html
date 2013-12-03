@@ -1,7 +1,7 @@
 <section id="playList" ng-controller="sidebarCtrl">
-	<h3><span class="label pull-right" ng-class="{'label-danger': playList.length <= 2, 'label-warning': playList.length <= 5, 'label-success': playList.length <= 8, 'label-primary': playList.length > 8}">{{ playList.length }}</span> Playlist</h3>
+	<h3><span ng-hide="true" class="label pull-right" ng-class="{'label-danger': playList.length <= 1, 'label-warning': playList.length <= 3, 'label-success': playList.length <= 5, 'label-primary': playList.length > 5}">{{ playList.length }}</span> Playlist</h3>
 	<div class="list-group">
-		<a ng-repeat="song in playList track by $index" class="list-group-item" ng-class="{'active': $first}">
+		<a ng-repeat="song in playList | limitTo:7 track by $index" class="list-group-item" ng-class="{'active': $first}">
 			<h5 class="list-group-item-heading ellipse">
 				<span ng-show="song.count_rated" class="pull-right">
 					<i ng-class="{'fa fa-star': song.rating > 0.29, 'fa fa-star-o': song.rating <= 0.14, 'fa fa-star-half-full': song.rating <= 0.29 && song.rating > 0.14}"></i>

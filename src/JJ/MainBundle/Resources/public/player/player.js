@@ -114,7 +114,7 @@ angular.module('player', [])
 
     }])
 
-    .controller('infoCtrl', ['artistsMdl', 'albumsMdl', 'playList', 'editsServ', '$filter', '$rootScope', '$q', 'storage', '$log', '$scope', function(artistsMdl, albumsMdl, playList, editsServ, $filter, $rootScope, $q, storage, $log, $scope) {
+    .controller('infoCtrl', ['artistsMdl', 'albumsMdl', 'playList', 'editsServ', '$timeout', '$filter', '$rootScope', '$q', 'storage', '$log', '$scope', function(artistsMdl, albumsMdl, playList, editsServ, $timeout, $filter, $rootScope, $q, storage, $log, $scope) {
 
         // SWITCH
         $scope.edit = { 'switch': 'display' };
@@ -133,6 +133,9 @@ angular.module('player', [])
                 'album': $rootScope.song.hasOwnProperty('album') ? Object.create($rootScope.song.album) : Object.create(album_blank)
             };
             $scope.edit.artist.create = false;
+            $timeout(function() {
+                angular.element('input:visible:eq(0)').select();
+            }, 200);
             //$log.debug('edit info', infoSwitch, $scope.edit);
         };
 
@@ -142,8 +145,10 @@ angular.module('player', [])
             $rootScope.song.name = $scope.edit.song.name;
             $rootScope.song.number = $scope.edit.song.number;
             editsServ.saveSong($scope.edit.song).then(function(songResponse) {
-                playList.getFirst().name = $rootScope.song.name;
-                playList.getFirst().number = $rootScope.song.number;
+                if (playList.getFirst().id == songResponse.id) {
+                    playList.getFirst().name = $rootScope.song.name;
+                    playList.getFirst().number = $rootScope.song.number;
+                }
                 storage.set('playList', playList.getPlayList());
             });
             $scope.editInfo(infoSwitch);
@@ -154,8 +159,7 @@ angular.module('player', [])
         $scope.saveArtist = function(infoSwitch) {
             //$log.info('saveArtist', $scope.edit.artist);
             $rootScope.song.artist = {
-                'name': $scope.edit.artist.name,
-                'rnd': 123
+                'name': $scope.edit.artist.name
             };
             playList.getFirst().artist = $scope.edit.artist;
             storage.set('playList', playList.getPlayList());
@@ -170,10 +174,9 @@ angular.module('player', [])
         $scope.saveAlbum = function() {
             //$log.info('saveAlbum', $scope.edit.album);
             $rootScope.song.album = {
-                'name': $scope.edit.album.name,
-                'size': $scope.edit.album.size,
-                'year': $scope.edit.album.year,
-                'rnd': 123
+                name: $scope.edit.album.name,
+                size: $scope.edit.album.size,
+                year: $scope.edit.album.year
             };
             playList.getFirst().album = $scope.edit.album;
             storage.set('playList', playList.getPlayList());
@@ -198,7 +201,7 @@ angular.module('player', [])
 
         // FILTER ALBUMS
         $scope.albumFilter = function(album) {
-            if (!album.hasOwnProperty('artist')) {
+            if (!album.hasOwnProperty('artist') || !$rootScope.song.hasOwnProperty('artist')) {
                 return false;
             }
             return album.artist.name == $rootScope.song.artist.name;
