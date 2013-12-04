@@ -79,7 +79,7 @@ angular.module('ngPlayList', [])
                             sum += durations[i];
                         }
                         avg = sum / durations.length;
-                        //$log.info('avg', avg, durations);
+                        $log.info('avg', avg, durations);
                         result.data.forEach(function(song) {
                             if (song.count_played) {
                                 song.played_at_from = moment().diff(moment(song.played_at), 'days');
