@@ -1,6 +1,5 @@
 imports:
     - { resource: parameters.yml }
-    - { resource: parameters_live.yml }
     - { resource: security.yml }
     - { resource: extensions.yml }
 

@@ -2,17 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d1ca1b1a-fa57-4219-8898-794e07d3a59d" name="Default" comment="">
+      <change type="DELETED" beforePath="C:\xampp\htdocs\speler\app\config\parameters_live.yml" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JJ/MainBundle/Manager/RatingManager.php" afterPath="$PROJECT_DIR$/src/JJ/MainBundle/Manager/RatingManager.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/main/main.html" afterPath="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/main/main.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JJ/MainBundle/Manager/SongManager.php" afterPath="$PROJECT_DIR$/src/JJ/MainBundle/Manager/SongManager.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/ng-play-list.js" afterPath="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/ng-play-list.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player.js" afterPath="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/sidebar/sidebar.html" afterPath="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/sidebar/sidebar.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="speler.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1386061665368" ignored="false" />
-    <file path="/.gitignore" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1379854410606" ignored="false" />
+    <file path="/Dummy.txt" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1386152307844" ignored="false" />
+    <file path="/.gitignore" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1386153515749" ignored="false" />
     <file path="/DefaultController.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1384351663011" ignored="false" />
     <file path="/nav.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1384862911140" ignored="false" />
     <file path="/nav.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1384871471976" ignored="false" />
@@ -21,7 +21,7 @@
     <file path="/ScanUtility.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1379859127136" ignored="false" />
     <file path="/a.dummy" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1385118672434" ignored="false" />
     <file path="/Scanner.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380810391837" ignored="false" />
-    <file path="/SongManager.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1384518925046" ignored="false" />
+    <file path="/SongManager.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1386081454783" ignored="false" />
     <file path="/Identifier.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383744541285" ignored="false" />
     <file path="/Song.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383744612052" ignored="false" />
     <file path="/Album.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1384519459364" ignored="false" />
@@ -38,7 +38,7 @@
     <file path="/SongsController.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381488951391" ignored="false" />
     <file path="/SongRepository.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1383831169181" ignored="false" />
     <file path="/directives.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1384955461544" ignored="false" />
-    <file path="/app.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1384943931955" ignored="false" />
+    <file path="/app.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1386077050518" ignored="false" />
     <file path="/library.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1379886231830" ignored="false" />
     <file path="/AlbumRepository.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1379882328140" ignored="false" />
     <file path="/library.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1379886103139" ignored="false" />
@@ -60,11 +60,11 @@
     <file path="$PROJECT_DIR$/../smartscore-certificates/app/Resources/views/base.html.twig" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380784752355" ignored="false" />
     <file path="/base.html.twig" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1384167852242" ignored="false" />
     <file path="$PROJECT_DIR$/../smartscore-certificates/app/config/parameters.yml" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1384873033861" ignored="false" />
-    <file path="$PROJECT_DIR$/../smartscore-certificates/app/config/config_prod.yml" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380806730666" ignored="false" />
-    <file path="$PROJECT_DIR$/../smartscore-certificates/src/Talentec/MainBundle/Controller/SecurityController.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1384935655467" ignored="false" />
+    <file path="$PROJECT_DIR$/../smartscore-certificates/app/config/config_prod.yml" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1386082244134" ignored="false" />
+    <file path="$PROJECT_DIR$/../smartscore-certificates/src/Talentec/MainBundle/Controller/SecurityController.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1386079011495" ignored="false" />
     <file path="$PROJECT_DIR$/../smartscore-certificates/src/Talentec/SdBundle/Resources/views/Default/index.html.twig" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380806730666" ignored="false" />
     <file path="$PROJECT_DIR$/../smartscore-certificates/src/Talentec/SdBundle/Resources/public/app.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380806730666" ignored="false" />
-    <file path="$PROJECT_DIR$/../smartscore-certificates/src/Talentec/CertificatesBundle/Resources/views/Default/index.html.twig" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380698111972" ignored="false" />
+    <file path="$PROJECT_DIR$/../smartscore-certificates/src/Talentec/CertificatesBundle/Resources/views/Default/index.html.twig" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1386078680767" ignored="false" />
     <file path="$PROJECT_DIR$/../smartscore-certificates/src/Talentec/SdBundle/Controller/DefaultController.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1384935662767" ignored="false" />
     <file path="$PROJECT_DIR$/../smartscore-certificates/app/config/config_dev.yml" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380790136126" ignored="false" />
     <file path="$PROJECT_DIR$/../smartscore-certificates/src/Talentec/SdBundle/Resources/public/directives.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380718568251" ignored="false" />
@@ -79,7 +79,7 @@
     <file path="$PROJECT_DIR$/../smartscore-certificates/src/Talentec/CertificatesBundle/Resources/public/emails/emails.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380188299811" ignored="false" />
     <file path="$PROJECT_DIR$/../smartscore-certificates/app/config/parameters_dev.yml" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380119869438" ignored="false" />
     <file path="/parameters_dev.yml" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380119839969" ignored="false" />
-    <file path="$PROJECT_DIR$/../smartscore-certificates/app/cache/dev/appDevDebugProjectContainer.xml" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1384935662767" ignored="false" />
+    <file path="$PROJECT_DIR$/../smartscore-certificates/app/cache/dev/appDevDebugProjectContainer.xml" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1386081417114" ignored="false" />
     <file path="$PROJECT_DIR$/../smartscore-certificates/src/Talentec/SdBundle/Resources/public/structure/structure.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380638596085" ignored="false" />
     <file path="/structure.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380120901538" ignored="false" />
     <file path="$PROJECT_DIR$/../smartscore-certificates/src/Talentec/CertificatesBundle/Resources/public/services.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380698522903" ignored="false" />
@@ -98,7 +98,7 @@
     <file path="$PROJECT_DIR$/../smartscore-certificates/src/Talentec/CertificatesBundle/Entity/Company.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380784752355" ignored="false" />
     <file path="$PROJECT_DIR$/../smartscore-certificates/src/Talentec/CertificatesBundle/Entity/Certificate.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380188619191" ignored="false" />
     <file path="$PROJECT_DIR$/../smartscore-certificates/src/Talentec/CertificatesBundle/Resources/public/nav/nav.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380192018555" ignored="false" />
-    <file path="$PROJECT_DIR$/../smartscore-certificates/src/Talentec/CertificatesBundle/Resources/public/app.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1384935662767" ignored="false" />
+    <file path="$PROJECT_DIR$/../smartscore-certificates/src/Talentec/CertificatesBundle/Resources/public/app.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1386079109508" ignored="false" />
     <file path="$PROJECT_DIR$/../smartscore-certificates/app/cache/dev/doctrine/orm/Proxies/__CG__TalentecMainBundleEntityClient.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380195107512" ignored="false" />
     <file path="$PROJECT_DIR$/../smartscore-certificates/app/cache/dev/twig/a2/93/f69d92312d26331318db83921848.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380189717499" ignored="false" />
     <file path="$PROJECT_DIR$/../smartscore-certificates/src/Talentec/CertificatesBundle/Resources/public/reminders/reminders.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380638917881" ignored="false" />
@@ -113,7 +113,7 @@
     <file path="$PROJECT_DIR$/../smartscore-certificates/src/Talentec/CertificatesBundle/Manager/EmailManager.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380698522903" ignored="false" />
     <file path="$PROJECT_DIR$/../smartscore-certificates/src/Talentec/CertificatesBundle/Controller/EmailRemindersController.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380276774592" ignored="false" />
     <file path="/player_info.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381492594688" ignored="false" />
-    <file path="/config_prod.yml" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380786152748" ignored="false" />
+    <file path="/config_prod.yml" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1386082244134" ignored="false" />
     <file path="$PROJECT_DIR$/../talentec-portal/src/Talentec/MainBundle/Resources/public/admin/companies/companies.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380879115045" ignored="false" />
     <file path="$PROJECT_DIR$/../talentec-portal/src/Talentec/MainBundle/Controller/CompaniesController.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1384870569761" ignored="false" />
     <file path="/CompaniesController.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1384870569431" ignored="false" />
@@ -218,8 +218,8 @@
     <file path="/import_modal.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380637304787" ignored="false" />
     <file path="$PROJECT_DIR$/../smartscore-certificates/src/Talentec/CertificatesBundle/Resources/public/modals/import/modal_import.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380637094825" ignored="false" />
     <file path="$PROJECT_DIR$/../smartscore-certificates/src/Talentec/CertificatesBundle/Resources/public/modals/modal.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1384931281183" ignored="false" />
-    <file path="$PROJECT_DIR$/../smartscore-certificates/src/Talentec/CertificatesBundle/Resources/public/modals/import/modal_import.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1384935662767" ignored="false" />
-    <file path="/modal_import.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380718168657" ignored="false" />
+    <file path="$PROJECT_DIR$/../smartscore-certificates/src/Talentec/CertificatesBundle/Resources/public/modals/import/modal_import.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1386153033864" ignored="false" />
+    <file path="/modal_import.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1386153028043" ignored="false" />
     <file path="/modal.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380728336273" ignored="false" />
     <file path="/SecurityController.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1384267751537" ignored="false" />
     <file path="/CertificateManager.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1380713534799" ignored="false" />
@@ -836,8 +836,10 @@
     <file path="/main.css" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1385119323637" ignored="false" />
     <file path="$PROJECT_DIR$/../talentec-portal/web/bundles/main/products/products.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1385119884199" ignored="false" />
     <file path="/dsb-index.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1385122642044" ignored="false" />
-    <file path="/README.md" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1385632140655" ignored="false" />
+    <file path="/README.md" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1386153456221" ignored="false" />
     <file path="$PROJECT_DIR$/../talentec-portal/README.md" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1385632575285" ignored="false" />
+    <file path="/parameters.yml" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1386153476965" ignored="false" />
+    <file path="$PROJECT_DIR$/app/cache/dev/appDevDebugProjectContainer.xml" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1386153616245" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -861,46 +863,55 @@
         <splitter split-orientation="vertical" split-proportion="0.5">
           <split-first>
             <leaf>
-              <file leaf-file-name="rater.js" pinned="false" current="false" current-in-tab="true">
-                <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/rater/rater.js">
+              <file leaf-file-name="config.yml" pinned="false" current="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/app/config/config.yml">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state line="79" column="44" selection-start="2887" selection-end="2887" vertical-scroll-proportion="0.47560975">
+                    <state line="2" column="32" selection-start="76" selection-end="76" vertical-scroll-proportion="0.0">
                       <folding />
                     </state>
                   </provider>
                 </entry>
               </file>
-              <file leaf-file-name="README.md" pinned="false" current="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/README.md">
+              <file leaf-file-name="config_prod.yml" pinned="false" current="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/app/config/config_prod.yml">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state line="8" column="31" selection-start="95" selection-end="95" vertical-scroll-proportion="0.0">
+                    <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
                       <folding />
                     </state>
                   </provider>
                 </entry>
               </file>
-              <file leaf-file-name="main.js" pinned="false" current="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/main/main.js">
+              <file leaf-file-name="config_dev.yml" pinned="false" current="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/app/config/config_dev.yml">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state line="31" column="13" selection-start="1254" selection-end="1254" vertical-scroll-proportion="0.0">
+                    <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
                       <folding />
                     </state>
                   </provider>
                 </entry>
               </file>
-              <file leaf-file-name="player.js" pinned="false" current="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player.js">
+              <file leaf-file-name="config_test.yml" pinned="false" current="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/app/config/config_test.yml">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state line="215" column="29" selection-start="8359" selection-end="8359" vertical-scroll-proportion="0.0">
+                    <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
                       <folding />
                     </state>
                   </provider>
                 </entry>
               </file>
-              <file leaf-file-name="lastfm.js" pinned="false" current="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/lastfm/lastfm.js">
+              <file leaf-file-name="parameters.yml.dist" pinned="false" current="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/app/config/parameters.yml.dist">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state line="105" column="0" selection-start="3756" selection-end="3756" vertical-scroll-proportion="0.0">
+                    <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+                      <folding />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file leaf-file-name=".gitignore" pinned="false" current="true" current-in-tab="true">
+                <entry file="file://$PROJECT_DIR$/.gitignore">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state line="13" column="0" selection-start="181" selection-end="181" vertical-scroll-proportion="0.5224586">
                       <folding />
                     </state>
                   </provider>
@@ -981,10 +992,10 @@
                   </provider>
                 </entry>
               </file>
-              <file leaf-file-name="RatingManager.php" pinned="false" current="true" current-in-tab="true">
+              <file leaf-file-name="RatingManager.php" pinned="false" current="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Manager/RatingManager.php">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state line="158" column="33" selection-start="3915" selection-end="3915" vertical-scroll-proportion="0.6901042">
+                    <state line="146" column="8" selection-start="3561" selection-end="3561" vertical-scroll-proportion="0.6197917">
                       <folding />
                     </state>
                   </provider>
@@ -993,7 +1004,7 @@
               <file leaf-file-name="SongManager.php" pinned="false" current="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Manager/SongManager.php">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state line="185" column="0" selection-start="4274" selection-end="4274" vertical-scroll-proportion="0.0">
+                    <state line="159" column="24" selection-start="3612" selection-end="3612" vertical-scroll-proportion="-0.65384614">
                       <folding />
                     </state>
                   </provider>
@@ -1078,7 +1089,7 @@
               <file leaf-file-name="ng-play-list.js" pinned="false" current="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/ng-play-list.js">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state line="19" column="16" selection-start="684" selection-end="684" vertical-scroll-proportion="0.042079207">
+                    <state line="9" column="19" selection-start="373" selection-end="373" vertical-scroll-proportion="0.042079207">
                       <folding />
                     </state>
                   </provider>
@@ -1106,22 +1117,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/nav/nav.js" />
-        <option value="$PROJECT_DIR$/src/JJ/MainBundle/Entity/Album.php" />
-        <option value="$PROJECT_DIR$/src/JJ/MainBundle/Entity/Artist.php" />
-        <option value="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/services.js" />
         <option value="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/library/artists.js" />
         <option value="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/library/albums.js" />
         <option value="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/main/main.js" />
         <option value="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/lastfm/lastfm.js" />
         <option value="$PROJECT_DIR$/web/css/main.css" />
         <option value="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/rater/rater.js" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/main/main.html" />
         <option value="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player.js" />
-        <option value="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/ng-play-list.js" />
         <option value="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/sidebar/sidebar.html" />
+        <option value="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/ng-play-list.js" />
+        <option value="$PROJECT_DIR$/src/JJ/MainBundle/Manager/SongManager.php" />
         <option value="$PROJECT_DIR$/src/JJ/MainBundle/Manager/RatingManager.php" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/app/config/parameters.yml" />
+        <option value="$PROJECT_DIR$/app/config/config.yml" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -1829,7 +1840,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Symfony2" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Framework" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22465315" sideWeight="0.67" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2353255" sideWeight="0.67" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962137" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
@@ -1905,89 +1916,9 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Controller/AlbumsController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="58" column="5" selection-start="1159" selection-end="1375" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="31" selection-start="95" selection-end="95" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/main/main.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="179" selection-start="889" selection-end="889" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player_info_album.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="100" selection-start="2760" selection-end="2760" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player_info.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="0" selection-start="55" selection-end="55" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/css/main.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="24" selection-start="4482" selection-end="4482" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/main/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="13" selection-start="1254" selection-end="1254" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/library/albums.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="10" selection-start="1801" selection-end="1801" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/library/artists.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="50" selection-start="1580" selection-end="1580" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/player/player.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="215" column="29" selection-start="8359" selection-end="8359" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/nav/nav.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="0" selection-start="1204" selection-end="1204" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Entity/Album.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="94" column="20" selection-start="1964" selection-end="1964" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/rater/rater.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="79" column="44" selection-start="2887" selection-end="2887" vertical-scroll-proportion="0.47560975">
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/sidebar/sidebar.html">
@@ -1997,16 +1928,86 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Manager/SongManager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="159" column="24" selection-start="3612" selection-end="3612" vertical-scroll-proportion="-0.65384614">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/ng-play-list.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="16" selection-start="684" selection-end="684" vertical-scroll-proportion="0.042079207">
+        <state line="9" column="19" selection-start="373" selection-end="373" vertical-scroll-proportion="0.042079207">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Manager/RatingManager.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="158" column="33" selection-start="3915" selection-end="3915" vertical-scroll-proportion="0.6901042">
+        <state line="146" column="8" selection-start="3561" selection-end="3561" vertical-scroll-proportion="0.6197917">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/rater/rater.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="77" column="50" selection-start="2828" selection-end="2828" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/lastfm/lastfm.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="105" column="0" selection-start="3756" selection-end="3756" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/config_prod.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/config_dev.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/config_test.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/config.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="32" selection-start="76" selection-end="76" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/parameters.yml.dist">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="0" selection-start="181" selection-end="181" vertical-scroll-proportion="0.5224586">
           <folding />
         </state>
       </provider>

@@ -137,21 +137,21 @@ class RatingManager
         //die(var_dump($ratedMax));
         $ratedDecrement = $ratedMax / $countSongs;
         //die(var_dump($ratedDecrement));
-        $ratedMax /= 2;
+        $ratedMax *= 3/4;
 
         $lastRatedAt = $this->findLastRatedAt();
         //die(var_dump($lastRatedAt));
         $diff = time() - $lastRatedAt->getTimestamp();
         $lastRatedIncrement = max(1, $diff / $countSongs);
         //die(var_dump($lastRatedIncrement));
-        $lastRatedAt->modify('+' . round($diff / 2) . ' seconds');
+        $lastRatedAt->modify('+' . round($diff * 3/4) . ' seconds');
 
-	    $ratedDecrement *= 2;
-	    $lastRatedIncrement *= 2;
+	    //$ratedDecrement *= 10;
+	    //$lastRatedIncrement *= 10;
 
         $start = time();
         do {
-            if (time() - $start > 1) {
+            if (time() - $start > 10) {
 //                return null;
             }
 

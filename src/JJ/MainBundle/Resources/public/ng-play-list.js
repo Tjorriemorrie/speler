@@ -6,8 +6,8 @@ angular.module('ngPlayList', [])
         var playList = storage.get('playList') || [];
         var limit = 8;
         var busy = [];
-        var durations = [20000, 20000, 20000, 20000, 20000];
-        var avg = 20000;
+        var durations = [30000, 30000, 30000, 30000, 30000];
+        var avg = 30000;
 
         var update = function() {
             if (busy.length) {

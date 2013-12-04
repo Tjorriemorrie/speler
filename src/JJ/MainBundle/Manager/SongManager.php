@@ -143,7 +143,9 @@ class SongManager
             $song = $this->findRandom($countSongs);
             if (!$song) {
                 return null;
-            }
+            } elseif (!$song->getAlbum() || !$song->getArtist()) {
+		        return $song;
+	        }
         } while (in_array($song->getId(), $excludeIds)
             or $song->getPriority() < $priorityCutOff
             or $song->getPlayedAt() > $lastPlayedAt
