@@ -213,15 +213,15 @@ class LastFm
         }
 
         if ((string)$xml->{'nowplaying'}->{'track'}->attributes()->{'corrected'}) {
-            throw new \Exception('Track corrected!', 500);
+//            throw new \Exception('Track corrected!', 500);
         }
 
         if ((string)$xml->{'nowplaying'}->{'artist'}->attributes()->{'corrected'}) {
-            throw new \Exception('Artist corrected!', 500);
+//            throw new \Exception('Artist corrected!', 500);
         }
 
         if ((string)$xml->{'nowplaying'}->{'album'}->attributes()->{'corrected'}) {
-            throw new \Exception('Album corrected!', 500);
+//            throw new \Exception('Album corrected!', 500);
         }
 
         return true;

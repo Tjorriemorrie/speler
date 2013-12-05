@@ -127,6 +127,7 @@ class RatingManager
      */
     public function findMatch(array $excludeIds)
     {
+	    $cutStart = 3/4;
         $countSongs = $this->songMan->countAll();
         if (!$countSongs) {
             return null;
@@ -137,14 +138,14 @@ class RatingManager
         //die(var_dump($ratedMax));
         $ratedDecrement = $ratedMax / $countSongs;
         //die(var_dump($ratedDecrement));
-        $ratedMax *= 3/4;
+        $ratedMax *= $cutStart;
 
         $lastRatedAt = $this->findLastRatedAt();
         //die(var_dump($lastRatedAt));
         $diff = time() - $lastRatedAt->getTimestamp();
         $lastRatedIncrement = max(1, $diff / $countSongs);
         //die(var_dump($lastRatedIncrement));
-        $lastRatedAt->modify('+' . round($diff * 3/4) . ' seconds');
+        $lastRatedAt->modify('+' . round($diff * $cutStart) . ' seconds');
 
 	    //$ratedDecrement *= 10;
 	    //$lastRatedIncrement *= 10;

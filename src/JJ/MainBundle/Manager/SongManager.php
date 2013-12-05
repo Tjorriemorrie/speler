@@ -114,6 +114,7 @@ class SongManager
      */
     public function getNext($excludeIds)
     {
+	    $cutStart = 3/5;
         $countSongs = $this->countAll();
         if (!$countSongs) {
             return null;
@@ -122,13 +123,13 @@ class SongManager
 
         $priorityCutOff = 1;
         $priorityDecrement = $priorityCutOff / $countSongs;
-        $priorityCutOff /= 2;
+        $priorityCutOff *= $cutStart;
 
         $lastPlayedAt = $this->findLastPlayedAt();
 	    //die(var_dump($lastPlayedAt));
         $diff = time() - $lastPlayedAt->getTimestamp();
         $timeIncrement = max(1, $diff / $countSongs);
-        $lastPlayedAt->modify('+' . round($diff / 2) . ' seconds');
+        $lastPlayedAt->modify('+' . round($diff * $cutStart) . ' seconds');
 
         $iteration = 0;
         do {
@@ -144,6 +145,10 @@ class SongManager
             if (!$song) {
                 return null;
             } elseif (!$song->getAlbum() || !$song->getArtist()) {
+		        return $song;
+            } elseif (!$song->getAlbum()->getSize() || !$song->getAlbum()->getYear()) {
+		        return $song;
+            } elseif (!$song->getNumber()) {
 		        return $song;
 	        }
         } while (in_array($song->getId(), $excludeIds)
