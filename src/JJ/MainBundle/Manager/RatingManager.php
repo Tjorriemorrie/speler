@@ -112,9 +112,9 @@ class RatingManager
     public function countRounds(Song $song)
     {
         $target = $song->getCountPlayed() + 1;
-        $rounds = $target - $song->getCountRated();
-        $rounds = min(6, $rounds);
-        $rounds = max(2, $rounds);
+        $rounds = ($target * 2) - $song->getCountRated();
+	    $rounds = max(0, $rounds);
+        $rounds = min(4, $rounds);
         //die(var_dump($rounds));
         return $rounds;
     }

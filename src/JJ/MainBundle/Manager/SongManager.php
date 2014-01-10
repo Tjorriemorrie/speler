@@ -114,7 +114,7 @@ class SongManager
      */
     public function getNext($excludeIds)
     {
-	    $cutStart = 3/5;
+	    $cutStart = 2/5;
         $countSongs = $this->countAll();
         if (!$countSongs) {
             return null;
@@ -149,6 +149,8 @@ class SongManager
             } elseif (!$song->getAlbum()->getSize() || !$song->getAlbum()->getYear()) {
 		        return $song;
             } elseif (!$song->getNumber()) {
+		        return $song;
+            } elseif ($song->getArtist()->getName() == 'Hoobastank' && !in_array($song->getAlbum()->getName(), array('The Reason', 'Greatest Hits of Hoobastank'))) {
 		        return $song;
 	        }
         } while (in_array($song->getId(), $excludeIds)

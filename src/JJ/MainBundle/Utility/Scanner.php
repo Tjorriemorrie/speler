@@ -21,7 +21,7 @@ class Scanner
     protected $artistMan;
 
     protected $extensionsAllowed = array('mp3', 'm4a');
-    protected $extensionsBlocked = array('jpg');
+    protected $extensionsBlocked = array('jpg', 'db');
 
     /**
      * Construct
@@ -98,7 +98,7 @@ class Scanner
             } elseif (in_array(strtolower($ext), $this->extensionsBlocked, true)) {
                 unlink($file) || die('could not unlink file ' . $file);
             } else {
-                die('unknown ext ' . $ext);
+                throw new \Exception('unknown ext ' . $ext);
             }
         }
     }
