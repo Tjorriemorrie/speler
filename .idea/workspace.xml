@@ -3,14 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="d1ca1b1a-fa57-4219-8898-794e07d3a59d" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JJ/MainBundle/Manager/RatingManager.php" afterPath="$PROJECT_DIR$/src/JJ/MainBundle/Manager/RatingManager.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JJ/MainBundle/Utility/Scanner.php" afterPath="$PROJECT_DIR$/src/JJ/MainBundle/Utility/Scanner.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JJ/MainBundle/Manager/SongManager.php" afterPath="$PROJECT_DIR$/src/JJ/MainBundle/Manager/SongManager.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/nav/nav.js" afterPath="$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/nav/nav.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="speler.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1389357224443" ignored="false" />
+    <file path="/Dummy.txt" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1389702492320" ignored="false" />
     <file path="/.gitignore" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1386153515749" ignored="false" />
     <file path="/DefaultController.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1384351663011" ignored="false" />
     <file path="/nav.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1384862911140" ignored="false" />
@@ -331,7 +327,7 @@
     <file path="/header.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317208734" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/www/js/header/header.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317422167" ignored="false" />
     <file path="/header.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381317394466" ignored="false" />
-    <file path="$PROJECT_DIR$/../akhile-ams-mobile/www/js/sync/sync.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1389355662782" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/www/js/sync/sync.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1389702047409" ignored="false" />
     <file path="$PROJECT_DIR$/../akhile-ams-mobile/www/js/sync/sync.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381316565276" ignored="false" />
     <file path="/sync.html" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1381316564588" ignored="false" />
     <file path="/sync.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1389355650218" ignored="false" />
@@ -858,6 +854,8 @@
     <file path="/Id3Utility.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1389361097411" ignored="false" />
     <file path="$PROJECT_DIR$/../trading/src/JJ/TreeBundle/Command/id3.js" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1389364492147" ignored="false" />
     <file path="$PROJECT_DIR$/../trading/app/cache/dev/appDevDebugProjectContainer.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1389363414746" ignored="false" />
+    <file path="$PROJECT_DIR$/../akhile-ams-mobile/syncImages.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1389702085346" ignored="false" />
+    <file path="/syncImages.php" changelist="d1ca1b1a-fa57-4219-8898-794e07d3a59d" time="1389702085346" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -911,7 +909,7 @@
               <file leaf-file-name="ScanController.php" pinned="false" current="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Controller/ScanController.php">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state line="26" column="19" selection-start="609" selection-end="609" vertical-scroll-proportion="-9.153846">
+                    <state line="26" column="19" selection-start="609" selection-end="609" vertical-scroll-proportion="0.0">
                       <folding />
                     </state>
                   </provider>
@@ -920,7 +918,7 @@
               <file leaf-file-name="nav.js" pinned="false" current="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/nav/nav.js">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state line="52" column="0" selection-start="1767" selection-end="1767" vertical-scroll-proportion="0.789731">
+                    <state line="52" column="0" selection-start="1767" selection-end="1767" vertical-scroll-proportion="0.4352078">
                       <folding />
                     </state>
                   </provider>
@@ -978,7 +976,7 @@
               <file leaf-file-name="composer.json" pinned="false" current="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/composer.json">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state line="22" column="8" selection-start="765" selection-end="765" vertical-scroll-proportion="0.5862069">
+                    <state line="22" column="8" selection-start="765" selection-end="765" vertical-scroll-proportion="0.04509284">
                       <folding />
                     </state>
                   </provider>
@@ -995,7 +993,7 @@
               <file leaf-file-name="RatingManager.php" pinned="false" current="true" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Manager/RatingManager.php">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state line="114" column="31" selection-start="2639" selection-end="2639" vertical-scroll-proportion="0.4673629">
+                    <state line="116" column="26" selection-start="2718" selection-end="2718" vertical-scroll-proportion="0.3994778">
                       <folding />
                     </state>
                   </provider>
@@ -1013,7 +1011,7 @@
               <file leaf-file-name="SongManager.php" pinned="false" current="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Manager/SongManager.php">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state line="152" column="0" selection-start="3564" selection-end="3564" vertical-scroll-proportion="-10.461538">
+                    <state line="152" column="0" selection-start="3564" selection-end="3564" vertical-scroll-proportion="0.0">
                       <folding />
                     </state>
                   </provider>
@@ -1098,7 +1096,7 @@
               <file leaf-file-name="Scanner.php" pinned="false" current="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Utility/Scanner.php">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state line="90" column="12" selection-start="2344" selection-end="2344" vertical-scroll-proportion="0.37931034">
+                    <state line="90" column="12" selection-start="2344" selection-end="2344" vertical-scroll-proportion="0.04509284">
                       <folding />
                     </state>
                   </provider>
@@ -1741,8 +1739,8 @@
     <property name="options.lastSelected" value="preferences.keymap" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../poxa" />
     <property name="FullScreen" value="false" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -1790,8 +1788,8 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1799,7 +1797,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Symfony2" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Framework" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25933832" sideWeight="0.67" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2620064" sideWeight="0.67" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962137" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
@@ -1924,9 +1922,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Entity/Artist.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="99" column="20" selection-start="2027" selection-end="2027" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="99" column="20" selection-start="2027" selection-end="2027" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/services.js">
@@ -1945,42 +1941,42 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/composer.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="8" selection-start="765" selection-end="765" vertical-scroll-proportion="0.5862069">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Utility/Scanner.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="90" column="12" selection-start="2344" selection-end="2344" vertical-scroll-proportion="0.37931034">
+        <state line="22" column="8" selection-start="765" selection-end="765" vertical-scroll-proportion="0.04509284">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Controller/ScanController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="19" selection-start="609" selection-end="609" vertical-scroll-proportion="-9.153846">
+        <state line="26" column="19" selection-start="609" selection-end="609" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Resources/public/nav/nav.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="0" selection-start="1767" selection-end="1767" vertical-scroll-proportion="0.789731">
+        <state line="52" column="0" selection-start="1767" selection-end="1767" vertical-scroll-proportion="0.4352078">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Manager/SongManager.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="152" column="0" selection-start="3564" selection-end="3564" vertical-scroll-proportion="-10.461538">
+        <state line="152" column="0" selection-start="3564" selection-end="3564" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Utility/Scanner.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="90" column="12" selection-start="2344" selection-end="2344" vertical-scroll-proportion="0.04509284">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/JJ/MainBundle/Manager/RatingManager.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="114" column="31" selection-start="2639" selection-end="2639" vertical-scroll-proportion="0.4673629">
+        <state line="116" column="26" selection-start="2718" selection-end="2718" vertical-scroll-proportion="0.3994778">
           <folding />
         </state>
       </provider>
