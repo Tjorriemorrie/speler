@@ -5,6 +5,7 @@ namespace JJ\MainBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Symfony\Component\BrowserKit\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use JMS\Serializer\Serializer;
 
@@ -48,11 +49,12 @@ class RatingsController extends Controller
 
     /**
      * @Route("/{id}", name="ratings_find")
-     * @Method({"get"})
+     * @Method({"GET"})
      */
-    public function findAction(Song $song)
+    public function findAction(Request $request, Song $song)
     {
-        $ratings = $this->getRatingManager()->findMatches($song);
+	    $formData = $request->query->all();
+	    $ratings = $this->getRatingManager()->findMatches($song, $formData['ids']);
         return $this->createJsonResponse($ratings);
     }
 

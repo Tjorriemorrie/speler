@@ -51,31 +51,35 @@ class RatingManager
 		}
 	}
 
-    /**
-     * Find matches for ratings
-     *
-     * @param \JJ\MainBundle\Entity\Song $song
-     * @return Song[]
-     */
-    public function findMatches(Song $song)
+	/**
+	 * Find matches for ratings
+	 *
+	 * @param Song[] $songs
+	 * @param int[] $excludeIds
+	 */
+    public function findMatches($songs, $excludeIds)
     {
-        $matches = array();
-        $excludeIds = $this->getExcludeIds($song);
+	    $excludeIds = explode(',', $excludeIds);
+	    array_walk($excludeIds, function(&$id) {
+		    $id = (int)$id;
+	    });
 
-        $rounds = $this->countRounds($song);
-        for ($i=1; $i<=$rounds; $i++) {
-            $match = $this->findMatch($excludeIds);
-            //die(var_dump($match));
-            if (!$match) {
-                break;
-            } else {
-                $matches[] = $match;
-                $excludeIds[] = $match->getId();
-            }
-        }
+	    foreach ($songs as $song) {
+	        $matches = array();
+	        $excludeIds = array_merge($excludeIds, $this->getExcludeIds($song));
 
-        //die(var_dump(count($matches)));
-        return $matches;
+	        $rounds = $this->countRounds($song);
+	        for ($i=1; $i<=$rounds; $i++) {
+	            $matches = $this->songMan->findLastRatedWithExclusion($excludeIds, $rounds);
+	        }
+
+		    foreach ($matches as $match) {
+			    $excludeIds[] = $match->getId();
+		    }
+
+	        //die(var_dump(count($matches)));
+		    $song->setMatches($matches);
+	    }
     }
 
     /**
@@ -111,12 +115,16 @@ class RatingManager
      */
     public function countRounds(Song $song)
     {
-        $target = $song->getCountPlayed() + 1;
-        $rounds = $target - $song->getCountRated();
-	    $rounds = max(0, $rounds);
-        $rounds = min(2, $rounds);
+        $rounds = $song->getCountPlayed() + 1;
+	    $rounds *= 3;
+        $rounds -= $song->getCountRated();
+	    $rounds = max(1, $rounds);
+        $rounds = min(5, $rounds);
         //die(var_dump($rounds));
-        return $rounds * 2;
+//	    if ($rounds) {
+//		    $rounds++;
+//	    }
+        return $rounds;
     }
 
     /**
@@ -127,7 +135,8 @@ class RatingManager
      */
     public function findMatch(array $excludeIds)
     {
-	    $cutStart = 3/4;
+	    $timeStart = time();
+	    $cutStart = 3/5;
         $countSongs = $this->songMan->countAll();
         if (!$countSongs) {
             return null;
@@ -152,10 +161,6 @@ class RatingManager
 
         $start = time();
         do {
-            if (time() - $start > 10) {
-//                return null;
-            }
-
             $lastRatedAt->modify('+' . round($lastRatedIncrement) . ' seconds');
             $ratedMax -= $ratedDecrement;
 
@@ -163,6 +168,8 @@ class RatingManager
             //die(var_dump($file));
             if (!$song) {
                 return null;
+            } elseif (time() - 30 > $timeStart) {
+	            return $song;
             }
         } while (in_array($song->getId(), $excludeIds)
             or $song->getCountPlayed() < 1

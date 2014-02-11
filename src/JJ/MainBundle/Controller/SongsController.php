@@ -12,6 +12,7 @@ use JJ\MainBundle\Manager\SongManager;
 use JJ\MainBundle\Entity\Song;
 use JJ\MainBundle\Manager\RatingManager;
 use JJ\MainBundle\Utility\Identifier;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * @Route("songs")
@@ -61,20 +62,15 @@ class SongsController extends Controller
      * @Route("/next", name="songs_next")
      * @Method({"post"})
      */
-    public function songsAction()
+    public function songsAction(Request $request)
     {
-	    set_time_limit(0);
-
-        $formData = $this->getRequest()->request->all();
-
+        $formData = $request->request->all();
         $songs = $this->getSongManager()->getNextTwo($formData['ids']);
 
 	    /** @var RatingManager $ratingMan */
 	    $ratingMan = $this->get('rating.manager');
 
-	    foreach ($songs as $song) {
-	        $song->setMatches($ratingMan->findMatches($song));
-	    }
+        $ratingMan->findMatches($songs, $formData['ratingIds']);
 
         return $this->createJsonResponse($songs);
     }

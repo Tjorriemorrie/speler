@@ -152,7 +152,7 @@ class Song
 	 * @var float
 	 *
 	 * @ORM\Column(name="priority", type="float")
-	 * @Assert\Range(min=-1, max=1)
+	 * @Assert\Range(min=0, max=1)
 	 * @Ser\Expose()
 	 */
 	private $priority;

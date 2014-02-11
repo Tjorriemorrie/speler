@@ -6,8 +6,8 @@ angular.module('ngPlayList', [])
         var playList = storage.get('playList') || [];
         var limit = 8;
         var busy = [];
-        var durations = [30000, 30000, 30000, 30000, 30000];
-        var avg = 30000;
+        var durations = [15000, 15000];
+        var avg = 15000;
 
         var update = function() {
             if (busy.length) {
@@ -51,11 +51,16 @@ angular.module('ngPlayList', [])
                     dfd.resolve();
                 } else {
                     var ids = [];
+                    var ratingIds = [];
                     playList.forEach(function(song) {
                         ids.push(song.id);
+                        angular.forEach(song.matches, function(match) {
+                            ratingIds.push(match.id);
+                        });
                     });
                     var formData = new FormData();
                     formData.append('ids', ids);
+                    formData.append('ratingIds', ratingIds);
 
                     busy.push(0);
                     if (ngProgress.status() == 0) {

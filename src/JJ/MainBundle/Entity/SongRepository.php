@@ -3,6 +3,7 @@
 namespace JJ\MainBundle\Entity;
 
 use Doctrine\ORM\EntityRepository;
+use Doctrine\ORM\Query\ResultSetMapping;
 
 /**
  * SongRepository
@@ -86,4 +87,98 @@ class SongRepository extends EntityRepository
             ");
         return $query->getSingleScalarResult();
     }
+
+    /**
+     * Find closest
+     *
+     * @return Song
+     */
+    public function findClosest($timeRange, $excludeIds)
+    {
+	    $rsm = new ResultSetMapping();
+	    $rsm->addEntityResult('MainBundle:Song', 's');
+	    $rsm->addFieldResult('s', 'id', 'id');
+	    $rsm->addScalarResult('playedWeight', 'playedWeight');
+        $query = $this->getEntityManager()->createNativeQuery("
+              SELECT id, (priority + ((UNIX_TIMESTAMP() - UNIX_TIMESTAMP(played_at)) / :timeRange)) playedWeight
+              FROM s_song
+              WHERE id NOT IN (:excludeIds)
+              ORDER BY playedWeight DESC
+              LIMIT 1
+            ", $rsm);
+	    $query->setParameter('timeRange', $timeRange);
+	    $query->setParameter('excludeIds', $excludeIds);
+        $result = $query->getSingleResult();
+	    //die(var_dump($result));
+	    $songId = $result[0]->getId();
+	    //die(var_dump($songId));
+	    $this->clear();
+	    $song = $this->find($songId);
+	    //die(var_dump($song));
+	    return $song;
+    }
+
+	public function findUnplayed($excludeIds)
+	{
+		$query = $this->getEntityManager()->createQuery("
+				SELECT s FROM MainBundle:Song s
+				WHERE (s.countPlayed = :countPlayed OR s.playedAt = :playedAt)
+				AND s.id NOT IN (:excludeIds)
+			")
+			->setMaxResults(100)
+			->setParameters(array(
+				'countPlayed' => 0,
+				'playedAt' => null,
+				'excludeIds' => implode(',', $excludeIds)
+			));
+		$result = $query->getResult();
+		shuffle($result);
+		//die(var_dump(count($result)));
+		return $result ? $result[0] : null;
+	}
+
+	/**
+	 * Find by priority with exclusion
+	 *
+	 * @param $excludeIds
+	 * @return Song
+	 */
+	public function findByPriorityWithExclusion($excludeIds)
+	{
+		$query = $this->getEntityManager()->createQuery("
+				SELECT s FROM MainBundle:Song s
+				WHERE s.id NOT IN (:excludeIds)
+				ORDER BY s.priority DESC, s.playedAt ASC, s.countPlayed ASC
+			")
+			->setMaxResults(1)
+			->setParameters(array(
+				'excludeIds' => $excludeIds
+			));
+		return $query->getOneOrNullResult();
+	}
+
+	/**
+	 * Find last rated at with exclusion
+	 *
+	 * @param $excludeIds
+	 * @param $rounds
+	 * @return Song[]
+	 */
+	public function findLastRatedWithExclusion($excludeIds, $rounds)
+	{
+		$query = $this->getEntityManager()->createQuery("
+                SELECT s FROM MainBundle:Song s
+                WHERE s.id NOT IN (:excludeIds)
+                AND s.countPlayed > 0
+                ORDER BY s.ratedAt ASC
+            ")
+			->setMaxResults(30)
+			->setParameters(array(
+				'excludeIds' => $excludeIds
+			))
+		;
+		$results = $query->getResult();
+		shuffle($results);
+		return !$results ? null : array_slice($results, 0, $rounds);
+	}
 }

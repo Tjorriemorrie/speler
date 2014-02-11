@@ -91,10 +91,14 @@ class SongManager
     public function getNextTwo($ids)
     {
         $excludeIds = explode(',', $ids);
+	    array_walk($excludeIds, function(&$id) {
+		    $id = (int)$id;
+	    });
+	    //die(var_dump($excludeIds));
 
         $songs = array();
         while (count($songs) < 2) {
-            $song = $this->getNext($excludeIds);
+            $song = $this->findByPriorityWithExclusion($excludeIds);
             if (!$song) {
                 break;
             }
@@ -103,62 +107,8 @@ class SongManager
             $excludeIds[] = $song->getId();
         }
 
+	    //die(var_dump($songs));
         return $songs;
-    }
-
-    /**
-     * Get next
-     *
-     * @param $excludeIds
-     * @return Song|null
-     */
-    public function getNext($excludeIds)
-    {
-	    $cutStart = 2/5;
-        $countSongs = $this->countAll();
-        if (!$countSongs) {
-            return null;
-        }
-        //die(var_dump($countSongs));
-
-        $priorityCutOff = 1;
-        $priorityDecrement = $priorityCutOff / $countSongs;
-        $priorityCutOff *= $cutStart;
-
-        $lastPlayedAt = $this->findLastPlayedAt();
-	    //die(var_dump($lastPlayedAt));
-        $diff = time() - $lastPlayedAt->getTimestamp();
-        $timeIncrement = max(1, $diff / $countSongs);
-        $lastPlayedAt->modify('+' . round($diff * $cutStart) . ' seconds');
-
-        $iteration = 0;
-        do {
-            $iteration++;
-            if ($iteration > $countSongs) {
-                return null;
-            }
-
-            $priorityCutOff -= $priorityDecrement;
-            $lastPlayedAt->modify('+' . round($timeIncrement) . ' seconds');
-
-            $song = $this->findRandom($countSongs);
-            if (!$song) {
-                return null;
-            } elseif (!$song->getAlbum() || !$song->getArtist()) {
-		        return $song;
-            } elseif (!$song->getAlbum()->getSize() || !$song->getAlbum()->getYear()) {
-		        return $song;
-            } elseif (!$song->getNumber()) {
-		        return $song;
-            } elseif ($song->getArtist()->getName() == 'Hoobastank' && !in_array($song->getAlbum()->getName(), array('The Reason', 'Greatest Hits of Hoobastank'))) {
-		        return $song;
-	        }
-        } while (in_array($song->getId(), $excludeIds)
-            or $song->getPriority() < $priorityCutOff
-            or $song->getPlayedAt() > $lastPlayedAt
-        );
-
-        return $song;
     }
 
     /**
@@ -182,15 +132,33 @@ class SongManager
     /**
      * Update priority
      *
+     * AVG of:
+     * 1. rating (wins / total rated)
+     * 2. playcount (count / total played)
+     * 3. playedAt (played in relation to last overall played rnage)
+     *
+     * If unplayed, then priority is 1
+     *
      * @param Song $song
      */
     public function updatePriority(Song $song)
     {
-        $maxCountPlayed = max($song->getCountPlayed(), $this->maxCountPlayed(), 1);
-        $weightCountPlayed = $song->getCountPlayed() / $maxCountPlayed;
+	    if (!$song->getPlayedAt() || !$song->getCountPlayed()) {
+		    $priority = 1;
+	    } else {
+		    // 1 quality or value
+		    $ratingWeight = $song->getRating();
 
-        $priority = abs($song->getRating()) - abs($weightCountPlayed * 99/100) - abs((1 - $song->getRating()) * 99/100);
-        $priority = max(-1, $priority);
+		    // 2 repetition (enhances quality)
+		    $maxCountPlayed = max($song->getCountPlayed(), $this->maxCountPlayed(), 1);
+	        $playCountWeight = $song->getCountPlayed() / $maxCountPlayed;
+
+		    // 3 repetition (resists quality)
+	        $lastPlayedRange = time() - $this->findLastPlayedAt()->getTimestamp();
+			$playedAtWeight = (time() - $song->getPlayedAt()->getTimestamp()) / $lastPlayedRange;
+
+		    $priority = ($ratingWeight + $playCountWeight + $playedAtWeight) / 3;
+	    }
         $song->setPriority($priority);
 
 	    if ($song->getAlbum()) {
@@ -315,4 +283,32 @@ class SongManager
     {
         return $this->repo->maxCountRated();
     }
+
+	/**
+	 * Find by priority with exclusion
+	 *
+	 * @param $excludeIds
+	 * @return Song
+	 */
+	public function findByPriorityWithExclusion($excludeIds)
+	{
+		return $this->repo->findByPriorityWithExclusion($excludeIds);
+	}
+
+	public function findUnplayed($excludeIds)
+	{
+		return $this->repo->findUnplayed($excludeIds);
+	}
+
+	/**
+	 * Find last rated with exclusion
+	 *
+	 * @param $exclusionIds
+	 * @param $round
+	 * @return Song[]
+	 */
+	public function findLastRatedWithExclusion($exclusionIds, $rounds)
+	{
+		return $this->repo->findLastRatedWithExclusion($exclusionIds, $rounds);
+	}
 }
