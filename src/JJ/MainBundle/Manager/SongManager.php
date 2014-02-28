@@ -96,18 +96,12 @@ class SongManager
 	    });
 	    //die(var_dump($excludeIds));
 
-        $songs = array();
-        while (count($songs) < 2) {
-            $song = $this->findByPriorityWithExclusion($excludeIds);
-            if (!$song) {
-                break;
-            }
+	    $lastPlayedAt = $this->findLastPlayedAt()->getTimestamp();
+	    $timeRange = time() - $lastPlayedAt;
+	    $avgPlayedAt = $this->findAvgPlayedAt()->getTimestamp();
+	    $priorityWeight = $avgPlayedAt / $lastPlayedAt;
+        $songs = $this->repo->findClosest($timeRange, $excludeIds, 2, $priorityWeight);
 
-            $songs[] = $song;
-            $excludeIds[] = $song->getId();
-        }
-
-	    //die(var_dump($songs));
         return $songs;
     }
 
@@ -151,13 +145,16 @@ class SongManager
 
 		    // 2 repetition (enhances quality)
 		    $maxCountPlayed = max($song->getCountPlayed(), $this->maxCountPlayed(), 1);
-	        $playCountWeight = $song->getCountPlayed() / $maxCountPlayed;
+	        $playCountWeight = ($maxCountPlayed - $song->getCountPlayed()) / $maxCountPlayed;
 
 		    // 3 repetition (resists quality)
-	        $lastPlayedRange = time() - $this->findLastPlayedAt()->getTimestamp();
-			$playedAtWeight = (time() - $song->getPlayedAt()->getTimestamp()) / $lastPlayedRange;
+//	        $lastPlayedRange = time() - $this->findLastPlayedAt()->getTimestamp();
+//			$playedAtWeight = (time() - $song->getPlayedAt()->getTimestamp()) / $lastPlayedRange;
 
-		    $priority = ($ratingWeight + $playCountWeight + $playedAtWeight) / 3;
+		    $priority = (
+			    $ratingWeight * 0.90 +
+			    $playCountWeight * 0.10
+		    );
 	    }
         $song->setPriority($priority);
 
@@ -262,6 +259,16 @@ class SongManager
     public function findLastPlayedAt()
     {
         return $this->repo->findLastPlayedAt();
+    }
+
+    /**
+     * Find avg played at
+     *
+     * @return \DateTime
+     */
+    public function findAvgPlayedAt()
+    {
+        return $this->repo->findAvgPlayedAt();
     }
 
     /**

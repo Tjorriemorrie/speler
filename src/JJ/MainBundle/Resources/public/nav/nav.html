@@ -5,10 +5,6 @@
 		<a class="navbar-brand" href="#">Speler</a>
 	</div>
 
-    <ul class="nav navbar-nav">
-        <li ng-repeat="nav in navs" ng-class="isActive(nav)"><a ng-href="{{ nav.url }}">{{ nav.name }}</a></li>
-    </ul>
-
     <ul class="nav navbar-nav navbar-right text-muted">
         <p ng-show="scan" class="navbar-text"><i class="fa fa-refresh fa-spin"></i></p>
         <p class="navbar-text">{{ count_songs|number }} songs</p>

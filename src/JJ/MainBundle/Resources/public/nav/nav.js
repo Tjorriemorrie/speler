@@ -14,22 +14,6 @@ angular.module('nav', [])
 
     .controller('navCtrl', ['scanServ', 'songsServ', 'albumsMdl', 'artistsMdl', 'storage', '$log', '$scope', function(scanServ, songsServ, albumsMdl, artistsMdl, storage, $log, $scope) {
 
-        $scope.nav = 'Main';
-        $scope.setNav = function(nav) {
-            $scope.nav = nav.name;
-        };
-
-        $scope.navs = [
-            { name: 'Main', url: '#/' },
-            { name: 'Artists', url: '#/library/artists' },
-            { name: 'Albums', url: '#/library/albums' },
-            { name: 'Songs', url: '#/library/songs' },
-        ];
-
-        $scope.isActive = function(nav) {
-            return nav.name == $scope.nav ? 'active' : '';
-        };
-
         storage.bind($scope, 'count_songs', {defaultValue: 0});
         $scope.count_albums = albumsMdl.albums == null ? 0 : albumsMdl.albums.length;
         $scope.count_artists = artistsMdl.artists == null ? 0 : artistsMdl.artists.length;

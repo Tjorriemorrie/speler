@@ -2,6 +2,7 @@
 
 namespace JJ\MainBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\EntityRepository;
 use Doctrine\ORM\Query\ResultSetMapping;
 
@@ -61,6 +62,24 @@ class SongRepository extends EntityRepository
     }
 
     /**
+     * Find avg played at song
+     *
+     * @return \DateTime
+     */
+    public function findAvgPlayedAt()
+    {
+	    $rsm = new ResultSetMapping();
+	    $rsm->addScalarResult('avgPlayedAt', 'avgPlayedAt');
+	    $query = $this->getEntityManager()->createNativeQuery("
+                SELECT ROUND(AVG(UNIX_TIMESTAMP(played_at))) avgPlayedAt
+                FROM s_song
+            ", $rsm);
+        $result = $query->getSingleScalarResult();
+	    //die(var_dump($result));
+        return new \DateTime(date('Y-m-d', $result));
+    }
+
+    /**
      * Max count played
      *
      * @return int
@@ -93,29 +112,37 @@ class SongRepository extends EntityRepository
      *
      * @return Song
      */
-    public function findClosest($timeRange, $excludeIds)
+    public function findClosest($timeRange, $excludeIds, $limit, $priorityWeight)
     {
 	    $rsm = new ResultSetMapping();
 	    $rsm->addEntityResult('MainBundle:Song', 's');
 	    $rsm->addFieldResult('s', 'id', 'id');
 	    $rsm->addScalarResult('playedWeight', 'playedWeight');
         $query = $this->getEntityManager()->createNativeQuery("
-              SELECT id, (priority + ((UNIX_TIMESTAMP() - UNIX_TIMESTAMP(played_at)) / :timeRange)) playedWeight
+              SELECT id, ((priority * :priorityWeight) + ((UNIX_TIMESTAMP() - UNIX_TIMESTAMP(played_at)) / :timeRange)) playedWeight
               FROM s_song
               WHERE id NOT IN (:excludeIds)
               ORDER BY playedWeight DESC
-              LIMIT 1
+              LIMIT :limit
             ", $rsm);
 	    $query->setParameter('timeRange', $timeRange);
 	    $query->setParameter('excludeIds', $excludeIds);
-        $result = $query->getSingleResult();
+	    $query->setParameter('limit', $limit * 10);
+	    $query->setParameter('priorityWeight', $priorityWeight);
+        $result = $query->getResult();
+	    shuffle($result);
+	    $result = array_slice($result, 0, $limit);
 	    //die(var_dump($result));
-	    $songId = $result[0]->getId();
-	    //die(var_dump($songId));
 	    $this->clear();
-	    $song = $this->find($songId);
-	    //die(var_dump($song));
-	    return $song;
+
+	    $songs = new ArrayCollection();
+	    foreach ($result as $songResult) {
+		    //die(var_dump($songResult));
+		    $songs->add($this->find($songResult[0]->getId()));
+	    }
+
+	    //die(var_dump($songs));
+	    return $songs;
     }
 
 	public function findUnplayed($excludeIds)
@@ -172,7 +199,7 @@ class SongRepository extends EntityRepository
                 AND s.countPlayed > 0
                 ORDER BY s.ratedAt ASC
             ")
-			->setMaxResults(30)
+			->setMaxResults($rounds * 10)
 			->setParameters(array(
 				'excludeIds' => $excludeIds
 			))
