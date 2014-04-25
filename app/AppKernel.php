@@ -11,7 +11,7 @@ class AppKernel extends Kernel
 
         // Define path to audio directory
         defined('PATH_AUDIO')
-        || define('PATH_AUDIO', realpath(dirname(__FILE__) . '/../web/audio'));
+            || define('PATH_AUDIO', realpath(dirname(__FILE__) . '/../web/audio'));
     }
 
     public function registerBundles()

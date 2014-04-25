@@ -30,11 +30,13 @@
 
     {% if app.environment == 'dev' %}
         <script src="{{ asset('bower_components/angular/angular.js') }}"></script>
+        <script src="{{ asset('bower_components/angular-sanitize/angular-sanitize.js') }}"></script>
         <script src="{{ asset('bower_components/angular-route/angular-route.js') }}"></script>
         <script src="{{ asset('bower_components/angular-cookies/angular-cookies.js') }}"></script>
         <script src="{{ asset('bower_components/angular-animate/angular-animate.js') }}"></script>
     {% else %}
         <script src="{{ asset('bower_components/angular/angular.min.js') }}"></script>
+        <script src="{{ asset('bower_components/angular-sanitize/angular-sanitize.min.js') }}"></script>
         <script src="{{ asset('bower_components/angular-route/angular-route.min.js') }}"></script>
         <script src="{{ asset('bower_components/angular-cookies/angular-cookies.min.js') }}"></script>
         <script src="{{ asset('bower_components/angular-animate/angular-animate.min.js') }}"></script>

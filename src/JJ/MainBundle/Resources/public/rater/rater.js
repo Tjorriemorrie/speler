@@ -78,6 +78,7 @@ angular.module('rater', [])
                 $log.warn('Unknown match result');
             }
             $rootScope.song.matches.shift();
+            console.info('song rating = ', $rootScope.song.rating);
         };
 
     }]);

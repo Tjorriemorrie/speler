@@ -16,18 +16,16 @@
   ],
   "dependencies": {
     "bootstrap": "~3.0.2",
-    "font-awesome": "~4.0.3",
-    "angular": "1.2.0-rc.3",
-    "angular-route": "1.2.0-rc.3",
-    "angular-animate": "1.2.0-rc.3",
-    "angular-cookies": "1.2.0-rc.3",
+    "font-awesome": "4.0.3",
+    "angular": "1.2.*",
+    "angular-route": "1.2.*",
+    "angular-animate": "1.2.*",
+    "angular-cookies": "1.2.*",
+    "angular-sanitize": "1.2.*",
     "angularLocalStorage": "~0.1.7",
     "jplayer": "~2.5.0",
     "favico.js": "~0.3.3",
     "ngprogress": "~1.0.4",
     "momentjs": "~2.4.0"
-  },
-  "resolutions": {
-    "angular": "1.2.0-rc.3"
   }
 }

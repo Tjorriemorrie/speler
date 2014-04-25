@@ -73,12 +73,14 @@ class RatingManager
 	            $matches = $this->songMan->findLastRatedWithExclusion($excludeIds, $rounds);
 	        }
 
-		    foreach ($matches as $match) {
-			    $excludeIds[] = $match->getId();
-		    }
+            if ($matches) {
+                foreach ($matches as $match) {
+                    $excludeIds[] = $match->getId();
+                }
 
-	        //die(var_dump(count($matches)));
-		    $song->setMatches($matches);
+                //die(var_dump(count($matches)));
+                $song->setMatches($matches);
+            }
 	    }
     }
 

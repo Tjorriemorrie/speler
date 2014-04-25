@@ -1,7 +1,7 @@
 'use strict'
 
 
-angular.module('app', ['ngRoute', 'ngAnimate',
+angular.module('app', ['ngRoute', 'ngAnimate', 'ngSanitize',
         'angularLocalStorage', 'ngTable', 'ngProgress',
         'services', 'directives', 'filters', 'ngPlayList',
         'albums', 'artists',

@@ -2,7 +2,7 @@
 
 angular.module('player', [])
 
-    .controller('playerCtrl', ['lastFm', 'songsServ', 'playList', '$rootScope', '$q', 'storage', '$log', '$scope', function(lastFm, songsServ, playList, $rootScope, $q, storage, $log, $scope) {
+    .controller('playerCtrl', ['lastFm', 'songsServ', 'playList', '$rootScope', '$q', 'storage', '$log', '$scope', '$sce', function(lastFm, songsServ, playList, $rootScope, $q, storage, $log, $scope, $sce) {
 
         // SKIP SONG
         $scope.skipSong = function() {
@@ -37,10 +37,11 @@ angular.module('player', [])
                 $log.info('setSong song', $rootScope.song);
 
                 var mediaObject = {};
-                mediaObject[ $rootScope.song.extension ] = URL_BASE + '/audio/' + $rootScope.song.path;
+                //alert(encodeURIComponent($rootScope.song.path));
+                mediaObject[ $rootScope.song.extension ] = $sce.getTrustedResourceUrl(URL_BASE + '/audio/' + $rootScope.song.path);
+                console.info('mediaObject', mediaObject);
 
 //                $scope.jplayer.jPlayer('option', 'supplied', $rootScope.song.extension);
-
                 $scope.jplayer.jPlayer('option', 'volume', Math.max(0.10, !$rootScope.song.hasOwnProperty('rating') ? 0 : ($rootScope.song.rating * $rootScope.song.rating)))
                     .jPlayer('setMedia', mediaObject);
 
