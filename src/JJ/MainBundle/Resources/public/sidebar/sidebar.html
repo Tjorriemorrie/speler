@@ -7,7 +7,7 @@
 					<i ng-class="{'fa fa-star': song.rating > 0.29, 'fa fa-star-o': song.rating <= 0.14, 'fa fa-star-half-o': song.rating <= 0.29 && song.rating > 0.14}"></i>
 					<i ng-class="{'fa fa-star': song.rating > 0.57, 'fa fa-star-o': song.rating <= 0.43, 'fa fa-star-half-o': song.rating <= 0.57 && song.rating > 0.43}"></i>
 					<i ng-class="{'fa fa-star': song.rating > 0.86, 'fa fa-star-o': song.rating <= 0.71, 'fa fa-star-half-o': song.rating <= 0.86 && song.rating > 0.71}"></i>
-				</span>
+				{{ song.rating|number:2 }} </span>
 				<strong>{{ song.name }}</strong>
 			</h5>
 			<p class="list-group-item-text ellipse">

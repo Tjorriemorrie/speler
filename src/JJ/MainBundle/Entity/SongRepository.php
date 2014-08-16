@@ -114,12 +114,13 @@ class SongRepository extends EntityRepository
      */
     public function findClosest($timeRange, $excludeIds, $limit, $priorityWeight)
     {
+        $priorityWeight *= 10;
 	    $rsm = new ResultSetMapping();
 	    $rsm->addEntityResult('MainBundle:Song', 's');
 	    $rsm->addFieldResult('s', 'id', 'id');
 	    $rsm->addScalarResult('playedWeight', 'playedWeight');
         $query = $this->getEntityManager()->createNativeQuery("
-              SELECT id, ((priority * :priorityWeight) + ((UNIX_TIMESTAMP() - UNIX_TIMESTAMP(played_at)) / :timeRange)) playedWeight
+              SELECT id, ((priority * :priorityWeight) + (UNIX_TIMESTAMP() - IFNULL(UNIX_TIMESTAMP(played_at), 1) / :timeRange)) playedWeight
               FROM s_song
               WHERE id NOT IN (:excludeIds)
               ORDER BY playedWeight DESC
