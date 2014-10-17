@@ -114,7 +114,7 @@ class SongRepository extends EntityRepository
      */
     public function findClosest($timeRange, $excludeIds, $limit, $priorityWeight)
     {
-        $priorityWeight *= 10;
+        $priorityWeight *= 1;
 	    $rsm = new ResultSetMapping();
 	    $rsm->addEntityResult('MainBundle:Song', 's');
 	    $rsm->addFieldResult('s', 'id', 'id');

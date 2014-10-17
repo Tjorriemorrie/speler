@@ -21,7 +21,7 @@ class Scanner
     protected $artistMan;
 
     protected $extensionsAllowed = array('mp3', 'm4a');
-    protected $extensionsBlocked = array('jpg', 'db');
+    protected $extensionsBlocked = array('jpg', 'db', 'ds_store', 'nfo', 'm3u');
 
     /**
      * Construct

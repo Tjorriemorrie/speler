@@ -25,4 +25,22 @@ class AlbumRepository extends EntityRepository
             ");
         return (int) $query->getSingleScalarResult();
     }
+
+    /**
+     * @param \DateTime $date
+     * @return Album[]
+     */
+    public function findRemovable(\DateTime $date)
+    {
+        $query = $this->getEntityManager()->createQuery("
+                SELECT b
+                FROM MainBundle:Album b
+                WHERE b.playedAt < :date
+                ORDER BY b.playedAt ASC
+            ")
+            ->setParameters(array(
+                'date' => $date
+            ));
+        return $query->getResult();
+    }
 }

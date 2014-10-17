@@ -68,7 +68,7 @@ class SongManager
 
         $song->setPlayedAt(null);
         $song->setCountPlayed(0);
-        $song->setPriority(1);
+        $song->setPriority(0.5);
         $song->setCountRated(0);
 
         $song->setName($id3['trackName']);

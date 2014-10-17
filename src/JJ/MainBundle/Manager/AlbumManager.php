@@ -239,4 +239,13 @@ class AlbumManager
     {
         return $this->repo->countAll();
     }
+
+    /**
+     * @param \DateTime $date
+     * @return Album[]
+     */
+    public function findRemovable(\DateTime $date)
+    {
+        return $this->repo->findRemovable($date);
+    }
 }

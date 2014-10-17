@@ -40,4 +40,30 @@ angular.module('directives', [])
             }
         }
     })
+
+    .directive('recommend', function($http) {
+        return {
+            restrict: 'E',
+            template: '<div class="alert alert-default">' +
+                    '{{recommendation}}' +
+                '</div>',
+            link: function(scope, element, attrs) {
+                var defaultRecommendation = 'No recommendation currently';
+                scope.recommendation = defaultRecommendation;
+                var req = $http.get(URL_SITE + '/recommend');
+                req.success(function(album) {
+                    console.log(album);
+                    if (album) {
+                        scope.recommendation = 'Remove ' + album.artist.name + ' - ' + album.name;
+                    } else {
+                        scope.recommendation = defaultRecommendation;
+                    }
+                });
+                req.error(function(error) {
+                    console.log(error);
+                    alert('error');
+                });
+            }
+        }
+    })
 ;
