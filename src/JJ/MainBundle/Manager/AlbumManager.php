@@ -248,4 +248,13 @@ class AlbumManager
     {
         return $this->repo->findRemovable($date);
     }
+
+    /**
+     * @param \DateTime $date
+     * @return Album[]
+     */
+    public function findIncomplete()
+    {
+        return $this->repo->findIncomplete();
+    }
 }

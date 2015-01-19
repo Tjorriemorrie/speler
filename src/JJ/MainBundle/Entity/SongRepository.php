@@ -63,6 +63,7 @@ class SongRepository extends EntityRepository
 
     /**
      * Find avg played at song
+     * Native MySQL query
      *
      * @return \DateTime
      */
@@ -114,7 +115,7 @@ class SongRepository extends EntityRepository
      */
     public function findClosest($timeRange, $excludeIds, $limit, $priorityWeight)
     {
-        $priorityWeight *= 1;
+        $priorityWeight *= 2;
 	    $rsm = new ResultSetMapping();
 	    $rsm->addEntityResult('MainBundle:Song', 's');
 	    $rsm->addFieldResult('s', 'id', 'id');

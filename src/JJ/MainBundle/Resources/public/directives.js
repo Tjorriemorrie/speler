@@ -41,28 +41,57 @@ angular.module('directives', [])
         }
     })
 
-    .directive('recommend', function($http) {
+    .directive('recommend', function($http, $timeout) {
         return {
             restrict: 'E',
-            template: '<div class="alert alert-default">' +
+            template: '<div class="alert alert-default" ng-if="recommendation.length > 0">' +
+                    '<button class="btn btn-default btn-xs pull-right" ng-if="is_done" ng-click="makeRequest()">refresh</button>' +
                     '{{recommendation}}' +
                 '</div>',
             link: function(scope, element, attrs) {
-                var defaultRecommendation = 'No recommendation currently';
-                scope.recommendation = defaultRecommendation;
-                var req = $http.get(URL_SITE + '/recommend');
-                req.success(function(album) {
-                    console.log(album);
-                    if (album) {
-                        scope.recommendation = 'Remove ' + album.artist.name + ' - ' + album.name;
-                    } else {
-                        scope.recommendation = defaultRecommendation;
-                    }
-                });
-                req.error(function(error) {
-                    console.log(error);
-                    alert('error');
-                });
+                scope.recommendation = '';
+                scope.is_done = true;
+
+                scope.makeRequest = function() {
+                    scope.is_done = false;
+                    scope.recommendation = 'loading...';
+//                    console.info('making recommendation request...');
+                    var req = $http.get(URL_SITE + '/recommend');
+
+                    req.success(function(album) {
+//                        console.log(album);
+                        if (album == '"all ok"') {
+                            scope.recommendation = '';
+                        } else {
+                            var name = album.artist.name + ' - ' + album.name;
+                            // incorrect size?
+                            if (album.size > album.count_songs) {
+                                scope.recommendation = name + ' has ' + album.size + ' songs but found only ' + album.count_songs;
+                            }
+                            // else remove
+                            else {
+                                scope.recommendation = name;
+                            }
+                        }
+                    });
+
+                    req.error(function(error) {
+                        console.log(error);
+                        alert('error');
+                    });
+
+                    req.finally(function() {
+                        scope.is_done = true;
+                    });
+
+                    // bind to refresh
+                    $(element).find('button').on('click', function(event) {
+//                        console.log('btn clicked');
+                        makeRequest();
+                    });
+                };
+
+                scope.makeRequest();
             }
         }
     })

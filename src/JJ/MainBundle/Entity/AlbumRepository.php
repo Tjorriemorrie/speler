@@ -43,4 +43,17 @@ class AlbumRepository extends EntityRepository
             ));
         return $query->getResult();
     }
+
+    /**
+     * @return Album[]
+     */
+    public function findIncomplete()
+    {
+        $query = $this->getEntityManager()->createQuery("
+                SELECT b
+                FROM MainBundle:Album b
+                WHERE b.countSongs < b.size
+            ");
+        return $query->getResult();
+    }
 }

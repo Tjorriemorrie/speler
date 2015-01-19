@@ -84,6 +84,7 @@ class Album
 	 *
 	 * @ORM\Column(name="count_songs", type="integer")
 	 * @Assert\Range(min=0)
+     * @Ser\Expose()
 	 */
 	private $countSongs;
 

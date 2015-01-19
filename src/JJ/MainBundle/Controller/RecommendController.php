@@ -63,8 +63,22 @@ class RecommendController extends Controller
      */
     public function recommendAction()
     {
+        // incomplete albums
+        $albums = $this->getAlbumManager()->findIncomplete();
+        if ($albums) {
+            return $this->createJsonResponse($albums[0]);
+        }
+
+        // unplayed albums
         $avgPlayedAt = $this->getSongManager()->findAvgPlayedAt();
+//        die(var_dump($avgPlayedAt));
         $albums = $this->getAlbumManager()->findRemovable($avgPlayedAt);
-        return $this->createJsonResponse(reset($albums));
+//        die(var_dump($albums));
+        if ($albums) {
+            $album = reset($albums);
+            return $this->createJsonResponse($album);
+        }
+
+        return new JsonResponse('all ok');
     }
 }
