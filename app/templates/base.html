@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <title></title>
+
+    {% block css %}
+        <link href="/static/vendor/normalize.css/normalize.css" rel="stylesheet">
+        <link href="/static/css/main.css" rel="stylesheet">
+        <link href="/static/css/playside.css" rel="stylesheet">
+        <link href="/static/css/libside.css" rel="stylesheet">
+    {% endblock %}
+    <script src="/static/vendor/prefixfree/prefixfree.min.js"></script>
+</head>
+
+<body>
+	<base href="/"/>
+
+	<ng-view></ng-view>
+
+	{% block js %}
+	    <script src="/static/vendor/angular/angular.js"></script>
+	    <script src="/static/vendor/angular-route/angular-route.js"></script>
+	    <script src="/static/js/app.js"></script>
+	    <script src="/static/js/player.js"></script>
+	    <script src="/static/js/library.js"></script>
+	{% endblock %}
+
+</body>
+</html>

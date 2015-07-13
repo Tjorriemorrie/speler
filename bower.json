@@ -1,0 +1,21 @@
+{
+  "name": "speler",
+  "version": "0.0.0",
+  "authors": [
+    "Tjorriemorrie <jacoj82@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "prefixfree": "*",
+    "angularjs": "~1.3.15",
+    "angular-route": "~1.3.15",
+    "normalize.css": "~3.0.3"
+  }
+}

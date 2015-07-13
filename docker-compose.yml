@@ -1,0 +1,23 @@
+dbdata:
+  image: postgres
+  volumes:
+   - /var/lib/postgresql
+  command: true
+db:
+  image: postgres
+  volumes_from:
+   - dbdata
+  environment:
+   - POSTGRES_PASSWORD=spe1er
+   - POSTGRES_USER=speler
+   - POSTGRES_DB=musiek
+web:
+  build: .
+  volumes:
+    - .:/code
+    - /Users/jaco/Dropbox/music:/var/lib/music
+  links:
+    - db
+  ports:
+    - 5000:5000
+  command: python run.py
