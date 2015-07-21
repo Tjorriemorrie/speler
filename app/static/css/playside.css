@@ -1,3 +1,12 @@
 .playside {
-  flex-grow: 1;
+  background: #ddd;
+}
+.videogular-container {
+  width: auto;
+  height: 320px;
+  margin: auto;
+  overflow: hidden;
+}
+.videogular-container.audio {
+  height: 50px;
 }

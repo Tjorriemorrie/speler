@@ -11,11 +11,13 @@ db:
    - POSTGRES_PASSWORD=spe1er
    - POSTGRES_USER=speler
    - POSTGRES_DB=musiek
+  ports:
+   - 5432:5432
 web:
   build: .
   volumes:
     - .:/code
-    - /Users/jaco/Dropbox/music:/var/lib/music
+    - /Users/jaco/Dropbox/music:/code/app/static/music
   links:
     - db
   ports:

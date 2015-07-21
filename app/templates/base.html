@@ -4,23 +4,33 @@
     <title></title>
 
     {% block css %}
-        <link href="/static/vendor/normalize.css/normalize.css" rel="stylesheet">
+        <link href="/static/vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/static/vendor/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">
         <link href="/static/css/main.css" rel="stylesheet">
         <link href="/static/css/playside.css" rel="stylesheet">
         <link href="/static/css/libside.css" rel="stylesheet">
     {% endblock %}
-    <script src="/static/vendor/prefixfree/prefixfree.min.js"></script>
 </head>
 
 <body>
 	<base href="/"/>
 
-	<ng-view></ng-view>
+	<div class="container">
+		<ng-view></ng-view>
+	</div>
 
 	{% block js %}
-	    <script src="/static/vendor/angular/angular.js"></script>
+	    <script src="/static/vendor/jquery/dist/jquery.min.js"></script>
+	    <script src="/static/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+
+		<script src="/static/vendor/angular/angular.js"></script>
 	    <script src="/static/vendor/angular-route/angular-route.js"></script>
-	    <script src="/static/js/app.js"></script>
+
+		<script src="/static/vendor/angular-sanitize/angular-sanitize.min.js"></script>
+	    <script src="/static/vendor/videogular/videogular.min.js"></script>
+	    <script src="/static/vendor/videogular-controls/vg-controls.min.js"></script>
+
+		<script src="/static/js/app.js"></script>
 	    <script src="/static/js/player.js"></script>
 	    <script src="/static/js/library.js"></script>
 	{% endblock %}

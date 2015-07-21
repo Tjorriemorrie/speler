@@ -1,31 +1,31 @@
 from app import app
 from flask import render_template, Response
-import os
+from app.models import Song, Album, Artist
+from app.manager import scanDirectory
 import json
 
 
-@app.route('/')
-def index():
+@app.route('/', defaults={'path': ''})
+@app.route('/<path:path>')
+def index(path):
     return render_template('base.html')
-
-
-@app.route('/scan/dir')
-def scan():
-    for root, dirs, files in os.walk('/var/lib/music'):
-        print(root, "consumes", end=" ")
-        print(sum(os.path.getsize(os.path.join(root, name)) for name in files), end=" ")
-        print("bytes in", len(files), "non-directory files")
-    return Response(200)
 
 
 @app.route('/find/files')
 def findFiles():
+    songs = Song.query.all()
+    app.logger.info('{} songs found'.format(len(songs)))
     data = json.dumps([
-        {"name": 'foo', "path": 'foo.mp3'},
-        {"name": 'bar', "path": 'bar.mp3'},
+        '/static/music/foo.mp3'
     ])
     return Response(
         response=data,
         status=200,
         mimetype="application/json",
     )
+
+
+@app.route('/scan/dir')
+def scanDir():
+    scanDirectory()
+    return Response(status=200)
