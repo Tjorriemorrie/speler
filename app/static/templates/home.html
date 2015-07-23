@@ -1,26 +1,36 @@
 <div class="row">
 
 	<div class="col-sm-4 playside" ng-controller="playerCtrl as controller">
-		<div class="videogular-container">
-			<videogular vg-theme="controller.config.theme.url" class="videogular-container audio">
-				<vg-media vg-src="controller.config.sources" vg-type="audio"></vg-media>
-				<vg-controls>
-					<vg-play-pause-button></vg-play-pause-button>
-					<vg-time-display>{{ currentTime | date:'mm:ss' }}</vg-time-display>
-					<vg-scrub-bar>
-						<vg-scrub-bar-current-time>&nbsp;</vg-scrub-bar-current-time>
-					</vg-scrub-bar>
-					<vg-time-display>{{ timeLeft | date:'mm:ss' }}</vg-time-display>
-					<vg-volume>
-						<vg-mute-button></vg-mute-button>
-					</vg-volume>
-				</vg-controls>
-			</videogular>
+		<div class="row">
+			<div class="videogular-container">
+				<videogular vg-change-source="controller.onSource($source)" vg-player-ready="controller.onPlayerReady($API)" vg-theme="controller.config.theme.url" class="videogular-container audio">
+					<vg-media vg-src="controller.config.sources" vg-type="audio"></vg-media>
+					<vg-controls>
+						<vg-play-pause-button></vg-play-pause-button>
+						<vg-time-display>{{ currentTime | date:'mm:ss' }}</vg-time-display>
+						<vg-scrub-bar>
+							<vg-scrub-bar-current-time>&nbsp;</vg-scrub-bar-current-time>
+						</vg-scrub-bar>
+						<vg-time-display>{{ timeLeft | date:'mm:ss' }}</vg-time-display>
+						<vg-volume>
+							<vg-mute-button></vg-mute-button>
+						</vg-volume>
+					</vg-controls>
+				</videogular>
+			</div>
 		</div>
-		<dl>
-			<dt>Playlist</dt>
-			<dd ng-repeat="source in controller.config.sources">{{ source.src }}</dd>
-		</dl>
+		<div class="row" ng-if="controller.playlist.selection.length">
+			<h4>Select next song for the playlist:</h4>
+			<div class="btn-group-vertical btn-block" role="group">
+				<button ng-click="controller.selectSong(song)" ng-repeat="song in controller.playlist.selection[0]" type="button" class="btn btn-default">{{ song.path_name }}</button>
+			</div>
+		</div>
+		<div class="row" ng-if="controller.playlist.queue.length">
+			<h4>Playlist</h4>
+			<ol>
+				<li ng-repeat="queue in controller.playlist.queue">{{ queue.src }}</li>
+			</ol>
+		</div>
 	</div>
 
 	<div class="col-sm-8 libside" ng-controller="libraryCtrl as controller">
@@ -28,8 +38,8 @@
 			<button class="btn btn-default btn-sm pull-right" ng-click="controller.refreshLibrary()">Refresh</button>
 			Library
 		</h4>
-		<ol ng-repeat="file in controller.lib.files">
-			<li>{{ file.name }}</li>
+		<ol>
+			<li ng-repeat="file in controller.lib.files">{{ file.path_name }}</li>
 		</ol>
 	</div>
 </div>

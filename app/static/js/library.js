@@ -5,12 +5,11 @@ app.factory('libraryFcty', function ($http) {
     var library = {};
 
     library.files = [];
-
     library.findFiles = function () {
         console.info('Library_findfiles...');
         $http.get('/find/files')
             .success(function (data, status, headers, config) {
-                console.info('Library_findfiles: success', data);
+                console.info('Library_findfiles: success', data.length);
                 library.files = data;
             })
             .error(function (data, status, headers, config) {
@@ -38,7 +37,7 @@ app.factory('libraryFcty', function ($http) {
 });
 
 
-app.controller('libraryCtrl', function (libraryFcty, playlistFcty) {
+app.controller('libraryCtrl', function (libraryFcty) {
     this.lib = libraryFcty;
     this.refreshLibrary = function () {
         libraryFcty.scandir();
