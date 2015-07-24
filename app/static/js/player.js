@@ -1,7 +1,7 @@
 'use strict';
 
 
-app.factory('playlistFcty', function ($sce, $http) {
+app.factory('playlistFcty', function ($sce, $http, $document) {
     var playlist = {};
 
     playlist.queue = [];
@@ -23,19 +23,6 @@ app.factory('playlistFcty', function ($sce, $http) {
             .error(function (data, status, headers, config) {
                 alert('Error retrieving files');
                 console.error('Playlist_loadQueue: error', data);
-            });
-    };
-
-    playlist.addQueue = function (song) {
-        console.info('Playlist_addQueue...');
-        $http.post('/add/queue', $.param({'id': song.id}), {headers: {'Content-Type': 'application/x-www-form-urlencoded'}})
-            .success(function (data, status, headers, config) {
-                console.info('Playlist_addQueue: success');
-                playlist.loadQueue();
-            })
-            .error(function (data, status, headers, config) {
-                alert('Error retrieving files');
-                console.error('Playlist_addQueue: error', data);
             });
     };
 
@@ -61,11 +48,28 @@ app.factory('playlistFcty', function ($sce, $http) {
             });
     };
 
+    playlist.setSelection = function (song) {
+        console.info('Playlist_addQueue...');
+        // remove from selection
+        playlist.selection.shift();
+        // add to queue
+        $http.post('/add/queue', $.param({'id': song.id}), {headers: {'Content-Type': 'application/x-www-form-urlencoded'}})
+            .success(function (data, status, headers, config) {
+                console.info('Playlist_addQueue: success');
+                playlist.loadQueue();
+            })
+            .error(function (data, status, headers, config) {
+                alert('Error retrieving files');
+                console.error('Playlist_addQueue: error', data);
+            });
+    };
+
+    playlist.current = null;
     playlist.playNext = function () {
         console.info('Playlist_playNext...');
 
-        if (playlist.api.currentState == 'play') {
-            console.warn('Playlist_playNext: already playing');
+        if (playlist.current != null) {
+            console.warn('Playlist_playNext: audio player src set');
             return;
         }
 
@@ -75,44 +79,41 @@ app.factory('playlistFcty', function ($sce, $http) {
             return;
         }
 
-        // add song
+        // set song from queue
         var queue = playlist.queue[0];
-        queue.src = location.protocol + '//' + location.hostname + (location.port ? ':' + location.port : '') + queue.src
+        var host = location.protocol + '//' + location.hostname + (location.port ? ':' + location.port : '');
         console.info('Queue to play', queue);
-        playlist.api.changeSource([
-            {
-                'type': queue.type,
-                'src': $sce.trustAsResourceUrl(queue.src)
-            }
-        ]);
+        playlist.current = $sce.trustAsResourceUrl(host + queue.src);
 
         // play
-        playlist.api.play();
+        var el = $document[0].getElementById('audio');
+        console.log(typeof(el));
+        el.play();
     };
 
+    playlist.ended = function () {
+        console.info('Playlist_ended...');
+        // move song on backend from queue to history
+        // then load history
+        // then load selection
+
+        //
+    };
+
+
+    playlist.loadQueue();
     return playlist;
 });
 
 
 app.controller('playerCtrl', function (playlistFcty) {
     this.playlist = playlistFcty;
-    this.config = {
-        sources: [],
-//        theme: "/static/vendor/videogular-themes-default/videogular.min.css"
-        theme: {
-            url: "http://www.videogular.com/styles/themes/default/latest/videogular.css"
-        }
-    };
-    this.onPlayerReady = function (api) {
-        playlistFcty.api = api;
-        playlistFcty.loadQueue();
-    };
     this.selectSong = function (song) {
         console.info('selected song', song);
-        playlistFcty.selection.shift();
-        playlistFcty.addQueue(song);
+        playlistFcty.setSelection(song);
     };
-    this.onSource = function (source) {
-        console.log('player source changed', source);
-    }
+    this.onEnded = function () {
+        console.info('Song ended');
+        playlistFcty.ended();
+    };
 });

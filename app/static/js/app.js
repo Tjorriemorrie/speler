@@ -1,10 +1,7 @@
 'use strict';
 
 var app = angular.module('app', [
-    'ngRoute',
-    'ngSanitize',
-    'com.2fdevs.videogular',
-    'com.2fdevs.videogular.plugins.controls'
+    'ngRoute'
 ]);
 console.debug('app', app);
 
