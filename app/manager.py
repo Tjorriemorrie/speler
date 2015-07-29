@@ -1,5 +1,5 @@
 from app import app, db
-from app.models import Song, Queue
+from app.models import Song, Queue, History
 import os
 import random
 
@@ -11,10 +11,10 @@ def scanDirectory():
     new_paths = []
     for curdir, subdirs, files in os.walk(app.config['MUSIC_FOLDER']):
         for file_name in files:
-            file_path = os.path.abspath(os.path.join(curdir, file_name))[9:]
-            # app.logger.debug(file_path)
+            file_path = os.path.abspath(os.path.join(curdir, file_name))
+            app.logger.debug(file_path)
 
-            if not Song.query.filter_by(full_path=file_path).first():
+            if not Song.query.filter_by(abs_path=file_path).first():
                 new_paths.append(file_path)
 
     if new_paths:
@@ -27,6 +27,24 @@ def scanDirectory():
         db.session.commit()
 
     return len(new_paths)
+
+
+def validateSongs():
+    app.logger.info('Validating songs')
+    songs = Song.query.all()
+    lost_songs = []
+    for song in songs:
+        if not os.path.isfile(song.abs_path):
+            # app.logger.warn('Song not found', song)
+            lost_songs.append(song)
+
+    if lost_songs:
+        app.logger.warn('{} song not found'.format(len(lost_songs)))
+        for song in lost_songs:
+            db.session.delete(song)
+        db.session.commit()
+
+    return len(lost_songs)
 
 
 def getSelections():
@@ -74,3 +92,18 @@ def addSongToQueue(song):
     db.session.add(queue)
     db.session.commit()
     return queue
+
+
+def createHistory(queue):
+    app.logger.info('Creating history')
+
+    # remove from queue
+    db.session.delete(queue)
+
+    # create history
+    history = History(queue.song)
+    db.session.add(history)
+
+    db.session.commit()
+
+    return history

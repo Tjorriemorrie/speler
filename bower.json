@@ -13,14 +13,9 @@
     "tests"
   ],
   "dependencies": {
-    "prefixfree": "*",
-    "angularjs": "~1.3.15",
-    "angular-route": "~1.3.15",
-    "normalize.css": "~3.0.3",
     "bootstrap": "~3.3.5",
-    "videogular": "~1.2.4",
-    "videogular-themes-default": "~1.2.4",
-    "videogular-controls": "~1.2.4",
-    "react": "~0.13.3"
+    "react": "~0.13.3",
+    "soundmanager2": "*",
+    "jplayer": "~2.9.2"
   }
 }
