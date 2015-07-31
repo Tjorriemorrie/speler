@@ -51,7 +51,6 @@ execute procedure update_played();
 
 
 trigger_update_rated = '''
-
 CREATE OR REPLACE FUNCTION update_rated ()
   RETURNS trigger
 AS
@@ -67,7 +66,7 @@ BEGIN
     SELECT count(*) INTO STRICT v_count_won FROM rating WHERE song_winner_id = NEW.song_winner_id;
     SELECT count(*) INTO STRICT v_count_lost FROM rating WHERE song_loser_id = NEW.song_winner_id;
     v_count_rated := v_count_won + v_count_lost;
-    v_rating := v_count_won / v_count_rated;
+    v_rating := v_count_won / cast(v_count_rated AS float);
     EXECUTE 'UPDATE song
         SET count_rated = $1, rated_at = $2, rating = $3
         WHERE id = $4'
@@ -77,7 +76,7 @@ BEGIN
     SELECT count(*) INTO STRICT v_count_won FROM rating WHERE song_winner_id = NEW.song_loser_id;
     SELECT count(*) INTO STRICT v_count_lost FROM rating WHERE song_loser_id = NEW.song_loser_id;
     v_count_rated := v_count_won + v_count_lost;
-    v_rating := v_count_won / v_count_rated;
+    v_rating := v_count_won / cast(v_count_rated AS float);
     EXECUTE 'UPDATE song
         SET count_rated = $1, rated_at = $2, rating = $3
         WHERE id = $4'
@@ -102,6 +101,7 @@ CREATE OR REPLACE FUNCTION update_priority ()
 AS
 $BODY$
   DECLARE
+    v_count_played integer;
     v_max_played integer;
     v_weight_played float;
     v_max_rated integer;
@@ -111,20 +111,15 @@ BEGIN
 
     -- played weighting
     SELECT max(count_played) INTO STRICT v_max_played FROM song;
-    IF v_max_played < 1 THEN
-      v_max_played := 1;
-    END IF;
-    v_weight_played := NEW.count_played / v_max_played;
+    v_weight_played := GREATEST(NEW.count_played, 1) / CAST(GREATEST(v_max_played, 1) AS float);
 
     -- rated weighting
     SELECT max(count_rated) INTO STRICT v_max_rated FROM song;
-    IF v_max_rated < 1 THEN
-      v_max_rated := 1;
-    END IF;
-    v_weight_rated := NEW.count_rated / v_max_rated;
+    v_weight_rated := GREATEST(NEW.count_rated, 1) / CAST(GREATEST(v_max_rated, 1) AS float);
 
     -- set priority 80/20
-    NEW.priority := (v_weight_rated * 0.8) + (v_weight_played * 0.2);
+    NEW.priority := v_weight_rated - (v_weight_played * 0.80);
+    NEW.updated_at := CURRENT_TIMESTAMP;
 
     RETURN NEW;
 END;

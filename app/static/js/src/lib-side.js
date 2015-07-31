@@ -16,6 +16,9 @@ var Library = React.createClass({
     },
     componentDidMount: function () {
         console.info('Library initial request');
+        setInterval(function () {
+            this.loadLibrarySongs();
+        }.bind(this), 60000);
         this.loadLibrarySongs();
     },
     scanDirectory: function () {
@@ -38,11 +41,28 @@ var Library = React.createClass({
                     Library
                 </h3>
                 <h5>{this.state.lib_files.length} files in library</h5>
-                <ol>
+                <table className="table table-condensed">
+                <thead>
+                    <tr>
+                        <th>Priority</th>
+                        <th>Rating</th>
+                        <th>Played</th>
+                        <th>Path</th>
+                    </tr>
+                </thead>
+                <tbody>
                     {this.state.lib_files.map(function (song) {
-                        return <li key={song.id}>{song.path_name}</li>;
+                        return (
+                            <tr key={song.id}>
+                                <td>{song.priority}</td>
+                                <td>{song.rating} after {song.count_rated}</td>
+                                <td>{song.count_played}</td>
+                                <td><small className="pull-right text-muted">{song.id}</small>{song.path_name}</td>
+                            </tr>
+                        );
                     })}
-                </ol>
+                </tbody>
+                </table>
             </div>
         );
     }

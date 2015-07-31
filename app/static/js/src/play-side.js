@@ -4,6 +4,7 @@ var Player = React.createClass({
         console.info('[Player] getInitialState...');
         return {
             'queue': [],
+            'histories': [],
             'selections': [],
             'current': ""
         };
@@ -22,10 +23,23 @@ var Player = React.createClass({
                 this.setState({'queue': data});
                 this.playNext();
                 this.getSelections();
+                this.loadHistories();
             }.bind(this))
             .error(function (data, status, headers, config) {
                 alert('Error retrieving files');
                 console.error('[Player] loadQueue: error', data);
+            }.bind(this));
+    },
+    loadHistories: function () {
+        console.info('[Player] loadHistories...');
+        return $.get('/load/histories')
+            .success(function (data, status, headers, config) {
+                console.info('[Player] loadHistories: ', data.length, data[0]);
+                this.setState({'histories': data});
+            }.bind(this))
+            .error(function (data, status, headers, config) {
+                alert('Error retrieving files');
+                console.error('[Player] loadHistories: error', data);
             }.bind(this));
     },
     getSelections: function () {
@@ -122,23 +136,52 @@ var Player = React.createClass({
                 </div>
             );
         }
+        var history;
+        if (this.state.histories.length) {
+            history = (
+                <div>
+                    <h5>Recently Played:</h5>
+                    <ol>
+                        {this.state.histories.map(function (history) {
+                            return (
+                                <li key={history.id}>
+                                    <small className="text-muted">[{history.song.id}] </small>
+                                    {history.song.path_name}
+                                </li>
+                            );
+                        })}
+                    </ol>
+                </div>
+            );
+        }
+        var title = 'Player';
+        var next;
+        if (this.state.queue.length) {
+            title = this.state.queue[0].song.path_name;
+            next = <a onClick={this.onEnded} href="#">next</a>
+        }
         return (
             <div className="row">
-                <h3>Player</h3>
+                <h4>{title}</h4>
                 <div>
                     <audio ref="audio_tag" src={this.state.current} controls/>
+                    {next}
                 </div>
                 <div>
                     <h5>Playlist:</h5>
                     <ol>
                         {this.state.queue.map(function (queue) {
-                            return <li key={queue.id}>{queue.song.path_name}</li>;
+                            return (
+                                <li key={queue.id}>
+                                    <small className="text-muted">[{queue.song.id}] </small>
+                                    {queue.song.path_name}
+                                </li>
+                            );
                         })}
                     </ol>
                 </div>
-                <div>
-                    {selection}
-                </div>
+                {selection}
+                {history}
             </div>
         );
     }

@@ -1,6 +1,6 @@
 from app import app
 from flask import request, render_template, Response
-from app.models import Song, Queue
+from app.models import Song, Queue, History
 from app.manager import scanDirectory, getSelections, addSongToQueue, createHistory, validateSongs, createRatings
 from flask.ext.jsontools import jsonapi
 
@@ -14,7 +14,13 @@ def index(path):
 @app.route('/find/files')
 @jsonapi
 def findFiles():
-    songs = Song.query.all()
+    songs = Song.query.order_by(
+        Song.priority.desc(),
+        Song.rating.desc(),
+        Song.count_played.desc(),
+        Song.updated_at.desc(),
+        Song.path_name.asc(),
+    ).all()
     app.logger.info('{} songs found'.format(len(songs)))
     return songs
 
@@ -30,10 +36,18 @@ def scanDir():
     }
 
 
+@app.route('/load/histories')
+@jsonapi
+def loadHistories():
+    histories = History.query.order_by(History.played_at.desc()).limit(5).all()
+    app.logger.info('{} histories songs found'.format(len(histories)))
+    return histories
+
+
 @app.route('/load/queue')
 @jsonapi
 def loadQueue():
-    queues = Queue.query.all()
+    queues = Queue.query.order_by(Queue.created_at.asc()).all()
     app.logger.info('{} queue songs found'.format(len(queues)))
     return queues
 

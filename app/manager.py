@@ -60,29 +60,53 @@ def getSelections():
         used_ids.append(queue.song_id)
     app.logger.debug('Used ids: {}'.format(used_ids))
 
-    for _ in range(5):
+    # first play unrated songs
+    songs = Song.query.filter(Song.count_rated==0).all()
+    if len(songs) >= 4 * 10:
+        for _ in range(5):
+            selection = []
+            for i in range(4):
+                song_random = random.choice(songs)
+                while song_random.id in used_ids:
+                    song_random = random.choice(songs)
+                selection.append(song_random)
+                used_ids.append(song_random.id)
+            selections.append(selection)
 
-        # fetch highest priority songs
-        songs_priority = Song.query.filter(Song.id.notin_(used_ids)).order_by(Song.priority.desc()).limit(2).all()
-        app.logger.debug('{} in priority'.format(len(songs_priority)))
-        for song in songs_priority:
-            used_ids.append(song.id)
+    # else get prioritised ratings
+    else:
+        for _ in range(5):
 
-        # fetch last rated songs
-        songs_rated = Song.query.filter(Song.id.notin_(used_ids)).order_by(Song.rated_at.asc()).limit(2).all()
-        app.logger.debug('{} in rated'.format(len(songs_rated)))
-        for song in songs_rated:
-            used_ids.append(song.id)
+            # fetch highest priority songs
+            songs_priority = Song.query.filter(Song.id.notin_(used_ids)).order_by(
+                Song.priority.desc(),
+                Song.played_at.asc(),
+                Song.rated_at.asc(),
+                Song.path_name.asc(),
+            ).limit(2).all()
+            app.logger.debug('{} in priority'.format(len(songs_priority)))
+            for song in songs_priority:
+                used_ids.append(song.id)
 
-        if len(songs_priority) < 2 or len(songs_rated) < 2:
-            app.logger.debug('Not enough songs')
-            return selections
+            # fetch last rated songs
+            songs_rated = Song.query.filter(Song.id.notin_(used_ids)).order_by(
+                Song.rated_at.asc(),
+                Song.priority.asc(),
+                Song.path_name.asc(),
+            ).limit(2).all()
+            app.logger.debug('{} in rated'.format(len(songs_rated)))
+            for song in songs_rated:
+                used_ids.append(song.id)
 
-        selection = songs_priority + songs_rated
-        app.logger.debug('Selection: {}'.format(selection))
+            if len(songs_priority) < 2 or len(songs_rated) < 2:
+                app.logger.debug('Not enough songs')
+                return selections
 
-        app.logger.debug('Used ids: {}'.format(used_ids))
-        selections.append(selection)
+            selection = songs_priority + songs_rated
+            app.logger.debug('Selection: {}'.format(selection))
+
+            app.logger.debug('Used ids: {}'.format(used_ids))
+            selections.append(selection)
 
     return selections
 

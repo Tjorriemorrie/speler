@@ -33,7 +33,7 @@ class Song(db.Model):
         self.path_name = self.web_path[len('/static/music/'):]
 
     def __json__(self):
-        return ['id', 'path_name', 'web_path']
+        return ['id', 'path_name', 'web_path', 'rating', 'count_played', 'count_rated', 'priority']
 
 
 class Queue(db.Model):
