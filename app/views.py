@@ -1,7 +1,7 @@
 from app import app
 from flask import request, render_template, Response
 from app.models import Song, Queue
-from app.manager import scanDirectory, getSelections, addSongToQueue, createHistory, validateSongs
+from app.manager import scanDirectory, getSelections, addSongToQueue, createHistory, validateSongs, createRatings
 from flask.ext.jsontools import jsonapi
 
 
@@ -41,8 +41,15 @@ def loadQueue():
 @app.route('/add/queue', methods=['POST'])
 @jsonapi
 def addQueue():
-    id = request.form.get('id', 0, type=int)
+    app.logger.info('Request form {}'.format(request.form))
+    id = request.form.get('winner', 0, type=int)
+    app.logger.info('Winner id {}'.format(id))
     song = Song.query.get_or_404(id)
+
+    losers = request.form.getlist('losers[]')
+    app.logger.info('Losers {}'.format(losers))
+    ratings = createRatings(song, losers)
+
     queue = addSongToQueue(song)
     app.logger.info('Adding {} to queue'.format(queue))
     return queue

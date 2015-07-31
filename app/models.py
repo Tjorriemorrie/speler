@@ -71,6 +71,7 @@ class Rating(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     song_winner_id = db.Column(db.Integer, db.ForeignKey('song.id'))
     song_loser_id = db.Column(db.Integer, db.ForeignKey('song.id'))
+    rated_at = db.Column(db.DateTime, server_default=db.func.now())
     created_at = db.Column(db.DateTime, server_default=db.func.now())
     updated_at = db.Column(db.DateTime, server_default=db.func.now(), onupdate=db.func.now())
 

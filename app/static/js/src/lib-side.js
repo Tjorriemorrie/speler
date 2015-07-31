@@ -10,44 +10,13 @@ var Library = React.createClass({
     },
     getInitialState: function () {
         return {
+            'isScanning': false,
             'lib_files': []
         };
     },
     componentDidMount: function () {
         console.info('Library initial request');
         this.loadLibrarySongs();
-    },
-    render: function () {
-        return (
-            <div className="row">
-                <h3>
-                    <ScanDir />
-                    Library
-                </h3>
-                <h5>{this.state.lib_files.length} files in library</h5>
-                <LibrarySongList song_files={this.state.lib_files} />
-            </div>
-        );
-    }
-});
-
-var LibrarySongList = React.createClass({
-    render: function () {
-        return (
-            <ol>
-                {this.props.song_files.map(function (song) {
-                    return <li key={song.id}>{song.path_name}</li>;
-                })}
-            </ol>
-        );
-    }
-});
-
-var ScanDir = React.createClass({
-    getInitialState: function () {
-        return {
-            'isScanning': false
-        }
     },
     scanDirectory: function () {
         console.info('Library scandir');
@@ -57,15 +26,28 @@ var ScanDir = React.createClass({
             this.setState({'isScanning': true});
             $.getJSON('/scan/dir', function (data) {
                 this.setState({'isScanning': false});
+                this.loadLibrarySongs();
             }.bind(this));
         }
     },
     render: function () {
         return (
-            <button className="btn btn-default btn-sm pull-right" onClick={this.scanDirectory}>Refresh</button>
+            <div className="row">
+                <h3>
+                    <button className="btn btn-default btn-sm pull-right" onClick={this.scanDirectory}>{this.state.isScanning ? 'Scanning...' : 'Refresh'}</button>
+                    Library
+                </h3>
+                <h5>{this.state.lib_files.length} files in library</h5>
+                <ol>
+                    {this.state.lib_files.map(function (song) {
+                        return <li key={song.id}>{song.path_name}</li>;
+                    })}
+                </ol>
+            </div>
         );
     }
 });
+
 
 React.render(
     <Library source="/find/files" />,

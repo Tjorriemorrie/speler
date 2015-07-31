@@ -53,12 +53,16 @@ var Player = React.createClass({
 
         // remove from selection
         var selections = this.state.selections;
-        selections.shift();
+        var selection = selections.shift();
         this.setState({"selections": selections});
         console.info('[Player] setSelection: removed from selections', this.state.selections.length);
 
         // update backend
-        $.post('/add/queue', {'id': song.id})
+        var losers = [];
+        selection.forEach(function (loser) {
+            losers.push(loser.id);
+        });
+        $.post('/add/queue', {'winner': song.id, 'losers': losers})
             .success(function (data, status, headers, config) {
                 this.loadQueue();
             }.bind(this))
@@ -107,7 +111,7 @@ var Player = React.createClass({
         if (this.state.selections.length) {
             selection = (
                 <div>
-                    <h5>Selections ({this.state.selections.length})</h5>
+                    <h5>Choose next song to add to playlist:</h5>
                     <ul>
                         {this.state.selections[0].map(function (selection) {
                             return <li key={selection.id}>
@@ -125,7 +129,7 @@ var Player = React.createClass({
                     <audio ref="audio_tag" src={this.state.current} controls/>
                 </div>
                 <div>
-                    <h5>Playlist ({this.state.queue.length})</h5>
+                    <h5>Playlist:</h5>
                     <ol>
                         {this.state.queue.map(function (queue) {
                             return <li key={queue.id}>{queue.song.path_name}</li>;
