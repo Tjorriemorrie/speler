@@ -13,7 +13,19 @@ var Player = React.createClass({
         console.info('[Player] componentDidMount...');
         this.audio_tag = React.findDOMNode(this.refs.audio_tag);
         this.audio_tag.addEventListener('ended', this.onEnded);
+        console.info('[Player] audio_tag event listener added for ended');
+        this.audio_tag.volume = 0.50;
+        console.info('[Player] audio_tag volume set to 50%');
         this.loadQueue();
+    },
+    notifyPing: function () {
+        console.info('Notifying ping...');
+        if (this.state.selections.length < 5) {
+            console.info('Already started selection...');
+            return false;
+        }
+        var audio_ping = new Audio('/static/sounds/ping.mp3');
+        audio_ping.play();
     },
     loadQueue: function () {
         console.info('[Player] loadQueue...');
@@ -46,6 +58,7 @@ var Player = React.createClass({
         console.info('[Player] getSelection...');
         if (this.state.selections.length > 0) {
             console.info('[Player] getSelection: Already have selections');
+            this.notifyPing();
             return;
         }
         if (this.state.queue.length > 5) {
@@ -104,10 +117,12 @@ var Player = React.createClass({
         console.info('[Player] playNext:', queue_first);
         this.setState({"current": queue_first.src});
         this.audio_tag.play();
+        document.title = this.state.queue.length + " " + queue_first.src;
     },
     onEnded: function () {
         console.info('[Player] onEnded...');
         this.setState({"current": ""});
+        document.title = "speler";
 
         // update backend
         $.post('/ended', {'id': this.state.queue[0].id})
