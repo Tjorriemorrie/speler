@@ -3,3 +3,4 @@ Flask
 Flask-SQLAlchemy
 Flask-Migrate
 Flask_JsonTools
+hg+https://bitbucket.org/nicfit/eyed3@py3#egg=eyed3

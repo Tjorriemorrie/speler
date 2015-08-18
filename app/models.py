@@ -7,6 +7,7 @@ class Song(db.Model):
     web_path = db.Column(db.String(255), unique=True)
     path_name = db.Column(db.String(255), unique=True)
     # info
+    id3_parsed = db.Column(db.Boolean, server_default=u'false')
     name = db.Column(db.String(255))
     number = db.Column(db.Integer)
     # album_id = db.Column(db.Integer, db.ForeignKey('albums.id'))

@@ -20,7 +20,7 @@ var Player = React.createClass({
     },
     notifyPing: function () {
         console.info('Notifying ping...');
-        if (this.state.selections.length < 5) {
+        if (this.state.selections.length < 6) {
             console.info('Already started selection...');
             return false;
         }
@@ -61,7 +61,7 @@ var Player = React.createClass({
             this.notifyPing();
             return;
         }
-        if (this.state.queue.length > 5) {
+        if (this.state.queue.length > 6) {
             console.info('[Player] getSelection: Already have enough songs in queue');
             return;
         }

@@ -2,6 +2,7 @@ from app import app, db
 from app.models import Song, Queue, History, Rating
 import os
 import random
+import eyed3
 
 
 def scanDirectory():
@@ -48,8 +49,21 @@ def validateSongs():
     return len(lost_songs)
 
 
+def parseId3Tags():
+    app.logger.info('Parsing ID3 tags...')
+    parsed = []
+    songs = Song.query.filter(Song.id3_parsed.is_('false')).all()
+    app.logger.info('{} songs found to parse...'.format(len(songs)))
+    lost_songs = []
+    # for song in songs:
+
+    app.logger.info('Parsed {} ID3 tags...'.format(len(parsed)))
+    return len(parsed)
+
+
 def getSelections():
     app.logger.info('Fetching selections')
+    n = 6
     selections = []
     used_ids = []
 
@@ -62,8 +76,8 @@ def getSelections():
 
     # first play unrated songs
     songs = Song.query.filter(Song.count_rated==0).all()
-    if len(songs) >= 4 * 10:
-        for _ in range(5):
+    if len(songs) > 4 * n:
+        for _ in range(n):
             selection = []
             for i in range(4):
                 song_random = random.choice(songs)
@@ -75,7 +89,7 @@ def getSelections():
 
     # else get prioritised ratings
     else:
-        for _ in range(5):
+        for _ in range(n):
 
             # fetch highest priority songs
             songs_priority = Song.query.filter(Song.id.notin_(used_ids)).order_by(

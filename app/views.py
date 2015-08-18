@@ -1,7 +1,7 @@
 from app import app
 from flask import request, render_template, Response
 from app.models import Song, Queue, History
-from app.manager import scanDirectory, getSelections, addSongToQueue, createHistory, validateSongs, createRatings
+from app.manager import scanDirectory, getSelections, addSongToQueue, createHistory, validateSongs, createRatings, parseId3Tags
 from flask.ext.jsontools import jsonapi
 
 
@@ -30,9 +30,11 @@ def findFiles():
 def scanDir():
     lost_count = validateSongs()
     new_count = scanDirectory()
+    parsed_count = 0  #parseId3Tags()
     return {
         'new': new_count,
         'lost': lost_count,
+        'parsed': parsed_count,
     }
 
 
