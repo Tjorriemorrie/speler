@@ -11,29 +11,34 @@ def index(path):
     return render_template('base.html')
 
 
-@app.route('/find/files')
+@app.route('/find/<grouping>')
 @jsonapi
-def findFiles():
-    songs = Song.query.order_by(
-        Song.priority.desc(),
-        Song.rating.desc(),
-        Song.count_played.desc(),
-        Song.updated_at.desc(),
-        Song.path_name.asc(),
-    ).all()
-    app.logger.info('{} songs found'.format(len(songs)))
-    return songs
+def findFiles(grouping):
+    items = []
+    app.logger.info('grouping = {}'.format(grouping))
+
+    if grouping == 'files':
+        items = Song.query.order_by(
+            Song.priority.desc(),
+            Song.rating.desc(),
+            Song.count_played.desc(),
+            Song.updated_at.desc(),
+            Song.path_name.asc(),
+        ).limit(20).all()
+
+    app.logger.info('{} items found for {}'.format(len(items), grouping))
+    return items
 
 
 @app.route('/scan/dir')
 @jsonapi
 def scanDir():
-    lost_count = validateSongs()
-    new_count = scanDirectory()
-    parsed_count = 0  #parseId3Tags()
+    # lost_count = validateSongs()
+    # new_count = scanDirectory()
+    parsed_count = parseId3Tags()
     return {
-        'new': new_count,
-        'lost': lost_count,
+        # 'new': new_count,
+        # 'lost': lost_count,
         'parsed': parsed_count,
     }
 

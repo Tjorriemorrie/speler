@@ -1,8 +1,9 @@
-from app import app, db
-from app.models import Song, Queue, History, Rating
 import os
 import random
-import eyed3
+from app import app, db
+from app.models import Song, Queue, History, Rating, Artist, Album
+from mutagen.mp3 import MP3
+from mutagen.mp4 import MP4
 
 
 def scanDirectory():
@@ -51,19 +52,77 @@ def validateSongs():
 
 def parseId3Tags():
     app.logger.info('Parsing ID3 tags...')
-    parsed = []
-    songs = Song.query.filter(Song.id3_parsed.is_('false')).all()
+    songs = Song.query.filter(Song.id3_parsed.is_(False)).limit(100).all()
     app.logger.info('{} songs found to parse...'.format(len(songs)))
-    lost_songs = []
-    # for song in songs:
 
-    app.logger.info('Parsed {} ID3 tags...'.format(len(parsed)))
-    return len(parsed)
+    # app.logger.info(EasyID3.valid_keys.keys())
+    # app.logger.info(EasyMP4Tags.List)
+    for song in songs:
+
+        # get tag info
+        info = {}
+        if song.path_name.lower().endswith('mp3'):
+            meta = MP3(song.abs_path)
+            # app.logger.debug(meta.tags)
+            info['song_title'] = meta.tags['TIT2'].text[0]
+            info['track_number'] = int(meta.tags['TRCK'].text[0].split('/')[0])
+            info['total_tracks'] = int(meta.tags['TRCK'].text[0].split('/')[1]) if '/' in meta.tags['TRCK'].text[0] else None
+            info['artist_name'] = meta.tags['TPE1'].text[0]
+            info['album_name'] = meta.tags['TALB'].text[0]
+            info['disc_number'] = int(meta.tags['TPOS'].text[0].split('/')[0]) if 'TPOS' in meta else 1
+            info['total_discs'] = int(meta.tags['TPOS'].text[0].split('/')[1]) if 'TPOS' in meta and '/' in meta.tags['TPOS'].text[0] else 1
+            info['year'] = int(meta.tags['TDRC'].text[0].year) if 'TDRC' in meta else None
+        elif song.path_name.lower().endswith('m4a'):
+            meta = MP4(song.abs_path)
+            info['song_title'] = meta[u'\xa9nam'][0]
+            info['track_number'] = int(meta[u'trkn'][0][0])
+            info['total_tracks'] = int(meta[u'trkn'][0][1])
+            info['artist_name'] = meta[u'\xa9ART'][0]
+            info['album_name'] = meta[u'\xa9alb'][0]
+            info['disc_number'] = int(meta[u'disk'][0][0]) if u'disk' in meta else 1
+            info['total_discs'] = int(meta[u'disk'][0][1]) if u'disk' in meta else 1
+            info['year'] = int(meta[u'\xa9day'][0]) if u'\xa9day' in meta else None
+        else:
+            raise Exception('Unknown extension {}'.format(song.path_name))
+        app.logger.debug(info)
+
+        # artist info
+        artist = Artist.query.filter_by(name=info['artist_name']).first()
+        if not artist:
+            artist = Artist(info['artist_name'])
+            db.session.add(artist)
+            db.session.commit()
+            app.logger.info('{} <= {}'.format(artist, info['artist_name']))
+        song.artist = artist
+
+        # album info
+        album = Album.query.filter_by(name=info['album_name'], artist=artist).first()
+        if not album:
+            album = Album(info['album_name'], artist)
+            album.disc_number = info['disc_number']
+            album.total_discs = info['total_discs']
+            album.total_tracks = info['total_tracks']
+            album.year = info['year']
+            db.session.add(album)
+            db.session.commit()
+            app.logger.info('{} <= {}'.format(album, info['album_name']))
+        song.album = album
+
+        # song info
+        song.name = info['song_title']
+        song.number = info['track_number']
+        song.id3_parsed = True
+
+    db.session.commit()
+
+    app.logger.info('Parsed {} ID3 tags...'.format(len(songs)))
+    return len(songs)
 
 
 def getSelections():
     app.logger.info('Fetching selections')
     n = 6
+    m = 3
     selections = []
     used_ids = []
 
@@ -76,10 +135,10 @@ def getSelections():
 
     # first play unrated songs
     songs = Song.query.filter(Song.count_rated==0).all()
-    if len(songs) > 4 * n:
+    if len(songs) > m * n:
         for _ in range(n):
             selection = []
-            for i in range(4):
+            for i in range(m):
                 song_random = random.choice(songs)
                 while song_random.id in used_ids:
                     song_random = random.choice(songs)
@@ -89,6 +148,7 @@ def getSelections():
 
     # else get prioritised ratings
     else:
+        raise Exception('all rated')
         for _ in range(n):
 
             # fetch highest priority songs

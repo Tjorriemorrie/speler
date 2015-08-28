@@ -1,6 +1,6 @@
 psycopg2
 Flask
-Flask-SQLAlchemy
+Flask-SQLAlchemy==1.0
 Flask-Migrate
 Flask_JsonTools
-hg+https://bitbucket.org/nicfit/eyed3@py3#egg=eyed3
+mutagen

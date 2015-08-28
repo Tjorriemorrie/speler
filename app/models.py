@@ -6,12 +6,16 @@ class Song(db.Model):
     abs_path = db.Column(db.String(255), unique=True)
     web_path = db.Column(db.String(255), unique=True)
     path_name = db.Column(db.String(255), unique=True)
+
     # info
     id3_parsed = db.Column(db.Boolean, server_default=u'false')
     name = db.Column(db.String(255))
-    number = db.Column(db.Integer)
-    # album_id = db.Column(db.Integer, db.ForeignKey('albums.id'))
-    # artist_id = db.Column(db.Integer, db.ForeignKey('artists.id'))
+    track_number = db.Column(db.Integer)
+    album_id = db.Column(db.Integer, db.ForeignKey('album.id'))
+    album = db.relationship('Album', lazy='joined')
+    artist_id = db.Column(db.Integer, db.ForeignKey('artist.id'))
+    artist = db.relationship('Artist', lazy='joined')
+
     # plays
     queue = db.relation('Queue', cascade="all, delete-orphan")
     count_played = db.Column(db.Integer, server_default=u'0')
@@ -34,7 +38,15 @@ class Song(db.Model):
         self.path_name = self.web_path[len('/static/music/'):]
 
     def __json__(self):
-        return ['id', 'path_name', 'web_path', 'rating', 'count_played', 'count_rated', 'priority']
+        return [
+            'id', 'path_name', 'web_path',
+            'rating', 'count_played', 'count_rated', 'priority',
+            'name', 'track_number',
+            'artist', 'album',
+        ]
+
+    def __repr__(self):
+        return '<{} {}>'.format(self.__class__.__name__, self.id)
 
 
 class Queue(db.Model):
@@ -52,6 +64,9 @@ class Queue(db.Model):
     def __json__(self):
         return ['id', 'song', 'src']
 
+    def __repr__(self):
+        return '<{} {}>'.format(self.__class__.__name__, self.id)
+
 
 class History(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -67,10 +82,14 @@ class History(db.Model):
     def __json__(self):
         return ['id', 'song', 'played_at']
 
+    def __repr__(self):
+        return '<{} {}>'.format(self.__class__.__name__, self.id)
+
 
 class Rating(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     song_winner_id = db.Column(db.Integer, db.ForeignKey('song.id'))
+    # song = db.relationship('Song', lazy='joined')
     song_loser_id = db.Column(db.Integer, db.ForeignKey('song.id'))
     rated_at = db.Column(db.DateTime, server_default=db.func.now())
     created_at = db.Column(db.DateTime, server_default=db.func.now())
@@ -80,31 +99,55 @@ class Rating(db.Model):
         self.song_winner = winner
         self.song_loser = loser
 
+    def __repr__(self):
+        return '<{} {}>'.format(self.__class__.__name__, self.id)
 
-# class Album(Base):
-#     __tablename__ = 'albums'
-#     id = db.Column(db.Integer, primary_key=True)
-#     songs = db.relationship('Song', backref="album")
-#     artist_id = db.Column(db.Integer, db.ForeignKey('artists.id'))
-#     name = db.Column(db.String(255))
-#     size = db.Column(db.Integer)
-#     year = db.Column(db.Integer)
-#     count_songs = db.Column(db.Integer)
-#     count_played = db.Column(db.Integer)
-#     played_at = db.Column(db.DateTime, server_default=db.func.now())
-#     created_at = db.Column(db.DateTime, server_default=db.func.now())
-#     updated_at = db.Column(db.DateTime, server_default=db.func.now(), onupdate=db.func.now())
-#
-#
-# class Artist(Base):
-#     __tablename__ = 'artists'
-#     id = db.Column(db.Integer, primary_key=True)
-#     songs = db.relationship('Song', backref="artist")
-#     albums = db.relationship('Album', backref="artist")
-#     name = db.Column(db.String(255))
-#     created_at = db.Column(db.DateTime, server_default=db.func.now())
-#     updated_at = db.Column(db.DateTime, server_default=db.func.now(), onupdate=db.func.now())
-#     count_songs = db.Column(db.Integer)
-#     count_albums = db.Column(db.Integer)
-#     count_played = db.Column(db.Integer)
-#     played_at = db.Column(db.DateTime, server_default=db.func.now())
+
+class Album(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(255), nullable=False)
+    total_tracks = db.Column(db.Integer)
+    year = db.Column(db.Integer)
+    disc_number = db.Column(db.Integer, server_default=u'1')
+    total_discs = db.Column(db.Integer, server_default=u'1')
+
+    songs = db.relationship('Song', lazy="joined")
+    artist_id = db.Column(db.Integer, db.ForeignKey('artist.id'))
+    artist = db.relationship('Artist', lazy='joined')
+    # count_songs = db.Column(db.Integer)
+    # count_played = db.Column(db.Integer)
+    # played_at = db.Column(db.DateTime, server_default=db.func.now())
+    created_at = db.Column(db.DateTime, server_default=db.func.now())
+    updated_at = db.Column(db.DateTime, server_default=db.func.now(), onupdate=db.func.now())
+
+    def __init__(self, name, artist):
+        self.name = name
+        self.artist = artist
+
+    def __json__(self):
+        return ['id', 'name', 'total_tracks', 'disc_number', 'year']
+
+    def __repr__(self):
+        return '<{} {}>'.format(self.__class__.__name__, self.id)
+
+
+class Artist(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    songs = db.relationship('Song', lazy="joined")
+    # albums = db.relationship('Album', backref="artist")
+    name = db.Column(db.String(255), unique=True)
+    created_at = db.Column(db.DateTime, server_default=db.func.now())
+    updated_at = db.Column(db.DateTime, server_default=db.func.now(), onupdate=db.func.now())
+    # count_songs = db.Column(db.Integer)
+    # count_albums = db.Column(db.Integer, server_default=u'0')
+    # count_played = db.Column(db.Integer)
+    # played_at = db.Column(db.DateTime)
+
+    def __init__(self, name):
+        self.name = name
+
+    def __json__(self):
+        return ['id', 'name']
+
+    def __repr__(self):
+        return '<{} {}>'.format(self.__class__.__name__, self.id)

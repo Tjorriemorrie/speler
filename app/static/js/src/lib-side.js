@@ -11,6 +11,7 @@ var Library = React.createClass({
     getInitialState: function () {
         return {
             'isScanning': false,
+            'grouping': 'files',
             'lib_files': []
         };
     },
@@ -18,7 +19,7 @@ var Library = React.createClass({
         console.info('Library initial request');
         setInterval(function () {
             this.loadLibrarySongs();
-        }.bind(this), 60000);
+        }.bind(this), 5 * 60 * 1000);
         this.loadLibrarySongs();
     },
     scanDirectory: function () {
@@ -27,42 +28,54 @@ var Library = React.createClass({
             alert('Scanning in progress');
         } else {
             this.setState({'isScanning': true});
-            $.getJSON('/scan/dir', function (data) {
-                this.setState({'isScanning': false});
-                this.loadLibrarySongs();
-            }.bind(this));
+            $.getJSON('/scan/dir')
+                .done(function () {
+                    this.loadLibrarySongs();
+                }.bind(this))
+                .always(function (data) {
+                    this.setState({'isScanning': false});
+                    if (data['parsed'] >= 100) {
+                        this.scanDirectory();
+                    }
+                }.bind(this));
         }
     },
     render: function () {
-        return (
-            <div className="row">
-                <h3>
-                    <button className="btn btn-default btn-sm pull-right" onClick={this.scanDirectory}>{this.state.isScanning ? 'Scanning...' : 'Refresh'}</button>
-                    Library
-                </h3>
+        var display;
+        if (this.state.grouping == 'files') {
+            display = <div>
                 <h5>{this.state.lib_files.length} files in library</h5>
                 <table className="table table-condensed">
                 <thead>
                     <tr>
-                        <th>Priority</th>
                         <th>Rating</th>
                         <th>Played</th>
                         <th>Path</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {this.state.lib_files.map(function (song) {
+                    {this.state.lib_files.map(function (file) {
                         return (
-                            <tr key={song.id}>
-                                <td>{song.priority}</td>
-                                <td>{song.rating} after {song.count_rated}</td>
-                                <td>{song.count_played}</td>
-                                <td><small className="pull-right text-muted">{song.id}</small>{song.path_name}</td>
+                            <tr key={file.id}>
+                                <td>
+                                    {Math.round(file.rating * 100)}% <small className="text-muted">after {file.count_rated}</small>
+                                </td>
+                                <td className="text-center">{file.count_played}</td>
+                                <td><small className="pull-right text-muted">{file.id}</small>{file.path_name}</td>
                             </tr>
                         );
                     })}
                 </tbody>
                 </table>
+            </div>
+        }
+        return (
+            <div className="row">
+                <h3>
+                    <button className="btn btn-default btn-sm pull-right" onClick={this.scanDirectory}>{this.state.isScanning ? 'Scanning...' : 'Refresh'}</button>
+                    Library
+                </h3>
+                {display}
             </div>
         );
     }

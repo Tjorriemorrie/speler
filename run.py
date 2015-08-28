@@ -1,5 +1,4 @@
 #!flask/bin/python
-from app import app, init_db
+from app import app
 
-init_db()
 app.run(debug=True, host='0.0.0.0')

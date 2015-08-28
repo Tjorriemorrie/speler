@@ -136,39 +136,6 @@ var Player = React.createClass({
     },
     render: function () {
         console.info('[Player] render...');
-        var selection;
-        if (this.state.selections.length) {
-            selection = (
-                <div>
-                    <h5>Choose next song to add to playlist:</h5>
-                    <ul>
-                        {this.state.selections[0].map(function (selection) {
-                            return <li key={selection.id}>
-                                <a href="#" onClick={this.setSelection.bind(this, selection)}>{selection.path_name}</a>
-                            </li>;
-                        }.bind(this))}
-                    </ul>
-                </div>
-            );
-        }
-        var history;
-        if (this.state.histories.length) {
-            history = (
-                <div>
-                    <h5>Recently Played:</h5>
-                    <ol>
-                        {this.state.histories.map(function (history) {
-                            return (
-                                <li key={history.id}>
-                                    <small className="text-muted">[{history.song.id}] </small>
-                                    {history.song.path_name}
-                                </li>
-                            );
-                        })}
-                    </ol>
-                </div>
-            );
-        }
         var title = 'Player';
         var next;
         if (this.state.queue.length) {
@@ -188,15 +155,60 @@ var Player = React.createClass({
                         {this.state.queue.map(function (queue) {
                             return (
                                 <li key={queue.id}>
-                                    <small className="text-muted">[{queue.song.id}] </small>
-                                    {queue.song.path_name}
+                                    <strong>{queue.song.name}</strong>
+                                    <br/><small>
+                                        {queue.song.artist.name}
+                                        <br/><em>{queue.song.album.name}</em>
+                                    </small>
                                 </li>
                             );
                         })}
                     </ol>
                 </div>
-                {selection}
-                {history}
+
+                {(!this.state.selections.length)
+                    ? ''
+                    : (
+                        <div>
+                            <h5>Choose next song to add to playlist:</h5>
+                            <ul>
+                                {this.state.selections[0].map(function (selection) {
+                                    return <li key={selection.id}>
+                                        <a href="#" onClick={this.setSelection.bind(this, selection)}>
+                                            <strong>{selection.song.name}</strong>
+                                            <br/><small>
+                                                {selection.song.artist.name}
+                                                <br/><em>{selection.song.album.name}</em>
+                                            </small>
+                                        </a>
+                                    </li>;
+                                }.bind(this))}
+                            </ul>
+                        </div>
+                    )
+                }
+
+                <div>
+                    <h5>Recently Played:</h5>
+                    {(!this.state.histories.length)
+                        ? <p>no songs played recently</p>
+                        : (
+                            <ol>
+                                {this.state.histories.map(function (history) {
+                                    return (
+                                        <li key={history.id}>
+                                            <strong>{history.song.name}</strong>
+                                            <br/><small>
+                                                {history.song.artist.name}
+                                                <br/><em>{history.song.album.name}</em>
+                                            </small>
+                                        </li>
+                                    );
+                                })}
+                            </ol>
+                        )
+                    }
+                </div>
             </div>
         );
     }
