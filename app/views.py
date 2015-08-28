@@ -33,12 +33,12 @@ def findFiles(grouping):
 @app.route('/scan/dir')
 @jsonapi
 def scanDir():
-    # lost_count = validateSongs()
-    # new_count = scanDirectory()
+    lost_count = validateSongs()
+    new_count = scanDirectory()
     parsed_count = parseId3Tags()
     return {
-        # 'new': new_count,
-        # 'lost': lost_count,
+        'new': new_count,
+        'lost': lost_count,
         'parsed': parsed_count,
     }
 

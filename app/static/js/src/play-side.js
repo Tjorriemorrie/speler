@@ -14,8 +14,8 @@ var Player = React.createClass({
         this.audio_tag = React.findDOMNode(this.refs.audio_tag);
         this.audio_tag.addEventListener('ended', this.onEnded);
         console.info('[Player] audio_tag event listener added for ended');
-        this.audio_tag.volume = 0.50;
-        console.info('[Player] audio_tag volume set to 50%');
+        this.audio_tag.volume = 0.75;
+        console.info('[Player] audio_tag volume set to 75%');
         this.loadQueue();
     },
     notifyPing: function () {
@@ -136,31 +136,21 @@ var Player = React.createClass({
     },
     render: function () {
         console.info('[Player] render...');
-        var title = 'Player';
-        var next;
-        if (this.state.queue.length) {
-            title = this.state.queue[0].song.path_name;
-            next = <a onClick={this.onEnded} href="#">next</a>
-        }
         return (
             <div className="row">
-                <h4>{title}</h4>
                 <div>
                     <audio ref="audio_tag" src={this.state.current} controls/>
-                    {next}
+                    {(this.state.queue.length)
+                        ? <a onClick={this.onEnded} href="#" className="audio_next">&#10940;</a>
+                        : ''
+                    }
                 </div>
                 <div>
                     <h5>Playlist:</h5>
                     <ol>
-                        {this.state.queue.map(function (queue) {
+                        {this.state.queue.map(function (queue, index) {
                             return (
-                                <li key={queue.id}>
-                                    <strong>{queue.song.name}</strong>
-                                    <br/><small>
-                                        {queue.song.artist.name}
-                                        <br/><em>{queue.song.album.name}</em>
-                                    </small>
-                                </li>
+                                <li key={queue.id} className={(index < 1) ? 'current_song' : ''}><SongDetails song={queue.song}/></li>
                             );
                         })}
                     </ol>
@@ -171,19 +161,9 @@ var Player = React.createClass({
                     : (
                         <div>
                             <h5>Choose next song to add to playlist:</h5>
-                            <ul>
                                 {this.state.selections[0].map(function (selection) {
-                                    return <li key={selection.id}>
-                                        <a href="#" onClick={this.setSelection.bind(this, selection)}>
-                                            <strong>{selection.song.name}</strong>
-                                            <br/><small>
-                                                {selection.song.artist.name}
-                                                <br/><em>{selection.song.album.name}</em>
-                                            </small>
-                                        </a>
-                                    </li>;
+                                    return <button key={selection.id} onClick={this.setSelection.bind(this, selection)} className="btn btn-default btn-block" type="button"><SongDetails song={selection}/></button>
                                 }.bind(this))}
-                            </ul>
                         </div>
                     )
                 }
@@ -197,11 +177,7 @@ var Player = React.createClass({
                                 {this.state.histories.map(function (history) {
                                     return (
                                         <li key={history.id}>
-                                            <strong>{history.song.name}</strong>
-                                            <br/><small>
-                                                {history.song.artist.name}
-                                                <br/><em>{history.song.album.name}</em>
-                                            </small>
+                                            <SongDetails song={history.song}/>
                                         </li>
                                     );
                                 })}
@@ -215,17 +191,22 @@ var Player = React.createClass({
 });
 
 
+var SongDetails = React.createClass({
+    render: function () {
+        return (
+            <span>
+                <strong><small className="text-muted">{this.props.song.track_number}</small> {this.props.song.name}</strong>
+                <br/><small>
+                    {this.props.song.artist.name}
+                    <br/><em><small className="text-muted">{this.props.song.album.year}</small> {this.props.song.album.name}</em>
+                </small>
+            </span>
+        );
+    }
+});
+
+
 React.render(
     <Player />,
     document.getElementById('play-side')
 );
-
-
-//
-//
-//app.controller('playerCtrl', function (playlistFcty) {
-//    this.playlist = playlistFcty;
-//    this.selectSong = function (song) {
-//        console.info('selected song', song);
-//        playlistFcty.setSelection(song);
-//    };
