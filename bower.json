@@ -15,7 +15,6 @@
   "dependencies": {
     "bootstrap": "~3.3.5",
     "react": "~0.13.3",
-    "soundmanager2": "*",
-    "jplayer": "~2.9.2"
+    "react-infinite": "~0.4.1"
   }
 }

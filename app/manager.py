@@ -144,6 +144,7 @@ def getSelections():
                     song_random = random.choice(songs)
                 selection.append(song_random)
                 used_ids.append(song_random.id)
+                random.shuffle(selection)
             selections.append(selection)
 
     # else get prioritised ratings

@@ -20,7 +20,7 @@ var Player = React.createClass({
     },
     notifyPing: function () {
         console.info('Notifying ping...');
-        if (this.state.selections.length < 6) {
+        if (this.state.selections.length < 6 && this.state.queue > 6) {
             console.info('Already started selection...');
             return false;
         }
@@ -117,7 +117,7 @@ var Player = React.createClass({
         console.info('[Player] playNext:', queue_first);
         this.setState({"current": queue_first.src});
         this.audio_tag.play();
-        document.title = this.state.queue.length + " " + queue_first.src;
+        document.title = queue_first.song.name + ' ~' + queue_first.song.artist.name;
     },
     onEnded: function () {
         console.info('[Player] onEnded...');
@@ -138,52 +138,56 @@ var Player = React.createClass({
         console.info('[Player] render...');
         return (
             <div className="row">
-                <div>
-                    <audio ref="audio_tag" src={this.state.current} controls/>
-                    {(this.state.queue.length)
-                        ? <a onClick={this.onEnded} href="#" className="audio_next">&#10940;</a>
-                        : ''
-                    }
-                </div>
-                <div>
-                    <h5>Playlist:</h5>
-                    <ol>
-                        {this.state.queue.map(function (queue, index) {
-                            return (
-                                <li key={queue.id} className={(index < 1) ? 'current_song' : ''}><SongDetails song={queue.song}/></li>
-                            );
-                        })}
-                    </ol>
-                </div>
+                <div className="col-sm-11">
+                    <div>
+                        <audio ref="audio_tag" src={this.state.current} controls/>
+                        {(this.state.queue.length)
+                            ? <a onClick={this.onEnded} href="#" className="audio_next">&#10940;</a>
+                            : ''
+                        }
+                    </div>
+                    <div>
+                        <h5>Playlist:</h5>
+                        <ol>
+                            {this.state.queue.map(function (queue, index) {
+                                return (
+                                    <li key={queue.id} className={(index < 1) ? 'current_song' : ''}><SongDetails song={queue.song}/></li>
+                                );
+                            })}
+                        </ol>
+                    </div>
 
-                {(!this.state.selections.length)
-                    ? ''
-                    : (
-                        <div>
-                            <h5>Choose next song to add to playlist:</h5>
-                                {this.state.selections[0].map(function (selection) {
-                                    return <button key={selection.id} onClick={this.setSelection.bind(this, selection)} className="btn btn-default btn-block" type="button"><SongDetails song={selection}/></button>
-                                }.bind(this))}
-                        </div>
-                    )
-                }
-
-                <div>
-                    <h5>Recently Played:</h5>
-                    {(!this.state.histories.length)
-                        ? <p>no songs played recently</p>
+                    {(!this.state.selections.length)
+                        ? ''
                         : (
-                            <ol>
-                                {this.state.histories.map(function (history) {
-                                    return (
-                                        <li key={history.id}>
-                                            <SongDetails song={history.song}/>
-                                        </li>
-                                    );
-                                })}
-                            </ol>
+                            <div>
+                                <h5>Choose next song to add to playlist:</h5>
+                                <div className="btn-group btn-group-justified">
+                                    {this.state.selections[0].map(function (selection) {
+                                        return <a key={selection.id} onClick={this.setSelection.bind(this, selection)} className="btn btn-default" type="button"><small><SongDetails song={selection}/></small></a>
+                                    }.bind(this))}
+                                </div>
+                            </div>
                         )
                     }
+
+                    <div>
+                        <h5>Recently Played:</h5>
+                        {(!this.state.histories.length)
+                            ? <p>no songs played recently</p>
+                            : (
+                                <ol>
+                                    {this.state.histories.map(function (history) {
+                                        return (
+                                            <li key={history.id}>
+                                                <SongDetails song={history.song}/>
+                                            </li>
+                                        );
+                                    })}
+                                </ol>
+                            )
+                        }
+                    </div>
                 </div>
             </div>
         );

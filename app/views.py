@@ -1,6 +1,6 @@
 from app import app
 from flask import request, render_template, Response
-from app.models import Song, Queue, History
+from app.models import Song, Queue, History, Artist
 from app.manager import scanDirectory, getSelections, addSongToQueue, createHistory, validateSongs, createRatings, parseId3Tags
 from flask.ext.jsontools import jsonapi
 
@@ -25,6 +25,9 @@ def findFiles(grouping):
             Song.updated_at.desc(),
             Song.path_name.asc(),
         ).limit(20).all()
+
+    elif grouping == 'artists':
+        items = Artist.query.limit(20).all()
 
     app.logger.info('{} items found for {}'.format(len(items), grouping))
     return items

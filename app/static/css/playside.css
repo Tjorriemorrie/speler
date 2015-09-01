@@ -21,3 +21,6 @@
 #play-side audio {
   margin-top: 1em;
 }
+#play-side a.btn {
+  overflow: hidden;
+}
