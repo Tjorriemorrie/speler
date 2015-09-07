@@ -1,8 +1,9 @@
 from app import app
 from flask import request, render_template, Response
-from app.models import Song, Queue, History, Artist
-from app.manager import scanDirectory, getSelections, addSongToQueue, createHistory, validateSongs, createRatings, parseId3Tags
+from app.models import Song, Queue, History, Artist, Album
+from app.manager import scanDirectory, getSelections, addSongToQueue, createHistory, validateSongs, createRatings, parseId3Tags, setAlbumsSized, setArtist
 from flask.ext.jsontools import jsonapi
+# from lastfm import LastFm
 
 
 @app.route('/', defaults={'path': ''})
@@ -14,20 +15,33 @@ def index(path):
 @app.route('/find/<grouping>')
 @jsonapi
 def findFiles(grouping):
-    items = []
     app.logger.info('grouping = {}'.format(grouping))
 
-    if grouping == 'files':
+    if grouping == 'artists':
+        items = Artist.query.filter(
+            Artist.rating.isnot(None),
+        ).order_by(
+            Artist.rating.desc(),
+            Artist.count_albums.desc(),
+            Artist.count_songs.desc(),
+        ).all()
+    elif grouping == 'albums':
+        items = Album.query.filter(
+            Album.rating.isnot(None),
+        ).order_by(
+            Album.rating.desc(),
+            Album.count_songs.desc(),
+        ).all()
+    elif grouping == 'songs':
         items = Song.query.order_by(
             Song.priority.desc(),
             Song.rating.desc(),
             Song.count_played.desc(),
             Song.updated_at.desc(),
             Song.path_name.asc(),
-        ).limit(20).all()
-
-    elif grouping == 'artists':
-        items = Artist.query.limit(20).all()
+        ).all()
+    else:
+        items = []
 
     app.logger.info('{} items found for {}'.format(len(items), grouping))
     return items
@@ -94,3 +108,77 @@ def ended():
     history = createHistory(queue)
     app.logger.info('Set {} as {}'.format(queue, history))
     return history
+
+
+@app.route('/factoid/<section>', methods=['GET', 'POST'])
+@jsonapi
+def factoid(section):
+
+    if request.method == 'GET':
+
+        app.logger.info('factoid get with {}'.format(section))
+
+        if section == 'is_logged_in':
+            # lastfm = LastFm()
+            return True
+
+        elif section == 'is_parsed':
+            cnt = Song.query.filter(
+                Song.id3_parsed.is_(False)
+            ).count()
+            return {'count': cnt} if cnt else True
+
+        elif section == 'is_albums_sized':
+            album = Album.query.filter(
+                Album.total_tracks.is_(None)
+            ).first()
+            return True if not album else album
+
+        elif section == 'is_albums_complete':
+            album = Album.query.filter(
+                Album.total_tracks != Album.count_songs
+            ).first()
+            return True if not album else {
+                'album': album,
+                'songs': album.songs,
+            }
+
+        else:
+            raise Exception('you want what? {}'.format(section))
+
+    elif request.method == 'POST':
+
+        app.logger.info('factoid post with {}'.format(section))
+        form_data = request.form
+        app.logger.debug(form_data)
+
+        if section in ['is_albums_sized', 'is_albums_complete']:
+            album = Album.query.get_or_404(form_data.get('album_id', 0))
+            total_tracks = form_data.get('total_tracks', None)
+            return setAlbumsSized(album, total_tracks)
+
+        else:
+            raise Exception('you want what? {}'.format(section))
+
+
+@app.route('/set/<info>', methods=['GET', 'POST'])
+@jsonapi
+def setInfo(info):
+    app.logger.info('set {}'.format(info))
+
+    if request.method == 'POST':
+        form_data = request.form
+        app.logger.info(form_data)
+
+        if info == 'artists':
+            artist = Artist.query.get_or_404(form_data.get('id', 0))
+            setArtist(artist, form_data.get('name', None))
+
+        elif info == 'albums':
+            raise Exception('unknown albums')
+
+        elif info == 'songs':
+            raise Exception('unknown songs')
+
+        else:
+            raise Exception('unknown info {}'.format(info))

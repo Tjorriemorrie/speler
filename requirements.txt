@@ -4,3 +4,4 @@ Flask-SQLAlchemy==1.0
 Flask-Migrate
 Flask_JsonTools
 mutagen
+pylast

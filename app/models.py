@@ -76,7 +76,12 @@ class Album(db.Model):
         self.artist = artist
 
     def __json__(self):
-        return ['id', 'name', 'total_tracks', 'disc_number', 'year']
+        return [
+            'id', 'name', 'total_tracks', 'disc_number', 'year',
+            'artist', 'count_songs',
+            'count_played', 'played_at',
+            'count_rated', 'rated_at', 'rating',
+        ]
 
     def __repr__(self):
         return '<{} {}>'.format(self.__class__.__name__, self.id)
@@ -103,7 +108,12 @@ class Artist(db.Model):
         self.name = name
 
     def __json__(self):
-        return ['id', 'name']
+        return [
+            'id', 'name',
+            'count_songs', 'count_albums',
+            'count_played', 'played_at',
+            'count_rated', 'rated_at', 'rating',
+        ]
 
     def __repr__(self):
         return '<{} {}>'.format(self.__class__.__name__, self.id)

@@ -4,6 +4,7 @@ from app import app, db
 from app.models import Song, Queue, History, Rating, Artist, Album
 from mutagen.mp3 import MP3
 from mutagen.mp4 import MP4
+from mutagen.id3 import ID3, COMM, TRCK, TPE1
 
 
 def scanDirectory():
@@ -149,7 +150,6 @@ def getSelections():
 
     # else get prioritised ratings
     else:
-        raise Exception('all rated')
         for _ in range(n):
 
             # fetch highest priority songs
@@ -168,17 +168,18 @@ def getSelections():
                 Song.rated_at.asc(),
                 Song.priority.asc(),
                 Song.path_name.asc(),
-            ).limit(2).all()
+            ).limit(1).all()
             app.logger.debug('{} in rated'.format(len(songs_rated)))
             for song in songs_rated:
                 used_ids.append(song.id)
 
-            if len(songs_priority) < 2 or len(songs_rated) < 2:
+            if len(songs_priority) < 2 or len(songs_rated) < 1:
                 app.logger.debug('Not enough songs')
                 return selections
 
             selection = songs_priority + songs_rated
             app.logger.debug('Selection: {}'.format(selection))
+            random.shuffle(selection)
 
             app.logger.debug('Used ids: {}'.format(used_ids))
             selections.append(selection)
@@ -225,3 +226,68 @@ def createRatings(winner_song, loser_ids):
 
     app.logger.info('{} ratings'.format(len(ratings)))
     return ratings
+
+
+def setAlbumsSized(album, total_tracks):
+    app.logger.info('setAlbumsSized')
+
+    # update size
+    for song in album.songs:
+        app.logger.info('Updating total tracks for song {}'.format(song))
+        if song.path_name.lower().endswith('mp3'):
+            tags = ID3(song.abs_path)
+            tags["TRCK"] = TRCK(encoding=3, text=u'{}/{}'.format(song.track_number, total_tracks))
+            tags.save(song.abs_path)
+        elif song.path_name.lower().endswith('m4a'):
+            tags = MP4(song.abs_path)
+            raise Exception('Do total tracks for mp4')
+
+    # update album
+    album.total_tracks = int(total_tracks)
+    db.session.commit()
+    app.logger.info('Update album')
+
+    return album
+
+
+def setArtist(artist, name):
+    app.logger.info('New artist name: {}'.format(name))
+
+    # update song artist title
+    for song in artist.songs:
+        app.logger.info('Updating artist for song {}'.format(song))
+        if song.path_name.lower().endswith('mp3'):
+            tags = ID3(song.abs_path)
+            tags["TPE1"] = TPE1(encoding=3, text=u'{}'.format(name))
+            tags.save(song.abs_path)
+        elif song.path_name.lower().endswith('m4a'):
+            tags = MP4(song.abs_path)
+            raise Exception('Do total tracks for mp4')
+
+    # see if new name does not already exists
+    artist_by_name = Artist.query.filter(
+        Artist.name == name,
+        Artist.id != artist.id
+    ).first()
+    if artist_by_name:
+        app.logger.info('Artist already exists with name {}'.format(name))
+        for song in artist.songs:
+            song = Song.query.get(song.id)
+
+            # update album
+            if song.album.artist.id != artist_by_name.id:
+                album = song.album
+                album.artist = artist_by_name
+                db.session.commit()
+
+            # update song
+            song.artist = artist_by_name
+
+    else:
+        # update artist
+        artist.name = name
+        app.logger.info('Artist name updated')
+
+    db.session.commit()
+
+    return artist

@@ -20,8 +20,10 @@ var Player = React.createClass({
     },
     notifyPing: function () {
         console.info('Notifying ping...');
-        if (this.state.selections.length < 6 && this.state.queue > 6) {
-            console.info('Already started selection...');
+        if (this.state.selections.length < 1) {
+            return false;
+        }
+        if (this.state.queue.length >= 4) {
             return false;
         }
         var audio_ping = new Audio('/static/sounds/ping.mp3');
@@ -58,10 +60,9 @@ var Player = React.createClass({
         console.info('[Player] getSelection...');
         if (this.state.selections.length > 0) {
             console.info('[Player] getSelection: Already have selections');
-            this.notifyPing();
             return;
         }
-        if (this.state.queue.length > 6) {
+        if (this.state.queue.length > 4) {
             console.info('[Player] getSelection: Already have enough songs in queue');
             return;
         }
@@ -118,6 +119,7 @@ var Player = React.createClass({
         this.setState({"current": queue_first.src});
         this.audio_tag.play();
         document.title = queue_first.song.name + ' ~' + queue_first.song.artist.name;
+        this.notifyPing();
     },
     onEnded: function () {
         console.info('[Player] onEnded...');
@@ -146,6 +148,21 @@ var Player = React.createClass({
                             : ''
                         }
                     </div>
+
+                    {(!this.state.selections.length)
+                        ? ''
+                        : (
+                            <div>
+                                <h5>Choose next song to add to playlist:</h5>
+                                <div className="btn-group btn-group-vertical">
+                                    {this.state.selections[0].map(function (selection) {
+                                        return <a key={selection.id} onClick={this.setSelection.bind(this, selection)} className="btn btn-default" type="button"><small><SongDetails song={selection}/></small></a>
+                                    }.bind(this))}
+                                </div>
+                            </div>
+                        )
+                    }
+
                     <div>
                         <h5>Playlist:</h5>
                         <ol>
@@ -156,20 +173,6 @@ var Player = React.createClass({
                             })}
                         </ol>
                     </div>
-
-                    {(!this.state.selections.length)
-                        ? ''
-                        : (
-                            <div>
-                                <h5>Choose next song to add to playlist:</h5>
-                                <div className="btn-group btn-group-justified">
-                                    {this.state.selections[0].map(function (selection) {
-                                        return <a key={selection.id} onClick={this.setSelection.bind(this, selection)} className="btn btn-default" type="button"><small><SongDetails song={selection}/></small></a>
-                                    }.bind(this))}
-                                </div>
-                            </div>
-                        )
-                    }
 
                     <div>
                         <h5>Recently Played:</h5>

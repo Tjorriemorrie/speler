@@ -15,6 +15,6 @@
   "dependencies": {
     "bootstrap": "~3.3.5",
     "react": "~0.13.3",
-    "react-infinite": "~0.4.1"
+    "react-bootstrap": "~0.25.1"
   }
 }
