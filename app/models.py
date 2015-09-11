@@ -1,4 +1,6 @@
 from app import app, db
+from sqlalchemy.ext.hybrid import hybrid_property, hybrid_method
+import datetime
 
 
 class Song(db.Model):
@@ -18,17 +20,17 @@ class Song(db.Model):
 
     # plays
     queue = db.relation('Queue', cascade="all, delete-orphan")
-    count_played = db.Column(db.Integer, server_default=u'0')
-    played_at = db.Column(db.DateTime, server_default=db.func.now())
+    count_played = db.Column(db.Integer, server_default=u'0', nullable=False)
+    played_at = db.Column(db.DateTime, server_default=db.func.now(), nullable=False)
     histories = db.relationship('History', cascade="all, delete-orphan")
     # ratings
     ratings_winners = db.relationship('Rating', backref='song_winner', foreign_keys='Rating.song_winner_id', cascade="all, delete-orphan")
     ratings_losers = db.relationship('Rating', backref='song_loser', foreign_keys='Rating.song_loser_id', cascade="all, delete-orphan")
-    rated_at = db.Column(db.DateTime, server_default=db.func.now())
-    count_rated = db.Column(db.Integer, server_default=u'0')
-    rating = db.Column(db.Float)
+    rated_at = db.Column(db.DateTime, server_default=db.func.now(), nullable=False)
+    count_rated = db.Column(db.Integer, server_default=u'0', nullable=False)
+    rating = db.Column(db.Float, default=0.5, nullable=False)
     # other
-    priority = db.Column(db.Float, server_default=u'0.5')
+    priority = db.Column(db.Float, nullable=False)
     created_at = db.Column(db.DateTime, server_default=db.func.now())
     updated_at = db.Column(db.DateTime, server_default=db.func.now(), onupdate=db.func.now())
 
@@ -37,12 +39,29 @@ class Song(db.Model):
         self.web_path = path[9:]
         self.path_name = self.web_path[len('/static/music/'):]
 
+    @hybrid_property
+    def days_since_rated(self):
+        return (datetime.datetime.now() - self.rated_at).days
+
+    @days_since_rated.expression
+    def days_since_rated(cls):
+        return db.func.extract(db.text('DAY'), db.func.now() - cls.rated_at)
+
+    @hybrid_property
+    def selection_weight(self):
+        return (self.priority) + (self.days_since_rated / 30.0)
+
+    @selection_weight.expression
+    def selection_weight(cls):
+        return (cls.priority) + (cls.days_since_rated / 30.0)
+
     def __json__(self):
         return [
             'id', 'path_name', 'web_path',
-            'rating', 'count_played', 'count_rated', 'priority',
             'name', 'track_number',
-            'artist', 'album',
+            'count_played', 'count_rated', 'rating',
+            'priority', 'played_at',
+            'artist', 'album'
         ]
 
     def __repr__(self):

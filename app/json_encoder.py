@@ -104,8 +104,6 @@ $BODY$
     v_count_played integer;
     v_max_played integer;
     v_weight_played float;
-    v_max_rated integer;
-    v_weight_rated float;
     v_priority float;
 BEGIN
 
@@ -113,13 +111,8 @@ BEGIN
     SELECT max(count_played) INTO STRICT v_max_played FROM song;
     v_weight_played := GREATEST(NEW.count_played, 1) / CAST(GREATEST(v_max_played, 1) AS float);
 
-    -- rated weighting
-    SELECT max(count_rated) INTO STRICT v_max_rated FROM song;
-    v_weight_rated := GREATEST(NEW.count_rated, 1) / CAST(GREATEST(v_max_rated, 1) AS float);
-
     -- set priority 80/20
-    NEW.priority := v_weight_rated - (v_weight_played * 0.80);
-    NEW.updated_at := CURRENT_TIMESTAMP;
+    NEW.priority := (NEW.rating * 0.80) + ((1 - v_weight_rated) * 0.20)
 
     RETURN NEW;
 END;

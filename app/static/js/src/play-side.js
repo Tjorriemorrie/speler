@@ -156,7 +156,11 @@ var Player = React.createClass({
                                 <h5>Choose next song to add to playlist:</h5>
                                 <div className="btn-group btn-group-vertical">
                                     {this.state.selections[0].map(function (selection) {
-                                        return <a key={selection.id} onClick={this.setSelection.bind(this, selection)} className="btn btn-default" type="button"><small><SongDetails song={selection}/></small></a>
+                                        return (
+                                            <a key={selection.id} onClick={this.setSelection.bind(this, selection)} className="btn btn-default" type="button">
+                                                <small><SongDetails song={selection}/></small>
+                                            </a>
+                                        );
                                     }.bind(this))}
                                 </div>
                             </div>
@@ -202,10 +206,13 @@ var SongDetails = React.createClass({
     render: function () {
         return (
             <span>
-                <strong><small className="text-muted">{this.props.song.track_number}</small> {this.props.song.name}</strong>
+                <strong>
+                    <small className="text-muted">{this.props.song.track_number} </small>
+                    <span title={this.props.song.id}> {this.props.song.name}</span>
+                </strong>
                 <br/><small>
-                    {this.props.song.artist.name}
-                    <br/><em><small className="text-muted">{this.props.song.album.year}</small> {this.props.song.album.name}</em>
+                    <span>{(this.props.song.artist) ? this.props.song.artist.name : 'no artist'}</span>
+                    <br/><em><small className="text-muted">{(this.props.song.album) ? this.props.song.album.year : ''}</small> {(this.props.song.album) ? this.props.song.album.name : 'no album'}</em>
                 </small>
             </span>
         );
