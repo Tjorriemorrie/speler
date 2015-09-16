@@ -4,9 +4,9 @@
     <title>speler</title>
 
     {% block css %}
-        <link href="/static/vendor/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
-        <link href="/static/vendor/bootstrap/dist/css/bootstrap-theme.css" rel="stylesheet">
-        <link href="/static/vendor/react-data-grid/themes/react-data-grid.css" rel="stylesheet">
+        <link href="/static/vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/static/vendor/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">
+        <link href="/static/vendor/react-smallgrid/dist/smallgrid.css" rel="stylesheet">
         <link href="/static/css/main.css" rel="stylesheet">
         <link href="/static/css/playside.css" rel="stylesheet">
         <link href="/static/css/libside.css" rel="stylesheet">
@@ -22,13 +22,13 @@
 	</div>
 
 	{% block js %}
-	    <script src="/static/vendor/react/react.js" type="text/javascript"></script>
+	    <script src="/static/vendor/react/react.min.js" type="text/javascript"></script>
 	    <script src="/static/vendor/react/JSXTransformer.js" type="text/javascript"></script>
 
-	    <script src="/static/vendor/jquery/dist/jquery.js" type="text/javascript"></script>
-	    <script src="/static/vendor/react-bootstrap/react-bootstrap.js" type="text/javascript"></script>
-
-	    <script src="/static/vendor/react-data-grid/dist/react-data-grid-with-addons.js" type="text/javascript"></script>
+	    <script src="/static/vendor/jquery/dist/jquery.min.js" type="text/javascript"></script>
+	    <script src="/static/vendor/react-bootstrap/react-bootstrap.min.js" type="text/javascript"></script>
+	    <script src="/static/vendor/lodash/lodash.min.js" type="text/javascript"></script>
+	    <script src="/static/vendor/react-smallgrid/src/smallgrid.jsx" type="text/jsx"></script>
 
         <script src="/static/js/src/play-side.js" type="text/jsx"></script>
         <script src="/static/js/src/lib-side.js" type="text/jsx"></script>

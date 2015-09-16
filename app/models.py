@@ -31,6 +31,7 @@ class Song(db.Model):
     rating = db.Column(db.Float, default=0.5, nullable=False)
     # other
     priority = db.Column(db.Float, nullable=False)
+    days_since_played = db.Column(db.Integer, nullable=False)
     created_at = db.Column(db.DateTime, server_default=db.func.now())
     updated_at = db.Column(db.DateTime, server_default=db.func.now(), onupdate=db.func.now())
 
@@ -49,11 +50,11 @@ class Song(db.Model):
 
     @hybrid_property
     def selection_weight(self):
-        return (self.priority) + (self.days_since_rated / 30.0)
+        return (self.priority) + (self.days_since_rated / float(self.days_since_played))
 
     @selection_weight.expression
     def selection_weight(cls):
-        return (cls.priority) + (cls.days_since_rated / 30.0)
+        return (cls.priority) + (cls.days_since_rated / db.func.cast(cls.days_since_played, db.Float))
 
     def __json__(self):
         return [

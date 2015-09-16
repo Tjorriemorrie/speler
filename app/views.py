@@ -1,8 +1,9 @@
 from app import app
 from flask import request, render_template, Response
 from app.models import Song, Queue, History, Artist, Album
-from app.manager import scanDirectory, getSelections, addSongToQueue, createHistory, validateSongs, createRatings, parseId3Tags, setAlbumsSized, setArtist
-from app.manager import setSongName, setSongTrackNumber
+from app.manager import scanDirectory, getSelections, addSongToQueue, createHistory, validateSongs, createRatings, parseId3Tags, setArtist
+from app.manager import setSongName, setSongTrackNumber, setSongArtist, setSongAlbum
+from app.manager import setAlbumSize
 from flask.ext.jsontools import jsonapi
 # from lastfm import LastFm
 
@@ -18,58 +19,25 @@ def index(path):
 def findFiles(grouping):
     app.logger.info('grouping = {}'.format(grouping))
 
-    result = {
-        'rows': [],
-        'cnt': 0,
-    }
-    limit = request.args.get('limit', 25, int)
-    offset = request.args.get('offset', 0, int)
-    sort_by = request.args.get('sort_by', None)
-    sort_dir = request.args.get('sort_dir', 'desc', str)
-
     if grouping == 'artists':
         qry = Artist.query.filter(
             Artist.rating.isnot(None),
         )
-        # .order_by(
-        #     Artist.rating.desc(),
-        #     Artist.count_albums.desc(),
-        #     Artist.count_songs.desc(),
-        # )
 
     elif grouping == 'albums':
         qry = Album.query.filter(
             Album.rating.isnot(None),
-        ).order_by(
-            Album.rating.desc(),
-            Album.count_songs.desc(),
         )
 
     elif grouping == 'songs':
-        result['cnt'] = Song.query.count()
         qry = Song.query
-        if sort_by:
-            qry = qry.order_by(getattr(getattr(Song, sort_by), sort_dir)())
 
     else:
-        return result
+        return []
 
-    # sorting
-    app.logger.info('Sort: {} {}'.format(sort_by, sort_dir))
+    rows = qry.all()
 
-    # offset
-    app.logger.info('Offset: {}'.format(offset))
-    qry = qry.offset(offset)
-
-    # limit
-    app.logger.info('Limit: {}'.format(limit))
-    qry = qry.limit(limit)
-
-    # execute
-    result['rows'] = qry.all()
-
-    app.logger.info(result)
-    return result
+    return rows
 
 
 @app.route('/scan/dir')
@@ -162,6 +130,18 @@ def factoid(section):
             ).first()
             return True if not song else song
 
+        elif section == 'is_songs_artist':
+            song = Song.query.filter(
+                Song.artist_id.is_(None)
+            ).first()
+            return True if not song else song
+
+        elif section == 'is_songs_album':
+            song = Song.query.filter(
+                Song.album_id.is_(None)
+            ).first()
+            return True if not song else song
+
         elif section == 'is_albums_sized':
             album = Album.query.filter(
                 Album.total_tracks.is_(None)
@@ -180,52 +160,36 @@ def factoid(section):
         else:
             raise Exception('you want what? {}'.format(section))
 
-    elif request.method == 'POST':
-
-        app.logger.info('factoid post with {}'.format(section))
-        form_data = request.form
-        app.logger.debug(form_data)
-
-        if section in ['is_albums_sized', 'is_albums_complete']:
-            album = Album.query.get_or_404(form_data.get('album_id', 0))
-            total_tracks = form_data.get('total_tracks', None)
-            return setAlbumsSized(album, total_tracks)
-
-        elif section in ['is_songs_named', 'is_songs_tracked']:
-            song = Song.query.get_or_404(form_data.get('song_id', 0))
-            if 'song_name' in form_data:
-                setSongName(song, form_data.get('song_name', None))
-            if 'song_track_number' in form_data:
-                setSongTrackNumber(song, form_data.get('song_track_number', None))
-            return song
-
-        else:
-            raise Exception('you want what? {}'.format(section))
-
 
 @app.route('/set/<info>', methods=['POST'])
 @jsonapi
 def setInfo(info):
     app.logger.info('set {}'.format(info))
 
-    if request.method == 'POST':
-        form_data = request.form
-        app.logger.info(form_data)
+    form_data = request.form
+    app.logger.info('form data: {}'.format(form_data))
 
-        if info == 'artists':
-            artist = Artist.query.get_or_404(form_data.get('id', 0))
-            setArtist(artist, form_data.get('name', None))
+    if info == 'artists':
+        artist = Artist.query.get_or_404(form_data.get('id', 0))
+        setArtist(artist, form_data.get('name', None))
 
-        elif info == 'albums':
-            raise Exception('unknown albums')
+    elif info == 'albums':
+        album = Album.query.get_or_404(form_data.get('id', 0))
+        if 'total_tracks' in form_data:
+            setAlbumSize(album, form_data.get('total_tracks', None))
+        return album
 
-        elif info == 'songs':
-            song = Song.query.get_or_404(form_data.get('song_id', 0))
-            if 'name' in form_data:
-                setSongName(song, form_data.get('name', None))
-            if 'track_number' in form_data:
-                setSongTrackNumber(song, form_data.get('track_number', None))
-            return song
+    elif info == 'songs':
+        song = Song.query.get_or_404(form_data.get('id', 0))
+        if 'name' in form_data:
+            setSongName(song, form_data.get('name', None))
+        if 'track_number' in form_data:
+            setSongTrackNumber(song, form_data.get('track_number', None))
+        if 'artist.name' in form_data:
+            setSongArtist(song, form_data.get('artist.name', None))
+        if 'album.name' in form_data:
+            setSongAlbum(song, form_data.get('album.name', None))
+        return song
 
-        else:
-            raise Exception('unknown info {}'.format(info))
+    else:
+        raise Exception('unknown info {}'.format(info))

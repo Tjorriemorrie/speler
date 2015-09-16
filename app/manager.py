@@ -4,7 +4,7 @@ from app import app, db
 from app.models import Song, Queue, History, Rating, Artist, Album
 from mutagen.mp3 import MP3
 from mutagen.mp4 import MP4
-from mutagen.id3 import ID3, COMM, TRCK, TPE1, TIT2
+from mutagen.id3 import ID3, COMM, TRCK, TPE1, TIT2, TALB
 
 
 def scanDirectory():
@@ -226,6 +226,10 @@ def createRatings(winner_song, loser_ids):
     return ratings
 
 
+###############################################################################
+## SONG details
+###############################################################################
+
 def setSongName(song, name):
     app.logger.info('setSongInfo')
 
@@ -273,10 +277,91 @@ def setSongTrackNumber(song, track_number):
     app.logger.info('Update song in db')
 
 
-def setAlbumsSized(album, total_tracks):
-    app.logger.info('setAlbumsSized')
+def setSongArtist(song, artist_name):
+    app.logger.info('setSongArtist')
 
-    # update size
+    if not artist_name:
+        raise Exception('Song has no artist name given')
+
+    # update tag
+    app.logger.info('Updating artist {} for song {}'.format(artist_name, song))
+    if song.path_name.lower().endswith('mp3'):
+        tags = ID3(song.abs_path)
+        tags["TPE1"] = TPE1(encoding=3, text=u'{}'.format(artist_name))
+        tags.save(song.abs_path)
+    elif song.path_name.lower().endswith('m4a'):
+        tags = MP4(song.abs_path)
+        raise Exception('Do song info for mp4')
+
+    # update model
+    artist = Artist.query.filter_by(name=artist_name).first()
+    if not artist:
+        artist = Artist(artist_name)
+        db.session.add(artist)
+        db.session.commit()
+        app.logger.info('{} <= {}'.format(artist, artist_name))
+    song.artist_id = artist.id
+
+    db.session.commit()
+    app.logger.info('Update song in db')
+
+
+def setSongAlbum(song, album_name):
+    app.logger.info('setSongAlbum')
+
+    if not album_name:
+        raise Exception('Song has no album name given')
+
+    # update tag
+    app.logger.info('Updating album {} for song {}'.format(album_name, song))
+    if song.path_name.lower().endswith('mp3'):
+        tags = ID3(song.abs_path)
+        tags["TALB"] = TALB(encoding=3, text=u'{}'.format(album_name))
+        tags.save(song.abs_path)
+    elif song.path_name.lower().endswith('m4a'):
+        tags = MP4(song.abs_path)
+        raise Exception('Do song info for mp4')
+
+    # get track info
+    trck = tags['TRCK'].text[0]
+    if '/' in trck:
+        track_number, total_tracks = trck.split('/')
+    else:
+        track_number = trck
+        total_tracks = None
+    try:
+        total_tracks = int(total_tracks)
+    except (ValueError, TypeError):
+        total_tracks = None
+    disc_number = int(tags['TPOS'].text[0].split('/')[0]) if 'TPOS' in tags else 1
+    total_discs = int(tags['TPOS'].text[0].split('/')[1]) if 'TPOS' in tags and '/' in tags['TPOS'].text[0] else 1
+    year = int(tags['TDRC'].text[0].year) if 'TDRC' in tags else None
+
+    # update model
+    album = Album.query.filter_by(name=album_name, artist=song.artist).first()
+    if not album:
+        album = Album(album_name, song.artist)
+        album.disc_number = disc_number
+        album.total_discs = total_discs
+        album.total_tracks = total_tracks
+        album.year = year
+        db.session.add(album)
+        db.session.commit()
+        app.logger.info('{} <= {}'.format(album, album_name))
+    song.album_id = album.id
+
+    db.session.commit()
+    app.logger.info('Update song in db')
+
+
+###############################################################################
+## ALBUM details
+###############################################################################
+
+def setAlbumSize(album, total_tracks):
+    app.logger.info('setAlbumSize')
+
+    # update tag
     for song in album.songs:
         app.logger.info('Updating total tracks for song {}'.format(song))
         if song.path_name.lower().endswith('mp3'):
@@ -294,6 +379,10 @@ def setAlbumsSized(album, total_tracks):
 
     return album
 
+
+###############################################################################
+## ARTIST details
+###############################################################################
 
 def setArtist(artist, name):
     app.logger.info('New artist name: {}'.format(name))
@@ -336,3 +425,5 @@ def setArtist(artist, name):
     db.session.commit()
 
     return artist
+
+
