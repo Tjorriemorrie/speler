@@ -1,40 +1,19 @@
-speler
-======
+#speler
+---
 
-Improved from my mypad version
+## Python version
 
-Example
-=======
+Refer [python branch](https://github.com/Tjorriemorrie/speler/tree/python)
 
-<img src="web/img/example.png">
+Latest version and up to date. What I'm currently developing. Just set your music path in the docker-compose file:
 
-Installation
-============
+![alt tag](python.png)
 
-Git the codes:
-<pre>git clone <this repo></pre>
 
-As this is Symfony, you need to install the Symfony framework:
-<pre>$ php composer.phar update</pre>
 
-As this uses bower for the front-end, you can install/update the libraries via bower. It is however committed to the repo as
- is the recommended practice, therefore nothing is necessary to set it up.
+### PHP version
 
-Set up MySQL:
-<pre>php app/console doctrine:schema:update --force</pre>
+Refer [php branch](https://github.com/Tjorriemorrie/speler/tree/php)
 
-You will need to set up your music folder. This is located at:
-<pre>/web/audio</pre>
-Copy your music files to that folder.
+Old and first platform I developed my music player on using Symfony2. Not sure if it even works anymore.
 
-Support
-=======
-mp3 and m4a. If other, please inform me.
-
-Advanced
-=======
-
-To achieve a 'cloud' effect, I use dropbox for my music folder. And then I make a symlink
- from `web/audio` to my music folder in Dropbox.
-Also, the db is then hosted at an ISP, and I've set up my db details accordingly. Note:
-I'm using a shared hosting, so the lag is horrible.
