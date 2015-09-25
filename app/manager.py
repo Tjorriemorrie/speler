@@ -137,7 +137,7 @@ def parseId3Tags():
 
 def getSelections():
     app.logger.info('Fetching selections')
-    n = 6
+    n = 10
     m = 3
     selections = []
     used_ids = []

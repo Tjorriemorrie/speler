@@ -16,7 +16,6 @@
     "bootstrap": "~3.3.5",
     "lodash": "~3.10.1",
     "react": "~0.13.3",
-    "react-bootstrap": "~0.25.1",
     "react-smallgrid": "~1.0.1"
   }
 }
