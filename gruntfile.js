@@ -20,6 +20,22 @@ module.exports = function (grunt) {
             }
         },
 
+		browserify: {
+			options: {
+				transform: [
+					['babelify', {
+						loose: 'all'
+					}]
+				]
+			},
+
+			jsx: {
+				files: {
+					'./app/static/js/speler.js': ['./assets/jsx/App.jsx']
+				}
+			},
+		},
+
         concat: {
             options: {
                 separator: '\n'
@@ -35,22 +51,6 @@ module.exports = function (grunt) {
                     ]
                 }
             },
-            jsx: {
-                files: {
-                    './assets/js/react-speler.jsx': './assets/js/jsx/**/*.jsx'
-                }
-            }
-        },
-
-        babel: {
-            options: {
-                sourceMap: false
-            },
-            jsx: {
-                files: {
-                    './assets/js/react-speler.js': './assets/js/react-speler.jsx'
-                }
-            }
         },
 
         uglify: {
@@ -59,7 +59,7 @@ module.exports = function (grunt) {
             },
             jsx: {
                 files: {
-                    './app/static/js/speler.min.js': ['./assets/js/react-speler.js'],
+                    './app/static/js/speler.min.js': ['./app/static/js/speler.js'],
                 }
             }
         },
@@ -82,9 +82,9 @@ module.exports = function (grunt) {
 
             jsx: {
                 files: [
-                    './assets/js/**/*.jsx'
+                    './assets/jsx/**/*.jsx'
                 ],
-                tasks: ['concat:jsx', 'babel:jsx', 'uglify:jsx'],
+                tasks: ['browserify:jsx'],
                 options: {
                     livereload: true,
                 }
@@ -94,11 +94,11 @@ module.exports = function (grunt) {
 
     // Load the plugins
     grunt.loadNpmTasks('grunt-contrib-less');
-    grunt.loadNpmTasks('grunt-babel');
+	grunt.loadNpmTasks('grunt-browserify');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-watch');
 
     // Default task(s).
-    grunt.registerTask('default', ['less', 'concat', 'babel', 'uglify', 'watch']);
+    grunt.registerTask('default', ['less', 'browserify', 'concat', 'uglify', 'watch']);
 };
