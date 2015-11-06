@@ -2,7 +2,7 @@ dbdata:
   image: postgres
   volumes:
    - /var/lib/postgresql
-  command: true
+  command: date
 db:
   image: postgres
   volumes_from:
@@ -23,3 +23,4 @@ web:
   ports:
     - "5678:5000"
   command: python run.py
+

@@ -1,14 +1,14 @@
-"""empty message
+"""adding album trigger
 
-Revision ID: 361392c4e67
-Revises: 40efa86c6b1
-Create Date: 2015-09-01 10:35:47.806730
+Revision ID: 003
+Revises: 002
+Create Date: 2015-11-06 07:56:12.062064
 
 """
 
 # revision identifiers, used by Alembic.
-revision = '361392c4e67'
-down_revision = '40efa86c6b1'
+revision = '003'
+down_revision = '002'
 
 from alembic import op
 import sqlalchemy as sa
@@ -68,7 +68,6 @@ AFTER UPDATE ON song
 FOR EACH ROW
 EXECUTE PROCEDURE update_album();
     '''))
-    ### end Alembic commands ###
 
 
 def downgrade():
@@ -77,4 +76,3 @@ def downgrade():
 DROP TRIGGER update_album_trigger ON song;
 DROP FUNCTION update_album;
     '''))
-    ### end Alembic commands ###

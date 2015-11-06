@@ -72,6 +72,7 @@ class Song(db.Model):
 class Album(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(255), nullable=False)
+    name_id = db.Column(db.String(255), nullable=False)
     total_tracks = db.Column(db.Integer)
     year = db.Column(db.Integer)
     disc_number = db.Column(db.Integer, server_default=u'1')
@@ -109,9 +110,10 @@ class Album(db.Model):
 
 class Artist(db.Model):
     id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(255), unique=True)
+    name_id = db.Column(db.String(255), unique=True)
     songs = db.relationship('Song', lazy="joined")
     albums = db.relationship('Album', lazy="joined")
-    name = db.Column(db.String(255), unique=True)
 
     count_songs = db.Column(db.Integer)
     count_albums = db.Column(db.Integer)
