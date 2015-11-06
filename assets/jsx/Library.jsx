@@ -30,14 +30,22 @@ var Library = React.createClass({
             $.getJSON('/scan/dir')
                 .done(function () {
                     console.info('[Library] scanDirectory: done');
-                }.bind(this))
-                .always(function (data) {
-                    this.setState({'isScanning': false});
-                    if (data['parsed'] >= 50) {
-                        this.scanDirectory();
-                    }
+                    this.scanId3s();
                 }.bind(this));
         }
+    },
+
+    scanId3s: function () {
+        console.info('[Library] scanId3s');
+        $.getJSON('/scan/id3')
+            .done(function () {
+                console.info('[Library] scanId3s: done');
+                if (data['parsed'] >= 50) {
+                    this.scanId3s();
+                } else {
+                    this.setState({'isScanning': false});
+                }
+            }.bind(this));
     },
 
     loadLibrarySongs: function (grouping) {

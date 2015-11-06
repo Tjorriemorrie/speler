@@ -9,11 +9,11 @@ var App = new React.createClass({
 	render: function () {
 		console.info('[App] render');
 		return (
-			<div class="row">
-				<div id="play-side" class="col-sm-5">
+			<div className="row">
+				<div id="play-side" className="col-sm-5">
 					<Player/>
 				</div>
-				<div id="lib-side" class="col-sm-7">
+				<div id="lib-side" className="col-sm-7">
 			        <Factoid/>
 			        <Library/>
 				</div>

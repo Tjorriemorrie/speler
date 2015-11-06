@@ -46,6 +46,13 @@ def scanDir():
     res = {}
     res['lost'] = validateSongs()
     res['new'] = scanDirectory()
+    return res
+
+
+@app.route('/scan/id3')
+@jsonapi
+def scanId3():
+    res = {}
     res['parsed'] = parseId3Tags()
     return res
 

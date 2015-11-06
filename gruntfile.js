@@ -24,7 +24,7 @@ module.exports = function (grunt) {
 			options: {
 				transform: [
 					['babelify', {
-						loose: 'all'
+						presets: ['react', 'es2015']
 					}]
 				]
 			},

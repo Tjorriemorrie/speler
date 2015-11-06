@@ -12,15 +12,15 @@ var App = new React.createClass({
 		console.info('[App] render');
 		return React.createElement(
 			'div',
-			{ 'class': 'row' },
+			{ className: 'row' },
 			React.createElement(
 				'div',
-				{ id: 'play-side', 'class': 'col-sm-5' },
+				{ id: 'play-side', className: 'col-sm-5' },
 				React.createElement(Player, null)
 			),
 			React.createElement(
 				'div',
-				{ id: 'lib-side', 'class': 'col-sm-7' },
+				{ id: 'lib-side', className: 'col-sm-7' },
 				React.createElement(Factoid, null),
 				React.createElement(Library, null)
 			)
@@ -37,7 +37,6 @@ React.render(React.createElement(App, null), document.getElementById('app'));
 var React = require('react');
 
 var Factoid = React.createClass({
-    displayName: 'Factoid',
 
     getInitialState: function getInitialState() {
         return {
@@ -406,7 +405,6 @@ module.exports = Factoid;
 var React = require('react');
 
 var Library = React.createClass({
-    displayName: 'Library',
 
     getInitialState: function getInitialState() {
         console.info('[Library] getInitialState');
@@ -434,13 +432,21 @@ var Library = React.createClass({
             this.setState({ 'isScanning': true });
             $.getJSON('/scan/dir').done((function () {
                 console.info('[Library] scanDirectory: done');
-            }).bind(this)).always((function (data) {
-                this.setState({ 'isScanning': false });
-                if (data['parsed'] >= 50) {
-                    this.scanDirectory();
-                }
+                this.scanId3s();
             }).bind(this));
         }
+    },
+
+    scanId3s: function scanId3s() {
+        console.info('[Library] scanId3s');
+        $.getJSON('/scan/id3').done((function () {
+            console.info('[Library] scanId3s: done');
+            if (data['parsed'] >= 50) {
+                this.scanId3s();
+            } else {
+                this.setState({ 'isScanning': false });
+            }
+        }).bind(this));
     },
 
     loadLibrarySongs: function loadLibrarySongs(grouping) {
@@ -578,8 +584,6 @@ var React = require('react');
 var SongDetails = require('./SongDetails.jsx');
 
 var Player = React.createClass({
-    displayName: 'Player',
-
     audio_tag: null,
     getInitialState: function getInitialState() {
         console.info('[Player] getInitialState...');
@@ -806,8 +810,6 @@ module.exports = Player;
 var React = require('react');
 
 var SongDetails = React.createClass({
-    displayName: 'SongDetails',
-
     render: function render() {
         return React.createElement(
             'span',
