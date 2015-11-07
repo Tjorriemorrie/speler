@@ -1,18 +1,18 @@
 dbdata:
   image: postgres
   volumes:
-   - /var/lib/postgresql
+    - /var/lib/postgresql
   command: date
 db:
   image: postgres
   volumes_from:
-   - dbdata
+    - dbdata
   environment:
-   - POSTGRES_PASSWORD=spe1er
-   - POSTGRES_USER=speler
-   - POSTGRES_DB=musiek
+    - POSTGRES_PASSWORD=spe1er
+    - POSTGRES_USER=speler
+    - POSTGRES_DB=musiek
   ports:
-   - "5432:5432"
+    - "5432:5432"
 web:
   build: .
   volumes:

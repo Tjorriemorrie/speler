@@ -44,8 +44,8 @@ def findFiles(grouping):
 @jsonapi
 def scanDir():
     res = {}
-    res['lost'] = validateSongs()
-    res['new'] = scanDirectory()
+    res['lost'] = 0 #validateSongs()
+    res['new'] = 0 #scanDirectory()
     return res
 
 

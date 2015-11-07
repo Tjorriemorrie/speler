@@ -39,6 +39,8 @@ class Song(db.Model):
         self.abs_path = path
         self.web_path = path[9:]
         self.path_name = self.web_path[len('/static/music/'):]
+        self.priority = 0.5
+        self.days_since_played = 7
 
     @hybrid_property
     def days_since_rated(self):
@@ -94,6 +96,7 @@ class Album(db.Model):
 
     def __init__(self, name, artist):
         self.name = name
+        self.name_id = name.lower().strip()
         self.artist = artist
 
     def __json__(self):
@@ -128,6 +131,7 @@ class Artist(db.Model):
 
     def __init__(self, name):
         self.name = name
+        self.name_id = name.lower().strip()
 
     def __json__(self):
         return [

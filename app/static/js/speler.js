@@ -439,7 +439,7 @@ var Library = React.createClass({
 
     scanId3s: function scanId3s() {
         console.info('[Library] scanId3s');
-        $.getJSON('/scan/id3').done((function () {
+        $.getJSON('/scan/id3').done((function (data) {
             console.info('[Library] scanId3s: done');
             if (data['parsed'] >= 50) {
                 this.scanId3s();

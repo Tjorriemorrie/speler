@@ -103,7 +103,7 @@ def parseId3Tags():
         app.logger.debug(info)
 
         # artist info
-        artist = Artist.query.filter_by(name=info['artist_name']).first()
+        artist = Artist.query.filter_by(name_id=info['artist_name'].lower().strip()).first()
         if not artist:
             artist = Artist(info['artist_name'])
             db.session.add(artist)
@@ -112,7 +112,7 @@ def parseId3Tags():
         song.artist_id = artist.id
 
         # album info
-        album = Album.query.filter_by(name=info['album_name'], artist=artist).first()
+        album = Album.query.filter_by(name_id=info['album_name'].lower().strip(), artist=artist).first()
         if not album:
             album = Album(info['album_name'], artist)
             album.disc_number = info['disc_number']
@@ -138,7 +138,7 @@ def parseId3Tags():
 def getSelections():
     app.logger.info('Fetching selections')
     n = 10
-    m = 3
+    m = 4
     selections = []
     used_ids = []
 
