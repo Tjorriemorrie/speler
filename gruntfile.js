@@ -45,9 +45,7 @@ module.exports = function (grunt) {
                     './app/static/js/vendor.min.js': [
                         './bower_components/jquery/dist/jquery.min.js',
                         './bower_components/bootstrap/dist/js/bootstrap.min.js',
-                        './bower_components/lodash/lodash.min.js',
                         './bower_components/react/react.min.js',
-                        './bower_components/react-smallgrid/dist/smallgrid.min.js'
                     ]
                 }
             },

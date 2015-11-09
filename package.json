@@ -28,6 +28,7 @@
     "grunt-contrib-watch": "^0.6.1"
   },
   "dependencies": {
-    "react": "^0.13.0"
+    "react": "^0.13.0",
+    "react-smallgrid": "^2.0.2"
   }
 }

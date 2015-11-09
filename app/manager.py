@@ -138,7 +138,7 @@ def parseId3Tags():
 def getSelections():
     app.logger.info('Fetching selections')
     n = 10
-    m = 4
+    m = 3
     selections = []
     used_ids = []
 
@@ -152,6 +152,7 @@ def getSelections():
     # first play unrated songs
     songs = Song.query.filter(Song.count_rated==0).all()
     if len(songs) > m * n:
+        m *= 2
         for _ in range(n):
             selection = []
             for i in range(m):

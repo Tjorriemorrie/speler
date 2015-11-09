@@ -1,4 +1,5 @@
-var React = require('react');
+import React from 'react';
+import SmallGrid from 'react-smallgrid';
 
 
 var Library = React.createClass({
@@ -89,6 +90,7 @@ var Library = React.createClass({
         console.info('[Library] getGrid');
 
         if (this.state.grouping == 'artists') {
+            console.info('[Library] getGrid: artists');
             return <div>
                 <h4>Artists</h4>
                 <SmallGrid
@@ -148,14 +150,14 @@ var Library = React.createClass({
                 </h3>
 
                 <div className="btn-group" data-toggle="buttons">
-                    <label className="btn btn-default">
-                        <input type="radio" autoComplete="off" onClick={this.onTabSelect.bind(this, 'artists')} /> Artists
+                    <label className="btn btn-default" onClick={this.onTabSelect.bind(this, 'artists')}>
+                        <input type="radio" autoComplete="off" /> Artists
                     </label>
-                    <label className="btn btn-default">
-                        <input type="radio" autoComplete="off" onClick={this.onTabSelect.bind(this, 'albums')} /> Albums
+                    <label className="btn btn-default" onClick={this.onTabSelect.bind(this, 'albums')}>
+                        <input type="radio" autoComplete="off" /> Albums
                     </label>
-                    <label className="btn btn-default">
-                        <input type="radio" autoComplete="off" onClick={this.onTabSelect.bind(this, 'songs')} /> Songs
+                    <label className="btn btn-default" onClick={this.onTabSelect.bind(this, 'songs')}>
+                        <input type="radio" autoComplete="off" /> Songs
                     </label>
                 </div>
 
