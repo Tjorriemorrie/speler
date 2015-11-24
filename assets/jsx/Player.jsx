@@ -18,8 +18,8 @@ var Player = React.createClass({
         this.audio_tag = React.findDOMNode(this.refs.audio_tag);
         this.audio_tag.addEventListener('ended', this.onEnded);
         console.info('[Player] audio_tag event listener added for ended');
-        this.audio_tag.volume = 0.25;
-        console.info('[Player] audio_tag volume set to 75%');
+        this.audio_tag.volume = 0.50;
+        console.info('[Player] audio_tag volume set to 50%');
         this.loadQueue();
     },
     notifyPing: function () {

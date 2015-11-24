@@ -17,7 +17,7 @@ import sqlalchemy as sa
 def upgrade():
     conn = op.get_bind()
     conn.execute(sa.sql.text('''
-CREATE OR REPLACE FUNCTION update_priority ()
+CREATE OR REPLACE FUNCTION update_priority()
   RETURNS TRIGGER
 AS
 $BODY$
