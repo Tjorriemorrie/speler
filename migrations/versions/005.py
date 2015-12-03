@@ -42,7 +42,7 @@ BEGIN
 
     -- avg played
     SELECT EXTRACT(DAY FROM (NOW() - TO_TIMESTAMP(AVG(EXTRACT(EPOCH FROM played_at))))) INTO STRICT v_days_since_avg_played_at FROM song;
-    NEW.days_since_played := v_days_since_avg_played_at;
+    NEW.days_since_played := GREATEST(1, v_days_since_avg_played_at);
 
     RETURN NEW;
 END;

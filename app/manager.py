@@ -151,7 +151,7 @@ def getSelections():
 
     # first play unrated songs
     songs = Song.query.filter(Song.count_rated==0).all()
-    if len(songs) > m * n:
+    if len(songs) > ((m*2) * n):
         m *= 2
         for _ in range(n):
             selection = []
