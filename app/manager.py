@@ -137,7 +137,7 @@ def parseId3Tags():
 
 def getSelections():
     app.logger.info('Fetching selections')
-    n = 10
+    n = 5
     m = 3
     selections = []
     used_ids = []
@@ -186,7 +186,21 @@ def getSelections():
     return selections
 
 
-def addSongToQueue(song):
+def addSongToQueue(song=None):
+    if not song:
+        used_ids = []
+        # exclude songs from queue
+        queues = Queue.query.all()
+        app.logger.debug('{} in queue'.format(len(queues)))
+        for queue in queues:
+            used_ids.append(queue.song_id)
+        app.logger.debug('Used ids: {}'.format(used_ids))
+        # fetch next best priority
+        song = Song.query.filter(
+            Song.id.notin_(used_ids)
+        ).order_by(
+            Song.priority.desc()
+        ).limit(1).one()
     app.logger.info('Adding song to queue {}'.format(song))
     queue = Queue(song)
     db.session.add(queue)
