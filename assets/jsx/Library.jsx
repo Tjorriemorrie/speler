@@ -2,104 +2,53 @@ import React from 'react';
 import SmallGrid from 'react-smallgrid';
 
 
-var Library = React.createClass({
+export default class Library extends React.Component{
 
-    getInitialState: function () {
-        console.info('[Library] getInitialState');
-        return {
+    constructor(props) {
+        console.info('[Library] constructor');
+        super(props);
+        this.state = {
             'isScanning': false,
             'grouping': null,
             'rows': []
         };
-    },
+    }
 
-    componentDidMount: function () {
-        console.info('[Library] componentDidMount');
-    },
+    render() {
+        console.info('[Library] render');
 
-    onTabSelect: function (grouping) {
-        console.info('[Library] onTabSelect: ', grouping);
-        this.loadLibrarySongs(grouping);
-    },
+        return <div className="row">
+            <h3>Library</h3>
 
-    scanDirectory: function () {
-        console.info('[Library] scandir');
-        if (this.state.isScanning) {
-            alert('Scanning in progress');
-        } else {
-            this.setState({'isScanning': true});
-            $.getJSON('/scan/dir')
-                .done(function () {
-                    console.info('[Library] scanDirectory: done');
-                    this.scanId3s();
-                }.bind(this));
-        }
-    },
+            <div className="btn-group" data-toggle="buttons">
+                <label className="btn btn-default" onClick={() => this.loadLibrarySongs('artists')}>
+                    <input type="radio" autoComplete="off" /> Artists
+                </label>
+                <label className="btn btn-default" onClick={() => this.loadLibrarySongs('albums')}>
+                    <input type="radio" autoComplete="off" /> Albums
+                </label>
+                <label className="btn btn-default" onClick={() => this.loadLibrarySongs('songs')}>
+                    <input type="radio" autoComplete="off" /> Songs
+                </label>
+            </div>
 
-    scanId3s: function () {
-        console.info('[Library] scanId3s');
-        $.getJSON('/scan/id3')
-            .done(function (data) {
-                console.info('[Library] scanId3s: done');
-                if (data['parsed'] >= 50) {
-                    this.scanId3s();
-                } else {
-                    this.setState({'isScanning': false});
-                }
-            }.bind(this));
-    },
+            {this.getGrid()}
+        </div>;
+    }
 
-    loadLibrarySongs: function (grouping) {
-        console.info('[Library] loadLibrarySongs: grouping = ', grouping);
-        $.getJSON('/find/' + grouping)
-            .done(function (data) {
-                console.info('[Library] loadLibrarySongs done');
-                this.setState({
-                    'grouping': grouping,
-                    'rows': data
-                });
-            }.bind(this));
-    },
-
-    formatPercentage: function (v) {
-        return Math.round(v * 100) + '%';
-    },
-
-    updateRow: function (row, key, val) {
-        console.info('[Library] updateRow', row, key, val);
-
-        var params = {'id': row.id};
-        params[key] = val;
-
-        // submit form
-        $.post('/set/' + this.props.grouping, params)
-            .done(function (res) {
-                console.info('[Library] updateRow: done', res);
-            }.bind(this))
-            .fail(function (data, status, headers, config) {
-                console.error('[Library] updateRow: error', data);
-                alert('Error [Library] updateRow');
-            }.bind(this))
-            .always(function () {
-                console.info('[Library] updateRow: always');
-                this.loadLibrarySongs(this.props.grouping);
-            }.bind(this));
-    },
-
-    getGrid: function () {
-        console.info('[Library] getGrid');
+    getGrid() {
+        console.info('[Library] getGrid', this.state.grouping);
 
         if (this.state.grouping == 'artists') {
-            console.info('[Library] getGrid: artists');
             return <div>
                 <h4>Artists</h4>
                 <SmallGrid
                     rows={this.state.rows}
                     cols={[
-                        {'key': 'rating', 'name': 'Rating', 'format': this.formatPercentage},
-                        {'key': 'name', 'name': 'Title', 'edit': this.updateRow},
+                        {'key': 'rating', 'name': 'Rating'},
+                        {'key': 'name', 'name': 'Title'},
                         {'key': 'count_albums', 'name': 'Albums'},
-                        {'key': 'count_songs', 'name': 'Songs'},
+                        {'key': 'count_songs', 'name': 'Songs'}
                     ]}
                 />
             </div>;
@@ -135,36 +84,47 @@ var Library = React.createClass({
                 />
             </div>;
         }
-    },
 
-    render: function () {
-        console.info('[Library] render');
-
-        var smallGrid = this.getGrid();
-
-        return (
-            <div className="row">
-                <h3>
-                    <button className="btn btn-default btn-sm pull-right" onClick={this.scanDirectory}>{this.state.isScanning ? 'Scanning...' : 'Refresh'}</button>
-                    Library
-                </h3>
-
-                <div className="btn-group" data-toggle="buttons">
-                    <label className="btn btn-default" onClick={this.onTabSelect.bind(this, 'artists')}>
-                        <input type="radio" autoComplete="off" /> Artists
-                    </label>
-                    <label className="btn btn-default" onClick={this.onTabSelect.bind(this, 'albums')}>
-                        <input type="radio" autoComplete="off" /> Albums
-                    </label>
-                    <label className="btn btn-default" onClick={this.onTabSelect.bind(this, 'songs')}>
-                        <input type="radio" autoComplete="off" /> Songs
-                    </label>
-                </div>
-
-                {smallGrid}
-            </div>
-        );
     }
-});
 
-module.exports = Library;
+    loadLibrarySongs(grouping) {
+        console.info('[Library] loadLibrarySongs: grouping = ', grouping);
+        fetch('/find/' + grouping)
+            .then(r => r.json())
+            .then(data => {
+                console.info('[Library] loadLibrarySongs done');
+                this.setState({
+                    'grouping': grouping,
+                    'rows': data
+                });
+            });
+    }
+
+
+    formatPercentage(v) {
+        return Math.round(v * 100) + '%';
+    }
+
+    updateRow(row, key, val) {
+        console.info('[Library] updateRow', row, key, val);
+
+        let fd = new FormData();
+        fd.append('id', row.id);
+        fd.append(key, val);
+
+        fetch('/set/' + this.props.grouping, {
+            method: 'POST',
+            body: fd
+        })
+            .then(r => console.info('[Library] updateRow: done'))
+            .catch(e => {
+                console.error('[Library] updateRow: error', e);
+                alert('Error [Library] updateRow');
+            })
+            .always(() => {
+                console.info('[Library] updateRow: always');
+                this.loadLibrarySongs(this.props.grouping);
+            });
+    }
+
+}

@@ -1,12 +1,13 @@
-var React = require('react');
-var Player = require('./Player.jsx');
-var Library = require('./Library.jsx');
-var Factoid = require('./Factoid.jsx');
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Player from './Player.jsx';
+import Library from './Library.jsx';
+//import Factoid = require('./Factoid.jsx');
 
 
-var App = new React.createClass({
+export default class App extends React.Component{
 
-	render: function () {
+	render() {
 		console.info('[App] render');
 		return (
 			<div className="row">
@@ -14,13 +15,13 @@ var App = new React.createClass({
 					<Player/>
 				</div>
 				<div id="lib-side" className="col-sm-7">
-			        <Factoid/>
-			        <Library/>
+                    <Library/>
 				</div>
 			</div>
 		);
-	},
+	}
+                    //<Factoid/>
 
-});
+}
 
-React.render(<App/>, document.getElementById('app'));
+ReactDOM.render(<App/>, document.getElementById('app'));

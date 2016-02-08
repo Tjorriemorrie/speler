@@ -1,8 +1,8 @@
-var React = require('react');
+import React from 'react';
 
 
-var SongDetails = React.createClass({
-    render: function () {
+export default class SongDetails extends React.Component{
+    render() {
         return (
             <span>
                 <strong>
@@ -16,7 +16,4 @@ var SongDetails = React.createClass({
             </span>
         );
     }
-});
-
-
-module.exports = SongDetails;
+}
