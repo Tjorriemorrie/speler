@@ -52,5 +52,5 @@ def downgrade():
     conn = op.get_bind()
     conn.execute(sa.sql.text('''
 DROP TRIGGER update_played_trigger ON history;
-DROP FUNCTION update_played;
+DROP FUNCTION update_played();
     '''))

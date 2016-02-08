@@ -49,6 +49,7 @@ BEGIN
         USING v_count_rated, NEW.rated_at, v_rating, NEW.song_loser_id;
 
     RETURN NULL;
+
 END;
 $BODY$
 LANGUAGE plpgsql VOLATILE;
@@ -65,5 +66,5 @@ def downgrade():
     conn = op.get_bind()
     conn.execute(sa.sql.text('''
 DROP TRIGGER update_rated_trigger ON rating;
-DROP FUNCTION update_rated;
+DROP FUNCTION update_rated();
     '''))

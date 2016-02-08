@@ -79,5 +79,5 @@ def downgrade():
     conn = op.get_bind()
     conn.execute(sa.sql.text('''
 DROP TRIGGER update_artist_trigger ON album;
-DROP FUNCTION update_artist;
+DROP FUNCTION update_artist();
     '''))
