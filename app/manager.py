@@ -199,7 +199,8 @@ def addSongToQueue(song=None):
         song = Song.query.filter(
             Song.id.notin_(used_ids)
         ).order_by(
-            Song.priority.desc()
+            Song.priority.desc(),
+            Song.played_at.asc()
         ).limit(1).one()
     app.logger.info('Adding song to queue {}'.format(song))
     queue = Queue(song)

@@ -52,11 +52,11 @@ class Song(db.Model):
 
     @hybrid_property
     def selection_weight(self):
-        return (self.priority) + (self.days_since_rated / float(self.days_since_played))
+        return (self.priority * 2.0) + (self.days_since_rated / float(self.days_since_played))
 
     @selection_weight.expression
     def selection_weight(cls):
-        return (cls.priority) + (cls.days_since_rated / db.func.cast(cls.days_since_played, db.Float))
+        return (cls.priority * 2.0) + (cls.days_since_rated / db.func.cast(cls.days_since_played, db.Float))
 
     def __json__(self):
         return [

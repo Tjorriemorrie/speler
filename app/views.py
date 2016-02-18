@@ -44,8 +44,8 @@ def findFiles(grouping):
 @jsonapi
 def scanDir():
     res = {}
-    res['lost'] = 0 #validateSongs()
-    res['new'] = 0 #scanDirectory()
+    res['lost'] = validateSongs()
+    res['new'] = scanDirectory()
     return res
 
 
@@ -86,7 +86,7 @@ def addQueue():
     ratings = createRatings(song, losers)
 
     queue = addSongToQueue(song)
-    queue = addSongToQueue()
+    # queue = addSongToQueue()
     app.logger.info('Adding {} to queue'.format(queue))
     return queue
 

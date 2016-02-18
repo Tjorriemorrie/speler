@@ -1,5 +1,6 @@
 import React from 'react';
 import SmallGrid from 'react-smallgrid';
+import Scanner from './Scanner.jsx';
 
 
 export default class Library extends React.Component{
@@ -18,7 +19,10 @@ export default class Library extends React.Component{
         console.info('[Library] render');
 
         return <div className="row">
-            <h3>Library</h3>
+            <h3>
+                <Scanner />
+                Library
+            </h3>
 
             <div className="btn-group" data-toggle="buttons">
                 <label className="btn btn-default" onClick={() => this.loadLibrarySongs('artists')}>
