@@ -86,7 +86,7 @@ def addQueue():
     ratings = createRatings(song, losers)
 
     queue = addSongToQueue(song)
-    # queue = addSongToQueue()
+    queue = addSongToQueue()
     app.logger.info('Adding {} to queue'.format(queue))
     return queue
 
