@@ -1,12 +1,5 @@
-dbdata:
-  image: postgres
-  volumes:
-    - /var/lib/postgresql
-  command: date
 db:
-  image: postgres
-  volumes_from:
-    - dbdata
+  image: postgres:9.4
   environment:
     - POSTGRES_PASSWORD=spe1er
     - POSTGRES_USER=speler
@@ -17,10 +10,9 @@ web:
   build: .
   volumes:
     - .:/code
-    - /Users/jaco/Dropbox/music:/code/app/static/music
+    - c:/Users/Jaco.Jansen/Dropbox/music:/code/app/static/music
   links:
     - db
   ports:
-    - "5678:5000"
+    - "5656:5000"
   command: python run.py
-

@@ -4,6 +4,7 @@ module.exports = {
     entry: path.resolve(__dirname, 'assets/jsx/App.jsx'),
     output: {
         path: path.resolve(__dirname, 'app/static/js'),
+        publicPath: '/static/js',
         filename: 'speler.js'
     },
     module: {

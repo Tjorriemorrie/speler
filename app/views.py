@@ -1,17 +1,33 @@
+from flask import request, render_template, Response, redirect
+from flask.ext.jsontools import jsonapi
+
 from app import app
-from flask import request, render_template, Response
 from app.models import Song, Queue, History, Artist, Album
 from app.manager import scanDirectory, getSelections, addSongToQueue, createHistory, validateSongs, createRatings, parseId3Tags, setArtist
 from app.manager import setSongName, setSongTrackNumber, setSongArtist, setSongAlbum
 from app.manager import setAlbumSize
-from flask.ext.jsontools import jsonapi
-# from lastfm import LastFm
+from app.lastfm import LastFm
 
 
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')
 def index(path):
+    lastfm = LastFm()
+    app.logger.info('LastFM session_key = {}'.format(lastfm.network.session_key))
+    if not lastfm.network.session_key:
+        app.logger.warn('authenticating with LastFM')
+        return redirect('{}&cb={}'.format(lastfm.URL_AUTH, lastfm.URL_CALLBACK))
     return render_template('base.html')
+
+
+@app.route('/lastfm/callback')
+def lastfm_callback():
+    token = request.args.get('token')
+    app.logger.info('lastfm callback received with token: {}'.format(token))
+    if not token:
+        raise ValueError('Invalid token received')
+    LastFm(token)
+    return redirect('/')
 
 
 @app.route('/find/<grouping>')
@@ -105,6 +121,7 @@ def ended():
     queue = Queue.query.get_or_404(id)
     history = createHistory(queue)
     app.logger.info('Set {} as {}'.format(queue, history))
+    LastFm().scrobble(history)
     return history
 
 
