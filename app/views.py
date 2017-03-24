@@ -101,6 +101,8 @@ def addQueue():
     app.logger.info('Losers {}'.format(losers))
     ratings = createRatings(song, losers)
 
+    LastFm().show_some_love([song] + [r.song_loser for r in ratings])
+
     queue = addSongToQueue(song)
     queue = addSongToQueue()
     app.logger.info('Adding {} to queue'.format(queue))

@@ -1,10 +1,11 @@
-import os
-import random
-from app import app, db
-from app.models import Song, Queue, History, Rating, Artist, Album
 from mutagen.mp3 import MP3
 from mutagen.mp4 import MP4
 from mutagen.id3 import ID3, COMM, TRCK, TPE1, TIT2, TALB
+import os
+import random
+
+from app import app, db
+from app.models import Song, Queue, History, Rating, Artist, Album
 
 
 def scanDirectory():
