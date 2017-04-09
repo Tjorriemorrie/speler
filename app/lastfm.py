@@ -51,21 +51,32 @@ class LastFm:
         for song in songs:
             db.session.refresh(song)
             network_track = self.network.get_track(song.artist.name, song.name)
-            is_loved = network_track.get_userloved()
-            # app.logger.debug('found network track {}'.format(network_track))
+            is_loved = song.rating >= self.LOVE_CUTOFF
+            app.logger.debug('[{:.0f}%] {} loving {}'.format(
+                song.rating * 100, is_loved, network_track))
             if is_loved:
-                if song.rating < self.LOVE_CUTOFF:
-                    app.logger.info('lost love {} [{:.0f}%]'.format(network_track, song.rating *
-                                                                   100))
-                    network_track.unlove()
-                else:
-                    app.logger.info('still loving {} [{:.0f}%]'.format(network_track, song.rating *
-                                                                     100))
+                network_track.love()
             else:
-                if song.rating >= self.LOVE_CUTOFF:
-                    app.logger.info('new love {} [{:.0f}%]'.format(network_track, song.rating *
-                                                                   100))
-                    network_track.love()
-                else:
-                    app.logger.info('still no love for {} [{:.0f}%]'.format(network_track,
-                                                                         song.rating * 100))
+                network_track.unlove()
+            # is_loved = network_track.get_userloved()
+            # app.logger.debug('found network track {} loved {}'.format(network_track, is_loved))
+            # if is_loved:
+            #     if song.rating < self.LOVE_CUTOFF:
+            #         app.logger.info('lost love {} [{:.0f}%]'.format(network_track, song.rating *
+            #                                                        100))
+            #         res = network_track.unlove()
+            #         app.logger.debug(res)
+            #     else:
+            #         app.logger.info('still loving {} [{:.0f}%]'.format(network_track, song.rating *
+            #                                                          100))
+            # else:
+            #     res = network_track.unlove()
+            #     app.logger.debug(res)
+            #     if song.rating >= self.LOVE_CUTOFF:
+            #         app.logger.info('new love {} [{:.0f}%]'.format(network_track, song.rating *
+            #                                                        100))
+            #         res = network_track.love()
+            #         app.logger.debug(res)
+            #     else:
+            #         app.logger.info('still no love for {} [{:.0f}%]'.format(network_track,
+            #                                                              song.rating * 100))

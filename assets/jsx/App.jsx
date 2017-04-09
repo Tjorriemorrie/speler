@@ -5,7 +5,7 @@ import Library from './Library.jsx';
 //import Factoid = require('./Factoid.jsx');
 
 
-export default class App extends React.Component{
+export default class App extends React.Component {
 
 	render() {
 		console.info('[App] render');

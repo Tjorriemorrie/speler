@@ -1,9 +1,11 @@
 import React from 'react';
 import SmallGrid from 'react-smallgrid';
+
+import Factoid from './Factoid.jsx';
 import Scanner from './Scanner.jsx';
 
 
-export default class Library extends React.Component{
+export default class Library extends React.Component {
 
     constructor(props) {
         console.info('[Library] constructor');
@@ -23,6 +25,8 @@ export default class Library extends React.Component{
                 <Scanner />
                 Library
             </h3>
+
+            <Factoid/>
 
             <div className="btn-group" data-toggle="buttons">
                 <label className="btn btn-default" onClick={() => this.loadLibrarySongs('artists')}>
@@ -49,8 +53,8 @@ export default class Library extends React.Component{
                 <SmallGrid
                     rows={this.state.rows}
                     cols={[
-                        {'key': 'rating', 'name': 'Rating'},
-                        {'key': 'name', 'name': 'Title'},
+                        {'key': 'rating', 'name': 'Rating', 'format': this.formatPercentage},
+                        {'key': 'name', 'name': 'Title', 'edit': (r, k, v) => this.updateRow(r, k, v)},
                         {'key': 'count_albums', 'name': 'Albums'},
                         {'key': 'count_songs', 'name': 'Songs'}
                     ]}
@@ -65,7 +69,7 @@ export default class Library extends React.Component{
                     rows={this.state.rows}
                     cols={[
                         {'key': 'rating', 'name': 'Rating', 'format': this.formatPercentage},
-                        {'key': 'name', 'name': 'Title', 'edit': this.updateRow},
+                        {'key': 'name', 'name': 'Title', 'edit': (r, k, v) => this.updateRow(r, k, v)},
                         {'key': 'artist.name', 'name': 'Artist'},
                         {'key': 'count_songs', 'name': 'Songs'},
                     ]}
@@ -80,10 +84,10 @@ export default class Library extends React.Component{
                     rows={this.state.rows}
                     cols={[
                         {'key': 'rating', 'name': 'Rating', 'format': this.formatPercentage},
-                        {'key': 'name', 'name': 'Title', 'edit': this.updateRow},
-                        {'key': 'artist.name', 'name': 'Artist', 'edit': this.updateRow},
-                        {'key': 'album.name', 'name': 'Album', 'edit': this.updateRow},
-                        {'key': 'track_number', 'name': 'Track', 'edit': this.updateRow},
+                        {'key': 'name', 'name': 'Title', 'edit': (r, k, v) => this.updateRow(r, k, v)},
+                        {'key': 'artist.name', 'name': 'Artist', 'edit': (r, k, v) => this.updateRow(r, k, v)},
+                        {'key': 'album.name', 'name': 'Album', 'edit': (r, k, v) => this.updateRow(r, k, v)},
+                        {'key': 'track_number', 'name': 'Track', 'edit': (r, k, v) => this.updateRow(r, k, v)},
                     ]}
                 />
             </div>;
@@ -112,13 +116,13 @@ export default class Library extends React.Component{
     updateRow(row, key, val) {
         console.info('[Library] updateRow', row, key, val);
 
-        let fd = new FormData();
-        fd.append('id', row.id);
-        fd.append(key, val);
+        let form = {'id': row.id}
+        form[key] = val
 
-        fetch('/set/' + this.props.grouping, {
-            method: 'POST',
-            body: fd
+        fetch('/factoid/' + this.state.grouping, {
+            'method': 'POST',
+            'headers': new Headers({'Content-Type': 'application/json'}),
+            'body': JSON.stringify(form),
         })
             .then(r => console.info('[Library] updateRow: done'))
             .catch(e => {
@@ -127,7 +131,7 @@ export default class Library extends React.Component{
             })
             .always(() => {
                 console.info('[Library] updateRow: always');
-                this.loadLibrarySongs(this.props.grouping);
+                this.loadLibrarySongs(this.state.grouping);
             });
     }
 

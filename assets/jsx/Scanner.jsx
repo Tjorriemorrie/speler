@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-export default class Scanner extends React.Component{
+export default class Scanner extends React.Component {
 
     constructor(props) {
         console.info('[Scanner] constructor');

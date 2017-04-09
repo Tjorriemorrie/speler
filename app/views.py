@@ -1,12 +1,13 @@
-from flask import request, render_template, Response, redirect
+from flask import request, render_template, Response, redirect, session
 from flask.ext.jsontools import jsonapi
 
 from app import app
-from app.models import Song, Queue, History, Artist, Album
+from app.facts import Factoid
+from app.lastfm import LastFm
 from app.manager import scanDirectory, getSelections, addSongToQueue, createHistory, validateSongs, createRatings, parseId3Tags, setArtist
 from app.manager import setSongName, setSongTrackNumber, setSongArtist, setSongAlbum
 from app.manager import setAlbumSize
-from app.lastfm import LastFm
+from app.models import Song, Queue, History, Artist, Album
 
 
 @app.route('/', defaults={'path': ''})
@@ -127,73 +128,12 @@ def ended():
     return history
 
 
-@app.route('/factoid/<section>', methods=['GET', 'POST'])
+@app.route('/factoid/<info>', methods=['POST'])
 @jsonapi
-def factoid(section):
-
-    if request.method == 'GET':
-
-        app.logger.info('factoid get with {}'.format(section))
-
-        if section == 'is_logged_in':
-            # lastfm = LastFm()
-            return True
-
-        elif section == 'is_parsed':
-            cnt = Song.query.filter(
-                Song.id3_parsed.is_(False)
-            ).count()
-            return {'count': cnt} if cnt else True
-
-        elif section == 'is_songs_named':
-            song = Song.query.filter(
-                Song.name.is_(None)
-            ).first()
-            return True if not song else song
-
-        elif section == 'is_songs_tracked':
-            song = Song.query.filter(
-                Song.track_number.is_(None)
-            ).first()
-            return True if not song else song
-
-        elif section == 'is_songs_artist':
-            song = Song.query.filter(
-                Song.artist_id.is_(None)
-            ).first()
-            return True if not song else song
-
-        elif section == 'is_songs_album':
-            song = Song.query.filter(
-                Song.album_id.is_(None)
-            ).first()
-            return True if not song else song
-
-        elif section == 'is_albums_sized':
-            album = Album.query.filter(
-                Album.total_tracks.is_(None)
-            ).first()
-            return True if not album else album
-
-        elif section == 'is_albums_complete':
-            album = Album.query.filter(
-                Album.total_tracks != Album.count_songs
-            ).first()
-            return True if not album else {
-                'album': album,
-                'songs': album.songs,
-            }
-
-        else:
-            raise Exception('you want what? {}'.format(section))
-
-
-@app.route('/set/<info>', methods=['POST'])
-@jsonapi
-def setInfo(info):
+def factoid_set(info):
     app.logger.info('set {}'.format(info))
 
-    form_data = request.form
+    form_data = request.get_json()
     app.logger.info('form data: {}'.format(form_data))
 
     if info == 'artists':
@@ -220,3 +160,12 @@ def setInfo(info):
 
     else:
         raise Exception('unknown info {}'.format(info))
+
+
+@app.route('/factoid', methods=['GET'])
+@jsonapi
+def factoid():
+    factoid_session = session.get('factoid', [])
+    app.logger.info('factoid session = {}'.format(factoid_session))
+    return Factoid(factoid_session).next_fact()
+

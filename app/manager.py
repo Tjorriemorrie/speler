@@ -391,6 +391,7 @@ def setAlbumSize(album, total_tracks):
 
     # update album
     album.total_tracks = int(total_tracks)
+    album.count_songs = len(album.songs)
     db.session.commit()
     app.logger.info('Update album')
 
