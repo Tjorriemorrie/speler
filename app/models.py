@@ -14,21 +14,27 @@ class Song(db.Model):
     name = db.Column(db.String(255))
     track_number = db.Column(db.Integer)
     album_id = db.Column(db.Integer, db.ForeignKey('album.id'))
-    album = db.relationship('Album', lazy='joined', cascade='all, delete-orphan', single_parent=True)
+    album = db.relationship('Album', lazy='joined', cascade='all, delete-orphan',
+                            single_parent=True, back_populates='songs')
     artist_id = db.Column(db.Integer, db.ForeignKey('artist.id'))
-    artist = db.relationship('Artist', lazy='joined', cascade='all, delete-orphan', single_parent=True)
+    artist = db.relationship('Artist', lazy='joined', cascade='all, delete-orphan',
+                             single_parent=True, back_populates='songs')
 
     # plays
-    queue = db.relation('Queue', cascade="all, delete-orphan")
+    queue = db.relation('Queue', cascade="all, delete-orphan", back_populates='song')
     count_played = db.Column(db.Integer, server_default=u'0', nullable=False)
     played_at = db.Column(db.DateTime, server_default=db.func.now(), nullable=False)
-    histories = db.relationship('History', cascade="all, delete-orphan")
+    histories = db.relationship('History', cascade="all, delete-orphan", back_populates='song')
+
     # ratings
-    ratings_winners = db.relationship('Rating', backref='song_winner', foreign_keys='Rating.song_winner_id', cascade="all, delete-orphan")
-    ratings_losers = db.relationship('Rating', backref='song_loser', foreign_keys='Rating.song_loser_id', cascade="all, delete-orphan")
+    ratings_winners = db.relationship('Rating', backref='song_winner',
+                                      foreign_keys='Rating.song_winner_id', cascade="all, delete-orphan")
+    ratings_losers = db.relationship('Rating', backref='song_loser',
+                                     foreign_keys='Rating.song_loser_id', cascade="all, delete-orphan")
     rated_at = db.Column(db.DateTime, server_default=db.func.now(), nullable=False)
     count_rated = db.Column(db.Integer, server_default=u'0', nullable=False)
     rating = db.Column(db.Float, default=0.5, nullable=False)
+
     # other
     priority = db.Column(db.Float, nullable=False)
     days_since_played = db.Column(db.Integer, nullable=False)
@@ -80,9 +86,10 @@ class Album(db.Model):
     disc_number = db.Column(db.Integer, server_default=u'1')
     total_discs = db.Column(db.Integer, server_default=u'1')
 
-    songs = db.relationship('Song', lazy="joined")
+    songs = db.relationship('Song', lazy="joined", back_populates='album')
     artist_id = db.Column(db.Integer, db.ForeignKey('artist.id'))
-    artist = db.relationship('Artist', lazy='joined', cascade='all, delete-orphan', single_parent=True)
+    artist = db.relationship('Artist', lazy='joined', cascade='all, delete-orphan',
+                             single_parent=True, back_populates='albums')
 
     count_songs = db.Column(db.Integer)
     count_played = db.Column(db.Integer)
@@ -115,8 +122,8 @@ class Artist(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(255), unique=True)
     name_id = db.Column(db.String(255), unique=True)
-    songs = db.relationship('Song', lazy="joined")
-    albums = db.relationship('Album', lazy="joined")
+    songs = db.relationship('Song', lazy="joined", back_populates='artist')
+    albums = db.relationship('Album', lazy="joined", back_populates='artist')
 
     count_songs = db.Column(db.Integer)
     count_albums = db.Column(db.Integer)
@@ -148,7 +155,7 @@ class Artist(db.Model):
 class Queue(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     song_id = db.Column(db.Integer, db.ForeignKey('song.id'), unique=True, nullable=False)
-    song = db.relationship('Song', lazy='joined')
+    song = db.relationship('Song', lazy='joined', back_populates='queue')
     src = db.Column(db.String(255), nullable=False)
     created_at = db.Column(db.DateTime, server_default=db.func.now())
     updated_at = db.Column(db.DateTime, server_default=db.func.now(), onupdate=db.func.now())
@@ -167,7 +174,7 @@ class Queue(db.Model):
 class History(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     song_id = db.Column(db.Integer, db.ForeignKey('song.id'), nullable=False)
-    song = db.relationship('Song', lazy='joined')
+    song = db.relationship('Song', lazy='joined', back_populates='histories')
     played_at = db.Column(db.DateTime, server_default=db.func.now(), nullable=False)
     created_at = db.Column(db.DateTime, server_default=db.func.now())
     updated_at = db.Column(db.DateTime, server_default=db.func.now(), onupdate=db.func.now())

@@ -88,6 +88,7 @@ export default class Factoid extends React.Component {
                     <small className="text-muted">{song.web_path}</small>
                 </dd>
             </dl>
+            <p><label>Song name:</label></p>
             <input type="text" name="name" className="form-control input-sm" required autoFocus autoComplete="off"
                 onChange={e => this.setState({'form': {'name': e.target.value}})} />
             <button type="submit" className="btn btn-default btn-sm">Submit</button>
@@ -103,6 +104,7 @@ export default class Factoid extends React.Component {
                 <dd><span>{song.path_name}</span></dd>
                 <dd><small className="text-muted">{song.web_path}</small></dd>
             </dl>
+            <p><label>Number of tracks:</label></p>
             <input type="number" name="song_track_number" className="form-control input-sm" required autoFocus autoComplete="off"
                 onChange={e => this.setState({'form': {'song_track_number': e.target.value}})} />
             <button type="submit" className="btn btn-default btn-sm">Submit</button>
@@ -118,6 +120,7 @@ export default class Factoid extends React.Component {
                 <dd>{song.name}</dd>
                 <dd><small className="text-muted">{song.web_path}</small></dd>
             </dl>
+            <p><label>Artist name:</label></p>
             <input type="text" className="form-control input-sm" name="artist.name" required autoFocus autoComplete="off"
                 onChange={e => this.setState({'form': {'artist.name': e.target.value}})} />
             <button type="submit" className="btn btn-default btn-sm">Submit</button>
@@ -133,6 +136,7 @@ export default class Factoid extends React.Component {
                 <dd>{song.name}</dd>
                 <dd><small className="text-muted">{song.web_path}</small></dd>
             </dl>
+            <p><label>Album name:</label></p>
             <input type="text" className="form-control input-sm" name="album.name" required autoFocus autoComplete="off"
                    onChange={e => this.setState({'form': {'album.name': e.target.value}})} />
             <button type="submit" className="btn btn-default btn-sm">Submit</button>
@@ -148,6 +152,7 @@ export default class Factoid extends React.Component {
                 <dd><span>{album.name}</span></dd>
                 <dd>~ {album.artist.name}</dd>
             </dl>
+            <p><label>Number of tracks on album:</label></p>
             <input type="number" name="total_tracks" className="form-control input-sm" required autoFocus autoComplete="off"
                    onChange={e => this.setState({'form': {'total_tracks': e.target.value}})} />
             <button type="submit" className="btn btn-default btn-sm">Submit</button>
@@ -160,10 +165,12 @@ export default class Factoid extends React.Component {
         return <form className="form" onSubmit={e => this.submitAlbum(e, album.id)}>
             <h4>This album has missing tracks!</h4>
             <dl>
-                <dt>The albums has currently <strong>{album.total_tracks}</strong> tracks.</dt>
+                <dt>The albums has currently <strong>{songs.length}</strong> tracks but
+                    expected <strong>{album.total_tracks}</strong>.</dt>
                 <dd><span>{album.name}</span></dd>
                 <dd>~ {album.artist.name}</dd>
             </dl>
+            <p><label>Number of tracks on album:</label></p>
             <input type="number" className="form-control input-sm" id="album_size" name="total_tracks" required autoFocus
                    onChange={e => this.setState({'form': {'total_tracks': e.target.value}})} />
             <button type="submit" className="btn btn-default btn-sm">Submit</button>
@@ -208,7 +215,7 @@ export default class Factoid extends React.Component {
                 this.loadFact()
             })
             .catch(e => {
-                console.error('[Factoid] sendFactoid: error', e)
+                console.error('[Factoid] sendFactoid: error', e.message)
                 alert('Error sendFactoid')
             })
     }

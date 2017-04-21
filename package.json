@@ -21,15 +21,20 @@
   "devDependencies": {
     "babel-core": "^6.5.1",
     "babel-loader": "^6.2.2",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
     "babel-preset-es2015": "^6.5.0",
     "babel-preset-react": "^6.5.0",
-    "react-hot-loader": "^1.3.0",
-    "webpack": "^1.12.13",
-    "webpack-dev-server": "^1.14.1"
+    "css-loader": "^0.28.0",
+    "less": "^2.7.2",
+    "less-loader": "^4.0.3",
+    "react-hot-loader": "^1.3.1",
+    "style-loader": "^0.16.1",
+    "webpack": "^2.4.1"
   },
   "dependencies": {
-    "react": "^0.14.6",
-    "react-dom": "^0.14.6",
-    "react-smallgrid": "^3.0.2"
+    "freezer-js": "^0.11.2",
+    "react": ">=0.14.x",
+    "react-dom": ">=0.14.x",
+    "react-smallgrid": ">=x.x.x"
   }
 }

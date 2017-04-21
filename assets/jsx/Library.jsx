@@ -127,7 +127,7 @@ export default class Library extends React.Component {
             .then(r => console.info('[Library] updateRow: done'))
             .catch(e => {
                 console.error('[Library] updateRow: error', e);
-                alert('Error [Library] updateRow');
+                alert('Error: ', e);
             })
             .always(() => {
                 console.info('[Library] updateRow: always');

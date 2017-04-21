@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Player from './Player.jsx';
 import Library from './Library.jsx';
-//import Factoid = require('./Factoid.jsx');
+require('./../less/speler.less');
 
 
 export default class App extends React.Component {

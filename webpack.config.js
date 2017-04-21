@@ -8,11 +8,15 @@ module.exports = {
         filename: 'speler.js'
     },
     module: {
-        loaders: [
+        rules: [
             {
                 test: /\.jsx?$/,
                 exclude: /(node_modules|bower_components)/,
-                loaders: ['react-hot', 'babel?cacheDirectory,presets[]=react,presets[]=es2015']
+                use: ['babel-loader']
+            },
+            {
+                test: /\.less$/,
+                use: ['style-loader', 'css-loader', 'less-loader']
             }
         ]
     }

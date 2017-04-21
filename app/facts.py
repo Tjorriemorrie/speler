@@ -1,4 +1,4 @@
-from app import app
+from app import app, db
 from app.models import Song, Album
 
 
@@ -91,6 +91,11 @@ class Factoid:
         ).first()
         if not album:
             return
+        if not album.songs:
+            app.logger.info('Deleting {} with no songs'.format(album.name))
+            db.session.delete(album)
+            db.session.commit()
+            return self.is_albums_complete()
         return {
             'album': album,
             'songs': album.songs,

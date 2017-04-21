@@ -375,6 +375,23 @@ def setSongAlbum(song, album_name):
 ## ALBUM details
 ###############################################################################
 
+def setAlbumName(album, name):
+    """update album name. If there is an existing album, then just delete the current album and
+    set the songs to that album"""
+    app.logger.info('setAlbumName: {}'.format(name))
+    existing_album = Album.query.filter_by(name=name).first()
+    if existing_album:
+        for song in album.songs:
+            song.album = existing_album
+        db.session.delete(album)
+        db.session.commit()
+        return existing_album
+    else:
+        album.name = name
+        db.session.commit()
+        return album
+
+
 def setAlbumSize(album, total_tracks):
     app.logger.info('setAlbumSize')
 

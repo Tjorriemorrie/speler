@@ -6,7 +6,7 @@ from app.facts import Factoid
 from app.lastfm import LastFm
 from app.manager import scanDirectory, getSelections, addSongToQueue, createHistory, validateSongs, createRatings, parseId3Tags, setArtist
 from app.manager import setSongName, setSongTrackNumber, setSongArtist, setSongAlbum
-from app.manager import setAlbumSize
+from app.manager import setAlbumSize, setAlbumName
 from app.models import Song, Queue, History, Artist, Album
 
 
@@ -138,28 +138,36 @@ def factoid_set(info):
 
     if info == 'artists':
         artist = Artist.query.get_or_404(form_data.get('id', 0))
-        setArtist(artist, form_data.get('name', None))
+        if 'name' in form_data:
+            setArtist(artist, form_data.get('name', None))
+        else:
+            raise ValueError('No artist key found to update')
 
     elif info == 'albums':
         album = Album.query.get_or_404(form_data.get('id', 0))
-        if 'total_tracks' in form_data:
+        if 'name' in form_data:
+            album = setAlbumName(album, form_data['name'])
+        elif 'total_tracks' in form_data:
             setAlbumSize(album, form_data.get('total_tracks', None))
+        else:
+            raise ValueError('No album key found to update')
         return album
 
     elif info == 'songs':
         song = Song.query.get_or_404(form_data.get('id', 0))
         if 'name' in form_data:
             setSongName(song, form_data.get('name', None))
-        if 'track_number' in form_data:
+        elif 'track_number' in form_data:
             setSongTrackNumber(song, form_data.get('track_number', None))
-        if 'artist.name' in form_data:
+        elif 'artist.name' in form_data:
             setSongArtist(song, form_data.get('artist.name', None))
-        if 'album.name' in form_data:
+        elif 'album.name' in form_data:
             setSongAlbum(song, form_data.get('album.name', None))
+        else:
+            raise ValueError('No song key found to update')
         return song
 
-    else:
-        raise Exception('unknown info {}'.format(info))
+    raise Exception('unknown info {}'.format(info))
 
 
 @app.route('/factoid', methods=['GET'])
