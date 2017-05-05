@@ -1,7 +1,10 @@
-psycopg2
+beautifulsoup4
 Flask
 Flask-SQLAlchemy==1.0
 Flask-Migrate
 Flask_JsonTools
 mutagen
+psycopg2
 pylast
+requests
+sortedcontainers

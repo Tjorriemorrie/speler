@@ -277,16 +277,15 @@ def setSongTrackNumber(song, track_number):
 
     # update track number
     app.logger.info('Updating track number {} for song {}'.format(track_number, song))
+    total_tracks = song.album and song.album.total_tracks
     if song.path_name.lower().endswith('mp3'):
         tags = ID3(song.abs_path)
-        if song.album and song.album.total_tracks:
-            tags["TRCK"] = TRCK(encoding=3, text=u'{}/{}'.format(track_number, song.album.total_tracks))
-        else:
-            tags["TRCK"] = TRCK(encoding=3, text=u'{}'.format(track_number))
+        tags["TRCK"] = TRCK(encoding=3, text=u'{}/{}'.format(track_number, total_tracks))
         tags.save(song.abs_path)
     elif song.path_name.lower().endswith('m4a'):
-        tags = MP4(song.abs_path)
-        raise Exception('Do song info for mp4')
+        mp4_song = MP4(song.abs_path)
+        mp4_song.tags['trkn'] = (song.track_number, total_tracks)
+        mp4_song.save()
 
     # update album
     song.track_number = track_number
@@ -364,8 +363,10 @@ def setSongAlbum(song, album_name):
         album.year = year
         db.session.add(album)
         db.session.commit()
-        app.logger.info('{} <= {}'.format(album, album_name))
+        app.logger.info('Created new album {} <= {}'.format(album, album_name))
     song.album_id = album.id
+
+    album.count_songs = len(album.songs)
 
     db.session.commit()
     app.logger.info('Update song in db')
@@ -379,14 +380,21 @@ def setAlbumName(album, name):
     """update album name. If there is an existing album, then just delete the current album and
     set the songs to that album"""
     app.logger.info('setAlbumName: {}'.format(name))
-    existing_album = Album.query.filter_by(name=name).first()
+    existing_album = Album.query.filter(
+        name == name,
+        Album.id != album.id
+    ).first()
+
     if existing_album:
+        app.logger.debug('Found existing album by name: {}'.format(existing_album))
         for song in album.songs:
-            song.album = existing_album
+            song.album_id = existing_album.id
         db.session.delete(album)
+        app.logger.debug('Album deleted and songs set to existing album by that name')
         db.session.commit()
         return existing_album
     else:
+        app.logger.debug('Album name changed')
         album.name = name
         db.session.commit()
         return album
@@ -394,6 +402,8 @@ def setAlbumName(album, name):
 
 def setAlbumSize(album, total_tracks):
     app.logger.info('setAlbumSize')
+
+    total_tracks = int(total_tracks)
 
     # update tag
     for song in album.songs:
@@ -403,8 +413,9 @@ def setAlbumSize(album, total_tracks):
             tags["TRCK"] = TRCK(encoding=3, text=u'{}/{}'.format(song.track_number, total_tracks))
             tags.save(song.abs_path)
         elif song.path_name.lower().endswith('m4a'):
-            tags = MP4(song.abs_path)
-            raise Exception('Do total tracks for mp4')
+            mp4_song = MP4(song.abs_path)
+            mp4_song.tags['trkn'] = [(song.track_number, total_tracks)]
+            mp4_song.save()
 
     # update album
     album.total_tracks = int(total_tracks)
@@ -415,11 +426,41 @@ def setAlbumSize(album, total_tracks):
     return album
 
 
+def setAlbumArtist(album, artist_name):
+    app.logger.info('setAlbumArtist')
+
+    if not artist_name:
+        raise Exception('Album has no artist name given')
+
+    # update model
+    artist = Artist.query.filter_by(name=artist_name).first()
+    if not artist:
+        artist = Artist(artist_name)
+        db.session.add(artist)
+        db.session.commit()
+        app.logger.info('{} <= {}'.format(artist, artist_name))
+    album.artist_id = artist.id
+
+    # update tag
+    app.logger.info('Updating artist {} for album {}'.format(artist_name, album))
+    for song in album.songs:
+        if song.path_name.lower().endswith('mp3'):
+            tags = ID3(song.abs_path)
+            tags["TPE1"] = TPE1(encoding=3, text=u'{}'.format(artist_name))
+            tags.save(song.abs_path)
+        elif song.path_name.lower().endswith('m4a'):
+            tags = MP4(song.abs_path)
+            raise Exception('Do song info for mp4')
+
+    db.session.commit()
+    app.logger.info('Update album with artist in db')
+
+
 ###############################################################################
 ## ARTIST details
 ###############################################################################
 
-def setArtist(artist, name):
+def setArtistName(artist, name):
     app.logger.info('New artist name: {}'.format(name))
 
     # update song artist title
@@ -438,6 +479,7 @@ def setArtist(artist, name):
         Artist.name == name,
         Artist.id != artist.id
     ).first()
+
     if artist_by_name:
         app.logger.info('Artist already exists with name {}'.format(name))
         for song in artist.songs:
@@ -451,14 +493,15 @@ def setArtist(artist, name):
 
             # update song
             song.artist = artist_by_name
+        db.session.commit()
+        return artist_by_name
 
     else:
         # update artist
         artist.name = name
         app.logger.info('Artist name updated')
+        db.session.commit()
+        return artist
 
-    db.session.commit()
-
-    return artist
 
 

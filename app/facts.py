@@ -1,3 +1,5 @@
+import json
+
 from app import app, db
 from app.models import Song, Album
 
@@ -12,6 +14,7 @@ class Factoid:
         'is_songs_artist',
         'is_songs_album',
         'is_albums_sized',
+        'is_albums_artist',
         'is_albums_complete',
     ]
 
@@ -79,6 +82,12 @@ class Factoid:
         ).first()
         return song
 
+    def is_albums_artist(self):
+        album = Album.query.filter(
+            Album.artist_id.is_(None)
+        ).first()
+        return album
+
     def is_albums_sized(self):
         album = Album.query.filter(
             Album.total_tracks.is_(None)
@@ -96,6 +105,9 @@ class Factoid:
             db.session.delete(album)
             db.session.commit()
             return self.is_albums_complete()
+        app.logger.info('incomplete album: name {}'.format(album.name))
+        app.logger.info('incomplete album: count_songs {}'.format(album.count_songs))
+        app.logger.info('incomplete album: len(songs) {}'.format(len(album.songs)))
         return {
             'album': album,
             'songs': album.songs,

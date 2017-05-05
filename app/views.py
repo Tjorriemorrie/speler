@@ -4,10 +4,11 @@ from flask.ext.jsontools import jsonapi
 from app import app
 from app.facts import Factoid
 from app.lastfm import LastFm
-from app.manager import scanDirectory, getSelections, addSongToQueue, createHistory, validateSongs, createRatings, parseId3Tags, setArtist
+from app.manager import scanDirectory, getSelections, addSongToQueue, createHistory, validateSongs, createRatings, parseId3Tags, setArtistName
 from app.manager import setSongName, setSongTrackNumber, setSongArtist, setSongAlbum
-from app.manager import setAlbumSize, setAlbumName
+from app.manager import setAlbumSize, setAlbumName, setAlbumArtist
 from app.models import Song, Queue, History, Artist, Album
+from app.recommendations import Recommendations
 
 
 @app.route('/', defaults={'path': ''})
@@ -139,7 +140,7 @@ def factoid_set(info):
     if info == 'artists':
         artist = Artist.query.get_or_404(form_data.get('id', 0))
         if 'name' in form_data:
-            setArtist(artist, form_data.get('name', None))
+            setArtistName(artist, form_data.get('name', None))
         else:
             raise ValueError('No artist key found to update')
 
@@ -148,7 +149,9 @@ def factoid_set(info):
         if 'name' in form_data:
             album = setAlbumName(album, form_data['name'])
         elif 'total_tracks' in form_data:
-            setAlbumSize(album, form_data.get('total_tracks', None))
+            setAlbumSize(album, form_data['total_tracks'])
+        elif 'artist.name' in form_data:
+            setAlbumArtist(album, form_data['artist.name'])
         else:
             raise ValueError('No album key found to update')
         return album
@@ -176,4 +179,11 @@ def factoid():
     factoid_session = session.get('factoid', [])
     app.logger.info('factoid session = {}'.format(factoid_session))
     return Factoid(factoid_session).next_fact()
+
+
+@app.route('/recommendations', methods=['GET'])
+@jsonapi
+def recommendations():
+    recommendations = Recommendations().run()
+    return recommendations
 

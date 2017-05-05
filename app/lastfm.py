@@ -1,4 +1,4 @@
-from pylast import LastFMNetwork, SessionKeyGenerator
+from pylast import LastFMNetwork, SessionKeyGenerator, PERIOD_12MONTHS
 import shelve
 
 from app import app, db
@@ -80,3 +80,19 @@ class LastFm:
             #     else:
             #         app.logger.info('still no love for {} [{:.0f}%]'.format(network_track,
             #                                                              song.rating * 100))
+
+    def get_user_top_albums(self, user_name, period=None):
+        """Get top albums for user"""
+        period = period or PERIOD_12MONTHS
+        user = self.network.get_user(user_name)
+        return user.get_top_albums(period)
+
+    def get_user_playcount(self, user):
+        """Get playcount of user"""
+
+    def get_similar_tracks(self, artist, title):
+        """Get similar tracks to this song"""
+        track = self.network.get_track(artist, title)
+        similar = track.get_similar()
+        app.logger.info('Found {} similar tracks for {} {}'.format(len(similar), artist, title))
+        return similar

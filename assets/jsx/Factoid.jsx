@@ -159,6 +159,22 @@ export default class Factoid extends React.Component {
         </form>
     }
 
+    render_is_albums_artist() {
+        const album = this.state.data
+        console.info('[Factoid] render_is_albums_artist', album)
+        return <form className="form" onSubmit={e => this.submitAlbum(e, album.id)}>
+            <dl>
+                <dt>What is the artist of this album?</dt>
+                <dd>{album.name}</dd>
+                <dd><small className="text-muted">{album.web_path}</small></dd>
+            </dl>
+            <p><label>Artist name:</label></p>
+            <input type="text" className="form-control input-sm" name="artist.name" required autoFocus autoComplete="off"
+                   onChange={e => this.setState({'form': {'artist.name': e.target.value}})} />
+            <button type="submit" className="btn btn-default btn-sm">Submit</button>
+        </form>
+    }
+
     render_is_albums_complete() {
         const {album, songs} = this.state.data
         console.info('[Factoid] is_albums_complete', album)
@@ -221,21 +237,3 @@ export default class Factoid extends React.Component {
     }
 
 }
-
-//     render: function () {
-//         console.info('[Factoid] render')
-//         var msg = null
-//
-//         else if (typeof(this.state.is_logged_in) != 'boolean') {
-//             msg = 'You are not logged into Last.fm'
-//         }
-//
-//         if (msg) {
-//             return (
-//                 <div className="alert alert-default">{msg}</div>
-//             )
-//         } else {
-//             return <span/>
-//         }
-//     }
-// })
