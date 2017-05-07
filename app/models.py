@@ -17,15 +17,15 @@ class Song(db.Model):
     artist_id = db.Column(db.Integer, db.ForeignKey('artist.id'))
 
     # plays
-    queue = db.relation('Queue', cascade="all, delete-orphan", backref='song')
+    queue = db.relation('Queue', cascade="all,delete-orphan", backref='song')
     count_played = db.Column(db.Integer, server_default=u'0', nullable=False)
     played_at = db.Column(db.DateTime, server_default=db.func.now(), nullable=False)
     histories = db.relationship('History', cascade="all, delete-orphan", backref='song')
 
     # ratings
-    ratings_winners = db.relationship('Rating', backref='song_winner', cascade="all, delete-orphan",
+    ratings_winners = db.relationship('Rating', backref='song_winner', cascade="all,delete-orphan",
                                       foreign_keys='Rating.song_winner_id')
-    ratings_losers = db.relationship('Rating', backref='song_loser', cascade="all, delete-orphan",
+    ratings_losers = db.relationship('Rating', backref='song_loser', cascade="all,delete-orphan",
                                      foreign_keys='Rating.song_loser_id')
     rated_at = db.Column(db.DateTime, server_default=db.func.now(), nullable=False)
     count_rated = db.Column(db.Integer, server_default=u'0', nullable=False)

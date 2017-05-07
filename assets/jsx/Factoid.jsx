@@ -198,6 +198,21 @@ export default class Factoid extends React.Component {
         </form>
     }
 
+    render_is_albums_bad() {
+        const {album} = this.state.data
+        console.info('[Factoid] is_albums_bad', album)
+        return <div>
+            <h4>This album is bad, you're never going to listen to it</h4>
+            <dl>
+                <dt>{album.artist.name}</dt>
+                <dt>{album.name}</dt>
+                {(album.songs.map(song => {
+                    <dd>{song.name}</dd>
+                }))}
+            </dl>
+        </div>
+    }
+
     submitSong(e, song_id) {
         console.info('[Factoid] submitSong')
         e.preventDefault()

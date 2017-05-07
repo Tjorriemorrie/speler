@@ -16,6 +16,7 @@ class Factoid:
         'is_albums_sized',
         'is_albums_artist',
         'is_albums_complete',
+        'is_albums_bad',
     ]
 
     def __init__(self, session):
@@ -112,3 +113,23 @@ class Factoid:
             'album': album,
             'songs': album.songs,
         }
+
+    def is_albums_bad(self):
+        albums = Album.query.order_by(
+            Album.rating,
+            Album.count_rated.desc()
+        ).limit(10).all()
+        for album in albums:
+            all_rated = True
+            for song in album.songs:
+                if song.count_rated < 3:
+                    all_rated = False
+                    app.logger.info('Not all songs rated 3x in {}'.format(album.name))
+                    break
+            if all_rated:
+                app.logger.info('incomplete album: {} {}'.format(album.artist.name, album.name))
+                return {
+                    'album': album,
+                    'songs': album.songs,
+                }
+        return
