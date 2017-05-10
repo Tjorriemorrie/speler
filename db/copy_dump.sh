@@ -1,0 +1,1 @@
+docker cp speler_db_1:/db.dump .
