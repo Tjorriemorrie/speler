@@ -49,16 +49,15 @@ class Recommendations:
                 key = '{}_{}'.format(artist.get_name(), album.get_name())
                 try:
                     albums[key]['songs'].add(track.get_name())
-                    albums[key]['rating'] += similar.match * song.rating
-                    albums[key]['rating'] /= 2
+                    albums[key]['rating'] += song.rating
                 except KeyError:
                     albums[key] = {
                         'artist': artist.get_name(),
                         'album': album.get_name(),
                         'songs': set([track.get_name()]),
-                        'rating': similar.match * song.rating,
+                        'rating': song.rating,
                     }
-                app.logger.debug('{:.0f}% <= {}'.format(albums[key]['rating'] * 100, key))
+                app.logger.debug('{:.0f} <= {}'.format(albums[key]['rating'], key))
 
             ratings = [a['rating'] for a in albums.values()]
             mu = mean(ratings)
