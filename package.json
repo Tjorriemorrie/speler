@@ -1,0 +1,40 @@
+{
+  "name": "speler",
+  "version": "1.0.0",
+  "description": "music player",
+  "main": "app/static/js/speler.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server --port 8989 --devtool eval --progress --colors --content-base app --hot --inline",
+    "build": "webpack -p"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tjorriemorrie/speler.git"
+  },
+  "author": "tjorriemorrie",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Tjorriemorrie/speler/issues"
+  },
+  "homepage": "https://github.com/Tjorriemorrie/speler#readme",
+  "devDependencies": {
+    "babel-core": "^6.5.1",
+    "babel-loader": "^6.2.2",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
+    "babel-preset-es2015": "^6.5.0",
+    "babel-preset-react": "^6.5.0",
+    "css-loader": "^0.28.0",
+    "less": "^2.7.2",
+    "less-loader": "^4.0.3",
+    "react-hot-loader": "^1.3.1",
+    "style-loader": "^0.16.1",
+    "webpack": "^2.4.1"
+  },
+  "dependencies": {
+    "freezer-js": "^0.11.2",
+    "react": ">=0.14.x",
+    "react-dom": ">=0.14.x",
+    "react-smallgrid": ">=x.x.x"
+  }
+}
