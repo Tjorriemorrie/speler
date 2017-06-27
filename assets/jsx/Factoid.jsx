@@ -64,14 +64,14 @@ export default class Factoid extends React.Component {
     }
 
     render_success() {
-        setTimeout(() => this.setState({'show': false}), 1E4);
+        setTimeout(() => this.setState({'show': false}), 1E4)
         const msg = this.state.data
         console.info('[Factoid] render_success', msg)
         return <div className="alert alert-info">{msg}</div>
     }
 
     render_id3_parsed() {
-        setTimeout(() => this.loadFact(), 6E4);
+        setTimeout(() => this.loadFact(), 6E4)
         console.info('[Factoid] render_id3_parsed', this.state.data)
         let msg = 'You have ' + this.state.data + ' unparsed songs'
         return <div className="alert alert-info">{msg}</div>

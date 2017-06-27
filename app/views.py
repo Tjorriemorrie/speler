@@ -1,13 +1,13 @@
-from flask import request, render_template, Response, redirect, session
+from flask import redirect, render_template, request, session
 from flask.ext.jsontools import jsonapi
 
 from app import app
 from app.facts import Factoid
 from app.lastfm import LastFm
-from app.manager import scanDirectory, getSelections, addSongToQueue, createHistory, validateSongs, createRatings, parseId3Tags, setArtistName
-from app.manager import setSongName, setSongTrackNumber, setSongArtist, setSongAlbum
-from app.manager import setAlbumSize, setAlbumName, setAlbumArtist
-from app.models import Song, Queue, History, Artist, Album
+from app.manager import create_history, get_match, get_recent_history, get_song, parseId3Tags, \
+    scanDirectory, setAlbumArtist, setAlbumName, setAlbumSize, setArtistName, setSongAlbum, \
+    setSongArtist, setSongName, setSongTrackNumber, set_match_result, validateSongs
+from app.models import Album, Artist, Song
 from app.recommendations import Recommendations
 
 
@@ -75,25 +75,52 @@ def scanId3():
     return res
 
 
-@app.route('/load/histories')
+#########################################################################################
+# SONG
+#########################################################################################
+
+@app.route('/song/load')
 @jsonapi
-def loadHistories():
-    histories = History.query.order_by(History.played_at.desc()).limit(5).all()
-    app.logger.info('{} histories songs found'.format(len(histories)))
-    return histories
+def load_song():
+    return get_song()
 
 
-@app.route('/load/queue')
+@app.route('/song/ended', methods=['POST'])
 @jsonapi
-def loadQueue():
-    queues = Queue.query.order_by(Queue.created_at.asc()).all()
-    app.logger.info('{} queue songs found'.format(len(queues)))
-    return queues
+def ended_song():
+    id = request.form.get('id', 0, type=int)
+    song = Song.query.get_or_404(id)
+    history = create_history(song)
+    app.logger.info('Set {} as {}'.format(song, history))
+    LastFm().scrobble(history)
+    return history
 
 
-@app.route('/add/queue', methods=['POST'])
+#########################################################################################
+# HISTORIES
+#########################################################################################
+
+@app.route('/histories/load')
 @jsonapi
-def addQueue():
+def load_histories():
+    return get_recent_history()
+
+
+#########################################################################################
+# MATCH
+#########################################################################################
+
+@app.route('/match/load')
+@jsonapi
+def load_match():
+    match = get_match()
+    app.logger.info('Match: {}'.format(match))
+    return match
+
+
+@app.route('/match/set', methods=['POST'])
+@jsonapi
+def set_match():
     app.logger.info('Request form {}'.format(request.form))
     id = request.form.get('winner', 0, type=int)
     app.logger.info('Winner id {}'.format(id))
@@ -101,32 +128,13 @@ def addQueue():
 
     losers = request.form.getlist('losers[]')
     app.logger.info('Losers {}'.format(losers))
-    ratings = createRatings(song, losers)
+    ratings = set_match_result(song, losers)
 
     LastFm().show_some_love([song] + [r.song_loser for r in ratings])
 
-    queue = addSongToQueue(song)
-    queue = addSongToQueue()
-    app.logger.info('Adding {} to queue'.format(queue))
-    return queue
+    app.logger.info('Returning {} ratings: {}'.format(len(ratings), ratings))
+    return ratings
 
-
-@app.route('/selection')
-@jsonapi
-def selection():
-    selections = getSelections()
-    return selections
-
-
-@app.route('/ended', methods=['POST'])
-@jsonapi
-def ended():
-    id = request.form.get('id', 0, type=int)
-    queue = Queue.query.get_or_404(id)
-    history = createHistory(queue)
-    app.logger.info('Set {} as {}'.format(queue, history))
-    LastFm().scrobble(history)
-    return history
 
 
 @app.route('/factoid/<info>', methods=['POST'])

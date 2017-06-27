@@ -1,9 +1,11 @@
+from datetime import datetime, timedelta
 from mutagen.mp3 import MP3
 from mutagen.mp4 import MP4
 from mutagen.id3 import ID3, COMM, TRCK, TPE1, TIT2, TALB
 import os
-import random
-
+from sqlalchemy import or_, and_
+from random import choice
+from itertools import permutations
 from app import app, db
 from app.models import Song, Queue, History, Rating, Artist, Album
 
@@ -136,88 +138,32 @@ def parseId3Tags():
     return len(songs)
 
 
-def getSelections():
-    app.logger.info('Fetching selections')
-    n = 5
-    m = 3
-    selections = []
-    used_ids = []
-
-    # exclude songs from queue
-    queues = Queue.query.all()
-    app.logger.debug('{} in queue'.format(len(queues)))
-    for queue in queues:
-        used_ids.append(queue.song_id)
-    app.logger.debug('Used ids: {}'.format(used_ids))
-
+def get_song():
+    """Return highest priority song adjusted for time since last played"""
     # first play unrated songs
-    songs = Song.query.filter(Song.count_rated==0).all()
-    if len(songs) > ((m*2) * n):
-        m *= 2
-        for _ in range(n):
-            selection = []
-            for i in range(m):
-                song_random = random.choice(songs)
-                while song_random.id in used_ids:
-                    song_random = random.choice(songs)
-                selection.append(song_random)
-                used_ids.append(song_random.id)
-                random.shuffle(selection)
-            selections.append(selection)
+    songs = Song.query.filter(
+        Song.count_played == 0).order_by(
+        Song.abs_path).all()
 
-    # else get prioritised ratings
+    if len(songs):
+        app.logger.debug('Returning unplayed random song from {}'.format(len(songs)))
+        song = choice(songs)
+
+    # return highest priority
     else:
-        for _ in range(n):
+        song = Song.query.order_by(
+            Song.selection_weight.desc()
+        ).first()
 
-            selection = Song.query.filter(
-                Song.id.notin_(used_ids)
-            ).order_by(
-                Song.selection_weight.desc()
-            ).limit(3).all()
-
-            for song in selection:
-                used_ids.append(song.id)
-
-            app.logger.debug('Selection: {}'.format(selection))
-            random.shuffle(selection)
-
-            app.logger.debug('Used ids: {}'.format(used_ids))
-            selections.append(selection)
-
-    return selections
+    app.logger.info('selected song = {}'.format(song))
+    return song
 
 
-def addSongToQueue(song=None):
-    if not song:
-        used_ids = []
-        # exclude songs from queue
-        queues = Queue.query.all()
-        app.logger.debug('{} in queue'.format(len(queues)))
-        for queue in queues:
-            used_ids.append(queue.song_id)
-        app.logger.debug('Used ids: {}'.format(used_ids))
-        # fetch next best priority
-        song = Song.query.filter(
-            Song.id.notin_(used_ids)
-        ).order_by(
-            Song.priority.desc(),
-            Song.played_at.asc()
-        ).limit(1).one()
-    app.logger.info('Adding song to queue {}'.format(song))
-    queue = Queue(song)
-    db.session.add(queue)
-    db.session.commit()
-    return queue
-
-
-def createHistory(queue):
+def create_history(song):
     app.logger.info('Creating history')
 
-    # remove from queue
-    db.session.delete(queue)
-
     # create history
-    history = History(queue.song)
+    history = History(song)
     db.session.add(history)
 
     db.session.commit()
@@ -225,7 +171,34 @@ def createHistory(queue):
     return history
 
 
-def createRatings(winner_song, loser_ids):
+def get_recent_history():
+    hour_ago = datetime.now() - timedelta(minutes=30)
+    histories = History.query.filter(
+        History.played_at > hour_ago
+    ).order_by(
+        History.played_at.desc()
+    ).all()
+    return histories
+
+
+def get_match():
+    match = None
+    songs = [h.song for h in get_recent_history()]
+    for a, b, c in permutations(songs, 3):
+        ratings = Rating.query.filter(or_(
+            and_(Rating.song_winner_id == a.id, Rating.song_loser_id.in_([b.id, c.id])),
+            and_(Rating.song_winner_id == b.id, Rating.song_loser_id.in_([a.id, c.id])),
+            and_(Rating.song_winner_id == c.id, Rating.song_loser_id.in_([a.id, b.id])),
+        )).all()
+        app.logger.debug('{} ratings for songs'.format(len(ratings)))
+        if not ratings:
+            match = [a, b, c]
+            break
+
+    return match
+
+
+def set_match_result(winner_song, loser_ids):
     app.logger.info('Creating ratings...')
     ratings = []
     for loser_id in [i for i in map(int, loser_ids) if i != winner_song.id]:

@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 
 export default class SongDetails extends React.Component{
@@ -14,6 +14,6 @@ export default class SongDetails extends React.Component{
                     <br/><em><small className="text-muted">{(this.props.song.album) ? this.props.song.album.year : ''}</small> {(this.props.song.album) ? this.props.song.album.name : 'no album'}</em>
                 </small>
             </span>
-        );
+        )
     }
 }

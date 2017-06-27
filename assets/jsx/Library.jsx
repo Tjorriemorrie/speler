@@ -1,24 +1,24 @@
-import React from 'react';
-import SmallGrid from 'react-smallgrid';
+import React from 'react'
+import SmallGrid from 'react-smallgrid'
 
-import Factoid from './Factoid.jsx';
-import Scanner from './Scanner.jsx';
+import Factoid from './Factoid.jsx'
+import Scanner from './Scanner.jsx'
 
 
 export default class Library extends React.Component {
 
     constructor(props) {
-        console.info('[Library] constructor');
-        super(props);
+        console.info('[Library] constructor')
+        super(props)
         this.state = {
             'isScanning': false,
             'grouping': null,
             'rows': []
-        };
+        }
     }
 
     render() {
-        console.info('[Library] render');
+        console.info('[Library] render')
 
         return <div className="row">
             <h3>
@@ -41,11 +41,11 @@ export default class Library extends React.Component {
             </div>
 
             {this.getGrid()}
-        </div>;
+        </div>
     }
 
     getGrid() {
-        console.info('[Library] getGrid', this.state.grouping);
+        console.info('[Library] getGrid', this.state.grouping)
 
         if (this.state.grouping == 'artists') {
             return <div>
@@ -59,7 +59,7 @@ export default class Library extends React.Component {
                         {'key': 'count_songs', 'name': 'Songs'}
                     ]}
                 />
-            </div>;
+            </div>
         }
 
         else if (this.state.grouping == 'albums') {
@@ -74,7 +74,7 @@ export default class Library extends React.Component {
                         {'key': 'count_songs', 'name': 'Songs'},
                     ]}
                 />
-            </div>;
+            </div>
         }
 
         else if (this.state.grouping == 'songs') {
@@ -90,31 +90,31 @@ export default class Library extends React.Component {
                         {'key': 'track_number', 'name': 'Track', 'edit': (r, k, v) => this.updateRow(r, k, v)},
                     ]}
                 />
-            </div>;
+            </div>
         }
 
     }
 
     loadLibrarySongs(grouping) {
-        console.info('[Library] loadLibrarySongs: grouping = ', grouping);
+        console.info('[Library] loadLibrarySongs: grouping = ', grouping)
         fetch('/find/' + grouping)
             .then(r => r.json())
             .then(data => {
-                console.info('[Library] loadLibrarySongs done');
+                console.info('[Library] loadLibrarySongs done')
                 this.setState({
                     'grouping': grouping,
                     'rows': data
-                });
-            });
+                })
+            })
     }
 
 
     formatPercentage(v) {
-        return Math.round(v * 100) + '%';
+        return Math.round(v * 100) + '%'
     }
 
     updateRow(row, key, val) {
-        console.info('[Library] updateRow', row, key, val);
+        console.info('[Library] updateRow', row, key, val)
 
         let form = {'id': row.id}
         form[key] = val
@@ -126,13 +126,13 @@ export default class Library extends React.Component {
         })
             .then(r => console.info('[Library] updateRow: done'))
             .catch(e => {
-                console.error('[Library] updateRow: error', e);
-                alert('Error: ', e);
+                console.error('[Library] updateRow: error', e)
+                alert('Error: ', e)
             })
             .always(() => {
-                console.info('[Library] updateRow: always');
-                this.loadLibrarySongs(this.state.grouping);
-            });
+                console.info('[Library] updateRow: always')
+                this.loadLibrarySongs(this.state.grouping)
+            })
     }
 
 }
