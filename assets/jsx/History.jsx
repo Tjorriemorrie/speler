@@ -21,7 +21,7 @@ export default class History extends React.Component{
         const histories = this.state.histories
         let d = <p>no songs played recently</p>
         if (histories.length > 0) {
-            d = <ol>
+            d = <ul>
                 {histories.map((history) => {
                     return (
                         <li key={history.id}>
@@ -29,7 +29,7 @@ export default class History extends React.Component{
                         </li>
                     )
                 })}
-            </ol>
+            </ul>
         }
         return (
             <div id="histories">

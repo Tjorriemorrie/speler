@@ -67,18 +67,17 @@ export default class Player extends React.Component{
             return
         }
         console.info('[Player] render current song')
-        return <div>
-            <span>
-                <strong>
-                    <small className="text-muted">{current_song.track_number} </small>
-                    <span title={current_song.id}> {current_song.name}</span>
-                    {(!current_song.played) ? <span className="new">New</span> : ''}
-                </strong>
-                <br/><small>
-                    <span>{(current_song.artist) ? current_song.artist.name : 'no artist'}</span>
-                    <br/><em><small className="text-muted">{(current_song.album) ? current_song.album.year : ''}</small> {(current_song.album) ? current_song.album.name : 'no album'}</em>
-                </small>
-            </span>
+        return <div className="current_song">
+
+            <strong>
+                <small className="text-muted">{current_song.track_number} </small>
+                <span title={current_song.id}> {current_song.name}</span>
+                {(!current_song.played) ? <span className="new">New</span> : ''}
+            </strong>
+            <br/><small>
+                <span>{(current_song.artist) ? current_song.artist.name : 'no artist'}</span>
+                <br/><em><small className="text-muted">{(current_song.album) ? current_song.album.year : ''}</small> {(current_song.album) ? current_song.album.name : 'no album'}</em>
+            </small>
         </div>
     }
 }

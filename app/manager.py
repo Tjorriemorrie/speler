@@ -5,7 +5,7 @@ from mutagen.id3 import ID3, COMM, TRCK, TPE1, TIT2, TALB
 import os
 from sqlalchemy import or_, and_
 from random import choice
-from itertools import permutations
+from itertools import combinations
 from app import app, db
 from app.models import Song, Queue, History, Rating, Artist, Album
 
@@ -151,9 +151,10 @@ def get_song():
 
     # return highest priority
     else:
-        song = Song.query.order_by(
-            Song.selection_weight.desc()
-        ).first()
+        one_day_ago = datetime.now() - timedelta(hours=9)
+        song = Song.query.filter(
+            Song.played_at < one_day_ago).order_by(
+            Song.priority.desc()).first()
 
     app.logger.info('selected song = {}'.format(song))
     return song
@@ -184,14 +185,18 @@ def get_recent_history():
 def get_match():
     match = None
     songs = [h.song for h in get_recent_history()]
-    for a, b, c in permutations(songs, 3):
-        ratings = Rating.query.filter(or_(
-            and_(Rating.song_winner_id == a.id, Rating.song_loser_id.in_([b.id, c.id])),
-            and_(Rating.song_winner_id == b.id, Rating.song_loser_id.in_([a.id, c.id])),
-            and_(Rating.song_winner_id == c.id, Rating.song_loser_id.in_([a.id, b.id])),
-        )).all()
-        app.logger.debug('{} ratings for songs'.format(len(ratings)))
-        if not ratings:
+    song_ids = [s.id for s in songs]
+    ratings = Rating.query.filter(and_(
+        Rating.song_winner_id.in_(song_ids),
+        Rating.song_loser_id.in_(song_ids),
+    )).all()
+    for a, b, c in combinations(songs, 3):
+        comb_ids = [a.id, b.id, c.id]
+        comb_ratings = [r for r in ratings
+                        if r.song_winner_id in comb_ids
+                        and r.song_loser_id in comb_ids]
+        app.logger.debug('{} ratings for {}'.format(len(comb_ratings), comb_ids))
+        if not comb_ratings:
             match = [a, b, c]
             break
 
