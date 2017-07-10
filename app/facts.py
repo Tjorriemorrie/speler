@@ -41,9 +41,12 @@ class Factoid:
                 self.session.append(section)
             else:
                 app.logger.debug('No facts found in all sections')
+                new = Song.query.filter(
+                    Song.count_played == 0
+                ).count()
                 fact = {
                     'section': 'success',
-                    'data': 'Enjoy the tunes',
+                    'data': '{} new songs'.format(new) if new else 'Enjoy the tunes'
                 }
         except Exception as e:
             fact = {
@@ -99,16 +102,20 @@ class Factoid:
         album = Album.query.filter(
             Album.total_tracks != Album.count_songs
         ).first()
+
         if not album:
             return
+
         if not album.songs:
             app.logger.info('Deleting {} with no songs'.format(album.name))
             db.session.delete(album)
             db.session.commit()
             return self.is_albums_complete()
+
         app.logger.info('incomplete album: name {}'.format(album.name))
         app.logger.info('incomplete album: count_songs {}'.format(album.count_songs))
         app.logger.info('incomplete album: len(songs) {}'.format(len(album.songs)))
+
         return {
             'album': album,
             'songs': album.songs,
@@ -119,15 +126,24 @@ class Factoid:
             Album.rating,
             Album.count_rated.desc()
         ).limit(10).all()
+
         for album in albums:
+
+            # check if all songs on album has been rated (req to be sure it is bad)
             all_rated = True
+            all_played = True
             for song in album.songs:
                 if song.count_rated < 3:
                     all_rated = False
                     app.logger.info('Not all songs rated 3x in {}'.format(album.name))
                     break
-            if all_rated:
-                app.logger.info('incomplete album: {} {}'.format(album.artist.name, album.name))
+                if song.count_played < 1:
+                    all_played = False
+                    app.logger.info('Not all songs played 1x in {}'.format(album.name))
+                    break
+
+            if all_rated and all_played:
+                app.logger.info('bad album: {} {}'.format(album.artist.name, album.name))
                 return {
                     'album': album,
                     'songs': album.songs,

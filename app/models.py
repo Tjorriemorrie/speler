@@ -46,20 +46,20 @@ class Song(db.Model):
         self.similar = []
 
     @hybrid_property
-    def days_since_rated(self):
-        return (datetime.datetime.now() - self.rated_at).days
+    def time_since_played(self):
+        return (datetime.datetime.now() - self.played_at).days
 
-    @days_since_rated.expression
-    def days_since_rated(cls):
-        return db.func.extract(db.text('DAY'), db.func.now() - cls.rated_at)
+    @time_since_played.expression
+    def time_since_played(cls):
+        return db.func.extract(db.text('DAY'), db.func.now() - cls.played_at)
 
     @hybrid_property
     def selection_weight(self):
-        return (self.priority * 1.0) + (self.days_since_rated / float(self.days_since_played))
+        return self.priority + (self.time_since_played / 365)
 
     @selection_weight.expression
     def selection_weight(cls):
-        return (cls.priority * 1.0) + (cls.days_since_rated / db.func.cast(cls.days_since_played, db.Float))
+        return cls.priority + (cls.time_since_played / 365)
 
     def __json__(self):
         return [

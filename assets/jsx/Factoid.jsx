@@ -1,3 +1,4 @@
+import _ from 'lodash'
 import React from 'react'
 import {findDOMNode} from 'react-dom'
 
@@ -206,9 +207,12 @@ export default class Factoid extends React.Component {
             <dl>
                 <dt>{album.artist.name}</dt>
                 <dt>{album.name}</dt>
-                {(album.songs.map(song => {
-                    <dd>{song.name}</dd>
-                }))}
+                {_.has(album, 'songs')
+                    ? album.songs.map(song => {
+                        <dd>{song.name}</dd>
+                    })
+                    : <dd>no songs</dd>
+                }
             </dl>
         </div>
     }

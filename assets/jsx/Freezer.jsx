@@ -86,7 +86,11 @@ freezer.on('match:set', winner => {
     f('/match/set', {
         method: 'POST',
         body: fd
-    }).then(r => freezer.emit('match:load'))
+    }).then(
+        r => freezer.emit('histories:load')
+    ).then(
+        r => freezer.emit('match:load')
+    )
 })
 
 

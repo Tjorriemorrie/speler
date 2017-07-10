@@ -173,18 +173,19 @@ def create_history(song):
 
 
 def get_recent_history():
-    hour_ago = datetime.now() - timedelta(minutes=30)
+    hour_ago = datetime.now() - timedelta(minutes=60)
     histories = History.query.filter(
         History.played_at > hour_ago
     ).order_by(
         History.played_at.desc()
-    ).all()
+    ).limit(10).all()
     return histories
 
 
 def get_match():
     match = None
-    songs = [h.song for h in get_recent_history()]
+    histories = get_recent_history()[:6]
+    songs = [h.song for h in histories]
     song_ids = [s.id for s in songs]
     ratings = Rating.query.filter(and_(
         Rating.song_winner_id.in_(song_ids),

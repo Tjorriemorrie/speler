@@ -1,4 +1,5 @@
 import React from 'react'
+import Stars from "./Stars.jsx";
 
 
 export default class SongDetails extends React.Component{
@@ -8,6 +9,7 @@ export default class SongDetails extends React.Component{
                 <strong>
                     <small className="text-muted">{this.props.song.track_number} </small>
                     <span title={this.props.song.id}> {this.props.song.name}</span>
+                    <Stars rating={this.props.song.rating} />
                 </strong>
                 <br/><small>
                     <span>{(this.props.song.artist) ? this.props.song.artist.name : 'no artist'}</span>

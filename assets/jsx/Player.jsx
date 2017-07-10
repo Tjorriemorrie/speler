@@ -3,10 +3,10 @@ import React from "react";
 import {freezer} from "./Freezer.jsx";
 import History from "./History.jsx";
 import Match from "./Match.jsx";
-import SongDetails from "./SongDetails.jsx";
+import Stars from "./Stars.jsx";
 
 
-export default class Player extends React.Component{
+export default class Player extends React.Component {
 
     constructor(props) {
         super(props)
@@ -56,7 +56,7 @@ export default class Player extends React.Component{
         const src = _.get(current_song, 'web_path', '')
         console.info('[Player] render audio', src)
         return <div>
-            <audio ref="audio_el" src={src} controls />
+            <audio ref="audio_el" src={src} controls/>
             <a onClick={() => freezer.emit('current_song:ended')} href="#" className="audio_next">&rArr;</a>
         </div>
     }
@@ -72,11 +72,18 @@ export default class Player extends React.Component{
             <strong>
                 <small className="text-muted">{current_song.track_number} </small>
                 <span title={current_song.id}> {current_song.name}</span>
-                {(!current_song.played) ? <span className="new">New</span> : ''}
+                {(!current_song.played)
+                    ? <span className="new">New</span>
+                    : ''}
+                <Stars rating={current_song.rating}/>
             </strong>
-            <br/><small>
+            <br/>
+            <small>
                 <span>{(current_song.artist) ? current_song.artist.name : 'no artist'}</span>
-                <br/><em><small className="text-muted">{(current_song.album) ? current_song.album.year : ''}</small> {(current_song.album) ? current_song.album.name : 'no album'}</em>
+                <br/><em>
+                    <small className="text-muted">{(current_song.album) ? current_song.album.year : ''} </small>
+                    {(current_song.album) ? current_song.album.name : 'no album'}
+                </em>
             </small>
         </div>
     }
