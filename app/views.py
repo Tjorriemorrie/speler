@@ -110,10 +110,12 @@ def load_histories():
 # MATCH
 #########################################################################################
 
-@app.route('/match/load')
+@app.route('/match/load', methods=['POST'])
 @jsonapi
 def load_match():
-    match = get_match()
+    id = request.form.get('id', 0, type=int)
+    song = Song.query.get_or_404(id)
+    match = get_match(song)
     app.logger.info('Match: {}'.format(match))
     return match
 

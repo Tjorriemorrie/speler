@@ -1,6 +1,7 @@
 import json
-
+from datetime import datetime
 from app import app, db
+from sqlalchemy.sql import func
 from app.models import Song, Album
 
 
@@ -127,11 +128,18 @@ class Factoid:
             Album.count_rated.desc()
         ).limit(10).all()
 
+        avg_played = Song.query.with_entities(
+            func.avg(func.extract('epoch', Song.played_at))
+        ).scalar()
+        avg_played = datetime.fromtimestamp(int(avg_played))
+        app.logger.info('AVG played {}'.format(avg_played))
+
         for album in albums:
 
             # check if all songs on album has been rated (req to be sure it is bad)
             all_rated = True
             all_played = True
+            all_played_after_avg = True
             for song in album.songs:
                 if song.count_rated < 3:
                     all_rated = False
@@ -141,8 +149,12 @@ class Factoid:
                     all_played = False
                     app.logger.info('Not all songs played 1x in {}'.format(album.name))
                     break
+                if song.played_at > avg_played:
+                    all_played_after_avg = False
+                    app.logger.info('Not all songs played earlier than avg {}'.format(album.name))
+                    break
 
-            if all_rated and all_played:
+            if all_rated and all_played and all_played_after_avg:
                 app.logger.info('bad album: {} {}'.format(album.artist.name, album.name))
                 return {
                     'album': album,

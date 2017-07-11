@@ -30,6 +30,7 @@ freezer.on('current_song:load', () => {
     f('/song/load').then(r => {
         freezer.get().set({'current_song': r})
         freezer.emit('current_song:changed', r)
+        freezer.emit('match:load')
     })
 })
 
@@ -43,11 +44,10 @@ freezer.on('current_song:ended', () => {
 
     f('/song/ended', {
         method: 'POST',
-        body: fd
+        body: fd,
     }).then(r => {
         freezer.emit('histories:load')
         freezer.emit('current_song:load')
-        freezer.emit('match:load')
         return r
     })
 })
@@ -62,7 +62,13 @@ freezer.on('histories:load', () => {
 
 
 freezer.on('match:load', () => {
-    f('/match/load')
+    let fd = new FormData()
+    fd.append('id', freezer.get().current_song.id)
+
+    f('/match/load', {
+        method: 'POST',
+        body: fd,
+    })
         .then(r => {
             freezer.get().set({'match': r})
             freezer.emit('match:changed', r)

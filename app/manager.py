@@ -182,10 +182,10 @@ def get_recent_history():
     return histories
 
 
-def get_match():
+def get_match(song):
     match = None
-    histories = get_recent_history()[:6]
-    songs = [h.song for h in histories]
+    histories = get_recent_history()[:5]
+    songs = [song] + [h.song for h in histories]
     song_ids = [s.id for s in songs]
     ratings = Rating.query.filter(and_(
         Rating.song_winner_id.in_(song_ids),
