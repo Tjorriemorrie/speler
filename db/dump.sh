@@ -1,1 +1,0 @@
-docker exec -i speler_db_1 pg_dumpall -v -f db.dump -U speler
