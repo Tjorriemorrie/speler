@@ -65,7 +65,6 @@ def upgrade():
     sa.Column('count_rated', sa.Integer(), server_default='0', nullable=False),
     sa.Column('rating', sa.Float(), nullable=False),
     sa.Column('priority', sa.Float(), nullable=False),
-    sa.Column('days_since_played', sa.Integer(), nullable=False),
     sa.Column('created_at', sa.DateTime(), server_default=sa.text('now()'), nullable=True),
     sa.Column('updated_at', sa.DateTime(), server_default=sa.text('now()'), nullable=True),
     sa.ForeignKeyConstraint(['album_id'], ['album.id'], ),

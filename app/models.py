@@ -33,7 +33,6 @@ class Song(db.Model):
 
     # other
     priority = db.Column(db.Float, nullable=False)
-    days_since_played = db.Column(db.Integer, nullable=False)
     created_at = db.Column(db.DateTime, server_default=db.func.now())
     updated_at = db.Column(db.DateTime, server_default=db.func.now(), onupdate=db.func.now())
 
