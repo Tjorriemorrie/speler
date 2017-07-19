@@ -151,10 +151,7 @@ def get_song():
 
     # return highest priority
     else:
-        one_day_ago = datetime.now() - timedelta(hours=9)
-        song = Song.query.filter(
-            Song.played_at < one_day_ago).order_by(
-            Song.priority.desc()).first()
+        song = Song.query.order_by(Song.selection_weight.desc()).first()
 
     app.logger.info('selected song = {}'.format(song))
     return song

@@ -10,7 +10,8 @@ web:
   build: .
   volumes:
     - .:/code
-    - /Users/jaco/Dropbox/music:/code/app/static/music
+#    - /Users/jaco/Dropbox/music:/code/app/static/music
+    - C:\Users\jaco.jansen\Dropbox\music:/code/app/static/music
   links:
     - db
   ports:
