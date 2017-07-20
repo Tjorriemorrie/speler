@@ -151,7 +151,7 @@ def get_song():
 
     # return highest priority
     else:
-        song = Song.query.order_by(Song.selection_weight.desc()).first()
+        song = Song.query.order_by(Song.priority.desc()).first()
 
     app.logger.info('selected song = {}'.format(song))
     return song

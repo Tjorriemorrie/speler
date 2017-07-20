@@ -32,7 +32,6 @@ class Song(db.Model):
     rating = db.Column(db.Float, default=0.5, nullable=False)
 
     # other
-    priority = db.Column(db.Float, nullable=False)
     created_at = db.Column(db.DateTime, server_default=db.func.now())
     updated_at = db.Column(db.DateTime, server_default=db.func.now(), onupdate=db.func.now())
 
@@ -40,8 +39,6 @@ class Song(db.Model):
         self.abs_path = path
         self.web_path = path[9:]
         self.path_name = self.web_path[len('/static/music/'):]
-        self.priority = 0.5
-        self.days_since_played = 7
         self.similar = []
 
     @hybrid_property
@@ -53,12 +50,26 @@ class Song(db.Model):
         return db.func.extract(db.text('DAY'), db.func.now() - cls.played_at)
 
     @hybrid_property
-    def selection_weight(self):
-        return self.priority + (self.time_since_played / 365)
+    def max_played(self):
+        return max(self.count_played, 1)
 
-    @selection_weight.expression
-    def selection_weight(cls):
-        return cls.priority + (cls.time_since_played / 365)
+    @max_played.expression
+    def max_played(cls):
+        return db.select([
+            db.func.greatest(db.func.max(cls.count_played), 1)
+        ]).label('max_played')
+
+    @hybrid_property
+    def priority(self):
+        return self.rating - (
+            self.count_played / self.max_played
+        ) + (
+            self.time_since_played / 365
+        )
+
+    @priority.expression
+    def priority(cls):
+        return cls.rating - (cls.count_played / cls.max_played) + (cls.time_since_played / 365)
 
     def __json__(self):
         return [
