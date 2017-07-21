@@ -72,7 +72,7 @@ export default class Player extends React.Component {
             <strong>
                 <small className="text-muted">{current_song.track_number} </small>
                 <span title={current_song.id}> {current_song.name}</span>
-                {(!current_song.played)
+                {(!current_song.count_played)
                     ? <span className="new">New</span>
                     : ''}
                 <Stars rating={current_song.rating}/>
