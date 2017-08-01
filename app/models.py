@@ -31,6 +31,9 @@ class Song(db.Model):
     count_rated = db.Column(db.Integer, server_default=u'0', nullable=False)
     rating = db.Column(db.Float, default=0.5, nullable=False)
 
+    # similars
+    similars = db.relationship('Similar', backref='song')
+
     # other
     created_at = db.Column(db.DateTime, server_default=db.func.now())
     updated_at = db.Column(db.DateTime, server_default=db.func.now(), onupdate=db.func.now())
@@ -209,3 +212,12 @@ class Rating(db.Model):
     def __repr__(self):
         return '<{} {}>'.format(self.__class__.__name__, self.id)
 
+
+class Similar(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    song_id = db.Column(db.Integer, db.ForeignKey('song.id'))
+    artist_name = db.Column(db.String(255))
+    album_name = db.Column(db.String(255))
+    track_name = db.Column(db.String(255))
+    similarity = db.Column(db.Float)
+    scraped_at = db.Column(db.DateTime, server_default=db.func.now())

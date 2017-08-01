@@ -72,12 +72,16 @@ def parseId3Tags():
             meta = MP3(song.abs_path)
             # app.logger.debug(meta.tags)
             info['song_title'] = meta.tags['TIT2'].text[0]
-            trck = meta.tags['TRCK'].text[0]
-            if '/' in trck:
-                info['track_number'], info['total_tracks'] = trck.split('/')
-            else:
-                info['track_number'] = trck
-                info['total_tracks'] = None
+            try:
+                trck = meta.tags['TRCK'].text[0]
+                if '/' in trck:
+                    info['track_number'], info['total_tracks'] = trck.split('/')
+                else:
+                    info['track_number'] = trck
+                    info['total_tracks'] = None
+            except KeyError:
+                info['track_number'] = 1
+                info['total_tracks'] = 1
             try:
                 info['track_number'] = int(info['track_number'])
             except (ValueError, TypeError):
