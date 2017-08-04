@@ -32,7 +32,7 @@ class Song(db.Model):
     rating = db.Column(db.Float, default=0.5, nullable=False)
 
     # similars
-    similars = db.relationship('Similar', backref='song')
+    similars = db.relationship('Similar', backref='song', cascade="all,delete-orphan")
 
     # other
     created_at = db.Column(db.DateTime, server_default=db.func.now())
@@ -50,7 +50,9 @@ class Song(db.Model):
 
     @time_since_played.expression
     def time_since_played(cls):
-        return db.func.extract(db.text('DAY'), db.func.now() - cls.played_at)
+        return db.func.cast(
+            db.func.extract(db.text('DAY'), db.func.now() - cls.played_at),
+            db.Float)
 
     @hybrid_property
     def max_played(self):
@@ -58,9 +60,11 @@ class Song(db.Model):
 
     @max_played.expression
     def max_played(cls):
-        return db.select([
-            db.func.greatest(db.func.max(cls.count_played), 1)
-        ]).label('max_played')
+        return db.func.cast(
+            db.select([
+                db.func.greatest(db.func.max(cls.count_played), 1)
+            ]).label('max_played'),
+            db.Float)
 
     @hybrid_property
     def priority(self):
@@ -72,7 +76,7 @@ class Song(db.Model):
 
     @priority.expression
     def priority(cls):
-        return cls.rating - (cls.count_played / cls.max_played) + (cls.time_since_played / 365)
+        return cls.rating - (cls.count_played / cls.max_played) + (cls.time_since_played / 365.25)
 
     def __json__(self):
         return [
@@ -221,3 +225,11 @@ class Similar(db.Model):
     track_name = db.Column(db.String(255))
     similarity = db.Column(db.Float)
     scraped_at = db.Column(db.DateTime, server_default=db.func.now())
+
+    @property
+    def key(self):
+        return '{}_{}'.format(self.artist_name, self.album_name)
+
+    def __repr__(self):
+        return '<{} {} {} {}>'.format(
+            self.__class__.__name__, self.id, self.artist_name, self.album_name)
