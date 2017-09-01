@@ -1,19 +1,67 @@
+from datetime import datetime, timedelta
 from bs4 import BeautifulSoup
 from operator import attrgetter
 import re
 import requests
 from statistics import pstdev, mean
 
-from app import app
-from app.models import Song, Album, Artist
+from app import app, db
+from app.models import Song, Album, Artist, Similar
 from app.lastfm import LastFm
+
+
+def update_song_similars(song, days=90):
+    # return set if recent
+    if song.similars:
+        app.logger.info('{} has similars already'.format(song))
+        similar = song.similars[0]
+        if similar.scraped_at > datetime.now() - timedelta(days=days):
+            app.logger.info('{} similars are recently scraped'.format(song))
+            return song.similars
+
+    # quit if already scraped 2 today
+    # hours_ago = datetime.now() - timedelta(hours=8)
+    # latest = Similar.query.filter(Similar.scraped_at >= hours_ago).all()
+    # if len(latest) >= 20:
+    #     raise Exception('already scraped {} today'.format(set([l.key for l in latest])))
+
+    # scrape
+    # clear existing
+    if song.similars:
+        song.similars = []
+        db.session.commit()
+
+    # scrape new
+    lastfm = LastFm()
+    result = lastfm.get_similar_tracks(song.artist.name, song.name)
+    app.logger.info('scraped {} similar to {}'.format(len(result), song))
+
+    # process
+    for row in result:
+        # app.logger.debug('row {}'.format(row))
+        track = row.item
+        artist = track.get_artist()
+        album = track.get_album()
+        # exclude missing meta
+        if not artist or not album:
+            app.logger.warn('Missing album/artist for {}'.format(track.get_name()))
+            continue
+        # create
+        similar = Similar(
+            song=song,
+            artist_name=artist.get_name(),
+            album_name=album.get_name(),
+            track_name=track.get_name(),
+            similarity=row.match,
+        )
+        db.session.add(similar)
+        app.logger.info(similar)
+    db.session.commit()
+    return song.similars
 
 
 class Recommendations:
     """Creates recommendations from LastFM via our ratings"""
-
-    def __init__(self):
-        self.lastfm = LastFm()
 
     def run(self):
         """Runs recommendation process using similarity on tracks."""
@@ -22,42 +70,39 @@ class Recommendations:
             Song.count_rated > 3
         ).order_by(
             Song.rating.desc(),
-            Song.count_played.desc()
+            Song.count_played.desc(),
+            Song.played_at.desc()
         ).all()
         app.logger.info('{} songs returned above 90% rated at least 3 times'.format(len(songs)))
 
         albums = {}
         for song in songs:
-            song.similar = self.lastfm.get_similar_tracks(song.artist.name, song.name)
-            for similar in song.similar:
-                app.logger.debug('similar {}'.format(similar))
-                track = similar.item
-                artist = track.get_artist()
-                album = track.get_album()
-                if not artist or not album:
-                    app.logger.warn('Missing album/artist for {}'.format(track.get_name()))
-                    continue
-                app.logger.info('{:.0f}% -> {} - {} - {}'.format(
-                    similar.match * 100, artist.get_name(), album.get_name(), track.get_name()))
+            similars = update_song_similars(song)
+            for similar in similars:
+
+                # exclude if in lib
                 existing_album = Album.query.join(Artist).filter(
-                    Album.name == album.get_name(),
-                    Artist.name == artist.get_name()
+                    Album.name == similar.album_name,
+                    Artist.name == similar.artist_name
                 ).first()
                 if existing_album:
-                    app.logger.info('x -> {}'.format(existing_album.name))
+                    # app.logger.info('Existing album {}'.format(existing_album.name))
                     continue
-                key = '{}_{}'.format(artist.get_name(), album.get_name())
+
                 try:
-                    albums[key]['songs'].add(track.get_name())
-                    albums[key]['rating'] += song.rating
+                    albums[similar.key]['songs'].add(similar.track_name)
+                    albums[similar.key]['rating'] += song.rating * similar.similarity
+                    albums[similar.key]['sources'].add(str(song))
                 except KeyError:
-                    albums[key] = {
-                        'artist': artist.get_name(),
-                        'album': album.get_name(),
-                        'songs': set([track.get_name()]),
+                    albums[similar.key] = {
+                        'artist': similar.artist_name,
+                        'album': similar.album_name,
+                        'songs': set([similar.track_name]),
                         'rating': song.rating,
+                        'sources': set([])
                     }
-                app.logger.debug('{:.0f} <= {}'.format(albums[key]['rating'], key))
+                app.logger.debug('{:.0f} <= {}'.format(
+                    albums[similar.key]['rating'], similar.key))
 
             ratings = [a['rating'] for a in albums.values()]
             mu = mean(ratings)
@@ -72,7 +117,9 @@ class Recommendations:
 
             recommendation = max(albums_best, key=lambda i: albums_best[i]['rating'])
             app.logger.info('Recommendation = {}'.format(recommendation))
+            app.logger.info('Details = {}'.format(albums[recommendation]))
             return recommendation
+        return 'No recommendation found'
 
     # todo deprecated
     def scrape_top_users(self, artist):

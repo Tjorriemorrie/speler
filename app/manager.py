@@ -189,13 +189,13 @@ def get_match(song):
     match = None
     histories = get_recent_history()[:5]
     songs = [song] + [h.song for h in histories]
-    song_ids = [s.id for s in songs]
+    song_ids = set([s.id for s in songs])
     ratings = Rating.query.filter(and_(
         Rating.song_winner_id.in_(song_ids),
         Rating.song_loser_id.in_(song_ids),
     )).all()
-    for a, b, c in combinations(songs, 3):
-        comb_ids = [a.id, b.id, c.id]
+    for a, b, c in combinations(song_ids, 3):
+        comb_ids = [a, b, c]
         comb_ratings = [r for r in ratings
                         if r.song_winner_id in comb_ids
                         and r.song_loser_id in comb_ids]

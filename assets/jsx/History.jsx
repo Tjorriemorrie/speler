@@ -19,14 +19,15 @@ export default class History extends React.Component{
 
     render() {
         const histories = this.state.histories
+        console.debug('[History] histories: ', histories)
         let d = <p>no songs played recently</p>
         if (histories.length > 0) {
             d = <ul>
-                {histories.map((history) => {
-                    const history_hash = history.id + history.song.rating
-                    console.info('history_hash', history_hash)
+                {histories.map((history, i) => {
+                    // const history_hash = history.id + i + history.song.rating
+                    // console.debug('history_hash', history_hash, '<=', history.id, i, history.song.rating)
                     return (
-                        <li key={history_hash}>
+                        <li key={i}>
                             <SongDetails song={history.song} />
                         </li>
                     )

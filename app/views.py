@@ -194,6 +194,6 @@ def factoid():
 @app.route('/recommendations', methods=['GET'])
 @jsonapi
 def recommendations():
-    recommendations = Recommendations().run()
-    return recommendations
+    recommendation = Recommendations().run()
+    return recommendation
 

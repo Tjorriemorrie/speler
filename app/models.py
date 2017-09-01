@@ -71,7 +71,7 @@ class Song(db.Model):
         return self.rating - (
             self.count_played / self.max_played
         ) + (
-            self.time_since_played / 365
+            self.time_since_played / 365.25
         )
 
     @priority.expression
@@ -89,6 +89,9 @@ class Song(db.Model):
 
     def __repr__(self):
         return '<{} {}>'.format(self.__class__.__name__, self.id)
+
+    def __str__(self):
+        return '{} - {} - {}'.format(self.artist.name, self.album.name, self.name)
 
 
 class Album(db.Model):

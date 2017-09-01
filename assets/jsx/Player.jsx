@@ -18,8 +18,8 @@ export default class Player extends React.Component {
     componentDidMount() {
         this.audio_el = this.refs.audio_el
 
-        this.audio_el.volume = 0.50
-        console.info('[Player] audio_tag volume set to 50%')
+        this.audio_el.volume = 0.20
+        console.info('[Player] audio_tag volume set to 20%')
 
         this.audio_el.addEventListener('ended', () => freezer.emit('current_song:ended'))
         console.info('[Player] audio_tag event listener added for ended')
@@ -66,7 +66,7 @@ export default class Player extends React.Component {
         if (!current_song) {
             return
         }
-        console.info('[Player] render current song')
+        console.info('[Player] render current song', current_song)
         return <div className="current_song">
 
             <strong>
