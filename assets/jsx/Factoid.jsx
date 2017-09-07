@@ -201,18 +201,15 @@ export default class Factoid extends React.Component {
 
     render_is_albums_bad() {
         const {album} = this.state.data
-        console.info('[Factoid] is_albums_bad', album)
+        const {songs} = this.state.data
+        console.info('[Factoid] is_albums_bad', album, songs)
         return <div>
-            <h4>This album is bad, you're never going to listen to it</h4>
+            <h4>This album is bad, you are never going to listen to it</h4>
             <dl>
                 <dt>{album.artist.name}</dt>
-                <dt>{album.name}</dt>
-                {_.has(album, 'songs')
-                    ? album.songs.map(song => {
-                        <dd>{song.name}</dd>
-                    })
-                    : <dd>no songs</dd>
-                }
+                <dt>[{album.year}] {album.name}</dt>
+                <dt>{songs.length} songs:</dt>
+                {songs.map(song => <dd key={song.id}>{song.track_number} {song.name}</dd>)}
             </dl>
         </div>
     }

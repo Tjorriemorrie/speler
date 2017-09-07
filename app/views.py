@@ -158,6 +158,8 @@ def factoid_set(info):
         album = Album.query.get_or_404(form_data.get('id', 0))
         if 'name' in form_data:
             album = setAlbumName(album, form_data['name'])
+            # for song in album.songs:
+            #     setSongAlbum(song, album)
         elif 'total_tracks' in form_data:
             setAlbumSize(album, form_data['total_tracks'])
         elif 'artist.name' in form_data:

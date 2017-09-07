@@ -107,10 +107,7 @@ class Factoid:
         if not album:
             return
 
-        if not album.songs:
-            app.logger.info('Deleting {} with no songs'.format(album.name))
-            db.session.delete(album)
-            db.session.commit()
+        if self._delete_empty_album(album):
             return self.is_albums_complete()
 
         app.logger.info('incomplete album: name {}'.format(album.name))
@@ -135,6 +132,9 @@ class Factoid:
         app.logger.info('AVG played {}'.format(avg_played))
 
         for album in albums:
+
+            if self._delete_empty_album(album):
+                continue
 
             # check if all songs on album has been rated (req to be sure it is bad)
             all_rated = True
@@ -161,3 +161,11 @@ class Factoid:
                     'songs': album.songs,
                 }
         return
+
+    def _delete_empty_album(self, album):
+        if not album.songs:
+            app.logger.info('Deleting {} with no songs'.format(album.name))
+            db.session.delete(album)
+            db.session.commit()
+            return True
+        return False

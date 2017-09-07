@@ -71,7 +71,10 @@ def parseId3Tags():
         if song.path_name.lower().endswith('mp3'):
             meta = MP3(song.abs_path)
             # app.logger.debug(meta.tags)
-            info['song_title'] = meta.tags['TIT2'].text[0]
+            try:
+                info['song_title'] = meta.tags['TIT2'].text[0]
+            except KeyError:
+                info['song_title'] = song.path_name
             try:
                 trck = meta.tags['TRCK'].text[0]
                 if '/' in trck:
@@ -90,8 +93,14 @@ def parseId3Tags():
                 info['total_tracks'] = int(info['total_tracks'])
             except (ValueError, TypeError):
                 info['total_tracks'] = None
-            info['artist_name'] = meta.tags['TPE1'].text[0]
-            info['album_name'] = meta.tags['TALB'].text[0]
+            try:
+                info['artist_name'] = meta.tags['TPE1'].text[0]
+            except KeyError:
+                info['artist_name'] = 'unknown artist'
+            try:
+                info['album_name'] = meta.tags['TALB'].text[0]
+            except KeyError:
+                info['album_name'] = 'unknown album'
             info['disc_number'] = int(meta.tags['TPOS'].text[0].split('/')[0]) if 'TPOS' in meta else 1
             info['total_discs'] = int(meta.tags['TPOS'].text[0].split('/')[1]) if 'TPOS' in meta and '/' in meta.tags['TPOS'].text[0] else 1
             info['year'] = int(meta.tags['TDRC'].text[0].year) if 'TDRC' in meta else None
@@ -189,13 +198,15 @@ def get_match(song):
     match = None
     histories = get_recent_history()[:5]
     songs = [song] + [h.song for h in histories]
-    song_ids = set([s.id for s in songs])
+    song_ids = [s.id for s in songs]
     ratings = Rating.query.filter(and_(
         Rating.song_winner_id.in_(song_ids),
         Rating.song_loser_id.in_(song_ids),
     )).all()
-    for a, b, c in combinations(song_ids, 3):
-        comb_ids = [a, b, c]
+    for a, b, c in combinations(songs, 3):
+        comb_ids = [a.id, b.id, c.id]
+        if len(set(comb_ids)) < 3:
+            continue
         comb_ratings = [r for r in ratings
                         if r.song_winner_id in comb_ids
                         and r.song_loser_id in comb_ids]
@@ -321,7 +332,10 @@ def setSongAlbum(song, album_name):
         raise Exception('Do song info for mp4')
 
     # get track info
-    trck = tags['TRCK'].text[0]
+    try:
+        trck = tags['TRCK'].text[0]
+    except KeyError:
+        trck = ''
     if '/' in trck:
         track_number, total_tracks = trck.split('/')
     else:
@@ -359,12 +373,13 @@ def setSongAlbum(song, album_name):
 ###############################################################################
 
 def setAlbumName(album, name):
-    """update album name. If there is an existing album, then just delete the current album and
-    set the songs to that album"""
+    """update album name. If there is an existing album (with same artist), then just delete the
+    current album and set the songs to that album"""
     app.logger.info('setAlbumName: {}'.format(name))
     existing_album = Album.query.filter(
         name == name,
-        Album.id != album.id
+        Album.id != album.id,
+        Album.artist_id == album.artist_id
     ).first()
 
     if existing_album:

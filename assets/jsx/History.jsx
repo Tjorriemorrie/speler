@@ -23,11 +23,11 @@ export default class History extends React.Component{
         let d = <p>no songs played recently</p>
         if (histories.length > 0) {
             d = <ul>
-                {histories.map((history, i) => {
-                    // const history_hash = history.id + i + history.song.rating
+                {histories.map((history) => {
+                    const history_hash = history.id + '_' + history.song.rating
                     // console.debug('history_hash', history_hash, '<=', history.id, i, history.song.rating)
                     return (
-                        <li key={i}>
+                        <li key={history_hash}>
                             <SongDetails song={history.song} />
                         </li>
                     )

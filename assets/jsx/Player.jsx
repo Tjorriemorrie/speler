@@ -30,7 +30,8 @@ export default class Player extends React.Component {
 
     componentDidUpdate() {
         if (this.state.current_song) {
-            document.title = this.state.current_song.name + ' ~ ' + this.state.current_song.artist.name
+            const artist_name = !!this.state.current_song.artist ? this.state.current_song.artist.name : ''
+            document.title = this.state.current_song.name + ' ~ ' + artist_name
             this.audio_el.play()
             console.info('[Player] playing song')
         } else {
@@ -67,6 +68,11 @@ export default class Player extends React.Component {
             return
         }
         console.info('[Player] render current song', current_song)
+
+        const web_path = (!current_song.artist || !current_song.album)
+                        ? <p>{current_song.path_name}</p>
+                        : ''
+        console.info('web_path', web_path)
         return <div className="current_song">
 
             <strong>
@@ -83,6 +89,7 @@ export default class Player extends React.Component {
                 <br/><em>
                     <small className="text-muted">{(current_song.album) ? current_song.album.year : ''} </small>
                     {(current_song.album) ? current_song.album.name : 'no album'}
+                    {web_path}
                 </em>
             </small>
         </div>

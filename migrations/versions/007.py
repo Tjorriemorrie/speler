@@ -56,7 +56,7 @@ LANGUAGE plpgsql VOLATILE;
 
 
 create trigger update_rated_trigger
-after insert on rating
+AFTER INSERT ON rating
 for each row
 execute procedure update_rated();
     '''))

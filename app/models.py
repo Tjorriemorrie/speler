@@ -91,7 +91,10 @@ class Song(db.Model):
         return '<{} {}>'.format(self.__class__.__name__, self.id)
 
     def __str__(self):
-        return '{} - {} - {}'.format(self.artist.name, self.album.name, self.name)
+        return '{} - {} - {}'.format(
+            self.artist and self.artist.name or 'arty',
+            self.album and self.album.name or 'alby',
+            self.name)
 
 
 class Album(db.Model):

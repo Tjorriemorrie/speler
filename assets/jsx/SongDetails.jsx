@@ -3,6 +3,7 @@ import Stars from "./Stars.jsx";
 
 
 export default class SongDetails extends React.Component{
+
     render() {
         return (
             <span>
