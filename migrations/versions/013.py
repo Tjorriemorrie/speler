@@ -32,7 +32,11 @@ def upgrade():
         SELECT count(*) INTO STRICT v_count_won FROM rating WHERE song_winner_id = OLD.song_winner_id;
         SELECT count(*) INTO STRICT v_count_lost FROM rating WHERE song_loser_id = OLD.song_winner_id;
         v_count_rated := v_count_won + v_count_lost;
-        v_rating := v_count_won / cast(v_count_rated AS float);
+        IF v_count_rated < 1 THEN
+          v_rating := 0.5;
+        ELSE
+          v_rating := v_count_won / cast(v_count_rated AS float);
+        END IF;
         EXECUTE 'UPDATE song
             SET count_rated = $1, rated_at = $2, rating = $3
             WHERE id = $4'

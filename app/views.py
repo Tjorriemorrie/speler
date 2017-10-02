@@ -1,5 +1,5 @@
 from flask import redirect, render_template, request, session
-from flask.ext.jsontools import jsonapi
+from flask_jsontools import jsonapi
 
 from app import app
 from app.facts import Factoid

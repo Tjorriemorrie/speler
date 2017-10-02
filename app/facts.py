@@ -120,10 +120,12 @@ class Factoid:
         }
 
     def is_albums_bad(self):
-        albums = Album.query.order_by(
+        albums = Album.query.filter(
+            Album.rating < 0.10
+        ).order_by(
             Album.rating,
             Album.count_rated.desc()
-        ).limit(10).all()
+        ).all()
 
         avg_played = Song.query.with_entities(
             func.avg(func.extract('epoch', Song.played_at))
@@ -140,6 +142,7 @@ class Factoid:
             all_rated = True
             all_played = True
             all_played_after_avg = True
+            all_badly_rated = True
             for song in album.songs:
                 if song.count_rated < 3:
                     all_rated = False
@@ -153,8 +156,12 @@ class Factoid:
                     all_played_after_avg = False
                     app.logger.info('Not all songs played earlier than avg {}'.format(album.name))
                     break
+                if song.rating > 0.50:
+                    all_badly_rated = False
+                    app.logger.info('Not all songs are badly rated {}'.format(album.name))
+                    break
 
-            if all_rated and all_played and all_played_after_avg:
+            if all_rated and all_played and all_played_after_avg and all_badly_rated:
                 app.logger.info('bad album: {} {}'.format(album.artist.name, album.name))
                 return {
                     'album': album,

@@ -1,6 +1,7 @@
 beautifulsoup4
 Flask
-Flask-SQLAlchemy==1.0
+Flask-Script
+Flask-SQLAlchemy
 Flask-Migrate
 Flask_JsonTools
 mutagen

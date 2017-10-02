@@ -1,15 +1,16 @@
 import os
 import json
 from flask import Flask
-from flask.ext.script import Manager
-from flask.ext.sqlalchemy import SQLAlchemy
-from flask.ext.migrate import Migrate, MigrateCommand
+from flask_script import Manager
+from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate, MigrateCommand
 
 
 app = Flask(__name__)
 app.config['MUSIC_FOLDER'] = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'static', 'music')
 
 # database
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://speler:spe1er@db:5432/musiek'
 db = SQLAlchemy(app)
 

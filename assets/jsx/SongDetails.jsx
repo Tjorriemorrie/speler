@@ -10,7 +10,7 @@ export default class SongDetails extends React.Component{
                 <strong>
                     <small className="text-muted">{this.props.song.track_number} </small>
                     <span title={this.props.song.id}> {this.props.song.name}</span>
-                    <Stars rating={this.props.song.rating} />
+                    <Stars rating={this.props.song.rating} /><sup>{this.props.song.count_played}</sup>
                 </strong>
                 <br/><small>
                     <span>{(this.props.song.artist) ? this.props.song.artist.name : 'no artist'}</span>
