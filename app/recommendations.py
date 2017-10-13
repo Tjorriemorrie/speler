@@ -69,9 +69,9 @@ class Recommendations:
             Song.rating > 0.90,
             Song.count_rated > 3
         ).order_by(
-            Song.rating.desc(),
             Song.count_played.desc(),
-            Song.played_at.desc()
+            Song.rating.desc(),
+            Song.count_rated.desc()
         ).all()
         app.logger.info('{} songs returned above 90% rated at least 3 times'.format(len(songs)))
 
@@ -82,8 +82,8 @@ class Recommendations:
 
                 # exclude if in lib
                 existing_album = Album.query.join(Artist).filter(
-                    Album.name == similar.album_name,
-                    Artist.name == similar.artist_name
+                    db.func.lower(Album.name) == similar.album_name.lower(),
+                    db.func.lower(Artist.name) == similar.artist_name.lower()
                 ).first()
                 if existing_album:
                     # app.logger.info('Existing album {}'.format(existing_album.name))
@@ -99,7 +99,7 @@ class Recommendations:
                         'album': similar.album_name,
                         'songs': set([similar.track_name]),
                         'rating': song.rating,
-                        'sources': set([])
+                        'sources': set([str(song)])
                     }
                 app.logger.debug('{:.0f} <= {}'.format(
                     albums[similar.key]['rating'], similar.key))
@@ -118,7 +118,13 @@ class Recommendations:
             recommendation = max(albums_best, key=lambda i: albums_best[i]['rating'])
             app.logger.info('Recommendation = {}'.format(recommendation))
             app.logger.info('Details = {}'.format(albums[recommendation]))
-            return recommendation
+            rec_album = albums[recommendation]
+            return {
+                'artist': rec_album['artist'],
+                'album': rec_album['album'],
+                'songs': list(rec_album['songs']),
+                'sources': list(rec_album['sources']),
+            }
         return 'No recommendation found'
 
     # todo deprecated
