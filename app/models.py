@@ -71,12 +71,12 @@ class Song(db.Model):
         return self.rating - (
             self.count_played / self.max_played
         ) + (
-            self.time_since_played / 365.25
+            self.time_since_played / app.config['AVG_DAYS_LAST_PLAYED']
         )
 
     @priority.expression
     def priority(cls):
-        return cls.rating - (cls.count_played / cls.max_played) + (cls.time_since_played / 365.25)
+        return cls.rating - (cls.count_played / cls.max_played) + (cls.time_since_played / app.config['AVG_DAYS_LAST_PLAYED'])
 
     def __json__(self):
         return [
